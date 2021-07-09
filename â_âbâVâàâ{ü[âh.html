@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ダッシュボード</title>
+
+    <style>
+        .primary-btn, .secondary-btn {
+            position: relative;
+            top: 71px;
+            left: 87px;
+            width: 302px;
+            height: 71px;
+            border: 1px solid #707070;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .primary-icon, .secondary-icon {
+            position: absolute;
+            left: 18px;
+        }
+
+        .primary-text, .secondary-text {
+            font-weight: bold;
+            font-size: 20px;
+            font-family: 'Noto Sans JP', sans-serif;
+            letter-spacing: 0;
+            color: #000000;
+        }
+
+        .secondary-btn {
+            background: #0099E7 0% 0% no-repeat padding-box;
+            border: 1px solid #FFFFFF;
+            top: 95px;
+        }
+
+        .secondary-text {
+            color: #FFFFFF !important;
+        }
+
+        @media (max-width: 600px) {
+            .primary-btn, .secondary-btn {
+                left: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="primary-btn">
+        <img class="primary-icon" src="./img/index-image-04.svg" />
+        <span class="primary-text">企業情報</span>
+    </div>
+    <div class="secondary-btn">
+        <img class="secondary-icon" src="./img/1.png" />
+        <span class="secondary-text">企業情報</span>
+    </div>
+</body>
+
+</html>
