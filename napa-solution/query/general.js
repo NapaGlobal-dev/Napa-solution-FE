@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client"
 
 export const GET_NEWS = gql`
-query getEvent{
+query getNews{
     allNews{
       id
       name
