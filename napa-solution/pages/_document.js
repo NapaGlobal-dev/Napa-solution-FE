@@ -63,7 +63,11 @@ class MyDocument extends Document {
                         <NextScript />
                     </div>
                 </body>
+<<<<<<< HEAD
             </Html>
+=======
+            </html>
+>>>>>>> 36b0641b5f29523f6ea680a0c1d00a8a80df82a2
         )
     }
 }

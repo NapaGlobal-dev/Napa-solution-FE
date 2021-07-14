@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="20" viewBox="0 0 24 20">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="24" height="20" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Symbol_16_10" data-name="Symbol 16 – 10" clip-path="url(#clip-path)">
+    <path id="Menu" d="M0,20V17.142H15V20Zm0-8.571V8.571H24v2.858ZM0,2.858V0H24V2.858Z" fill="#fff"/>
+  </g>
+</svg>

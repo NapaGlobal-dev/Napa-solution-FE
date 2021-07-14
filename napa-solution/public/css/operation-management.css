@@ -1,0 +1,634 @@
+.operation-management-remove {
+    width: 100%;
+    height: 200px;
+}
+
+.operation-management-flow {
+    padding-top: 50px;
+    padding-bottom: 91px;
+    width: 100%;
+}
+
+.operation-management-header-title {
+    height: 43px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 6.4px;
+    text-align: left;
+    color: #000000;
+    color: #FFF;
+    position: absolute;
+    bottom: 118px;
+    left: 283px;
+}
+
+.operation-management-flow-title {
+    /* width: 1020px; */
+    /* width: 53.125%; */
+    margin: auto;
+    font-weight: bold;
+    font-size: 32px;
+    letter-spacing: 1.6px;
+    color: #000;
+}
+
+.operation-management-flow-spec {
+    font-size: 57px;
+    letter-spacing: 2.85px;
+    color: #0099E7;
+}
+
+.operation-management-flow-group {
+    margin: auto;
+    position: relative;
+    text-align: center;
+    /* width: 1020px; */
+    /* width: 53.125%; */
+}
+
+.operation-management-flow-group-title {
+    position: absolute;
+    top: 14%;
+    /* width: 60%; */
+}
+
+.operation-management-flow-img-desc {
+    font-size: 24px;
+    color: #0099E7;
+    margin: 0;
+}
+
+.operation-management-flow-img {
+    width: 100%;
+    height: 650px;
+    margin: auto;
+    padding-top: 84px;
+}
+
+.operation-management-mob {
+    display: none;
+}
+
+.operation-management-people {
+    background: #E5F5F7;
+    padding: 30px 0;
+    width: 100%;
+}
+
+.operation-management-people-intro {
+    /* width: 1020px; */
+    /* width: 53.125%; */
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.operation-management-people-info-top {
+    width: 450px;
+    height: 108px;
+    background: #0099E7;
+    padding: 19px 78px;
+}
+
+.operation-management-people-info-title {
+    font-weight: bold;
+    font-size: 24px;
+    color: #fff;
+    margin: 0;
+}
+
+.operation-management-people-info-img {
+    width: 450px;
+    height: 268px;
+    margin: 30px 0;
+}
+
+.operation-management-people-info-detail {
+    font-size: 16px;
+}
+
+.operation-management-people-info-desc {
+    width: 450px;
+}
+
+.operation-management-people-foot {
+    padding-top: 72px;
+}
+
+.operation-management-break {
+    display: block;
+}
+
+.operation-management-gallery {
+    padding: 50px 0;
+}
+
+    .operation-management-gallery .col-sm-12 {
+        padding: 0;
+    }
+
+    .operation-management-gallery .service {
+        /* width: 1020px; */
+        width: 53.125%;
+        margin: auto;
+    }
+
+.operation-management-gallery-group {
+    display: flex;
+    /* width: 1020px; */
+    /* width: 53.125%; */
+    margin: auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.operation-management-gallery-group-element-img {
+    width: 320px;
+    height: 228px;
+}
+
+.operation-management-gallery-foot-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px 0;
+}
+
+.operation-management-gallery-foot-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000 !important;
+}
+.operation-management-gallery-foot-title a {
+}
+.operation-management-divider {
+    width: 100%;
+    height: 30px;
+    background: #EBEBEB;
+}
+
+.operation-management-gallery-group-element {
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.operation-management-wrapper .breadcrumb-container {
+  padding: 0 20px;
+}
+
+/* .operation-management-wrapper .col-sm-12 {
+  padding: 0;
+} */
+
+@media screen and (max-width: 1136px) {
+    .operation-management-flow-title {
+        font-size: 24px;
+        /* text-align: center; */
+        /* width: 335px; */
+        /* width: 85%; */
+    }
+
+    .operation-management-flow-img {
+        /* width: 335px; */
+        /* height: 436px; */
+        width: 100%;
+        height: auto;
+        padding: 37px;
+    }
+
+    .operation-management-flow-group-title {
+        width: 100%;
+        text-align: center;
+        position: relative;
+        padding-top: 50px;
+    }
+
+    .operation-management-people-info-cmp {
+        width: 100%;
+        text-align: center;
+    }
+
+    .operation-management-people-info-top {
+        /* width: 335px; */
+        width: 100%;
+        height: 80px;
+        padding: 16px 74px;
+        text-align: center;
+        margin: auto;
+    }
+
+    .operation-management-people-intro {
+        width: 100%;
+    }
+
+    .operation-management-people-info-desc {
+        /* width: 335px; */
+        width: 100%;
+        margin: auto;
+    }
+
+    .operation-management-people-info-img {
+        /* width: 335px;
+  height: 200px; */
+        width: 100%;
+        height: auto;
+    }
+
+    .operation-management-flow-spec {
+        font-size: 47px;
+    }
+
+    .operation-management-people-info-detail {
+        font-size: 14px;
+    }
+
+    .operation-management-people-info-title {
+        font-size: 15px;
+    }
+
+    .operation-management-flow-group {
+        width: 100%;
+        text-align: center;
+    }
+
+    .operation-management-gallery .service-image {
+        display: none;
+    }
+
+    .operation-management-gallery-group {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .operation-management-gallery-group-mobile {
+        width: 335px;
+        height: 70px;
+        margin: auto;
+        border: 1px solid #0099E7;
+        /* padding: 20px; */
+        margin-bottom: 16px;
+    }
+
+    .operation-management-gallery-group-element {
+        margin: auto;
+        margin-bottom: 20px;
+    }
+
+    .operation-management-gallery-group-element-img {
+        display: none;
+    }
+
+    .operation-management-gallery-foot-group {
+        padding: 20px;
+    }
+
+    .operation-management-gallery {
+        padding: 50px 0 0;
+    }
+
+    .operation-management-divider {
+        display: none;
+    }
+
+    .operation-management-wrapper .breadcrumb-container {
+        padding: 0 20px;
+    }
+
+    .operation-management-flow .container-fluid {
+        padding: 0 20px;
+    }
+
+    .operation-management-people .container-fluid {
+        padding: 0 20px;
+    }
+
+    .operation-management-gallery-group-element {
+        width: 100%;
+    }
+
+    .operation-management-gallery-group-mobile {
+        width: 100%;
+    }
+
+    .operation-management-wrapper .container-fluid {
+        padding: 0 20px;
+    }
+
+    /* .operation-management-wrapper .header-service-text {
+  font-size: 10px;
+  margin-top: 20px;
+} */
+
+    /* .operation-management-wrapper .header-service-name {
+  font-size: 17px;
+} */
+
+    /* .operation-management-header-title {
+  font-size: 18px;
+  bottom: 43px;
+  left: 153px;
+  width: 100%;
+}
+
+.operation-management-wrapper .header-service {
+  width: 117px;
+  height: 117px;
+  left: 25px;
+}
+
+
+.operation-management-wrapper .header-service {
+  bottom: 20px;
+} */
+
+.operation-management-flow .col-sm-12, .operation-management-people .col-sm-12 {
+  padding: 0;
+}
+}
+
+@media screen and (max-width: 768px) {
+    .operation-management-header-navbar .image-header {
+        width: 100%;
+        height: 100%;
+    }
+
+    .operation-management-wrapper .header-service-name {
+        font-size: 17px;
+    }
+
+    .operation-management-header-title {
+        font-size: 18px;
+        bottom: 97px;
+        left: 222px;
+    }
+
+    .operation-management-wrapper .header-service {
+        width: 185px;
+        height: 185px;
+        bottom: 55px;
+        left: 20px;
+    }
+
+    .operation-management-flow .col-sm-12, .operation-management-people .col-sm-12 {
+        padding: 0;
+    }
+
+    .operation-management-wrapper .header-service {
+        bottom: 20px;
+    }
+
+    /* .operation-management-wrapper .hearder-container {
+    height: 400px;
+  } */
+
+    .operation-management-wrapper .header-service {
+        bottom: 65px;
+    }
+
+    .operation-management-header-title {
+        bottom: 105px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .operation-management-wrap {
+        width: 100%;
+    }
+
+    .operation-management-people {
+        padding-top: 55px;
+    }
+
+    .operation-management-flow {
+        padding: 30px 0 50px;
+    }
+
+        .operation-management-flow .col-sm-12, .operation-management-people .col-sm-12 {
+            padding: 0;
+        }
+
+    .operation-management-flow-img {
+        /* width: 335px; */
+        /* height: 436px; */
+        width: 100%;
+        height: auto;
+        padding: 0;
+    }
+
+    .operation-management-desk {
+        display: none;
+    }
+
+    .operation-management-mob {
+        display: block;
+    }
+
+    .operation-management-flow-title {
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .operation-management-flow-group-title {
+        width: 100%;
+        text-align: center;
+        padding-top: 47px;
+        padding-bottom: 37px;
+        position: relative;
+    }
+
+    .operation-management-flow-img-desc {
+        font-size: 18px;
+    }
+
+    .operation-management-flow-spec {
+        font-size: 40px;
+    }
+
+    .operation-management-people-info-cmp {
+        width: 100%;
+        padding-bottom: 22px;
+    }
+
+    .operation-management-people-info-top {
+        width: 100%;
+        height: 80px;
+        padding: 16px 74px;
+        text-align: center;
+    }
+
+    .operation-management-people-info-title {
+        font-size: 15px;
+    }
+
+    .operation-management-people-info-detail {
+        font-size: 14px;
+    }
+
+    .operation-management-people-info-desc {
+        width: 100%;
+    }
+
+    .operation-management-people-info-img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .operation-management-break {
+        display: inline;
+    }
+
+    .operation-management-gallery .service-image {
+        display: none;
+    }
+
+    .operation-management-gallery-group {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .operation-management-gallery-group-element {
+        margin: auto;
+    }
+
+    .operation-management-gallery {
+        padding: 30px 0 0;
+    }
+
+        .operation-management-gallery .col-sm-12 {
+            padding: 0;
+        }
+
+    /* .operation-management-wrapper .hearder-container {
+    height: 222px;
+  } */
+
+    .operation-management-header-navbar .image-header {
+        width: 100%;
+        height: 100%;
+    }
+
+    .operation-management-wrapper .header-service {
+        left: 17px;
+        bottom: 19px;
+    }
+
+    .operation-management-header-title {
+        bottom: 40px;
+    }
+
+    /* .operation-management-header-navbar .hearder-container {
+    height: 222px;
+  } */
+
+    .operation-management-wrapper .header-service-text {
+        font-size: 10px;
+        margin-top: 20px;
+    }
+
+    .operation-management-wrapper .header-service-name {
+        font-size: 17px;
+    }
+
+    .operation-management-header-title {
+        font-size: 18px;
+        bottom: 43px;
+        left: 153px;
+        width: 100%;
+    }
+
+    .operation-management-wrapper .header-service {
+        width: 117px;
+        height: 117px;
+        left: 25px;
+    }
+
+    .operation-management-flow .col-sm-12, .operation-management-people .col-sm-12 {
+        padding: 0;
+    }
+
+    .operation-management-wrapper .header-service {
+        bottom: 20px;
+    }
+
+    .operation-management-wrapper .breadcrumb-container .col-sm-12 {
+        padding: 0;
+    }
+
+    .operation-management-wrapper .image-header {
+        width: 100%;
+        height: 100%;
+    }
+
+    .operation-management-gallery-group-element {
+        width: 100%;
+    }
+
+    .operation-management-gallery-group-mobile {
+        width: 100%;
+    }
+}
+
+@media (max-width: 991px) {
+    .header-title-page {
+        left: 162px !important;
+        top: 133px !important;
+        height: 24px !important;
+        font-size: 18px !important;
+        letter-spacing: 3.6px !important;
+    }
+
+    .hearder-container {
+        height: 222px !important;
+    }
+
+    .header-service {
+        width: 117px !important;
+        height: 117px !important;
+        bottom: 20px !important;
+        left: 20px !important;
+    }
+
+    .header-title-page {
+        left: 162px !important;
+        top: 133px !important;
+        height: 24px !important;
+        font-size: 18px !important;
+        letter-spacing: 3.6px !important;
+    }
+
+    .header-service-name {
+        height: 22px !important;
+        font-size: 17px !important;
+        margin-top: 10px !important;
+    }
+
+    .header-service-text {
+        height: 11px !important;
+        font-size: 10px !important;
+        margin-top: 35px !important;
+    }
+}
+
+
+
+.header-title-page {
+    display: inline-block;
+    position: absolute;
+    left: 334px;
+    top: 266px;
+    height: 43px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 6.4px;
+    text-align: left;
+    color: #FFFFFF;
+    z-index: 3;
+}
