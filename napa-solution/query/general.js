@@ -44,3 +44,21 @@ export const businessSumaryQuery = gql`
     }
   }
 `;
+export const HomepageQuery = gql`
+  query HomePage {
+    page: Page(where: { id: "60eea4008c27310035add3f4" }) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          value
+          image {
+            original: publicUrl
+          }
+        }
+      }
+    }
+  }
+`;
