@@ -9,24 +9,12 @@ import ImgPhone from "../../../../public/assets/images/en/home/banner-2/scan-min
 const AI = () => {
   return (
     <>
-      <img
-        alt="AI"
-        src="./assets/images/en/home/banner-2/main-min.png"
-        className={styles.imgAI}
-      />
-      <img
-        alt="Shadow AI"
-        src="./assets/images/en/home/banner-2/shadow.svg"
-        className={styles.imgShadow}
-      />
-      <img
-        alt="Database"
-        src="./assets/images/en/home/banner-2/box-min.png"
-        className={styles.imgDB}
-      />
-      {/* <img alt="Chat" src={ImgChat} className={styles.imgChat} />
+      <img alt="AI" src={ImgAI} className={styles.imgAI} />
+      <img alt="Shadow AI" src={ImgShadow} className={styles.imgShadow} />
+      <img alt="Database" src={ImgDataBase} className={styles.imgDB} />
+      <img alt="Chat" src={ImgChat} className={styles.imgChat} />
       <img alt="Robot" src={ImgRobot} className={styles.imgRobot} />
-      <img alt="Phone" src={ImgPhone} className={styles.imgPhone} /> */}
+      <img alt="Phone" src={ImgPhone} className={styles.imgPhone} />
     </>
   );
 };
