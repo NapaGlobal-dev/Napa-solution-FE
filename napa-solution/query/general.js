@@ -79,3 +79,23 @@ export const HomePage = gql`
     }
   }
 `;
+
+export const contactQuery = gql`
+query getContact {
+  page: Page(where: { id: "60f10dca64a49c3384b60661" }) {
+    name
+    url
+    layouts {
+      name
+      property {
+        name
+        value
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+    }
+  }
+}
+`;
