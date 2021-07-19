@@ -13,7 +13,7 @@ export const GET_NEWS = gql`
 
 export const businessSumaryQuery = gql`
   query BusinessSummary {
-    page: allPages(where: { url: "business-summary" }, first: 1) {
+    page: allPages(where: { url: "/business-summary" }, first: 1) {
       name
       url
       layouts {
@@ -41,6 +41,37 @@ export const businessSumaryQuery = gql`
       image {
         path
       }
+    }
+  }
+`;
+
+export const footerDataQuery = gql`
+  query FooterData {
+    layout: allLayouts(where: { name: "Footer" }, first: 1) {
+      name
+      property {
+        name
+        value
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+    }
+
+    pages: allPages(
+      where: { url_in: ["/business-summary", "/company"] }
+      sortBy: footerOrder_ASC
+    ) {
+      name
+      url
+      subpages: childrenPage(sortBy: footerOrder_ASC) {
+        name
+        url
+        footerOrder
+      }
+      footerOrder
     }
   }
 `;
