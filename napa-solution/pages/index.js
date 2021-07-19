@@ -6,6 +6,8 @@ import Company from "../components/honepage/Company";
 import Recruit from "../components/honepage/Recruit";
 import News from "../components/honepage/News";
 import Carousel from "../components/honepage/Carousel";
+import Begin from "../components/honepage/Begin/index.js";
+
 const Index = (props) => {
   const data = convertArrToObject(props.data.page.layouts);
   console.log("Data Home:", data);
@@ -15,6 +17,7 @@ const Index = (props) => {
         id="root"
         className="container-fluid content-wrapper no-default-spacing"
       >
+        <Begin />
         <Carousel data={data["Carousel"]} />
         <News data={data["Home_News"]} />
         <div className="blue-line"></div>
@@ -28,7 +31,7 @@ const Index = (props) => {
       </div>
       <a
         // onclick="topFunction()"
-        href="#root"
+        href=":root"
         id="scroll"
         style={{ display: "none" }}
       >
