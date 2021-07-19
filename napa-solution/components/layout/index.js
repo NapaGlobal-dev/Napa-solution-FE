@@ -2,7 +2,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const Layout = ({ footerData, children, ...props }) => {
-  // console.log(footerData);
+  // console.log("sssss", footerData);
   return (
     <>
       <Header />
