@@ -15,10 +15,10 @@ import { convertArrToObject } from "../../util/converArrayToObject";
 import Head from "next/head";
 
 const BusinessSumary = (props) => {
-  const data = convertArrToObject(props.data.page.layouts);
-  const listBreadcrumb = [
-    { url: props.data.page.url, pageName: props.data.page.name },
-  ];
+  const pagedata = convertArrToObject(props.page.layouts);
+  const listBreadcrumb = [{ url: props.page.url, pageName: props.page.name }];
+
+  // console.log(data);
 
   return (
     <>
@@ -35,11 +35,11 @@ const BusinessSumary = (props) => {
           href="css/business-summary.css"
         />
       </Head>
-      <Banner data={data["business-summary_banner"]} />
+      <Banner data={pagedata["BusinessSummary_Banner"]} />
       <Breadcrumb listBreadcrumb={listBreadcrumb} />
-      <BusimessModel data={data["business-summary_business-model"]} />
-      <Mission data={data["business-summary_mission"]} />
-      <BusinessServices data={props.data.page.subpages} />
+      <BusimessModel data={pagedata["BusinessSummary_BusinessModel"]} />
+      <Mission data={pagedata["BusinessSummary_Mission"]} />
+      <BusinessServices data={props.page.subpages} />
     </>
   );
 };
@@ -48,7 +48,7 @@ export async function getStaticProps() {
   const { data } = await client.query({ query: businessSumaryQuery });
 
   return {
-    props: { data },
+    props: { page: data.page[0] },
   };
 }
 

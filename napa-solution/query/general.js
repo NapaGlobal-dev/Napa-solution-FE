@@ -13,7 +13,7 @@ export const GET_NEWS = gql`
 
 export const businessSumaryQuery = gql`
   query BusinessSummary {
-    page: Page(where: { id: "60ee8e64df4207324c4d3a97" }) {
+    page: allPages(where: { url: "business-summary" }, first: 1) {
       name
       url
       layouts {
