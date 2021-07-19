@@ -44,3 +44,40 @@ export const businessSumaryQuery = gql`
     }
   }
 `;
+export const GET_COMPANYHISTORY = gql`
+  query getCompanyHistory{
+    banner:allLayouts(where:{name:"CompanyHistory_Banner"}){
+      name
+      property(sortBy:name_ASC){
+        name
+        value
+        image{
+          publicUrl
+        }
+      }
+    }
+    breadcrumb:allLayouts(where:{name:"CompanyHistory_Breadcrumb"}){
+      name
+      property(sortBy:name_ASC){
+        name
+        value
+        url
+      }
+    }
+    history:allLayouts(where:{name:"CompanyHistory_History"}){
+      name
+      property(sortBy:name_ASC){
+        name
+        value
+        content(sortBy:name_ASC){
+          name
+          value
+          content(sortBy:name_ASC){
+            name
+            value
+          }
+        }
+      }
+    }
+  }
+`;
