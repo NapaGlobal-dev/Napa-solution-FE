@@ -44,3 +44,18 @@ export const businessSumaryQuery = gql`
     }
   }
 `;
+export const GET_HEADER = gql`
+  query getHeader{
+    navbar:allLayouts(where:{name:"Navbar"}){
+      name
+      property(sortBy:name_ASC){
+        name
+        value
+        url
+        image{
+          publicUrl
+        }
+      }
+    }
+  }
+`;
