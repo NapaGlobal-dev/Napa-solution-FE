@@ -1,73 +1,54 @@
+import {useQuery} from '@apollo/client'
+import { GET_HEADER } from '../../../query/general'
+
 const Header = () => {
-  return (
+  const { data, loading, error } = useQuery(GET_HEADER)
+  const navbar = loading || data.navbar[0].property
+  const navbarLogo = loading || navbar[0]
+  const navbarHome = loading || navbar[1]
+  const navbarMenu = loading || navbar.slice(2,-1)
+  const navbarMenuIcon = loading || navbar[navbar.length-1]
+  return loading || (
     <nav
       id="navbar"
-      className="navbar navbar-expand-lg navbar-light bg-light no-default-spacing"
+      class="navbar navbar-expand-lg navbar-light bg-light no-default-spacing"
     >
-      <a className="navbar-brand no-default-spacing" href="/">
+      <a class="navbar-brand no-default-spacing" href="index.html">
         <img
           alt="LOGO"
-          src="./img/index-image-01.svg"
-          className="img-navbar-brand"
+          src={navbarLogo.image.publicUrl}
+          class="img-navbar-brand"
         />
       </a>
-      <div className="collapse navbar-collapse navbar-menu" id="navbarNav">
-        <ul className="navbar-nav">
-          <li className="nav-item item-navbar-menu active">
+      <div class="collapse navbar-collapse navbar-menu" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item item-navbar-menu active">
             <img
               alt="icon-navbar-menu"
               src="./img/Symbol46-10.svg"
-              className="icon-navbar-menu"
+              class="icon-navbar-menu"
             />
-            <a href="/" className="text-navbar-menu">
-              HOME
+            <a href={navbarHome.url} class="text-navbar-menu">
+              {navbarHome.value}
             </a>
           </li>
-          <li className="nav-item item-navbar-menu">
-            <img
-              alt="icon-navbar-menu"
-              src="./img/Symbol46-10.svg"
-              className="icon-navbar-menu"
-            />
-            <a href="business-summary" className="text-navbar-menu">
-              事業概要
-            </a>
-          </li>
-          <li className="nav-item item-navbar-menu">
-            <img
-              alt="icon-navbar-menu"
-              src="./img/Symbol46-10.svg"
-              className="icon-navbar-menu"
-            />
-            <a href="company" className="text-navbar-menu">
-              企業情報
-            </a>
-          </li>
-          <li className="nav-item item-navbar-menu">
-            <img
-              alt="icon-navbar-menu"
-              src="./img/Symbol46-10.svg"
-              className="icon-navbar-menu"
-            />
-            <a href="recruit" className="text-navbar-menu">
-              採用情報
-            </a>
-          </li>
-          <li className="nav-item item-navbar-menu">
-            <img
-              alt="icon-navbar-menu"
-              src="./img/Symbol46-10.svg"
-              className="icon-navbar-menu"
-            />
-            <a href="contact" className="text-navbar-menu">
-              お問い合わせ
-            </a>
-          </li>
+          {navbarMenu.map(menu =>
+            <li class="nav-item item-navbar-menu">
+              <img
+                alt="icon-navbar-menu"
+                src="./img/Symbol46-10.svg"
+                class="icon-navbar-menu"
+              />
+              <a href={menu.url} class="text-navbar-menu">
+                {menu.value}
+              </a>
+            </li>
+          )}
         </ul>
       </div>
       <button
         id="navbar-toggler"
-        className="navbar-toggler no-default-spacing"
+        class="navbar-toggler no-default-spacing"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
@@ -75,7 +56,7 @@ const Header = () => {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <img alt="button-collapse" src="./img/index-image-03.svg" />
+        <img alt="button-collapse" src={navbarMenuIcon.image.publicUrl} />
       </button>
     </nav>
   );
