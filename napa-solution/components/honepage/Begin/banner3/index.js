@@ -1,5 +1,5 @@
-import styles from './index.module.css';
-import clsx from 'clsx';
+import styles from "./index.module.css";
+import clsx from "clsx";
 
 const Banner3 = () => {
   return (

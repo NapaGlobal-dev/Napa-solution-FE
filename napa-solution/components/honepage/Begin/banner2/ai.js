@@ -1,10 +1,10 @@
 import styles from "./ai.module.css";
-import ImgAI from "../../../../public/assets/images/en/home/banner-2/main-min.png";
-import ImgShadow from "../../../../public/assets/images/en/home/banner-2/shadow.svg";
-import ImgDataBase from "../../../../public/assets/images/en/home/banner-2/box-min.png";
-import ImgChat from "../../../../public/assets/images/en/home/banner-2/chat-min.png";
-import ImgRobot from "../../../../public/assets/images/en/home/banner-2/machine-min.png";
-import ImgPhone from "../../../../public/assets/images/en/home/banner-2/scan-min.png";
+const ImgAI = "/assets/images/en/home/banner-2/main-min.png";
+const ImgShadow = "/assets/images/en/home/banner-2/shadow.svg";
+const ImgDataBase = "/assets/images/en/home/banner-2/box-min.png";
+const ImgChat = "/assets/images/en/home/banner-2/chat-min.png";
+const ImgRobot = "/assets/images/en/home/banner-2/machine-min.png";
+const ImgPhone = "/assets/images/en/home/banner-2/scan-min.png";
 
 const AI = () => {
   return (

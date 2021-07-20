@@ -21,6 +21,7 @@
   background-size: cover;
   background-position: center;
   box-sizing: border-box;
+  margin-bottom: 10px;
 }
 
 .content {
