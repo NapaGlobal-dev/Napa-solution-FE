@@ -64,18 +64,36 @@ export const GET_COMPANYHISTORY = gql`
         url
       }
     }
-    history:allLayouts(where:{name:"CompanyHistory_History"}){
+    content:allLayouts(where:{name:"CompanyHistory_Content"}){
       name
       property(sortBy:name_ASC){
         name
         value
-        content(sortBy:name_ASC){
+      }
+    }
+    history:allHistories(sortBy:name_ASC, search:"CompanyHistory"){
+      name
+      year
+      milestones(sortBy:name_ASC){
+        name
+        date
+        events(sortBy:name_ASC){
           name
-          value
-          content(sortBy:name_ASC){
-            name
-            value
-          }
+          event
+        }
+      }
+    }
+  }
+`;
+export const GET_COMPANYPAGES = gql`
+  query getCompanyPages{
+    pages:allLayouts(where:{name:"CompanyPages"}){
+      name
+      property(sortBy:name_ASC){
+        name
+        url
+        image{
+          publicUrl
         }
       }
     }
