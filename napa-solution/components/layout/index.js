@@ -1,12 +1,13 @@
 import Header from "./Header";
 import Footer from "./Footer";
 
-const Layout = ({ children }) => {
+const Layout = ({ footerData, children, ...props }) => {
+  // console.log("sssss", footerData);
   return (
     <>
       <Header />
       <div>{children}</div>
-      <Footer />
+      <Footer data={footerData} />
     </>
   );
 };
