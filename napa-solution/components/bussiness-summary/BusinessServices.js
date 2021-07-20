@@ -1,6 +1,6 @@
 import React from "react";
 
-const Banner = (props) => {
+const BusinessServices = (props) => {
   const data = props.data;
   return (
     <section className="operation-management-gallery">
@@ -44,4 +44,4 @@ const Banner = (props) => {
   );
 };
 
-export default Banner;
+export default BusinessServices;

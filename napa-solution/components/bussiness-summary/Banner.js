@@ -3,17 +3,25 @@ import { convertArrToObject } from "../../util/converArrayToObject";
 
 const Banner = (props) => {
   const data = convertArrToObject(props.data.property);
-
+  // console.log(
+  //   "ss----------------------",
+  //   data["BusinessSummary_Banner_Image"].image.origin,
+  //   data
+  // );
   return (
     <div className="hearder-container">
       <div className="overlay-header"></div>
-      <img src="img/header/_DSC0088.png" className="image-header" alt="" />
+      <img
+        src={data["BusinessSummary_Banner_Image"].image.original}
+        className="image-header"
+        alt="BusinessSummary_Banner_Image"
+      />
       <div className="header-service">
         <div className="header-service-text text-center">
-          {data["business-summary_banner_title-en"].value}
+          {data["BusinessSummary_TitleEN"].value}
         </div>
         <div className="header-service-name text-center">
-          {data["business-summary_banner_title-jp"].value}
+          {data["BussinessSummary_TitleJP"].value}
         </div>
       </div>
     </div>
