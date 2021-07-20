@@ -1,11 +1,12 @@
 import { client } from "../apolo-client";
 import { HomePage } from "../query/general";
 import { convertArrToObject } from "../util/converArrayToObject";
-import Service from "../components/honepage/Service";
-import Company from "../components/honepage/Company";
-import Recruit from "../components/honepage/Recruit";
-import News from "../components/honepage/News";
-import Carousel from "../components/honepage/Carousel";
+import Service from "../components/homepage/Service";
+import Company from "../components/homepage/Company";
+import Recruit from "../components/homepage/Recruit";
+import News from "../components/homepage/News";
+import Carousel from "../components/homepage/Carousel";
+import SlideSection from "../components/homepage/SlideSection";
 const Index = (props) => {
   const data = convertArrToObject(props.data.page.layouts);
   console.log("Data Home:", data);
@@ -21,6 +22,7 @@ const Index = (props) => {
         <Service data={data["Service"]} />
         <Company data={data["Company"]} />
         <Recruit data={data["Recruit"]} />
+        <SlideSection data={data["Carousel"]} />
         <iframe
           src="./html/slide.html"
           style={{ border: "unset", marginTop: "20px", width: "100%" }}
