@@ -94,3 +94,47 @@ export const GET_HEADER = gql`
     }
   }
 `;
+
+export const InspectMaintenanceQuery = gql`
+  query HomePage {
+    page: Page(where: { id: "60f0ef840682d00030558973" }) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          content {
+            name
+            key
+            value
+            content {
+              name
+              value
+            }
+          }
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+      subpages: childrenPage {
+        name
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+      parentPage {
+        name
+      }
+      image {
+        path
+      }
+    }
+  }
+`;
