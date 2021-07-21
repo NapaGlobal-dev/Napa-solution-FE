@@ -325,41 +325,77 @@ export const GET_COMPANYPAGES = gql`
   }
 `;
 
-export const OperationManagermentQuery = gql `
-query getContact {
-  page: Page(where: { id: "60f0ef570682d00030558927" }) {
-    name
-    url
-    layouts {
-      name
-      property {
-        name
-        content{
-          name
-          value
-        image {
-          original: publicUrl
-          thumbnail: publicUrlTransformed(transformation: { width: "64" })
-        }
-        }
-        value
-        image {
-          original: publicUrl
-          thumbnail: publicUrlTransformed(transformation: { width: "64" })
-        }
-      }
-    }
-  subpages: childrenPage {
+export const OperationManagermentQuery = gql`
+  query getContact {
+    page: Page(where: { id: "60f0ef570682d00030558927" }) {
       name
       url
-      image {
-        original: publicUrl
-        thumbnail: publicUrlTransformed(transformation: { width: "64" })
+      layouts {
+        name
+        property {
+          name
+          content {
+            name
+            value
+            image {
+              original: publicUrl
+              thumbnail: publicUrlTransformed(transformation: { width: "64" })
+            }
+          }
+          value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+      subpages: childrenPage {
+        name
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+      parentPage {
+        name
+        url
       }
     }
-  parentPage{
-    name
-    url
   }
+`;
+export const RemoteManage = gql`
+  query RemoteManage {
+    page: Page(where: { id: "60f54fd02022ea2760b0ad98" }) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+      subpages: childrenPage {
+        name
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+      parentPage {
+        name
+        url
+      }
+      image {
+        path
+      }
+    }
   }
-}`;
+`;
