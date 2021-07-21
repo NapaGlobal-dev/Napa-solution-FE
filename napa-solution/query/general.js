@@ -55,6 +55,7 @@ export const HomePage = gql`
         property {
           name
           key
+          url
           value
           image {
             original: publicUrl
@@ -147,40 +148,140 @@ export const GET_HEADER = gql`
   }
 `;
 
-export const GET_COMPANYHISTORY = gql`
-  query getCompanyHistory{
-    banner:allLayouts(where:{name:"CompanyHistory_Banner"}){
+export const InspectMaintenanceQuery = gql`
+  query InspectMaintenanceQuery {
+    page: Page(where: { id: "60f0ef840682d00030558973" }) {
       name
-      property(sortBy:name_ASC){
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          content {
+            name
+            key
+            value
+            content {
+              name
+              value
+            }
+          }
+          flag
+          url
+          content {
+            name
+            value
+            url
+          }
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+      subpages: childrenPage {
+        name
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+      parentPage {
+        name
+      }
+      image {
+        path
+      }
+    }
+  }
+`;
+export const OutsourcingQuery = gql`
+  query OutsourcingQuery {
+    page: Page(where: { id: "60f67674b9a5b934e0c79908" }) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          content {
+            name
+            key
+            value
+            content {
+              name
+              value
+            }
+          }
+          flag
+          url
+          content {
+            name
+            value
+            url
+          }
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+      subpages: childrenPage {
+        name
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+      parentPage {
+        name
+      }
+      image {
+        path
+      }
+    }
+  }
+`;
+export const GET_COMPANYHISTORY = gql`
+  query getCompanyHistory {
+    banner: allLayouts(where: { name: "CompanyHistory_Banner" }) {
+      name
+      property(sortBy: name_ASC) {
         name
         value
-        image{
+        image {
           publicUrl
         }
       }
     }
-    breadcrumb:allLayouts(where:{name:"CompanyHistory_Breadcrumb"}){
+    breadcrumb: allLayouts(where: { name: "CompanyHistory_Breadcrumb" }) {
       name
-      property(sortBy:name_ASC){
+      property(sortBy: name_ASC) {
         name
         value
         url
       }
     }
-    content:allLayouts(where:{name:"CompanyHistory_Content"}){
+    content: allLayouts(where: { name: "CompanyHistory_Content" }) {
       name
-      property(sortBy:name_ASC){
+      property(sortBy: name_ASC) {
         name
         value
       }
     }
-    history:allHistories(sortBy:name_ASC, search:"CompanyHistory"){
+    history: allHistories(sortBy: name_ASC, search: "CompanyHistory") {
       name
       year
-      milestones(sortBy:name_ASC){
+      milestones(sortBy: name_ASC) {
         name
         date
-        events(sortBy:name_ASC){
+        events(sortBy: name_ASC) {
           name
           event
         }
@@ -189,13 +290,13 @@ export const GET_COMPANYHISTORY = gql`
   }
 `;
 export const GET_COMPANYPAGES = gql`
-  query getCompanyPages{
-    pages:allLayouts(where:{name:"CompanyPages"}){
+  query getCompanyPages {
+    pages: allLayouts(where: { name: "CompanyPages" }) {
       name
-      property(sortBy:name_ASC){
+      property(sortBy: name_ASC) {
         name
         url
-        image{
+        image {
           publicUrl
         }
       }

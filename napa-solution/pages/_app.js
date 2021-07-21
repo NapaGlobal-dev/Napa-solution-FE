@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+// import "../styles/globals.css";
 import Layout from "../components/layout";
 import { ApolloProvider } from "@apollo/client";
 import App from "next/app";

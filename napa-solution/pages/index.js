@@ -1,22 +1,62 @@
 import { client } from "../apolo-client";
 import { HomePage } from "../query/general";
 import { convertArrToObject } from "../util/converArrayToObject";
-import Service from "../components/honepage/Service";
-import Company from "../components/honepage/Company";
-import Recruit from "../components/honepage/Recruit";
-import News from "../components/honepage/News";
-import Carousel from "../components/honepage/Carousel";
-import Begin from "../components/honepage/Begin/index.js";
-
+import Service from "../components/homepage/Service";
+import Company from "../components/homepage/Company";
+import Recruit from "../components/homepage/Recruit";
+import News from "../components/homepage/News";
+// import Carousel from "../components/homepage/Carousel";
+import SlideSection from "../components/homepage/SlideSection";
 import Head from "next/head";
-
+import { useEffect } from "react";
+import Begin from "../components/homepage/Begin";
 const Index = (props) => {
   const data = convertArrToObject(props.data.page.layouts);
-  console.log("Data Home:", data);
+  // console.log("Data Home:", data);
+  useEffect(() => {
+    $(document).ready(function () {
+      $(".more-section-right").on("click", function () {
+        const arrowUp = "./img/Symbol156-14.svg";
+        const arrowDown = "./img/Symbol156-12.svg";
+        const text = $(this).find(".more-content").text();
+        $(this)
+          .find(".more-content")
+          .text(text == "MORE" ? "CLOSE" : "MORE");
+        $(this)
+          .find(".more-dropdown-icon")
+          .attr("src", text == "MORE" ? arrowUp : arrowDown);
+      });
+    });
+    var mybutton = document.getElementById("scroll");
 
+    window.onscroll = function () {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      if (
+        document.body.scrollTop > 20 ||
+        document.documentElement.scrollTop > 20
+      ) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+  });
+  const topFunction = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
   return (
     <>
       <Head>
+        {/* <link key="css/common.css" rel="stylesheet" href="css/common.css" /> */}
+        <link
+          key="css/home-page.module.css"
+          rel="stylesheet"
+          href="css/home-page.module.css"
+        />
         <link
           rel="stylesheet"
           type="text/css"
@@ -31,24 +71,25 @@ const Index = (props) => {
           referrerpolicy="no-referrer"
         />
       </Head>
-      <div>
-        <Begin />
-        <div
-          id="root"
-          className="container-fluid content-wrapper no-default-spacing"
-        >
-          <Carousel data={data["Carousel"]} />
-          <News data={data["Home_News"]} />
-          <div className="blue-line"></div>
-          <Service data={data["Service"]} />
-          <Company data={data["Company"]} />
-          <Recruit data={data["Recruit"]} />
-          <iframe
-            src="./html/slide.html"
-            style={{ border: "unset", marginTop: "20px", width: "100%" }}
-          ></iframe>
-        </div>
+      <Begin />
+      <div
+        id="root"
+        className="container-fluid content-wrapper no-default-spacing"
+      >
+        {/* <Carousel data={data["Carousel"]} /> */}
+        <News data={data["Home_News"]} />
+        <div className="blue-line"></div>
+        <Service data={data["Service"]} />
+        <Company data={data["Company"]} />
+        <Recruit data={data["Recruit"]} />
+        <SlideSection data={data["Slides_Section"]} />
+        {/* <iframe
+          src="./html/slide.html"
+          style={{ border: "unset", marginTop: "20px", width: "100%" }}
+        ></iframe> */}
         <a
+          onclick={topFunction}
+          href="#root"
           // onclick="topFunction()"
           href=":root"
           id="scroll"

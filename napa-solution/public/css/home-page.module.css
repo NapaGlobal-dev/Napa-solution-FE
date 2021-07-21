@@ -1,0 +1,25 @@
+@media (max-width: 600px) {
+  #carousel-control-prev,
+  #carousel-control-next {
+    visibility: hidden;
+  }
+  #carousel-caption {
+    left: 40px;
+  }
+  .carousel-4-caption {
+    text-align: center !important;
+  }
+  .font-carousel-4b {
+    background-image: unset;
+  }
+  .recruit-section {
+    padding: unset;
+    padding-left: 20px;
+    padding-top: 30px;
+  }
+}
+@media (max-width: 375px) {
+  #carousel-caption {
+    left: 20px;
+  }
+}
