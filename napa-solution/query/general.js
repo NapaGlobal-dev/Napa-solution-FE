@@ -45,6 +45,27 @@ export const businessSumaryQuery = gql`
   }
 `;
 
+export const companyQuery = gql`
+  query Company {
+    page: allPages(where: { url: "/company" }, first: 1) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const HomePage = gql`
   query HomePage {
     page: Page(where: { id: "60eea4008c27310035add3f4" }) {
