@@ -146,3 +146,43 @@ export const GET_HEADER = gql`
     }
   }
 `;
+
+export const OperationManagermentQuery = gql`
+query getOperationManagement {
+  page: Page(where: { id: "60f0ef570682d00030558927" }) {
+    name
+    url
+    layouts {
+      name
+      property {
+        name
+        content{
+          name
+          value
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+        }
+        value
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+    }
+  subpages: childrenPage {
+      name
+      url
+      image {
+        original: publicUrl
+        thumbnail: publicUrlTransformed(transformation: { width: "64" })
+      }
+    }
+    parentPage{
+      name
+     url
+   }
+  }
+}`;
+

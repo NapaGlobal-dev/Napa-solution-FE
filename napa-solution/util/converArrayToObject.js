@@ -8,3 +8,14 @@ export const convertArrToObject = (data = [], keyName = "name") => {
 
   return object;
 };
+
+
+export const convertArrToObjectBySpecialName  = (data = [], keyName ="name") => {
+  const object = {};
+  //parse key name to basic name 
+  data.forEach((item) => {
+      let basicName = item.name.split('_')
+      object[basicName[basicName.length -1]] = item
+  });
+  return object
+}
