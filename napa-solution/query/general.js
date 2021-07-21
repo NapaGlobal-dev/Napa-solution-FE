@@ -55,6 +55,7 @@ export const HomePage = gql`
         property {
           name
           key
+          url
           value
           image {
             original: publicUrl
@@ -166,6 +167,63 @@ export const InspectMaintenanceQuery = gql`
               name
               value
             }
+          }
+          flag
+          url
+          content {
+            name
+            value
+            url
+          }
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+      subpages: childrenPage {
+        name
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+      parentPage {
+        name
+      }
+      image {
+        path
+      }
+    }
+  }
+`;
+export const OutsourcingQuery = gql`
+  query OutsourcingQuery {
+    page: Page(where: { id: "60f67674b9a5b934e0c79908" }) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          content {
+            name
+            key
+            value
+            content {
+              name
+              value
+            }
+          }
+          flag
+          url
+          content {
+            name
+            value
+            url
           }
           image {
             original: publicUrl
