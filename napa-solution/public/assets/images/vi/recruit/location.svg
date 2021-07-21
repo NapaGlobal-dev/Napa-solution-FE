@@ -1,0 +1,7 @@
+<svg id="Component_7_1" data-name="Component 7 – 1" xmlns="http://www.w3.org/2000/svg" width="30" height="32" viewBox="0 0 30 32">
+  <g id="Rectangle_19" data-name="Rectangle 19" fill="none" stroke="#000" stroke-width="3">
+    <rect width="30" height="32" rx="5" stroke="none"/>
+    <rect x="1.5" y="1.5" width="27" height="29" rx="3.5" fill="none"/>
+  </g>
+  <path id="Icon_material-location-on" data-name="Icon material-location-on" d="M12.258,3A4.755,4.755,0,0,0,7.5,7.758c0,3.569,4.758,8.837,4.758,8.837s4.758-5.268,4.758-8.837A4.755,4.755,0,0,0,12.258,3Zm0,6.457a1.7,1.7,0,1,1,1.7-1.7A1.7,1.7,0,0,1,12.258,9.457Z" transform="translate(2.742 6.203)"/>
+</svg>
