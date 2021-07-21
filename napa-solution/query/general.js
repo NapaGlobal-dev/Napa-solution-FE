@@ -79,6 +79,41 @@ export const HomePage = gql`
     }
   }
 `;
+export const RemoteManage = gql`
+  query RemoteManage {
+    page: Page(where: { id: "60f54fd02022ea2760b0ad98" }) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+      subpages: childrenPage {
+        name
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+      parentPage {
+        name
+        url
+      }
+      image {
+        path
+      }
+    }
+  }
+`;
 export const GET_HEADER = gql`
   query getHeader {
     navbar: allLayouts(where: { name: "Navbar" }) {
