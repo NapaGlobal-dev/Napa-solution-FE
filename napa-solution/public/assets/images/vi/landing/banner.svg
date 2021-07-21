@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1192.784" height="860.374" viewBox="0 0 1192.784 860.374">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d91ed4"/>
+      <stop offset="1" stop-color="#6d3fee"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffff8b"/>
+      <stop offset="1" stop-color="#faffb5" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="banner" transform="translate(-795.034 34.187)">
+    <circle id="Ellipse_1" data-name="Ellipse 1" cx="148" cy="148" r="148" transform="translate(1456 409)" fill="#f8f8f9"/>
+    <path id="Path_1" data-name="Path 1" d="M4627.25-37.531c-13.318,26.635-12.107,249.4,146.493,338.992,86.6,48.917,176.683,21.688,255.455,53.27,139.229,56.9,117,107.066,208.238,177.971,200.974,156.179,345.045-123.49,575.076,246.98V-42.374Z" transform="translate(-3825.181 8.187)" fill="#e0dfe4"/>
+    <path id="Path_2" data-name="Path 2" d="M4627.252-40c-30.272,115.233,38.766,257.092,175.621,305.591s224.433-34.229,396.06,184.3S5638.59,361.379,5813,780.895V-41.163Z" transform="translate(-3825.181 6.976)" fill="url(#linear-gradient)"/>
+    <circle id="Ellipse_2" data-name="Ellipse 2" cx="46" cy="46" r="46" transform="translate(1305.819 377.187)" fill="#eebe38"/>
+    <path id="Path_3" data-name="Path 3" d="M84,0V168A84,84,0,0,1,84,0Z" transform="translate(1903.819 658.187)" fill="#ffdf84"/>
+    <rect id="Rectangle_1" data-name="Rectangle 1" width="31" height="208" rx="15.5" transform="translate(1164.184 256.423) rotate(-120)" opacity="0.3" fill="url(#linear-gradient-2)"/>
+    <rect id="Rectangle_2" data-name="Rectangle 2" width="31" height="208" rx="15.5" transform="translate(1410.184 560.423) rotate(-120)" opacity="0.3" fill="url(#linear-gradient-2)"/>
+    <rect id="Rectangle_3" data-name="Rectangle 3" width="42" height="285" rx="21" transform="translate(1741 351.95) rotate(-120)" opacity="0.3" fill="url(#linear-gradient-4)"/>
+    <rect id="Rectangle_4" data-name="Rectangle 4" width="34" height="232" rx="17" transform="translate(1343 757.021) rotate(-120)" opacity="0.3" fill="url(#linear-gradient-4)"/>
+  </g>
+</svg>

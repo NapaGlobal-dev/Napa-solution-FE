@@ -1,6 +1,5 @@
 import { convertArrToObject } from "../../util/converArrayToObject";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
 import React, { useState, useEffect, StrictMode } from "react";
 import {
   Carousel,
