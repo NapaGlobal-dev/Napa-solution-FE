@@ -1,7 +1,6 @@
 import { client } from "../apolo-client";
 import { HomePage } from "../query/general";
 import { convertArrToObject } from "../util/converArrayToObject";
-<<<<<<< HEAD
 import Service from "../components/homepage/Service";
 import Company from "../components/homepage/Company";
 import Recruit from "../components/homepage/Recruit";
@@ -10,6 +9,7 @@ import News from "../components/homepage/News";
 import SlideSection from "../components/homepage/SlideSection";
 import Head from "next/head";
 import { useEffect } from "react";
+import Begin from "../components/homepage/Begin";
 const Index = (props) => {
   const data = convertArrToObject(props.data.page.layouts);
   // console.log("Data Home:", data);
@@ -57,7 +57,21 @@ const Index = (props) => {
           rel="stylesheet"
           href="css/home-page.module.css"
         />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          charset="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+          integrity="sha512-L/EyzxvZCddd652hKB4w2gEaZgCZSOaH0Ia6JoEGysTu27VnWvej5ipuBnru/iDhPWMO0AvwiVd0HHVUHWeDRA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
       </Head>
+      <Begin />
       <div
         id="root"
         className="container-fluid content-wrapper no-default-spacing"
@@ -76,58 +90,8 @@ const Index = (props) => {
         <a
           onclick={topFunction}
           href="#root"
-=======
-import Service from "../components/honepage/Service";
-import Company from "../components/honepage/Company";
-import Recruit from "../components/honepage/Recruit";
-import News from "../components/honepage/News";
-import Carousel from "../components/honepage/Carousel";
-import Begin from "../components/honepage/Begin/index.js";
-
-import Head from "next/head";
-
-const Index = (props) => {
-  const data = convertArrToObject(props.data.page.layouts);
-  console.log("Data Home:", data);
-
-  return (
-    <>
-      <Head>
-        <link
-          rel="stylesheet"
-          type="text/css"
-          charset="UTF-8"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-          integrity="sha512-L/EyzxvZCddd652hKB4w2gEaZgCZSOaH0Ia6JoEGysTu27VnWvej5ipuBnru/iDhPWMO0AvwiVd0HHVUHWeDRA=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"
-        />
-      </Head>
-      <div>
-        <Begin />
-        <div
-          id="root"
-          className="container-fluid content-wrapper no-default-spacing"
-        >
-          <Carousel data={data["Carousel"]} />
-          <News data={data["Home_News"]} />
-          <div className="blue-line"></div>
-          <Service data={data["Service"]} />
-          <Company data={data["Company"]} />
-          <Recruit data={data["Recruit"]} />
-          <iframe
-            src="./html/slide.html"
-            style={{ border: "unset", marginTop: "20px", width: "100%" }}
-          ></iframe>
-        </div>
-        <a
           // onclick="topFunction()"
           href=":root"
->>>>>>> master
           id="scroll"
           style={{ display: "none" }}
         >

@@ -148,7 +148,6 @@ export const GET_HEADER = gql`
   }
 `;
 
-<<<<<<< HEAD
 export const InspectMaintenanceQuery = gql`
   query InspectMaintenanceQuery {
     page: Page(where: { id: "60f0ef840682d00030558973" }) {
@@ -249,41 +248,40 @@ export const OutsourcingQuery = gql`
     }
   }
 `;
-=======
 export const GET_COMPANYHISTORY = gql`
-  query getCompanyHistory{
-    banner:allLayouts(where:{name:"CompanyHistory_Banner"}){
+  query getCompanyHistory {
+    banner: allLayouts(where: { name: "CompanyHistory_Banner" }) {
       name
-      property(sortBy:name_ASC){
+      property(sortBy: name_ASC) {
         name
         value
-        image{
+        image {
           publicUrl
         }
       }
     }
-    breadcrumb:allLayouts(where:{name:"CompanyHistory_Breadcrumb"}){
+    breadcrumb: allLayouts(where: { name: "CompanyHistory_Breadcrumb" }) {
       name
-      property(sortBy:name_ASC){
+      property(sortBy: name_ASC) {
         name
         value
         url
       }
     }
-    content:allLayouts(where:{name:"CompanyHistory_Content"}){
+    content: allLayouts(where: { name: "CompanyHistory_Content" }) {
       name
-      property(sortBy:name_ASC){
+      property(sortBy: name_ASC) {
         name
         value
       }
     }
-    history:allHistories(sortBy:name_ASC, search:"CompanyHistory"){
+    history: allHistories(sortBy: name_ASC, search: "CompanyHistory") {
       name
       year
-      milestones(sortBy:name_ASC){
+      milestones(sortBy: name_ASC) {
         name
         date
-        events(sortBy:name_ASC){
+        events(sortBy: name_ASC) {
           name
           event
         }
@@ -292,17 +290,16 @@ export const GET_COMPANYHISTORY = gql`
   }
 `;
 export const GET_COMPANYPAGES = gql`
-  query getCompanyPages{
-    pages:allLayouts(where:{name:"CompanyPages"}){
+  query getCompanyPages {
+    pages: allLayouts(where: { name: "CompanyPages" }) {
       name
-      property(sortBy:name_ASC){
+      property(sortBy: name_ASC) {
         name
         url
-        image{
+        image {
           publicUrl
         }
       }
     }
   }
 `;
->>>>>>> master
