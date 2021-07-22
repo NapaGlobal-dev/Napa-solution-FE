@@ -45,6 +45,27 @@ export const businessSumaryQuery = gql`
   }
 `;
 
+export const companyQuery = gql`
+  query Company {
+    page: allPages(where: { url: "/company" }, first: 1) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const HomePage = gql`
   query HomePage {
     page: Page(where: { id: "60eea4008c27310035add3f4" }) {
@@ -299,6 +320,81 @@ export const GET_COMPANYPAGES = gql`
         image {
           publicUrl
         }
+      }
+    }
+  }
+`;
+
+export const OperationManagermentQuery = gql`
+  query getContact {
+    page: Page(where: { id: "60f0ef570682d00030558927" }) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          content {
+            name
+            value
+            image {
+              original: publicUrl
+              thumbnail: publicUrlTransformed(transformation: { width: "64" })
+            }
+          }
+          value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+      subpages: childrenPage {
+        name
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+      parentPage {
+        name
+        url
+      }
+    }
+  }
+`;
+export const RemoteManage = gql`
+  query RemoteManage {
+    page: Page(where: { id: "60f54fd02022ea2760b0ad98" }) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+      subpages: childrenPage {
+        name
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+      parentPage {
+        name
+        url
+      }
+      image {
+        path
       }
     }
   }
