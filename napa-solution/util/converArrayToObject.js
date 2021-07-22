@@ -24,7 +24,7 @@ export function getData(data={}, key='', property='name'){
   const isArray = (obj) => Object.prototype.toString.call(obj) == '[object Array]'
   const isObject = (obj) => Object.prototype.toString.call(obj) == '[object Object]'
 
-  if(!(key instanceof RegExp) || !isArray(data) && !isObject(data) )
+  if(typeof property != 'string' || !(key instanceof RegExp) || !isArray(data) && !isObject(data))
     return []
 
   var round = {
@@ -36,7 +36,7 @@ export function getData(data={}, key='', property='name'){
   const searchArray = (array, round) => {
     const result = []
     array.forEach(e => {
-      if(typeof e.name == 'string' && key.test(e[property]))
+      if(typeof e[property] == 'string' && key.test(e[property]))
         result.push(e)
       else
         Object.values(e).forEach(obj=>{
@@ -58,7 +58,7 @@ export function getData(data={}, key='', property='name'){
         if(result)
           return result
       }else if( isObject(obj)){
-        if(typeof obj.name == 'string' && key.test(obj[property]))
+        if(typeof obj[property] == 'string' && key.test(obj[property]))
           return [obj]
         for( const subObj of Object.values(obj) ){
           if(isObject(subObj) || isArray(subObj))
