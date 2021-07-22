@@ -28,7 +28,7 @@ const Company = (props) => {
         </div>
       </div>
       <div className="col-xl-6 col-xs-12 no-default-spacing company-content-wrapper">
-        <div className="col-xs-12 order-1 order-xl-1 no-default-spacing">
+        <div className="col-xs-12 order-1 order-xl-1 no-default-spacing section-title-company-wrapped">
           <span className="section-title-company" id="main-title">
             {data["Home_Company_Title"]?.value}
           </span>
@@ -44,13 +44,13 @@ const Company = (props) => {
           </span>
         </div>
         <div className="col-xs-12 order-4 order-xl-3 no-default-spacing section-sub-content-company">
-          <span className="section-content content-company">
+          <span className="section-sub-content content-company">
           {data["Home_Company_Subcontent"]?.value}
           </span>
         </div>
         <a href="company.html">
           <div className="col-xs-12 order-3 order-xl-4 no-default-spacing" id = "detail-btn-company">
-            <span className="detail-btn-company-content">
+            <span id = "detail-btn-company-content">
               {data["Home_Company_Btn"]?.value}
             </span>
             <svg id = "stroke-arr-btn" viewBox="0 0 64 7"><path d="M0 6h61.5l-5.2-5.2"></path></svg>

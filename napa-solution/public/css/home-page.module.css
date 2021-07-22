@@ -40,19 +40,6 @@
   align-items: center;
 }
 
-.arr {
-  display: block;
-  right: -16px;
-  height: 7px;
-  fill: none;
-  stroke: #6C3AF5;
-  stroke-width: 2;
-  transition: stroke-dashoffset .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-  width: 64px;
-  stroke-dasharray: 69px 138px;
-  position: absolute;
-}
-
 .label-year-establish{
   transform: rotate(-45deg);
   width: 80px;
@@ -74,4 +61,10 @@
 
 .section-subtitle-company{
 padding-top: 13px !important;
+}
+
+@media(max-width: 414px) {
+  .company-rect-wrapper{
+    display: none;
+  }
 }
