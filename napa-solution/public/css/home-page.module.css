@@ -23,3 +23,55 @@
     left: 20px;
   }
 }
+
+.company-rect-wrapper{
+  width: 180px;
+  height: 180px;
+  position:absolute;
+  top: 46%;
+  left: 44.6%;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arr {
+  display: block;
+  right: -16px;
+  height: 7px;
+  fill: none;
+  stroke: #6C3AF5;
+  stroke-width: 2;
+  transition: stroke-dashoffset .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 64px;
+  stroke-dasharray: 69px 138px;
+  position: absolute;
+}
+
+.label-year-establish{
+  transform: rotate(-45deg);
+  width: 80px;
+  text-align: center;
+}
+.year-establish{
+  font: italic normal normal 30px/34px Arial;
+  letter-spacing: 0px;
+  color: #9E9E9E;
+  opacity: 1;
+}
+.company-establish{
+  text-align: left;
+  font: normal normal bold 30px/39px Roboto;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}
+
+.section-subtitle-company{
+padding-top: 13px !important;
+}
