@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 30px 40px;
+  width: 100%;
+  align-items: center;
+}
+
+.boxcolor {
+  background-color: #412490;
+  width: 455px;
+  height: 375px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.boxcolor > h4 {
+  color: var(--unnamed-color-ffffff);
+  text-align: left;
+  font: normal normal bold 45px/59px Roboto;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+}
+.boxcolor > p {
+  text-align: left;
+  font: normal normal normal 26px/34px Roboto;
+  letter-spacing: 0px;
+  color: #bdbdbd;
+  opacity: 1;
+}
+.control {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.control > svg {
+  width: 100px;
+  height: 40px;
+  color: #bdbdbd;
+  opacity: 1;
+}
+.cover {
+  transform: translateX(-69px);
+  height: 276px;
+  /* background-color: #fff; */
+  display: flex;
+  align-items: center;
+}
