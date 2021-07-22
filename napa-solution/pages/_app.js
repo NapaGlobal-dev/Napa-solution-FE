@@ -1,10 +1,11 @@
-import "../styles/globals.css";
+// import "../styles/globals.css";
 import Layout from "../components/layout";
 import { ApolloProvider } from "@apollo/client";
 import App from "next/app";
 
 import { client } from "../apolo-client";
 import { footerDataQuery } from "../query/general";
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps, footerData, ...props }) {
   return (

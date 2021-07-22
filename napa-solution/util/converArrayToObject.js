@@ -9,12 +9,23 @@ export const convertArrToObject = (data = [], keyName = "name") => {
   return object;
 };
 
-export function getData(data={}, key=''){
-  if(!key instanceof RegExp || typeof data != 'object')
-    return []
+export const convertArrToObjectBySpecialName  = (data = [], keyName ="name") => {
+  const object = {};
+  //parse key name to basic name 
+  data.forEach((item) => {
+      let basicName = item.name.split('_')
+      object[basicName[basicName.length -1]] = item
+  });
+  return object
+}
 
+export function getData(data={}, key=''){
+  //name property is required
   const isArray = (obj) => Object.prototype.toString.call(obj) == '[object Array]'
   const isObject = (obj) => Object.prototype.toString.call(obj) == '[object Object]'
+
+  if(!key instanceof RegExp || !isArray(data) && !isObject(data) )
+    return []
 
   var round = {
     searchArray: [data,],

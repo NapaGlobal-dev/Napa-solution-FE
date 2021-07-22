@@ -45,6 +45,27 @@ export const businessSumaryQuery = gql`
   }
 `;
 
+export const companyQuery = gql`
+  query Company {
+    page: allPages(where: { url: "/company" }, first: 1) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const HomePage = gql`
   query HomePage {
     page: Page(where: { id: "60eea4008c27310035add3f4" }) {
@@ -55,6 +76,7 @@ export const HomePage = gql`
         property {
           name
           key
+          url
           value
           image {
             original: publicUrl
@@ -142,6 +164,237 @@ export const GET_HEADER = gql`
         image {
           publicUrl
         }
+      }
+    }
+  }
+`;
+
+export const InspectMaintenanceQuery = gql`
+  query InspectMaintenanceQuery {
+    page: Page(where: { id: "60f0ef840682d00030558973" }) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          content {
+            name
+            key
+            value
+            content {
+              name
+              value
+            }
+          }
+          flag
+          url
+          content {
+            name
+            value
+            url
+          }
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+      subpages: childrenPage {
+        name
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+      parentPage {
+        name
+      }
+      image {
+        path
+      }
+    }
+  }
+`;
+export const OutsourcingQuery = gql`
+  query OutsourcingQuery {
+    page: Page(where: { id: "60f67674b9a5b934e0c79908" }) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          content {
+            name
+            key
+            value
+            content {
+              name
+              value
+            }
+          }
+          flag
+          url
+          content {
+            name
+            value
+            url
+          }
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+      subpages: childrenPage {
+        name
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+      parentPage {
+        name
+      }
+      image {
+        path
+      }
+    }
+  }
+`;
+export const GET_COMPANYHISTORY = gql`
+  query getCompanyHistory {
+    banner: allLayouts(where: { name: "CompanyHistory_Banner" }) {
+      name
+      property(sortBy: name_ASC) {
+        name
+        value
+        image {
+          publicUrl
+        }
+      }
+    }
+    breadcrumb: allLayouts(where: { name: "CompanyHistory_Breadcrumb" }) {
+      name
+      property(sortBy: name_ASC) {
+        name
+        value
+        url
+      }
+    }
+    content: allLayouts(where: { name: "CompanyHistory_Content" }) {
+      name
+      property(sortBy: name_ASC) {
+        name
+        value
+      }
+    }
+    history: allHistories(sortBy: name_ASC, search: "CompanyHistory") {
+      name
+      year
+      milestones(sortBy: name_ASC) {
+        name
+        date
+        events(sortBy: name_ASC) {
+          name
+          event
+        }
+      }
+    }
+  }
+`;
+export const GET_COMPANYPAGES = gql`
+  query getCompanyPages {
+    pages: allLayouts(where: { name: "CompanyPages" }) {
+      name
+      property(sortBy: name_ASC) {
+        name
+        url
+        image {
+          publicUrl
+        }
+      }
+    }
+  }
+`;
+
+export const OperationManagermentQuery = gql`
+  query getContact {
+    page: Page(where: { id: "60f0ef570682d00030558927" }) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          content {
+            name
+            value
+            image {
+              original: publicUrl
+              thumbnail: publicUrlTransformed(transformation: { width: "64" })
+            }
+          }
+          value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+      subpages: childrenPage {
+        name
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+      parentPage {
+        name
+        url
+      }
+    }
+  }
+`;
+export const RemoteManage = gql`
+  query RemoteManage {
+    page: Page(where: { id: "60f54fd02022ea2760b0ad98" }) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+      subpages: childrenPage {
+        name
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+      parentPage {
+        name
+        url
+      }
+      image {
+        path
       }
     }
   }

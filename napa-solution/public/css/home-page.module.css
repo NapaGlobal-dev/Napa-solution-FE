@@ -1,0 +1,70 @@
+@media (max-width: 600px) {
+  #carousel-control-prev,
+  #carousel-control-next {
+    visibility: hidden;
+  }
+  #carousel-caption {
+    left: 40px;
+  }
+  .carousel-4-caption {
+    text-align: center !important;
+  }
+  .font-carousel-4b {
+    background-image: unset;
+  }
+  .recruit-section {
+    padding: unset;
+    padding-left: 20px;
+    padding-top: 30px;
+  }
+}
+@media (max-width: 375px) {
+  #carousel-caption {
+    left: 20px;
+  }
+}
+
+.company-rect-wrapper{
+  width: 180px;
+  height: 180px;
+  position:absolute;
+  top: 44%;
+  left: 44.6%;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label-year-establish{
+  transform: rotate(-45deg);
+  width: 80px;
+  text-align: center;
+}
+.year-establish{
+  font: italic normal normal 30px/34px Arial;
+  letter-spacing: 0px;
+  color: #9E9E9E;
+  opacity: 1;
+}
+.company-establish{
+  text-align: left;
+  font: normal normal bold 30px/39px Roboto;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+}
+
+.section-subtitle-company{
+padding-top: 13px !important;
+}
+
+@media(max-width: 414px) {
+  .company-rect-wrapper{
+    display: none;
+  }
+}
