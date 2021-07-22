@@ -49,11 +49,11 @@ const Company = (props) => {
           </span>
         </div>
         <a href="company.html">
-          <div className="col-xs-12 order-3 order-xl-4 no-default-spacing detail-btn-company">
+          <div className="col-xs-12 order-3 order-xl-4 no-default-spacing" id = "detail-btn-company">
             <span className="detail-btn-company-content">
               {data["Home_Company_Btn"]?.value}
             </span>
-            <svg className="arr s" viewBox="0 0 64 7"><path d="M0 6h61.5l-5.2-5.2"></path></svg>
+            <svg id = "stroke-arr-btn" viewBox="0 0 64 7"><path d="M0 6h61.5l-5.2-5.2"></path></svg>
           </div>
         </a>
       </div>
