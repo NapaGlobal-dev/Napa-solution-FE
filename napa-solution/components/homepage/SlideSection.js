@@ -40,7 +40,7 @@ const SlideSection = (props) => {
         />
       </Head>
       <div
-        className="top-content"
+        className="top-content-project"
         style={{
           display: "flex",
           justifyContent: "center",
@@ -77,10 +77,11 @@ const SlideSection = (props) => {
                     // display: "flex",
                     // alignItems: "center",
                     // flexDirection: "column",
-                    height: "272px",
+                    height: "275px",
                     width: "auto",
                     // flexWrap: "nowrap",
                   }}
+                  // className="crsitem"
                 >
                   <a
                     href={item.url}
@@ -91,10 +92,11 @@ const SlideSection = (props) => {
                       background: "#FFFFFF 0% 0% no-repeat padding-box",
                       boxShadow: "0px 3px 6px #00000029",
                       opacity: 1,
-                      height: "90%",
-                      width: "423px",
+                      height: "100%",
+                      width: "100%",
                       display: "flex",
                       alignItems: "center",
+                      border: "0.5px solid gray",
                     }}
                   >
                     <LazyLoadImage
@@ -118,19 +120,20 @@ const SlideSection = (props) => {
                   key={slideList.length + index}
                   style={{
                     width: "auto",
-                    height: "272px",
+                    height: "275px",
                     // display: "flex",
                     // alignItems: "center",
                     // flexDirection: "column",
                     // flexWrap: "nowrap",
                   }}
+                  // className="crsitem"
                 >
                   <a
                     href={item.url}
                     target="_blank"
                     style={{
-                      height: "90%",
-                      width: "423px",
+                      height: "100%",
+                      width: "100%",
                       display: "flex",
                       alignItems: "center",
                       background:
@@ -138,6 +141,7 @@ const SlideSection = (props) => {
                       background: "#FFFFFF 0% 0% no-repeat padding-box",
                       boxShadow: "0px 3px 6px #00000029",
                       opacity: 1,
+                      border: "0.5px solid gray",
                     }}
                   >
                     <LazyLoadImage
@@ -161,7 +165,7 @@ const SlideSection = (props) => {
                   key={slideList.length + index}
                   style={{
                     width: "auto",
-                    height: "272px",
+                    height: "275px",
                     // marginLeft: "8px",
                   }}
                 >
@@ -169,7 +173,7 @@ const SlideSection = (props) => {
                     href={item.url}
                     target="_blank"
                     style={{
-                      height: "90%",
+                      height: "100%",
                       width: "100%",
                       display: "flex",
                       alignItems: "center",
