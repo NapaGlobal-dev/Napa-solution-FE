@@ -36,8 +36,8 @@ const Header = () => {
                   {navbarHome?.value}
                 </a>
               </li>
-              {navbarMenu.map((menu) => (
-                <li className="nav-item item-navbar-menu">
+              {navbarMenu.map((menu, index) => (
+                <li className="nav-item item-navbar-menu" key={index}>
                   <img
                     alt="icon-navbar-menu"
                     src={menu?.image?.publicUrl}

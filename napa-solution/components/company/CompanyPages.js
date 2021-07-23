@@ -14,8 +14,8 @@ export default function CompanyPages(){
             </Head>
             <div className="container-fluid image-wrapper-10 no-default-spacing">
                 <div className="container row no-spacing-mobile no-space">
-                    {pages.map(page=>(
-                        <div className="col-xl-3 col-lg-6 col-sm-6 col-xs-12 image-top-wrapper img-child-01">
+                    {pages.map((page, index)=>(
+                        <div className="col-xl-3 col-lg-6 col-sm-6 col-xs-12 image-top-wrapper img-child-01" key={index}>
                             <a className="image-wrapper" href={page?.url}>
                                 <LazyLoadImage
                                     effect='blur'
