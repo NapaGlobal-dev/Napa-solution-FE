@@ -14,7 +14,7 @@
   justify-content: center;
   align-items: center;
 } */
-@media (min-width: 1920px) {
+@media (min-width: 1900px) {
   #carousel-example {
     max-width: 1374px;
   }
@@ -27,7 +27,7 @@
   }
 }
 
-@media (min-width: 1600px) and (max-width: 1920px) {
+@media (min-width: 1600px) and (max-width: 1900px) {
   #carousel-example {
     max-width: 1200px;
   }

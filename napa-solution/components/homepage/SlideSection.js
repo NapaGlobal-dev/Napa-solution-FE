@@ -14,6 +14,15 @@ const SlideSection = (props) => {
       var idx = $e.index();
       var itemsPerSlide = 3;
       var totalItems = $(".carousel-item").length;
+      // var owl = $("#carousel-example");
+      // owl.owlCarousel({
+      //   // items:4,
+      //   // loop:true,
+      //   // margin:10,
+      //   autoplay: false,
+      //   // autoplayTimeout:1000,
+      //   // autoplayHoverPause:true
+      // });
 
       if (idx >= totalItems - (itemsPerSlide - 1)) {
         var it = itemsPerSlide - (totalItems - idx);
@@ -63,6 +72,8 @@ const SlideSection = (props) => {
             className="carousel slide container"
             data-ride="carousel"
             style={{ width: "100%" }}
+            // data-ride="true"
+            // data-interval="true"
           >
             <div className="carousel-inner row w-100 mx-auto" role="listbox">
               {slideList.map((item, index) => (
@@ -99,7 +110,7 @@ const SlideSection = (props) => {
                       border: "0.5px solid gray",
                     }}
                   >
-                    <LazyLoadImage
+                    {/* <LazyLoadImage
                       alt="imgSlide"
                       effect="blur"
                       src={item?.image.original}
@@ -109,7 +120,8 @@ const SlideSection = (props) => {
                       height="174px"
                       className="img-fluid mx-auto d-block"
                       className="imgitem"
-                    />
+                    /> */}
+                    <img src={item?.image.original} />
                   </a>
                 </div>
               ))}
@@ -144,7 +156,7 @@ const SlideSection = (props) => {
                       border: "0.5px solid gray",
                     }}
                   >
-                    <LazyLoadImage
+                    {/* <LazyLoadImage
                       alt="imgSlide"
                       effect="blur"
                       src={item?.image.original}
@@ -154,7 +166,8 @@ const SlideSection = (props) => {
                       className="img-fluid mx-auto d-block w-100 h-100"
                       height="174px"
                       className="imgitem"
-                    />
+                    /> */}
+                    <img src={item?.image.original} />
                   </a>
                 </div>
               ))}
