@@ -30,7 +30,7 @@ export default function PrivacyPolicy({data}){
                                 </h2>
 
                                 {privacyPolicy1Contents.map((content, index)=>(
-                                    <>
+                                    <div key={index}>
                                         <div class="privacy-policy-info-element">
                                             <p class="privacy-policy-info-no">{index+1}</p>
                                             <p class="privacy-policy-info-desc">{content.value}</p>
@@ -38,17 +38,17 @@ export default function PrivacyPolicy({data}){
                                         {content.content.length?
                                             <div class="privacy-policy-info-group-element-spec">
                                                 {content.content.map((subcontent, index)=>(
-                                                    <p class="privacy-policy-info-desc">{index+1+') '+subcontent.value}</p>
+                                                    <p class="privacy-policy-info-desc" key={index}>{index+1+') '+subcontent.value}</p>
                                                 ))}
                                             </div>
                                             :
                                             <></>
                                         }
-                                    </>
+                                    </div>
                                 ))}
 
-                                    {privacyPolicy1Roots.map(content=>(
-                                        <div class="privacy-policy-info-element-foot">
+                                    {privacyPolicy1Roots.map((content,index)=>(
+                                        <div class="privacy-policy-info-element-foot" key={index}>
                                             <p class="privacy-policy-info-element-foot-desc">
                                                 {content.value}
                                             </p>
@@ -72,22 +72,22 @@ export default function PrivacyPolicy({data}){
                                     {privacyPolicy2Title2?.value}
                                 </h2>
 
-                                {privacyPolicy2Contents.map(content=>(
-                                    <>
+                                {privacyPolicy2Contents.map((content, index)=>(
+                                    <div key={index}>
                                         <div class="privacy-policy-info-element">
                                             <p class="privacy-policy-info-desc privacy-policy-info-desc-spec">
                                                 {content.value}
                                             </p>
                                         </div>
                                         {content.content.map((subcontent, index)=>(
-                                            <div class="privacy-policy-info-element">
+                                            <div class="privacy-policy-info-element" key={index}>
                                                 <p class="privacy-policy-info-no">{index+1}</p>
                                                 <p class="privacy-policy-info-desc">
                                                     {subcontent.value}
                                                 </p>
                                             </div>
                                         ))}
-                                    </>
+                                    </div>
                                 ))}
 
                             </div>
@@ -107,15 +107,15 @@ export default function PrivacyPolicy({data}){
                                     {privacyPolicy3Title2?.value}
                                 </h2>
 
-                                {privacyPolicy3Contents.map(content=>(
-                                    <div class="privacy-policy-info-element">
+                                {privacyPolicy3Contents.map((content, index)=>(
+                                    <div class="privacy-policy-info-element" key={index}>
                                         <p class="privacy-policy-info-desc privacy-policy-info-desc-spec">
                                             {content.value}
                                         </p>
                                     </div>
                                 ))}
-                                {privacyPolicy3Roots.map(content=>(
-                                    <div class="privacy-policy-info-element">
+                                {privacyPolicy3Roots.map((content, index)=>(
+                                    <div class="privacy-policy-info-element" key={index}>
                                         <p class="privacy-policy-info-desc">
                                             {content.value}
                                         </p>
