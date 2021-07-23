@@ -18,27 +18,27 @@ export default function PrivacyPolicy({data}){
 
     return (
         <>
-            <section class="privacy-policy-flow">
-                <div class="container-fluid">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
+            <section className="privacy-policy-flow">
+                <div className="container-fluid">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-sm-12">
 
-                                <h2 class="operation-management-wrap operation-management-flow-title">
-                                    <span class="operation-management-flow-spec">{privacyPolicy1Title1?.value}</span>
+                                <h2 className="operation-management-wrap operation-management-flow-title">
+                                    <span className="operation-management-flow-spec">{privacyPolicy1Title1?.value}</span>
                                     {privacyPolicy1Title2?.value}
                                 </h2>
 
                                 {privacyPolicy1Contents.map((content, index)=>(
                                     <div key={index}>
-                                        <div class="privacy-policy-info-element">
-                                            <p class="privacy-policy-info-no">{index+1}</p>
-                                            <p class="privacy-policy-info-desc">{content.value}</p>
+                                        <div className="privacy-policy-info-element">
+                                            <p className="privacy-policy-info-no">{index+1}</p>
+                                            <p className="privacy-policy-info-desc">{content.value}</p>
                                         </div>
                                         {content.content.length?
-                                            <div class="privacy-policy-info-group-element-spec">
+                                            <div className="privacy-policy-info-group-element-spec">
                                                 {content.content.map((subcontent, index)=>(
-                                                    <p class="privacy-policy-info-desc" key={index}>{index+1+') '+subcontent.value}</p>
+                                                    <p className="privacy-policy-info-desc" key={index}>{index+1+') '+subcontent.value}</p>
                                                 ))}
                                             </div>
                                             :
@@ -48,8 +48,8 @@ export default function PrivacyPolicy({data}){
                                 ))}
 
                                     {privacyPolicy1Roots.map((content,index)=>(
-                                        <div class="privacy-policy-info-element-foot" key={index}>
-                                            <p class="privacy-policy-info-element-foot-desc">
+                                        <div className="privacy-policy-info-element-foot" key={index}>
+                                            <p className="privacy-policy-info-element-foot-desc">
                                                 {content.value}
                                             </p>
                                         </div>
@@ -61,28 +61,28 @@ export default function PrivacyPolicy({data}){
                 </div>
             </section>
 
-            <section class="operation-management-people privacy-policy-flow">
-                <div class="container-fluid">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
+            <section className="operation-management-people privacy-policy-flow">
+                <div className="container-fluid">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-sm-12">
 
-                                <h2 class="operation-management-wrap operation-management-flow-title">
-                                    <span class="operation-management-flow-spec">{privacyPolicy2Title1?.value}</span>
+                                <h2 className="operation-management-wrap operation-management-flow-title">
+                                    <span className="operation-management-flow-spec">{privacyPolicy2Title1?.value}</span>
                                     {privacyPolicy2Title2?.value}
                                 </h2>
 
                                 {privacyPolicy2Contents.map((content, index)=>(
                                     <div key={index}>
-                                        <div class="privacy-policy-info-element">
-                                            <p class="privacy-policy-info-desc privacy-policy-info-desc-spec">
+                                        <div className="privacy-policy-info-element">
+                                            <p className="privacy-policy-info-desc privacy-policy-info-desc-spec">
                                                 {content.value}
                                             </p>
                                         </div>
                                         {content.content.map((subcontent, index)=>(
-                                            <div class="privacy-policy-info-element" key={index}>
-                                                <p class="privacy-policy-info-no">{index+1}</p>
-                                                <p class="privacy-policy-info-desc">
+                                            <div className="privacy-policy-info-element" key={index}>
+                                                <p className="privacy-policy-info-no">{index+1}</p>
+                                                <p className="privacy-policy-info-desc">
                                                     {subcontent.value}
                                                 </p>
                                             </div>
@@ -96,27 +96,27 @@ export default function PrivacyPolicy({data}){
                 </div>
             </section>
 
-            <section class="privacy-policy-flow">
-                <div class="container-fluid">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
+            <section className="privacy-policy-flow">
+                <div className="container-fluid">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-sm-12">
 
-                                <h2 class="operation-management-wrap operation-management-flow-title">
-                                    <span class="operation-management-flow-spec">{privacyPolicy3Title1?.value}</span>
+                                <h2 className="operation-management-wrap operation-management-flow-title">
+                                    <span className="operation-management-flow-spec">{privacyPolicy3Title1?.value}</span>
                                     {privacyPolicy3Title2?.value}
                                 </h2>
 
                                 {privacyPolicy3Contents.map((content, index)=>(
-                                    <div class="privacy-policy-info-element" key={index}>
-                                        <p class="privacy-policy-info-desc privacy-policy-info-desc-spec">
+                                    <div className="privacy-policy-info-element" key={index}>
+                                        <p className="privacy-policy-info-desc privacy-policy-info-desc-spec">
                                             {content.value}
                                         </p>
                                     </div>
                                 ))}
                                 {privacyPolicy3Roots.map((content, index)=>(
-                                    <div class="privacy-policy-info-element" key={index}>
-                                        <p class="privacy-policy-info-desc">
+                                    <div className="privacy-policy-info-element" key={index}>
+                                        <p className="privacy-policy-info-desc">
                                             {content.value}
                                         </p>
                                     </div>
@@ -128,7 +128,7 @@ export default function PrivacyPolicy({data}){
                 </div>
             </section>
             
-            <div class="operation-management-divider"></div>
+            <div className="operation-management-divider"></div>
         </>
     )
 }
