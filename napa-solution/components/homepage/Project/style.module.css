@@ -7,20 +7,30 @@
 }
 
 .boxcolor {
-  background-color: #412490;
-  width: 455px;
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 10px solid #7c57e2;
+  opacity: 1;
+  max-width: 455px;
+  width: 40%;
   height: 375px;
+  /* height: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
+}
+.quaterImg > svg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 .boxcolor > h4 {
-  color: var(--unnamed-color-ffffff);
   text-align: left;
   font: normal normal bold 45px/59px Roboto;
   letter-spacing: 0px;
-  color: #ffffff;
+  color: #212121;
   opacity: 1;
 }
 .boxcolor > p {
@@ -42,9 +52,43 @@
   opacity: 1;
 }
 .cover {
-  transform: translateX(-69px);
   height: 276px;
-  /* background-color: #fff; */
+  transform: translateY(-119px);
   display: flex;
   align-items: center;
+}
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .boxcolor {
+    height: 260px;
+    width: 70%;
+  }
+  .boxcolor > h4 {
+    font-size: 28px;
+  }
+}
+@media (min-width: 769px) {
+  .cover {
+    height: 276px;
+    display: flex;
+    align-items: center;
+    transform: translateX(-69px);
+  }
+}
+@media (min-width: 375px) and (max-width: 768px) {
+  .boxcolor {
+    height: 260px;
+    width: 90%;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .boxcolor {
+    height: 260px;
+    width: 40%;
+  }
 }

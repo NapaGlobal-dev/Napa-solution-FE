@@ -9,7 +9,7 @@ const Footer = (props) => {
   return (
     <>
       <footer id="sticky-s-footer" className={clsx(styles.footer)}>
-        <div className="container-fluid d-flex justify-content-center flex-column ">
+        {/* <div className="container-fluid d-flex justify-content-center flex-column ">
           <div className="container-fluid">
             <div
               style={{
@@ -304,7 +304,7 @@ const Footer = (props) => {
               © 2021 NAPA Global. All Rights Reserved.
             </p>
           </div>
-        </div>
+        </div> */}
       </footer>
     </>
   );

@@ -82,10 +82,10 @@ const Index = (props) => {
         {/* <Carousel data={data["Carousel"]} /> */}
         {/* <News data={data["Home_News"]} /> */}
         <News />
-        <div className="blue-line"></div>
+        {/* <div className="blue-line"></div>
         <Service data={data["Service"]} />
         <Company data={data["Company"]} />
-        <Recruit data={data["Recruit"]} />
+        <Recruit data={data["Recruit"]} /> */}
         {/* <Slider data={data["Slides_Section"]} /> */}
         <Project data={data["Slides_Section"]} />
         <div style={{ height: 300 }}></div>

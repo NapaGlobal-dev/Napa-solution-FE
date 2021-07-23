@@ -65,31 +65,32 @@ const SlideSection = (props) => {
             // marginTop: "20px",
             // marginBottom: "20px",
             width: "100%",
+            height: "100%",
           }}
         >
           <div
             id="carousel-example"
             className="carousel slide container"
-            data-ride="carousel"
-            style={{ width: "100%" }}
+            // data-ride="carousel"
+            style={{ width: "100%", height: "100%" }}
             // data-ride="true"
             // data-interval="true"
           >
-            <div className="carousel-inner row w-100 mx-auto" role="listbox">
+            <div className="carousel-inner row w-100 mx-auto h-100">
               {slideList.map((item, index) => (
                 <div
                   className={
                     index === 0
-                      ? "carousel-item col-12 col-sm-6 col-md-4 col-lg-4 active"
-                      : "carousel-item col-12 col-sm-6 col-md-4 col-lg-4"
+                      ? "carousel-item col-12 col-sm-12 col-md-6 col-lg-4 active"
+                      : "carousel-item col-12 col-sm-12 col-md-6 col-lg-4"
                   }
                   key={index}
                   style={{
                     // display: "flex",
                     // alignItems: "center",
                     // flexDirection: "column",
-                    height: "275px",
-                    width: "auto",
+                    height: "100%",
+                    width: "100%",
                     // flexWrap: "nowrap",
                   }}
                   // className="crsitem"
@@ -104,35 +105,41 @@ const SlideSection = (props) => {
                       boxShadow: "0px 3px 6px #00000029",
                       opacity: 1,
                       height: "100%",
+                      // height: "auto",
                       width: "100%",
                       display: "flex",
                       alignItems: "center",
+                      "& > span": {
+                        height: "auto !important",
+                      },
                       border: "0.5px solid gray",
                     }}
+                    className="imgitem"
                   >
-                    {/* <LazyLoadImage
+                    <LazyLoadImage
                       alt="imgSlide"
                       effect="blur"
                       src={item?.image.original}
                       placeholderSrc={item?.image.thumbnail}
                       threshold={100}
                       width="100%"
-                      height="174px"
+                      height="100%"
                       className="img-fluid mx-auto d-block"
-                      className="imgitem"
-                    /> */}
-                    <img src={item?.image.original} />
+                    />
+                    {/* <img src={item?.image.original} /> */}
                   </a>
                 </div>
               ))}
 
               {slideList.map((item, index) => (
                 <div
-                  className="carousel-item col-12 col-sm-6 col-md-4 col-lg-4"
+                  className="carousel-item col-12 col-sm-12 col-md-6 col-lg-4"
                   key={slideList.length + index}
                   style={{
-                    width: "auto",
-                    height: "275px",
+                    // width: "auto",
+                    // height: "275px",
+                    height: "100%",
+                    width: "100%",
                     // display: "flex",
                     // alignItems: "center",
                     // flexDirection: "column",
@@ -145,6 +152,7 @@ const SlideSection = (props) => {
                     target="_blank"
                     style={{
                       height: "100%",
+                      // height: "auto",
                       width: "100%",
                       display: "flex",
                       alignItems: "center",
@@ -153,28 +161,30 @@ const SlideSection = (props) => {
                       background: "#FFFFFF 0% 0% no-repeat padding-box",
                       boxShadow: "0px 3px 6px #00000029",
                       opacity: 1,
+                      "& > span": {
+                        height: "auto !important",
+                      },
                       border: "0.5px solid gray",
                     }}
+                    className="imgitem"
                   >
-                    {/* <LazyLoadImage
+                    <LazyLoadImage
                       alt="imgSlide"
                       effect="blur"
                       src={item?.image.original}
                       placeholderSrc={item?.image.thumbnail}
                       threshold={100}
                       width="100%"
-                      className="img-fluid mx-auto d-block w-100 h-100"
-                      height="174px"
-                      className="imgitem"
-                    /> */}
-                    <img src={item?.image.original} />
+                      className="img-fluid mx-auto d-blockS"
+                      height="100%"
+                    />
                   </a>
                 </div>
               ))}
 
               {/* {slideList.map((item, index) => (
                 <div
-                  className="carousel-item col-12 col-sm-6 col-md-4 col-lg-4"
+                  className="carousel-item col-12 col-sm-12 col-md-4 col-lg-4"
                   key={slideList.length + index}
                   style={{
                     width: "auto",

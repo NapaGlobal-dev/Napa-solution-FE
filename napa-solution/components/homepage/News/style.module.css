@@ -31,6 +31,13 @@
   opacity: 1;
   padding-bottom: 4px;
 }
+.content > p {
+  text-align: left;
+  font: normal normal bold 16px/30px Roboto;
+  letter-spacing: 0.48px;
+  color: #212121;
+  opacity: 1;
+}
 .froup2 > div > p {
   text-align: left;
   font: normal normal bold 16px/30px Roboto;
