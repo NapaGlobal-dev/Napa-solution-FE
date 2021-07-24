@@ -71,7 +71,7 @@ const SlideSection = (props) => {
           <div
             id="carousel-example"
             className="carousel slide container"
-            // data-ride="carousel"
+            data-ride="carousel"
             style={{ width: "100%", height: "100%" }}
             // data-ride="true"
             // data-interval="true"
