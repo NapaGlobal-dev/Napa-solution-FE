@@ -52,9 +52,7 @@
   color: #212121;
   opacity: 1;
 }
-/* .coverText {
-  position: relative;
-} */
+
 .h2Text {
   text-align: left;
   font: normal normal bold 45px/25px Roboto;
@@ -140,13 +138,50 @@
   .cover {
     flex-direction: column;
     padding: 0px 24px;
-    margin: 30px 24px;
+    margin: 40px 24px;
+    position: relative;
   }
   .container {
     padding: 0;
   }
   .contentText {
     padding: 0px;
+  }
+  .h2Text {
+    transform: rotate(90deg) translate(14%, 77px);
+    font: normal normal bold 28px/25px Roboto;
+  }
+  .reverse {
+    margin-top: 121px;
+    margin-bottom: 42px;
+
+    transform: skewY(-24deg) translate(0px, -40px);
+  }
+  .reverse::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: 0.5px solid gray;
+    border-left: 10px solid gray;
+    border-top: 10px solid gray;
+    position: absolute;
+    box-shadow: 0px 3px 6px #00000029;
+    transform: skewY(10deg) translate3d(-20px, -32px, 71px);
+  }
+
+  .initial::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: 0.5px solid gray;
+    border-top: 10px solid gray;
+    border-top-right-radius: 10px solid gray;
+    border-right: 10px solid gray;
+    position: absolute;
+    box-shadow: 0px 3px 6px #00000029;
+    transform: skewY(10deg) translate3d(-20px, -32px, 71px);
   }
 }
 

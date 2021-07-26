@@ -58,7 +58,7 @@ const Service = (props) => {
           <div
             className={
               index % 2 == 0
-                ? clsx(styles.cover)
+                ? clsx(styles.cover, styles.initial)
                 : clsx(styles.cover, styles.reverse)
             }
           >
