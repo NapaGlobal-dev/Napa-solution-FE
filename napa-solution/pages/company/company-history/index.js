@@ -1,22 +1,26 @@
 import Banner from "../../../components/company/company-history/Banner"
 import History from "../../../components/company/company-history/History"
-import Breadcrumb from "../../../components/company/company-history/Breadcrumb"
+import Breadcrumb from "../../../components/layout/breadcrumb"
 import CompanyPages from "../../../components/company/CompanyPages"
 
 import { GET_COMPANYHISTORY } from "../../../query/general"
+import { getData } from "../../../util/converArrayToObject"
 import { useQuery } from "@apollo/client"
 import Head from "next/head"
 
 
 export default function CompanyHistory(){
     const {data, loading, error} = useQuery(GET_COMPANYHISTORY)
+    const listBreadcrumb = []
+    const path = getData(data, /CompanyHistory_Breadcrumb_Content[^1]/)
+    path.forEach(e => {
+        listBreadcrumb.push({
+            url: e.url,
+            pageName: e.value
+        })
+    })
 
-    const banner = loading || data.banner[0]
-    const breadcrumb = loading || data.breadcrumb[0]
-    const content = loading || data.content[0]
-    const history = loading || data.history
-
-    return loading || (
+    return (
         <>
             <Head>
                 <link
@@ -31,9 +35,9 @@ export default function CompanyHistory(){
                 <script src="../js/common/popper.min.js"></script>
                 <script src="../js/common/bootstrap.min.js"></script>
             </Head>
-            <Banner data={banner}/>
-            <Breadcrumb data={breadcrumb}/>
-            <History history={history} content={content}/>
+            <Banner data={data}/>
+            <Breadcrumb listBreadcrumb={listBreadcrumb}/>
+            <History data={data}/>
             <CompanyPages/>
         </>
     )

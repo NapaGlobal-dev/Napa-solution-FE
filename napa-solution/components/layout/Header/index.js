@@ -1,51 +1,50 @@
 import { useQuery } from "@apollo/client";
 import { GET_HEADER } from "../../../query/general";
+import { getData } from "../../../util/converArrayToObject";
 import Head from "next/head";
 const Header = () => {
   const { data, loading, error } = useQuery(GET_HEADER);
-  const navbar = loading || data.navbar[0].property;
-  const navbarLogo = loading || navbar[0];
-  const navbarHome = loading || navbar[1];
-  const navbarMenu = loading || navbar.slice(2, -1);
-  const navbarMenuIcon = loading || navbar[navbar.length - 1];
-  return (
-    loading || (
+  const navbarLogo = getData(data, /Navbar_Logo/)[0]
+  const navbarHome = getData(data, /Navbar_Menu1/)[0]
+  const navbarMenu = getData(data, /Navbar_Menu([2-9]|1[0-9])/)
+  const navbarMenuIcon = getData(data, /Navbar_MenuIcon/)[0]
+  return(
       <>
         <Head>
           <link key="css/common.css" rel="stylesheet" href="css/common.css" />
         </Head>
         <nav
           id="navbar"
-          class="navbar navbar-expand-lg navbar-light bg-light no-default-spacing"
+          className="navbar navbar-expand-lg navbar-light bg-light no-default-spacing"
         >
-          <a class="navbar-brand no-default-spacing" href="index.html">
+          <a className="navbar-brand no-default-spacing" href={navbarLogo?.url}>
             <img
               alt="LOGO"
-              src={navbarLogo.image.publicUrl}
-              class="img-navbar-brand"
+              src={navbarLogo?.image?.publicUrl}
+              className="img-navbar-brand"
             />
           </a>
-          <div class="collapse navbar-collapse navbar-menu" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item item-navbar-menu active">
+          <div className="collapse navbar-collapse navbar-menu" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item item-navbar-menu active">
                 <img
                   alt="icon-navbar-menu"
-                  src="./img/Symbol46-10.svg"
-                  class="icon-navbar-menu"
+                  src={navbarHome?.image?.publicUrl}
+                  className="icon-navbar-menu"
                 />
-                <a href={navbarHome.url} class="text-navbar-menu">
-                  {navbarHome.value}
+                <a href={navbarHome?.url} className="text-navbar-menu">
+                  {navbarHome?.value}
                 </a>
               </li>
-              {navbarMenu.map((menu) => (
-                <li class="nav-item item-navbar-menu">
+              {navbarMenu.map((menu, index) => (
+                <li className="nav-item item-navbar-menu" key={index}>
                   <img
                     alt="icon-navbar-menu"
-                    src="./img/Symbol46-10.svg"
-                    class="icon-navbar-menu"
+                    src={menu?.image?.publicUrl}
+                    className="icon-navbar-menu"
                   />
-                  <a href={menu.url} class="text-navbar-menu">
-                    {menu.value}
+                  <a href={menu?.url} className="text-navbar-menu">
+                    {menu?.value}
                   </a>
                 </li>
               ))}
@@ -53,7 +52,7 @@ const Header = () => {
           </div>
           <button
             id="navbar-toggler"
-            class="navbar-toggler no-default-spacing"
+            className="navbar-toggler no-default-spacing"
             type="button"
             data-toggle="collapse"
             data-target="#navbarNav"
@@ -61,12 +60,11 @@ const Header = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <img alt="button-collapse" src={navbarMenuIcon.image.publicUrl} />
+            <img alt="button-collapse" src={navbarMenuIcon?.image?.publicUrl} />
           </button>
         </nav>
       </>
     )
-  );
-};
+}
 
 export default Header;
