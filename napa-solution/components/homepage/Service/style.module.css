@@ -62,7 +62,7 @@
   color: #412490;
   opacity: 1;
   position: absolute;
-  transform: rotate(90deg) translate(47%, 245%);
+  transform: rotate(90deg) translate(47%, 245px);
   float: left;
 }
 .h2Text::after {
@@ -74,4 +74,84 @@
   bottom: -7px;
   left: 0;
   z-index: -1;
+}
+
+@media (min-width: 850px) and (max-width: 1366px) {
+  .mainImg {
+    width: 300px;
+    margin-top: 50%;
+  }
+  .cover {
+    margin-top: 96px;
+  }
+}
+@media (min-width: 767px) and (max-width: 850px) {
+  .mainImg {
+    width: 200px;
+    margin-top: 50px;
+  }
+  .cover {
+    margin-top: 96px;
+  }
+}
+@media (max-width: 767px) {
+  .mainImg {
+    width: 100px;
+    margin-top: 20px;
+    min-width: 179px;
+    transform: translate(59px, 10px) skewY(10deg);
+  }
+  .bgImgEven,
+  .bgImgOdd {
+    width: 100%;
+    transform: skewY(10deg) translateY(496px);
+  }
+  .cover {
+    flex-direction: column;
+    padding: 0px 24px;
+    margin: 200px 36px;
+  }
+  .container {
+    padding: 0;
+  }
+  .groupImg {
+    margin: 24px 0;
+  }
+  .contentText {
+    margin: 48px 0;
+  }
+  .contentText {
+    transform: skewY(10deg);
+  }
+}
+@media (max-width: 414px) {
+  .mainImg {
+    width: 100px;
+    margin-top: 20px;
+  }
+  .bgImgEven {
+    width: 100px;
+    transform: skewY(10deg) translate(-50px, 0px);
+  }
+  .bgImgOdd {
+    width: 100px;
+    transform: skewY(10deg) translate(30px, -40px);
+  }
+  .cover {
+    flex-direction: column;
+    padding: 0px 24px;
+    margin: 30px 24px;
+  }
+  .container {
+    padding: 0;
+  }
+  .contentText {
+    padding: 0px;
+  }
+}
+
+@media (width: 375px) {
+  .bgImgEven {
+    transform: skewY(10deg) translate(-20px, 0px);
+  }
 }
