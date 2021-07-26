@@ -1,0 +1,77 @@
+.container {
+  padding: 0px 179px;
+}
+.cover {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.reverse {
+  flex-direction: row-reverse;
+}
+.groupImg {
+  position: relative;
+}
+.mainImg {
+  z-index: 1;
+}
+
+.bgImgOdd {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  transform: translate(-55px, 50px);
+  z-index: -1;
+}
+.bgImgEven {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  transform: translate(55px, 50px);
+  z-index: -1;
+}
+.contentText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 72px;
+}
+.contentText > h3 {
+  text-align: left;
+  font: normal normal bold 30px/25px Roboto;
+  letter-spacing: 0.9px;
+  color: #412490;
+  opacity: 1;
+  margin-bottom: 28px;
+}
+.contentText > p {
+  text-align: center;
+  font: normal normal normal 16px/25px Roboto;
+  letter-spacing: 0.48px;
+  color: #212121;
+  opacity: 1;
+}
+/* .coverText {
+  position: relative;
+} */
+.h2Text {
+  text-align: left;
+  font: normal normal bold 45px/25px Roboto;
+  letter-spacing: 4.5px;
+  color: #412490;
+  opacity: 1;
+  position: absolute;
+  transform: rotate(90deg) translate(47%, 245%);
+  float: left;
+}
+.h2Text::after {
+  content: "";
+  height: 15px;
+  width: 100%;
+  background-color: #7c57e2;
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  z-index: -1;
+}
