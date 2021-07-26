@@ -12,8 +12,17 @@ const SlideSection = (props) => {
     $("#carousel-example").on("slide.bs.carousel", function (e) {
       var $e = $(e.relatedTarget);
       var idx = $e.index();
-      var itemsPerSlide = 5;
+      var itemsPerSlide = 3;
       var totalItems = $(".carousel-item").length;
+      // var owl = $("#carousel-example");
+      // owl.owlCarousel({
+      //   // items:4,
+      //   // loop:true,
+      //   // margin:10,
+      //   autoplay: false,
+      //   // autoplayTimeout:1000,
+      //   // autoplayHoverPause:true
+      // });
 
       if (idx >= totalItems - (itemsPerSlide - 1)) {
         var it = itemsPerSlide - (totalItems - idx);
@@ -39,33 +48,74 @@ const SlideSection = (props) => {
           href="css/slides-section.module.css"
         />
       </Head>
-      <div className="top-content">
+      <div
+        className="top-content-project"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <div
-          className="container-fluid"
+          // className="container-fluid"
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            marginTop: "20px",
-            marginBottom: "20px",
+            // marginTop: "20px",
+            // marginBottom: "20px",
+            width: "100%",
+            height: "100%",
           }}
         >
           <div
             id="carousel-example"
             className="carousel slide container"
             data-ride="carousel"
+            style={{ width: "100%", height: "100%" }}
+            // data-ride="true"
+            // data-interval="true"
           >
-            <div className="carousel-inner row w-100 mx-auto" role="listbox">
+            <div className="carousel-inner row w-100 mx-auto h-100">
               {slideList.map((item, index) => (
                 <div
                   className={
                     index === 0
-                      ? "carousel-item col-12 col-sm-6 col-md-4 col-lg-4 active"
-                      : "carousel-item col-12 col-sm-6 col-md-4 col-lg-4"
+                      ? "carousel-item col-12 col-sm-12 col-md-6 col-lg-4 active"
+                      : "carousel-item col-12 col-sm-12 col-md-6 col-lg-4"
                   }
                   key={index}
+                  style={{
+                    // display: "flex",
+                    // alignItems: "center",
+                    // flexDirection: "column",
+                    height: "100%",
+                    width: "100%",
+                    // flexWrap: "nowrap",
+                  }}
+                  // className="crsitem"
                 >
-                  <a href={item.url} target="_blank">
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    style={{
+                      background:
+                        "var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box",
+                      background: "#FFFFFF 0% 0% no-repeat padding-box",
+                      boxShadow: "0px 3px 6px #00000029",
+                      opacity: 1,
+                      height: "100%",
+                      // height: "auto",
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      "& > span": {
+                        height: "auto !important",
+                      },
+                      border: "0.5px solid gray",
+                    }}
+                    className="imgitem"
+                  >
                     <LazyLoadImage
                       alt="imgSlide"
                       effect="blur"
@@ -73,18 +123,51 @@ const SlideSection = (props) => {
                       placeholderSrc={item?.image.thumbnail}
                       threshold={100}
                       width="100%"
+                      height="100%"
                       className="img-fluid mx-auto d-block"
                     />
+                    {/* <img src={item?.image.original} /> */}
                   </a>
                 </div>
               ))}
 
               {slideList.map((item, index) => (
                 <div
-                  className="carousel-item col-12 col-sm-6 col-md-4 col-lg-4"
+                  className="carousel-item col-12 col-sm-12 col-md-6 col-lg-4"
                   key={slideList.length + index}
+                  style={{
+                    // width: "auto",
+                    // height: "275px",
+                    height: "100%",
+                    width: "100%",
+                    // display: "flex",
+                    // alignItems: "center",
+                    // flexDirection: "column",
+                    // flexWrap: "nowrap",
+                  }}
+                  // className="crsitem"
                 >
-                  <a href={item.url} target="_blank">
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    style={{
+                      height: "100%",
+                      // height: "auto",
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      background:
+                        "var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box",
+                      background: "#FFFFFF 0% 0% no-repeat padding-box",
+                      boxShadow: "0px 3px 6px #00000029",
+                      opacity: 1,
+                      "& > span": {
+                        height: "auto !important",
+                      },
+                      border: "0.5px solid gray",
+                    }}
+                    className="imgitem"
+                  >
                     <LazyLoadImage
                       alt="imgSlide"
                       effect="blur"
@@ -92,13 +175,54 @@ const SlideSection = (props) => {
                       placeholderSrc={item?.image.thumbnail}
                       threshold={100}
                       width="100%"
-                      className="img-fluid mx-auto d-block"
+                      className="img-fluid mx-auto d-blockS"
+                      height="100%"
                     />
                   </a>
                 </div>
               ))}
+
+              {/* {slideList.map((item, index) => (
+                <div
+                  className="carousel-item col-12 col-sm-12 col-md-4 col-lg-4"
+                  key={slideList.length + index}
+                  style={{
+                    width: "auto",
+                    height: "275px",
+                    // marginLeft: "8px",
+                  }}
+                >
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    style={{
+                      height: "100%",
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      background:
+                        "var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box",
+                      background: "#FFFFFF 0% 0% no-repeat padding-box",
+                      boxShadow: "0px 3px 6px #00000029",
+                      opacity: 1,
+                    }}
+                  >
+                    <LazyLoadImage
+                      alt="imgSlide"
+                      effect="blur"
+                      src={item?.image.original}
+                      placeholderSrc={item?.image.thumbnail}
+                      threshold={100}
+                      width="100%"
+                      className="img-fluid mx-auto d-block w-100 h-100"
+                      height="174px"
+                      className="imgitem"
+                    />
+                  </a>
+                </div>
+              ))} */}
             </div>
-            <LazyLoadImage
+            {/* <LazyLoadImage
               alt="imgbtnprev"
               effect="blur"
               src={data["Slides_List_Previous"]?.image.original}
@@ -123,7 +247,7 @@ const SlideSection = (props) => {
               role="button"
               data-slide="next"
               className="arrow-right"
-            />
+            /> */}
           </div>
         </div>
       </div>
