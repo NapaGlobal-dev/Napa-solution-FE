@@ -65,7 +65,6 @@ const Header = () => {
     useEffect(()=>{
        setLanguage(dataLang)
     },[])
-    console.log(language)
     return (
       <div className="langWrapper">
         <div className="langBtn" onClick={() => setOpenDropndown(!openDropdown)}>
