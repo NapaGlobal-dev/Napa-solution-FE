@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import React, { Fragment } from "react";
+import StoreProvier from "../util/language/store";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -60,8 +61,8 @@ class MyDocument extends Document {
         </Head>
         <body>
           <div id="wrapper">
-            <Main />
-            <NextScript />
+              <Main />
+              <NextScript />
           </div>
         </body>
       </Html>
