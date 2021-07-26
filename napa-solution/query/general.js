@@ -401,3 +401,27 @@ export const RemoteManage = gql`
     }
   }
 `;
+
+export const GET_PRIVACYPOLICY = gql`
+  query getPrivacyPolicy{
+    privacyPolicy: allPages(where:{url:"/privacy-policy"}){
+      name
+      url
+      layouts{
+        name
+        property{
+          name
+          value
+          image{
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+          content{
+            name
+            value
+          }
+        }
+      }
+    }
+  }
+`;

@@ -20,7 +20,7 @@ export const convertArrToObjectBySpecialName  = (data = [], keyName ="name") => 
 }
 
 export function getData(data={}, key='', property='name'){
-  //name property is required
+
   const isArray = (obj) => Object.prototype.toString.call(obj) == '[object Array]'
   const isObject = (obj) => Object.prototype.toString.call(obj) == '[object Object]'
 
