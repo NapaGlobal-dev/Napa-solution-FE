@@ -14,6 +14,7 @@ const Company = (props) => {
           placeholderSrc={data["Home_Company_Img"].image?.thumbnail}
           threshold={100}
           width="100%"
+          height = "100%"
           className="company-image"
         />
       </div>
