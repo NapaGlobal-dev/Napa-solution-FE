@@ -6,7 +6,8 @@ import App from "next/app";
 import { client } from "../apolo-client";
 import { footerDataQuery } from "../query/general";
 import '../styles/globals.css';
-import StoreProvier from "../util/language/store";
+import StoreProvier, { StoreContext } from "../util/language/store";
+import { useContext } from "react";
 
 function MyApp({ Component, pageProps, footerData, ...props }) {
   return (

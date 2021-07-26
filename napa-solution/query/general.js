@@ -273,17 +273,18 @@ export const GET_COMPANYHISTORY = gql`
   query getCompanyHistory {
     banner: allLayouts(where: { name: "CompanyHistory_Banner" }) {
       name
-      property(sortBy: name_ASC) {
+      property{
         name
         value
         image {
-          publicUrl
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
         }
       }
     }
     breadcrumb: allLayouts(where: { name: "CompanyHistory_Breadcrumb" }) {
       name
-      property(sortBy: name_ASC) {
+      property{
         name
         value
         url
@@ -291,18 +292,18 @@ export const GET_COMPANYHISTORY = gql`
     }
     content: allLayouts(where: { name: "CompanyHistory_Content" }) {
       name
-      property(sortBy: name_ASC) {
+      property{
         name
         value
       }
     }
-    history: allHistories(sortBy: name_ASC, search: "CompanyHistory") {
+    history: allHistories(search: "CompanyHistory") {
       name
       year
-      milestones(sortBy: name_ASC) {
+      milestones{
         name
         date
-        events(sortBy: name_ASC) {
+        events{
           name
           event
         }
@@ -318,7 +319,8 @@ export const GET_COMPANYPAGES = gql`
         name
         url
         image {
-          publicUrl
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "32" })
         }
       }
     }
@@ -395,6 +397,30 @@ export const RemoteManage = gql`
       }
       image {
         path
+      }
+    }
+  }
+`;
+
+export const GET_PRIVACYPOLICY = gql`
+  query getPrivacyPolicy{
+    privacyPolicy: allPages(where:{url:"/privacy-policy"}){
+      name
+      url
+      layouts{
+        name
+        property{
+          name
+          value
+          image{
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+          content{
+            name
+            value
+          }
+        }
       }
     }
   }
