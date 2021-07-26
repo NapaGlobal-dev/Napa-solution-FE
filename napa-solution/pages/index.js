@@ -1,9 +1,9 @@
 import { client } from "../apolo-client";
 import { HomePage } from "../query/general";
 import { convertArrToObject } from "../util/converArrayToObject";
-import Service from "../components/homepage/Service";
+// import Service from "../components/homepage/Service";
 import Company from "../components/homepage/Company";
-import Recruit from "../components/homepage/Recruit";
+// import Recruit from "../components/homepage/Recruit";
 // import News from "../components/homepage/News";
 // import Carousel from "../components/homepage/Carousel";
 // import Slider from "../components/homepage/Slider";
@@ -83,9 +83,9 @@ const Index = (props) => {
         {/* <News data={data["Home_News"]} /> */}
         <News />
         {/* <div className="blue-line"></div>
-        <Service data={data["Service"]} />
+        <Service data={data["Service"]} /> */}
         <Company data={data["Company"]} />
-        <Recruit data={data["Recruit"]} /> */}
+        {/* <Recruit data={data["Recruit"]} /> */}
         {/* <Slider data={data["Slides_Section"]} /> */}
         <Project data={data["Slides_Section"]} />
         <div style={{ height: 300 }}></div>
