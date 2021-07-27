@@ -11,17 +11,8 @@ const Footer = (props) => {
       <footer id="sticky-s-footer" className={clsx(styles.footer)}>
         <div className="container-fluid d-flex justify-content-center flex-column ">
           <div className="container-fluid">
-            <div
-              style={{
-                height: 500,
-                position: "absolute",
-                zIndex: 1,
-
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-              }}
-              className={clsx(styles.scaleText)}
+            <div className={clsx(styles.covergalery)}>
+            <div className={clsx(styles.scaleText)}
             >
               <h3 className={clsx(styles.h3text)}>
                 ベトナムオフショア開発を始めたい」「自社のアイデアを製品化したい」
@@ -44,11 +35,7 @@ const Footer = (props) => {
                 </div>
               </a>
             </div>
-            <div className={clsx(styles.covergalery)}>
-              <img
-                src="./img/home/bild.galerie.jpg"
-                className={clsx(styles.imggalery)}
-              />
+            
             </div>
           </div>
           <div

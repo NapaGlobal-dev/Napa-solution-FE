@@ -14,6 +14,11 @@
   justify-content: center;
   align-items: center; */
   height: auto !important;
+  padding: 50px 20px;
+}
+#carousel-example a{
+  border: none !important;
+  box-shadow: 0px 3px 6px #00000029 !important;
 }
 @media (min-width: 1900px) {
   #carousel-example {
@@ -47,7 +52,7 @@
   }
   .top-content-project {
     width: 960px;
-    height: 205px;
+    /* height: 205px; */
   }
   .crsitem {
     height: 205px;
