@@ -44,7 +44,8 @@
 .covergalery {
   display: flex;
   justify-content: center;
-  transform: translateY(-130px);
+  /* transform: translateY(-130px); */
+  background-image: url("/img/home/bild.galerie.jpg");
 }
 .liText {
   color: var(--unnamed-color-ffffff);

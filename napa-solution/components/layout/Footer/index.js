@@ -11,6 +11,7 @@ const Footer = (props) => {
       <footer id="sticky-s-footer" className={clsx(styles.footer)}>
         <div className="container-fluid d-flex justify-content-center flex-column ">
           <div className="container-fluid">
+            <div className={clsx(styles.covergalery)}>
             <div
               style={{
                 height: 500,
@@ -44,11 +45,7 @@ const Footer = (props) => {
                 </div>
               </a>
             </div>
-            <div className={clsx(styles.covergalery)}>
-              <img
-                src="./img/home/bild.galerie.jpg"
-                className={clsx(styles.imggalery)}
-              />
+            
             </div>
           </div>
           <div
