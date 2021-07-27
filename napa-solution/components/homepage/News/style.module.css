@@ -1,7 +1,7 @@
 .container {
   display: flex;
   justify-content: space-around;
-  padding: 30px 40px;
+  padding: 30px 100px;
 }
 
 .group1 > h4 {
@@ -53,9 +53,16 @@
     padding: 30px 40px;
     flex-direction: column;
   }
-  .group1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .group1 > p, .group1 > h4 {
+    text-align: center;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1920px){
+  .group2{
+    padding-left: 65px;
+  }
+  .group1{
+    width: 225px;
   }
 }
