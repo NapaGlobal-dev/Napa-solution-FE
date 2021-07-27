@@ -70,7 +70,11 @@ const Service = (props) => {
             <div className={clsx(styles.groupImg)}>
               <img src={item.img} className={clsx(styles.mainImg)} />
               <img
-                src="img/home/bg_service.svg"
+                src={
+                  index % 2 == 0
+                    ? "img/home/bg-service-left.png"
+                    : "img/home/bg_service.svg"
+                }
                 className={
                   index % 2 == 0
                     ? clsx(styles.bgImgOdd)
@@ -78,7 +82,13 @@ const Service = (props) => {
                 }
               />
             </div>
-            <div className={clsx(styles.contentText)}>
+            <div
+              className={
+                index % 2 == 0
+                  ? clsx(styles.contentText)
+                  : clsx(styles.contentReverse)
+              }
+            >
               <h3>{item.title}</h3>
               <p>{item.subTitle}</p>
               <a href={item.url}>
