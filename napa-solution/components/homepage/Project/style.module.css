@@ -5,7 +5,12 @@
   width: 100%;
   align-items: center;
 }
-
+.project {
+  margin: 120px 0 260px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
 .boxcolor {
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
   background: #ffffff 0% 0% no-repeat padding-box;
@@ -53,9 +58,14 @@
 }
 .cover {
   height: 276px;
-  /* transform: translateY(-119px); */
+  margin-right: 15px;
   display: flex;
   align-items: center;
+}
+@media (min-width: 1600px) and (max-width: 1920px) {
+  .boxcolor {
+    padding: 90px 200px;
+  }
 }
 @media (max-width: 768px) {
   .container {

@@ -3,7 +3,7 @@ import clsx from "clsx";
 import SlideSection from "../SlideSection";
 const Project = (props) => {
   return (
-    <div className={clsx("container-fluid", styles.container)}>
+    <div className={clsx("container-fluid", styles.project)}>
       <div className={clsx(styles.boxcolor)}>
         <h4>PROJECT</h4>
         <p>顧客製品</p>

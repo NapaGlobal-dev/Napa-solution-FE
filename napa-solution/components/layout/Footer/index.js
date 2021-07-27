@@ -12,17 +12,7 @@ const Footer = (props) => {
         <div className="container-fluid d-flex justify-content-center flex-column ">
           <div className="container-fluid">
             <div className={clsx(styles.covergalery)}>
-            <div
-              style={{
-                height: 500,
-                position: "absolute",
-                zIndex: 1,
-
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-              }}
-              className={clsx(styles.scaleText)}
+            <div className={clsx(styles.scaleText)}
             >
               <h3 className={clsx(styles.h3text)}>
                 ベトナムオフショア開発を始めたい」「自社のアイデアを製品化したい」

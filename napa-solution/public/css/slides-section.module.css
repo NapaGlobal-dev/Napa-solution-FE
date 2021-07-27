@@ -49,7 +49,6 @@
 @media (min-width: 1350px) and (max-width: 1600px) {
   #carousel-example {
     max-width: 960px;
-    margin-right: -15px;
   }
   .top-content-project {
     width: 960px;
