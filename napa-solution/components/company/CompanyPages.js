@@ -10,7 +10,7 @@ export default function CompanyPages(){
     return loading || (
         <>
             <Head>
-                <link key="/css/company-pages.css" rel="stylesheet" href="/css/company-pages.css" />
+                <link key="css/company-pages.css" rel="stylesheet" href="css/company-pages.css" />
             </Head>
             <div className="container-fluid image-wrapper-10 no-default-spacing">
                 <div className="container row no-spacing-mobile no-space">

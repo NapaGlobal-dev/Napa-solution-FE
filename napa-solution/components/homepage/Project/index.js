@@ -27,7 +27,7 @@ const Project = (props) => {
                 transform="translate(0.683)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_34"
@@ -37,7 +37,7 @@ const Project = (props) => {
                 transform="translate(0.683)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_35"
@@ -47,7 +47,7 @@ const Project = (props) => {
                 transform="translate(0.683)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_36"
@@ -56,7 +56,7 @@ const Project = (props) => {
                 x2="47.106"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_37"
@@ -66,7 +66,7 @@ const Project = (props) => {
                 transform="translate(0.683)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_38"
@@ -76,7 +76,7 @@ const Project = (props) => {
                 transform="translate(0.683 1.365)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_39"
@@ -86,7 +86,7 @@ const Project = (props) => {
                 transform="translate(0.683 1.365)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_40"
@@ -96,7 +96,7 @@ const Project = (props) => {
                 transform="translate(0.683)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_41"
@@ -105,7 +105,7 @@ const Project = (props) => {
                 x2="96.26"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_42"
@@ -115,7 +115,7 @@ const Project = (props) => {
                 transform="translate(0.683)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_43"
@@ -125,7 +125,7 @@ const Project = (props) => {
                 transform="translate(0.683)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_44"
@@ -135,7 +135,7 @@ const Project = (props) => {
                 transform="translate(0.683)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_45"
@@ -145,7 +145,7 @@ const Project = (props) => {
                 transform="translate(0.683)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_46"
@@ -155,7 +155,7 @@ const Project = (props) => {
                 transform="translate(11.606)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_47"
@@ -165,7 +165,7 @@ const Project = (props) => {
                 transform="translate(23.894)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_48"
@@ -175,7 +175,7 @@ const Project = (props) => {
                 transform="translate(36.183)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_50"
@@ -185,7 +185,7 @@ const Project = (props) => {
                 transform="translate(48.471 16.385)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_51"
@@ -195,7 +195,7 @@ const Project = (props) => {
                 transform="translate(59.394 28.673)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_52"
@@ -205,7 +205,7 @@ const Project = (props) => {
                 transform="translate(70.317 42.327)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_53"
@@ -215,7 +215,7 @@ const Project = (props) => {
                 transform="translate(79.875 55.981)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_54"
@@ -225,7 +225,7 @@ const Project = (props) => {
                 transform="translate(92.163 69.635)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_55"
@@ -235,7 +235,7 @@ const Project = (props) => {
                 transform="translate(103.087 83.289)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_56"
@@ -245,7 +245,7 @@ const Project = (props) => {
                 transform="translate(114.01 98.308)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_57"
@@ -255,7 +255,7 @@ const Project = (props) => {
                 transform="translate(126.298 113.327)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_58"
@@ -265,7 +265,7 @@ const Project = (props) => {
                 transform="translate(137.221 125.615)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_59"
@@ -275,7 +275,7 @@ const Project = (props) => {
                 transform="translate(149.51 140.635)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <line
                 id="Line_60"
@@ -285,7 +285,7 @@ const Project = (props) => {
                 transform="translate(160.433 154.289)"
                 fill="none"
                 stroke="rgba(204,204,204,0.76)"
-                stroke-width="2"
+                strokeWidth="2"
               />
             </g>
           </svg>

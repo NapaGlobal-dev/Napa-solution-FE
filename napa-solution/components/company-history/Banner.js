@@ -1,5 +1,5 @@
 import {LazyLoadImage} from 'react-lazy-load-image-component'
-import { getData } from "../../../util/converArrayToObject"
+import { getData } from "../../util/converArrayToObject"
 
 export default function Banner({data}){
     const banner = getData(data, /CompanyHistory_Banner_Banner/)[0]
