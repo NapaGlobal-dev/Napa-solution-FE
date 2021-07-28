@@ -87,7 +87,7 @@ const Index = (props) => {
         <Company data={data["Company"]} />
         {/* <Recruit data={data["Recruit"]} /> */}
         {/* <Slider data={data["Slides_Section"]} /> */}
-        {/* <Project data={data["Slides_Section"]} /> */}
+        <Project data={data["Slides_Section"]} />
         {/* <div style={{ height: 300 }}></div> */}
         {/* <iframe
           src="./html/slide.html"
