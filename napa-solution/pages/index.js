@@ -12,6 +12,8 @@ import { useEffect } from "react";
 import Begin from "../components/homepage/Begin";
 import News from "../components/homepage/News/index.js";
 import Project from "../components/homepage/Project/index.js";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 const Index = (props) => {
   const data = convertArrToObject(props.data.page.layouts);
   // console.log("Data Home:", data);
@@ -31,25 +33,62 @@ const Index = (props) => {
     });
     var mybutton = document.getElementById("scroll");
 
-    window.onscroll = function () {
-      scrollFunction();
+    // window.onscroll = function () {
+    //   scrollFunction();
+    // };
+
+    // function scrollFunction() {
+    //   if (
+    //     document.body.scrollTop > 20 ||
+    //     document.documentElement.scrollTop > 20
+    //   ) {
+    //     mybutton.style.display = "block";
+    //   } else {
+    //     mybutton.style.display = "none";
+    //   }
+    // }
+  }, []);
+
+  useEffect(() => {
+    let prevScreenSize = "";
+
+    const onResize = (e) => {
+      const currentScreenSize = window.innerWidth < 1280 ? "mobile" : "desktop";
+
+      if (currentScreenSize != prevScreenSize) {
+        if (currentScreenSize == "mobile") {
+          $.fn.fullpage?.destroy?.("all");
+        } else if (currentScreenSize == "desktop") {
+          $("#fullpage").fullpage({
+            sectionColor: [],
+          });
+        }
+        prevScreenSize = currentScreenSize;
+      }
     };
 
-    function scrollFunction() {
-      if (
-        document.body.scrollTop > 20 ||
-        document.documentElement.scrollTop > 20
-      ) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
-  });
+    $(document).ready(function () {
+      // $("#fullpage").fullpage({
+      //   sectionColor: [],
+      // });
+      onResize();
+
+      window.addEventListener("resize", onResize);
+      //methods
+      // fullpage_api?.setAllowScrolling(false);
+    });
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+      $.fn.fullpage.destroy?.("all");
+    };
+  }, []);
+
   const topFunction = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   };
+
   return (
     <>
       <Head>
@@ -72,38 +111,58 @@ const Index = (props) => {
           crossorigin="anonymous"
           referrerpolicy="no-referrer"
         />
-      </Head>
-      <Begin />
 
-      <div
-        id="root"
-        className="container-fluid content-wrapper no-default-spacing"
-      >
-        {/* <Carousel data={data["Carousel"]} /> */}
-        {/* <News data={data["Home_News"]} /> */}
-        <News />
-        {/* <div className="blue-line"></div> */}
-        <Service data={data["Service"]} />
-        <Company data={data["Company"]} />
-        {/* <Recruit data={data["Recruit"]} /> */}
-        {/* <Slider data={data["Slides_Section"]} /> */}
-        <Project data={data["Slides_Section"]} />
-        {/* <div style={{ height: 300 }}></div> */}
-        {/* <iframe
-          src="./html/slide.html"
-          style={{ border: "unset", marginTop: "20px", width: "100%" }}
-        ></iframe> */}
-        <a
-          onclick={topFunction}
-          href="#root"
-          // onclick="topFunction()"
-          href=":root"
-          id="scroll"
-          style={{ display: "none", visibility: "hidden" }}
-        >
-          <img src="./img/scroll-top.png" />
-        </a>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.css"
+          integrity="sha512-q54FvbV+gGBn+NvgaD4gpJ7w4wrO00DgW7Rx503PIhrf0CuMwLOwbS+bXgOBFSob+6GVy1HDPfaRLJ8w2jiS4g=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        />
+
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.js"
+          integrity="sha512-bxzECOBohzcTcWocMAlNDE2kYs0QgwGs4eD8TlAN2vfovq13kfDfp95sJSZrNpt0VMkpP93ZxLC/+WN/7Trw2g=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        ></script>
+      </Head>
+      <div id="fullpage">
+        <div className="section">
+          <Begin />
+          <div className="container-fluid content-wrapper no-default-spacing">
+            <News />
+          </div>
+        </div>
+
+        <div className="section">
+          <div className="container-fluid content-wrapper no-default-spacing">
+            <Service data={data["Service"]} />
+          </div>
+        </div>
+
+        <div className="section">
+          <div className="container-fluid content-wrapper no-default-spacing">
+            <Company data={data["Company"]} />
+            <Project data={data["Slides_Section"]} />
+          </div>
+        </div>
+
+        <div className="section fp-auto-height">
+          <div className="container-fluid content-wrapper no-default-spacing">
+            <Footer />
+          </div>
+        </div>
       </div>
+    </>
+  );
+};
+
+Index.getLayout = (page, { footerData }) => {
+  return (
+    <>
+      <Header />
+      {page}
     </>
   );
 };
@@ -116,3 +175,33 @@ export async function getStaticProps() {
   };
 }
 export default Index;
+
+// {/* <div
+// id="root"
+// className="container-fluid content-wrapper no-default-spacing"
+// >
+// {/* <Carousel data={data["Carousel"]} /> */}
+// {/* <News data={data["Home_News"]} /> */}
+
+// {/* <div className="blue-line"></div>
+// <Service data={data["Service"]} /> */}
+
+// {/* <Recruit data={data["Recruit"]} /> */}
+// {/* <Slider data={data["Slides_Section"]} /> */}
+
+// <div style={{ height: 300 }}></div>
+// {/* <iframe
+//   src="./html/slide.html"
+//   style={{ border: "unset", marginTop: "20px", width: "100%" }}
+// ></iframe> */}
+// <a
+//   onclick={topFunction}
+//   href="#root"
+//   // onclick="topFunction()"
+//   href=":root"
+//   id="scroll"
+//   style={{ display: "none", visibility: "hidden" }}
+// >
+//   <img src="./img/scroll-top.png" />
+// </a>
+// </div> */}

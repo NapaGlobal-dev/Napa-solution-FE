@@ -1,7 +1,7 @@
 import { convertArrToObject } from "../../../util/converArrayToObject";
 import styles from "./style.module.css";
 import clsx from "clsx";
-const Footer = (props) => {
+const Footer = ({ data, ...props }) => {
   // console.log("footer data", props.data);
 
   // const data = convertArrToObject(props.data.layout[0].property);
