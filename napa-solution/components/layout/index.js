@@ -5,7 +5,7 @@ const Layout = ({ footerData, children, ...props }) => {
   // console.log("sssss", footerData);
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div>{children}</div>
       <Footer data={footerData} />
     </>
