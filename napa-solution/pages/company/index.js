@@ -4,6 +4,7 @@ import Banner from "../../components/company/Banner";
 import Philosophy from "../../components/company/Philosophy";
 import Norm from "../../components/company/Norm";
 import Rules from "../../components/company/Rules";
+import CompanyPages from "../../components/company/CompanyPages";
 
 import Head from "next/head";
 import { companyQuery } from "../../query/general";
@@ -33,6 +34,7 @@ const Company = (props) => {
         <link rel="stylesheet" href="/css/header.css" />
       </Head>
       <Banner data={data["Company_Banner"]} />
+      <CompanyPages />
       <AboutCompany data={data["Company_AboutCompany"]} />
       <div className="container-fluid content-wrapper-02 ">
         <div className="container  cw2-child-01">
