@@ -40,6 +40,7 @@ const SlideSection = (props) => {
     });
     return () => {};
   }, []);
+
   return (
     <>
       <Head>
@@ -50,31 +51,11 @@ const SlideSection = (props) => {
           href="css/slides-section.module.css"
         />
       </Head>
-      <div
-        className="top-content-project"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <div
-          // className="container-fluid"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            // marginTop: "20px",
-            // marginBottom: "20px",
-            width: "100%",
-            height: "100%",
-          }}
-        >
+      <div className="top-content-project">
+        <div className="cs-carousel-container ">
           <div
             id="carousel-example"
-            className="carousel slide container"
-            // data-ride="carousel"
-            style={{ width: "100%", height: "100%" }}
+            className="carousel slide "
             data-ride="false"
             // data-interval="true"
           >
@@ -83,40 +64,15 @@ const SlideSection = (props) => {
                 <div
                   className={
                     index === 0
-                      ? "carousel-item col-12 col-sm-12 col-md-6 col-lg-4 active"
-                      : "carousel-item col-12 col-sm-12 col-md-6 col-lg-4"
+                      ? "carousel-item col-4 col-xs-4 col-sm-4 col-md-6 col-lg-4 fill active"
+                      : "carousel-item col-4 col-xs-4 col-md-6 col-lg-4 fill"
                   }
                   key={index}
-                  style={{
-                    // display: "flex",
-                    // alignItems: "center",
-                    // flexDirection: "column",
-                    height: "100%",
-                    width: "100%",
-                    // flexWrap: "nowrap",
-                  }}
-                  // className="crsitem"
                 >
                   <a
                     href={item.url}
                     target="_blank"
-                    style={{
-                      background:
-                        "var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box",
-                      background: "#FFFFFF 0% 0% no-repeat padding-box",
-                      boxShadow: "0px 3px 6px #00000029",
-                      opacity: 1,
-                      height: "100%",
-                      // height: "auto",
-                      width: "100%",
-                      display: "flex",
-                      alignItems: "center",
-                      "& > span": {
-                        height: "auto !important",
-                      },
-                      border: "0.5px solid gray",
-                    }}
-                    className="imgitem"
+                    className="imgitem cs-carousel-item_url"
                   >
                     <LazyLoadImage
                       alt="imgSlide"
@@ -128,121 +84,10 @@ const SlideSection = (props) => {
                       height="100%"
                       className="img-fluid mx-auto d-block"
                     />
-                    {/* <img src={item?.image.original} /> */}
                   </a>
                 </div>
               ))}
-
-              {/* {slideList.map((item, index) => (
-                <div
-                  className="carousel-item col-12 col-sm-12 col-md-6 col-lg-4"
-                  key={slideList.length + index}
-                  style={{
-                    height: "100%",
-                    width: "100%",
-                  }}
-                  // className="crsitem"
-                >
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    style={{
-                      height: "100%",
-                      width: "100%",
-                      display: "flex",
-                      alignItems: "center",
-                      background:
-                        "var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box",
-                      background: "#FFFFFF 0% 0% no-repeat padding-box",
-                      boxShadow: "0px 3px 6px #00000029",
-                      opacity: 1,
-                      "& > span": {
-                        height: "auto !important",
-                      },
-                      border: "0.5px solid gray",
-                    }}
-                    className="imgitem"
-                  >
-                    <LazyLoadImage
-                      alt="imgSlide"
-                      effect="blur"
-                      src={item?.image.original}
-                      placeholderSrc={item?.image.thumbnail}
-                      threshold={100}
-                      width="100%"
-                      className="img-fluid mx-auto d-blockS"
-                      height="100%"
-                    />
-                  </a>
-                </div>
-              ))} */}
-
-              {/* {slideList.map((item, index) => (
-                <div
-                  className="carousel-item col-12 col-sm-12 col-md-4 col-lg-4"
-                  key={slideList.length + index}
-                  style={{
-                    width: "auto",
-                    height: "275px",
-                    // marginLeft: "8px",
-                  }}
-                >
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    style={{
-                      height: "100%",
-                      width: "100%",
-                      display: "flex",
-                      alignItems: "center",
-                      background:
-                        "var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box",
-                      background: "#FFFFFF 0% 0% no-repeat padding-box",
-                      boxShadow: "0px 3px 6px #00000029",
-                      opacity: 1,
-                    }}
-                  >
-                    <LazyLoadImage
-                      alt="imgSlide"
-                      effect="blur"
-                      src={item?.image.original}
-                      placeholderSrc={item?.image.thumbnail}
-                      threshold={100}
-                      width="100%"
-                      className="img-fluid mx-auto d-block w-100 h-100"
-                      height="174px"
-                      className="imgitem"
-                    />
-                  </a>
-                </div>
-              ))} */}
             </div>
-            {/* <LazyLoadImage
-              alt="imgbtnprev"
-              effect="blur"
-              src={data["Slides_List_Previous"]?.image.original}
-              placeholderSrc={data["Slides_List_Previous"]?.image.thumbnail}
-              threshold={100}
-              // width="100%"
-              id="carousel-control-prev-footer"
-              href="#carousel-example"
-              role="button"
-              data-slide="prev"
-              className="arrow-left"
-            />
-            <LazyLoadImage
-              alt="imgbtnnext"
-              effect="blur"
-              src={data["Slides_List_Next"]?.image.original}
-              placeholderSrc={data["Slides_List_Next"]?.image.thumbnail}
-              threshold={100}
-              // width="100%"
-              id="carousel-control-next-footer"
-              href="#carousel-example"
-              role="button"
-              data-slide="next"
-              className="arrow-right"
-            /> */}
           </div>
         </div>
       </div>
