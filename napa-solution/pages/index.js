@@ -94,7 +94,7 @@ const Index = (props) => {
           style={{ border: "unset", marginTop: "20px", width: "100%" }}
         ></iframe> */}
         <a
-          onclick={topFunction}
+          onClick={topFunction}
           href="#root"
           // onclick="topFunction()"
           href=":root"

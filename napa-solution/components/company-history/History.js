@@ -1,4 +1,4 @@
-import { getData } from "../../../util/converArrayToObject"
+import { getData } from "../../util/converArrayToObject"
 
 export default function History({data}){
     const title = getData(data, /CompanyHistory_Content_SubContent1/)[0]
