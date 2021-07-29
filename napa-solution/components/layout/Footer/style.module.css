@@ -2,6 +2,7 @@
   background: #0f0922 0% 0% no-repeat padding-box;
   border: 1px solid #707070;
   opacity: 1;
+  margin-top: 269px;
 }
 
 .h3text {
@@ -36,7 +37,7 @@
   opacity: 1;
 }
 
-.groupText>h4 {
+.groupText > h4 {
   color: var(--unnamed-color-ffffff);
   text-align: left;
   font: normal normal normal 14px/30px Roboto;
@@ -107,7 +108,7 @@
   align-items: flex-end;
 }
 
-.socials>p {
+.socials > p {
   color: var(--unnamed-color-ffffff);
   text-align: left;
   font: normal normal bold 16px/30px Roboto;
@@ -118,11 +119,11 @@
   border-bottom: 1px solid #fff;
 }
 
-.groupText>ul {
+.groupText > ul {
   margin-left: 15px;
 }
 
-.groupText>ul>li::marker {
+.groupText > ul > li::marker {
   color: #fff;
 }
 
@@ -210,12 +211,10 @@
 }
 
 @media (min-width: 1920px) {
-
 }
 
 @media (min-width: 1600px) and (max-width: 1920px) {
   .scaleText {
-    
   }
 
   /* .containX {

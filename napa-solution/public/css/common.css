@@ -8,8 +8,8 @@ html {
   scroll-behavior: smooth;
 }
 body {
-    font-family: 'Noto Sans JP', sans-serif;
-    }
+  font-family: "Noto Sans JP", sans-serif;
+}
 .white-border {
   position: absolute;
   right: -100%;
@@ -80,20 +80,20 @@ body {
   z-index: 23;
 }
 
-.dark-nav{
+.dark-nav {
   background-color: rgb(0 0 0/64%);
   box-shadow: 0 3px 6px rgb(0 0 0 / 8%);
 }
 
-.hide-nav{
+.hide-nav {
   top: -70px;
 }
 
-.langWrapper{
+.langWrapper {
   position: relative;
 }
 
-.langBtn{
+.langBtn {
   color: #fff;
   padding: 8px 14px;
   border-radius: 20px;
@@ -111,8 +111,7 @@ body {
   height: 42px;
 }
 
-
-.arr-down{
+.arr-down {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
   border-bottom: 1px solid #fff;
@@ -120,42 +119,42 @@ body {
   margin-bottom: 6px;
 }
 
-.lang-arr{
+.lang-arr {
   height: 10px;
   width: 10px;
 }
 
-.lang-list{
-  background: hsla(0,0%,80%,.5607843137254902);
-    box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-radius: 10px;
-    border: 1px solid hsla(0,0%,100%,.18);
-    visibility: hidden;
-    opacity: 0;
-    transition: all .3s;
-    position: absolute;
-    padding: 6px 10px;
-    box-sizing: border-box;
-    width: 100%;
-    top: 46px;
+.lang-list {
+  background: hsla(0, 0%, 80%, 0.5607843137254902);
+  box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid hsla(0, 0%, 100%, 0.18);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+  position: absolute;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  width: 100%;
+  top: 46px;
 }
 
 .lang-list > * {
   color: #fff;
-    padding: 6px 0;
-    border-bottom: 1px solid hsla(0,0%,100%,.18);
-    cursor: pointer;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.18);
+  cursor: pointer;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
 }
 
-.lang-active::after{
+.lang-active::after {
   content: "";
   width: 6px;
   height: 6px;
@@ -164,12 +163,12 @@ body {
   background-color: #fff;
 }
 
-.show-lang-list{
+.show-lang-list {
   visibility: visible;
   opacity: 1;
 }
 
-.mobile-menu{
+.mobile-menu {
   display: none;
 }
 
@@ -198,7 +197,7 @@ body {
   opacity: 1;
 }
 
-.item-home{
+.item-home {
   font: normal normal bold 18px/30px Roboto;
 }
 
@@ -226,7 +225,7 @@ body {
 .carousel-caption-primary {
   font-size: 28px;
   letter-spacing: 6.6px;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   color: #ffffff;
   opacity: 1;
   display: block;
@@ -235,13 +234,13 @@ body {
 
 .carousel-caption-secondary {
   font-size: 44px;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   letter-spacing: 9px;
   color: #ffffff;
   opacity: 1;
   font-weight: 900;
-  background-image: linear-gradient(to bottom, transparent 50%, #0099E7 50%);
-  
+  background-image: linear-gradient(to bottom, transparent 50%, #0099e7 50%);
+
   -webkit-box-decoration-break: clone;
   -o-box-decoration-break: clone;
   box-decoration-break: clone;
@@ -249,7 +248,7 @@ body {
 
 .font-carousel-4 {
   font-size: 70px;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-weight: 900;
   line-height: 1.24;
   letter-spacing: 14.25px;
@@ -259,25 +258,24 @@ body {
 }
 .font-carousel-4-line {
   width: fit-content;
-  background-image: linear-gradient(to bottom, transparent 50%, #0099E7 50%);
+  background-image: linear-gradient(to bottom, transparent 50%, #0099e7 50%);
 }
 .font-carousel-4b {
   font-size: 70px;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-weight: 900;
   line-height: 1.24;
   letter-spacing: 14.25px;
   color: #ffffff;
   display: block;
   font-weight: 900;
-  
+
   -webkit-box-decoration-break: clone;
   -o-box-decoration-break: clone;
   box-decoration-break: clone;
-  
 }
 .font-carousel-4-small {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 50px;
   font-weight: 900;
   line-height: 1.24;
@@ -314,7 +312,6 @@ body {
   background-image: url("../img/carousel/carousel-4.png");
 }
 
-
 .section-content {
   text-align: left;
   font: normal normal bold 16px/30px Roboto;
@@ -324,7 +321,7 @@ body {
   line-height: 2;
 }
 
-.section-sub-content{
+.section-sub-content {
   text-align: left;
   font: normal normal bold 16px/30px Roboto;
   letter-spacing: 0px;
@@ -336,7 +333,7 @@ body {
   padding-top: 42px;
 }
 
-.section-sub-content-company{
+.section-sub-content-company {
   padding-top: 60px;
 }
 
@@ -366,7 +363,7 @@ body {
 .detail-btn-text {
   font-weight: Bold;
   font-size: 20px;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   letter-spacing: 0;
   color: #000000;
   opacity: 1;
@@ -378,7 +375,7 @@ body {
 }
 
 .text-1 {
-  font-family: 'NotoSansJP Regular', sans-serif;
+  font-family: "NotoSansJP Regular", sans-serif;
   font-size: 16px;
   letter-spacing: normal;
   text-align: left;
@@ -388,7 +385,7 @@ body {
 }
 
 .text-2 {
-  font-family: 'NotoSansJP Regular', sans-serif;
+  font-family: "NotoSansJP Regular", sans-serif;
   font-size: 16px;
   letter-spacing: normal;
   text-align: left;
@@ -396,7 +393,7 @@ body {
 }
 
 .text-3 {
-  font-family: 'NotoSansJP Regular', sans-serif;
+  font-family: "NotoSansJP Regular", sans-serif;
   font-size: 16px;
   letter-spacing: normal;
   text-align: left;
@@ -424,7 +421,7 @@ body {
 
 .more-content {
   font-size: 16px;
-  font-family: 'NotoSansJP Regular', sans-serif;
+  font-family: "NotoSansJP Regular", sans-serif;
   letter-spacing: 0;
   color: #ffffff !important;
   opacity: 1;
@@ -478,7 +475,7 @@ body {
   height: 28px;
   margin-left: 13px;
   margin-right: 13px;
-  background-color: #DEDEDE;
+  background-color: #dedede;
 }
 
 .carousel-indicators .active {
@@ -538,7 +535,7 @@ body {
 .image-content {
   font-weight: bold;
   font-size: 20px;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   letter-spacing: 0;
   color: #000000;
   opacity: 1;
@@ -557,7 +554,6 @@ body {
 .section-title-service {
   padding-top: 50px;
 }
-
 
 .section-title-cn-service {
   padding-bottom: 41px;
@@ -643,7 +639,7 @@ body {
 
 .recruit-content {
   font-size: 16px;
-  font-family: 'NotoSansJP Regular', sans-serif;
+  font-family: "NotoSansJP Regular", sans-serif;
   letter-spacing: 0;
   color: #000000;
   opacity: 1;
@@ -683,7 +679,7 @@ body {
 
 .partner-slide-3 {
   font-size: 24px;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   letter-spacing: 0;
   color: #0099e7;
 }
@@ -713,7 +709,7 @@ body {
 .footer-title {
   font-size: 16px;
   line-height: 2;
-  font-family: 'NotoSansJP Regular', sans-serif;
+  font-family: "NotoSansJP Regular", sans-serif;
   letter-spacing: 0;
   color: #ffffff;
   display: block;
@@ -723,7 +719,7 @@ body {
 .footer-content {
   font-size: 14px;
   line-height: 2.43;
-  font-family: 'NotoSansJP Regular', sans-serif;
+  font-family: "NotoSansJP Regular", sans-serif;
   letter-spacing: 0;
   color: #ffffff;
   display: block;
@@ -758,7 +754,7 @@ body {
   display: block;
   font-size: 14px;
   padding-top: 14px;
-  font-family: 'NotoSansJP Regular', sans-serif;
+  font-family: "NotoSansJP Regular", sans-serif;
   letter-spacing: 0;
   color: #ffffff;
 }
@@ -811,8 +807,7 @@ body {
     padding-left: 30%;
   }
 
-  .item-home{
-
+  .item-home {
   }
 
   .item-navbar-menu {
@@ -873,9 +868,7 @@ body {
     width: 100%;
     height: 600px;
   }
-  .detail-btn-company-subcontent
-
-  .company-content-wrapper {
+  .detail-btn-company-subcontent .company-content-wrapper {
     padding: 65px 108px 0px 160px;
   }
   .text-1 {
@@ -923,7 +916,7 @@ body {
     text-align: left;
     font: normal normal bold 16px/30px Roboto;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
     opacity: 1;
   }
 
@@ -974,7 +967,7 @@ body {
   .recruit-content {
     font-size: 16px;
     line-height: 40px;
-    font-family: 'NotoSansJP Regular', sans-serif;
+    font-family: "NotoSansJP Regular", sans-serif;
     letter-spacing: 0;
     color: #000000;
     opacity: 1;
@@ -1014,7 +1007,7 @@ body {
 
   .partner-slide-3 {
     font-size: 24px;
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: "Noto Sans JP", sans-serif;
     letter-spacing: 0;
     color: #0099e7;
   }
@@ -1031,7 +1024,7 @@ body {
     font: normal normal bold 16px/30px Roboto;
     letter-spacing: 0px;
     color: #212121;
-    opacity: 1
+    opacity: 1;
   }
 
   .recruit-second-title {
@@ -1129,7 +1122,7 @@ body {
     padding-top: 21px;
   }
 
-  .section-sub-content-company{
+  .section-sub-content-company {
     padding-top: 30px;
   }
 
@@ -1254,7 +1247,7 @@ body {
   }
 
   .font-carousel-4-small {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: "Noto Sans JP", sans-serif;
     font-size: 24px;
     font-weight: 900;
     line-height: 1.24;
@@ -1419,8 +1412,9 @@ body {
     background-image: url("../img/carousel/carousel-3-response.svg");
     z-index: 21;
   }
-  .carousel-caption-secondary, .font-carousel-4b {
-    background-image: linear-gradient(to bottom, transparent 70%, #0099E7 50%);
+  .carousel-caption-secondary,
+  .font-carousel-4b {
+    background-image: linear-gradient(to bottom, transparent 70%, #0099e7 50%);
   }
   .font-carousel-4b {
     width: auto;
@@ -1551,21 +1545,20 @@ body {
     padding-top: 16px;
   }
 
-  .section-title-company-wrapped{
+  .section-title-company-wrapped {
     text-align: center;
-
   }
 
-  .section-sub-content-company{
+  .section-sub-content-company {
     padding-top: 20px;
     width: 350px;
   }
 
-  .section-sub-content{
+  .section-sub-content {
     font: normal normal bold 16px/30px Roboto;
   }
 
-  .section-subtitle-company{
+  .section-subtitle-company {
     text-align: center;
   }
   .recruit-section {
@@ -1619,31 +1612,31 @@ body {
     text-align: center !important;
   }
 }
-@supports (-ms-ime-align:auto) {
-    .overlay-header {
-        opacity: 0.5;
-        background-color: #00589b;
-    }
+@supports (-ms-ime-align: auto) {
+  .overlay-header {
+    opacity: 0.5;
+    background-color: #00589b;
+  }
 }
 
-@media (max-width:1200px){
-  #navbarNav{
+@media (max-width: 1200px) {
+  #navbarNav {
     display: none !important;
   }
   .hide-nav {
     top: -50px;
   }
-  .langWrapper{
+  .langWrapper {
     display: none;
   }
-  #navbar{
+  #navbar {
     justify-content: flex-start;
   }
   .img-navbar-brand {
     width: 145px;
     height: auto;
   }
-  .wrap-menu{
+  .wrap-menu {
     width: 35px;
     height: 35px;
     position: absolute;
@@ -1685,16 +1678,14 @@ body {
   }
 
   .change .bar3 {
-    -webkit-transform: rotate(
-      45deg
-      ) translate(-3.5px, -3.8px);
+    -webkit-transform: rotate(45deg) translate(-3.5px, -3.8px);
     transform: rotate(45deg) translate(-3.5px, -3.8px);
   }
   .show {
     transform: translateY(0) !important;
     display: flex !important;
   }
-  .overlay{
+  .overlay {
     display: none;
     position: fixed;
     width: 100%;
@@ -1703,11 +1694,11 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,.6);
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 2;
-    transition: .3s ease-in-out;
+    transition: 0.3s ease-in-out;
   }
-  .mobile-menu{
+  .mobile-menu {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -1715,7 +1706,7 @@ body {
     top: 45px;
     right: 15px;
     z-index: 7;
-    transition: .8s cubic-bezier(.39,.58,.57,1);
+    transition: 0.8s cubic-bezier(0.39, 0.58, 0.57, 1);
     -webkit-transform: translateY(-120%);
     transform: translateY(-120%);
   }
@@ -1726,7 +1717,7 @@ body {
     font-weight: bold;
     color: #fff;
   }
-  .wrap-link-mobile > span{
+  .wrap-link-mobile > span {
     padding-right: 20px;
   }
 
@@ -1744,9 +1735,9 @@ body {
     background-color: #673ab7;
     box-shadow: 0 0 4px rgb(0 0 0 / 14%), 0 4px 8px rgb(0 0 0 / 28%);
   }
-  .active {
+  /* .active {
     background-color: #e40a5d;
-  }
+  } */
   .wrap-icon:nth-child(even) {
     margin: 10px 0px 10px 10px;
   }
@@ -1754,6 +1745,4 @@ body {
     width: 22px;
     height: 22px;
   }
-  
 }
-

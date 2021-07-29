@@ -45,6 +45,16 @@
   color: #412490;
   opacity: 1;
   margin-bottom: 28px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-line-clamp: 2;
+  -moz-line-clamp: 2;
+  -ms-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
 }
 .contentText > p {
   text-align: center;
@@ -52,6 +62,16 @@
   letter-spacing: 0.48px;
   color: #212121;
   opacity: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-line-clamp: 9;
+  -moz-line-clamp: 9;
+  -ms-line-clamp: 9;
+  line-clamp: 9;
+  overflow: hidden;
 }
 
 .contentReverse {
@@ -69,6 +89,16 @@
   color: #412490;
   opacity: 1;
   margin-bottom: 28px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-line-clamp: 2;
+  -moz-line-clamp: 2;
+  -ms-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
 }
 .contentReverse > p {
   text-align: center;
@@ -76,6 +106,16 @@
   letter-spacing: 0.48px;
   color: #212121;
   opacity: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-line-clamp: 9;
+  -moz-line-clamp: 9;
+  -ms-line-clamp: 9;
+  line-clamp: 9;
+  overflow: hidden;
 }
 .h2Text {
   text-align: left;
@@ -103,9 +143,9 @@
     width: 450px;
     /* margin-top: 50%; */
   }
-  /* .cover {
-    margin-top: 96px;
-  } */
+  .contentText {
+    margin: 0px 0px 0px 72px;
+  }
   .bgImgEven {
     top: 0px;
     transform: translate(115px, 51px) scale(0.5);
@@ -136,6 +176,30 @@
   }
   .contentText {
     margin: 0px 14px 0px 48px;
+  }
+  .contentText > p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-line-clamp: 6;
+    -moz-line-clamp: 6;
+    -ms-line-clamp: 6;
+    line-clamp: 6;
+    overflow: hidden;
+  }
+  .contentReverse > p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-line-clamp: 6;
+    -moz-line-clamp: 6;
+    -ms-line-clamp: 6;
+    line-clamp: 6;
+    overflow: hidden;
   }
   .h2Text {
     transform: rotate(90deg) translate(20%, 178px) scale(0.5);
@@ -183,7 +247,7 @@
   .cover {
     flex-direction: column;
     padding: 0px 24px;
-    margin: 200px 36px;
+    margin: 200px 24px;
   }
   .container {
     padding: 0;
@@ -207,7 +271,7 @@
     transform: skewY(-24deg) translate(0px, -40px);
   }
   .h2Text {
-    transform: rotate(90deg) translate(19%, 121px) scale(0.5);
+    transform: rotate(90deg) translate(19%, 77px) scale(0.5);
   }
 }
 @media (width: 768px) {
@@ -215,7 +279,7 @@
     transform: skewY(10deg) translate(62px, 10px);
   }
   .reverse {
-    transform: skewY(-24deg) translate(55px, -40px);
+    transform: skewY(-24deg) translate(13px, -11px);
   }
 }
 @media (max-width: 414px) {
@@ -247,7 +311,7 @@
     padding: 0px;
   }
   .h2Text {
-    transform: rotate(90deg) translate(14%, 77px);
+    transform: rotate(90deg) translate(16%, 30px);
     font: normal normal bold 28px/25px Roboto;
   }
   .reverse {

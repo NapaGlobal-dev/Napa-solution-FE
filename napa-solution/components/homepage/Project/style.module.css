@@ -9,7 +9,7 @@
   margin: 120px 0 260px;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
 }
 .boxcolor {
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
@@ -24,7 +24,6 @@
   align-items: center;
   flex-direction: column;
   position: absolute;
-  left: 60px;
 }
 .quaterImg > svg {
   position: absolute;
@@ -67,6 +66,11 @@
     padding: 90px 200px;
   }
 }
+@media (max-width: 930px) {
+  .boxcolor {
+    padding: 90px;
+  }
+}
 @media (max-width: 768px) {
   .container {
     display: flex;
@@ -77,9 +81,13 @@
   .boxcolor {
     height: 260px;
     width: 70%;
+    /* position: relative; */
   }
   .boxcolor > h4 {
     font-size: 28px;
+  }
+  .cover {
+    transform: translate(7px, 130px);
   }
 }
 @media (min-width: 769px) {
@@ -91,11 +99,14 @@
     justify-content: flex-end;
     /* transform: translateX(-69px); */
   }
+  .boxcolor {
+    left: 60px;
+  }
 }
 @media (min-width: 375px) and (max-width: 768px) {
   .boxcolor {
     height: 260px;
-    width: 90%;
+    padding: 22px;
   }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
