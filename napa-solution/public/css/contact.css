@@ -155,7 +155,7 @@
         grid-row-gap: 30px;
     }
     .border-title{
-        border: unset;
+        padding: 5px 40px 4px;
     }
     .textB{
         padding: 30px 30px 20px 30px;
