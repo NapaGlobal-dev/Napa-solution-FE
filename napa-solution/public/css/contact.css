@@ -119,10 +119,79 @@
     text-decoration: underline;
     text-decoration-color: #6C3AF5;
 }
+.containerD{
+    display: flex;
+    width: 60%;
+    flex-wrap: wrap;
+    justify-content: center;
+    background:#EEEEEE 0% 0% no-repeat padding-box;
+}
+.tableD{
+    display: grid ;
+    grid-template-columns: 45% 55% ;
+    grid-row-gap: 40px;
+    width: 100% ;
+    padding: 70px 145px ;
+}
 
-
-@media (max-width:1250px) {
+@media (max-width:1280px) {
     .image{
         min-width: auto;
     }
+    .containerD{
+        width: 80%;
+    }
+    .tableD{
+        padding: 50px 50px ;
+    }
+
+}
+@media (max-width:640px) {
+    .containerD{
+        width: 100%;
+    }
+    .tableD{
+        padding: 40px 20px ;
+        grid-row-gap: 30px;
+    }
+    .border-title{
+        border: unset;
+    }
+    .textB{
+        padding: 30px 30px 20px 30px;
+    }
+    .titleB{
+        font: normal normal bold 16px/30px Roboto;
+        letter-spacing: 0.72px;
+        margin-bottom: 10px;
+    }
+    .subtitleB{
+        font: normal normal bold 10px/20px Roboto;
+        letter-spacing: 0.48px;
+    }
+    .textC{
+        margin-top: 50px;
+    }
+    .titleC{
+        font: normal normal bold 45px/59px Roboto;
+    }
+    .subtitleC{
+        margin-top: 20px;
+        font: normal normal bold 20px/30px Roboto;
+        letter-spacing: 0.78px;
+        padding: 0px 20px;
+        width: auto;
+    }
+    .textBoxD{
+        height: 50px;
+        padding: 0px 10px;
+    }
+    .textareaD{
+        height: 100px;
+        padding: 20px 10px;
+    }
+    .buttonE{
+        width: 60%;
+    }
+
 }
