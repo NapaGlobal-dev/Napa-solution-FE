@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="320" viewBox="0 0 320 320">
+  <defs>
+    <filter id="Rectangle_58" x="0" y="0" width="320" height="320" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_105" data-name="Group 105" transform="translate(-1485 -4126)">
+    <g transform="matrix(1, 0, 0, 1, 1485, 4126)" filter="url(#Rectangle_58)">
+      <g id="Rectangle_58-2" data-name="Rectangle 58" transform="translate(9 6)" fill="none" stroke="#7c57e2" stroke-width="10">
+        <rect width="302" height="302" stroke="none"/>
+        <rect x="5" y="5" width="292" height="292" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_66" data-name="Group 66" transform="translate(1496.5 3697.5)">
+      <line id="Line_33" data-name="Line 33" y1="16" x2="15" transform="translate(158.5 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_34" data-name="Line 34" y1="29" x2="25" transform="translate(158.5 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_35" data-name="Line 35" y1="29" x2="25" transform="translate(158.5 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_36" data-name="Line 36" y1="41" x2="34.5" transform="translate(158 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_37" data-name="Line 37" y1="52" x2="43" transform="translate(158.5 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_38" data-name="Line 38" y1="62" x2="51" transform="translate(158.5 596.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_39" data-name="Line 39" y1="62" x2="51" transform="translate(158.5 596.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_40" data-name="Line 40" y1="74" x2="61" transform="translate(158.5 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_41" data-name="Line 41" y1="85" x2="70.5" transform="translate(158 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_42" data-name="Line 42" y1="95.5" x2="79" transform="translate(158.5 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_43" data-name="Line 43" y1="107.5" x2="87" transform="translate(158.5 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_44" data-name="Line 44" y1="117.75" x2="95" transform="translate(158.5 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_45" data-name="Line 45" y1="128.75" x2="103" transform="translate(158.5 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_46" data-name="Line 46" y1="130" x2="104" transform="translate(166.5 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_47" data-name="Line 47" y1="130" x2="104" transform="translate(175.5 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_48" data-name="Line 48" y1="130" x2="104" transform="translate(184.5 595.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_50" data-name="Line 50" y1="118" x2="93" transform="translate(193.5 607.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_51" data-name="Line 51" y1="109" x2="87" transform="translate(201.5 616.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_52" data-name="Line 52" y1="99" x2="79" transform="translate(209.5 626.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_53" data-name="Line 53" y1="89" x2="72" transform="translate(216.5 636.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_54" data-name="Line 54" y1="79" x2="63" transform="translate(225.5 646.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_55" data-name="Line 55" y1="69" x2="55" transform="translate(233.5 656.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_56" data-name="Line 56" y1="58" x2="47" transform="translate(241.5 667.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_57" data-name="Line 57" y1="47" x2="38" transform="translate(250.5 678.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_58" data-name="Line 58" y1="38" x2="30" transform="translate(258.5 687.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_59" data-name="Line 59" y1="26" x2="21" transform="translate(267.5 698.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+      <line id="Line_60" data-name="Line 60" y1="16.5" x2="13" transform="translate(275.5 708.5)" fill="none" stroke="rgba(204,204,204,0.76)" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

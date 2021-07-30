@@ -1,10 +1,10 @@
-import Banner from "../../../components/company/company-history/Banner"
-import History from "../../../components/company/company-history/History"
-import Breadcrumb from "../../../components/layout/breadcrumb"
-import CompanyPages from "../../../components/company/CompanyPages"
+import Banner from "../../components/company-history/Banner"
+import History from "../../components/company-history/History"
+import Breadcrumb from "../../components/layout/breadcrumb"
+import CompanyPages from "../../components/company/CompanyPages"
 
-import { GET_COMPANYHISTORY } from "../../../query/general"
-import { getData } from "../../../util/converArrayToObject"
+import { GET_COMPANYHISTORY } from "../../query/general"
+import { getData } from "../../util/converArrayToObject"
 import { useQuery } from "@apollo/client"
 import Head from "next/head"
 
@@ -24,13 +24,13 @@ export default function CompanyHistory(){
         <>
             <Head>
                 <link
-                    key="/css/company-history.css"
+                    key="css/company-history.css"
                     rel="stylesheet"
-                    href="/css/company-history.css"
+                    href="css/company-history.css"
                 />
-                <link rel="stylesheet" href="/css/common.css" />
-                <link rel="stylesheet" type="text/css" href="/css/isotope.css" media="screen" />
-                <link key="/css/header.css" rel="stylesheet" href="/css/header.css" />
+                <link rel="stylesheet" href="css/common.css" />
+                <link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />
+                <link key="/css/header.css" rel="stylesheet" href="css/header.css" />
                 <script src="../js/common/jquery-3.4.1.slim.min.js"></script>
                 <script src="../js/common/popper.min.js"></script>
                 <script src="../js/common/bootstrap.min.js"></script>

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 
-const loading = () => {
+const Loading = () => {
     const textSlide = ["N", "A", "P", "A", "..."];
     return (
         <>
@@ -40,4 +40,4 @@ const loading = () => {
     );
 }
 
-export default loading
+export default Loading

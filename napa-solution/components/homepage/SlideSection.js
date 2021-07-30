@@ -4,9 +4,11 @@ import { useEffect } from "react";
 import Head from "next/head";
 const SlideSection = (props) => {
   const data = convertArrToObject(props.data?.property);
-  const slideList = Object.values(data).filter((item) =>
+  const slides = Object.values(data).filter((item) =>
     item.name.includes("Img")
   );
+  const slideList = [...slides, ...slides];
+
   // console.log("slideList", slideList, data);
   useEffect(() => {
     $("#carousel-example").on("slide.bs.carousel", function (e) {
@@ -71,9 +73,9 @@ const SlideSection = (props) => {
           <div
             id="carousel-example"
             className="carousel slide container"
-            data-ride="carousel"
+            // data-ride="carousel"
             style={{ width: "100%", height: "100%" }}
-            // data-ride="true"
+            data-ride="false"
             // data-interval="true"
           >
             <div className="carousel-inner row w-100 mx-auto h-100">
@@ -131,19 +133,13 @@ const SlideSection = (props) => {
                 </div>
               ))}
 
-              {slideList.map((item, index) => (
+              {/* {slideList.map((item, index) => (
                 <div
                   className="carousel-item col-12 col-sm-12 col-md-6 col-lg-4"
                   key={slideList.length + index}
                   style={{
-                    // width: "auto",
-                    // height: "275px",
                     height: "100%",
                     width: "100%",
-                    // display: "flex",
-                    // alignItems: "center",
-                    // flexDirection: "column",
-                    // flexWrap: "nowrap",
                   }}
                   // className="crsitem"
                 >
@@ -152,7 +148,6 @@ const SlideSection = (props) => {
                     target="_blank"
                     style={{
                       height: "100%",
-                      // height: "auto",
                       width: "100%",
                       display: "flex",
                       alignItems: "center",
@@ -180,7 +175,7 @@ const SlideSection = (props) => {
                     />
                   </a>
                 </div>
-              ))}
+              ))} */}
 
               {/* {slideList.map((item, index) => (
                 <div
