@@ -16,7 +16,10 @@
   height: auto !important;
   padding: 50px 20px;
 }
-
+.carousel-item {
+  transition: none;
+  max-width: 100% !important;
+}
 @media (min-width: 1900px) {
   /* #carousel-example {
     max-width: 1374px;
@@ -174,7 +177,7 @@
   }
 }
 
-@media (min-width: 576px) {
+@media (min-width: 5px) {
   .carousel-item {
     margin-right: 0;
     /* height: 100%; */
@@ -364,12 +367,12 @@
 
 @media (max-width: 768px) {
   .carousel-inner
-  .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-.carousel-inner
-  .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)
-  + .carousel-item {
-  transition: none;
-}
+    .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+  .carousel-inner
+    .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)
+    + .carousel-item {
+    transition: none;
+  }
   .top-content-project {
     margin-right: unset;
   }

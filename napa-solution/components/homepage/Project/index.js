@@ -1,5 +1,3 @@
-import styles from "./style.module.css";
-import clsx from "clsx";
 import SlideSection from "../SlideSection";
 const Project = (props) => {
   return (
@@ -7,8 +5,8 @@ const Project = (props) => {
       <div className="sl-pos-relative">
         <div className="sl-container-ratio"></div>
         <div className="sl-box-color">
-          <h4>PROJECT</h4>
-          <p>顧客製品</p>
+          <h4 className="sl-box-title">PROJECT</h4>
+          <p className="sl-box-subtitle">顧客製品</p>
           <div className="sl-quarter-img">
             <img src="/img/home/box-style.svg" />
           </div>
