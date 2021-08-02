@@ -19,24 +19,8 @@ const ContactForm = (props) => {
                     marginTop:45
                 }}
             >
-                <div
-                    style={{
-                        display: 'flex',
-                        width:'60%',
-                        flexWrap:'wrap',
-                        justifyContent:'center',
-                        background:'#EEEEEE 0% 0% no-repeat padding-box'
-                    }}
-                >
-                    <div
-                        style={{
-                            display:'grid',
-                            gridTemplateColumns:'45% 55%',
-                            gridRowGap:40,
-                            width:'100%',
-                            padding:'70px 145px'
-                        }}
-                    >
+                <div className='containerD'>
+                    <div className='tableD'> 
                         <div className='titleD'>会社名</div>
                         <div>
                             <input type='text' className='textBoxD'/>
