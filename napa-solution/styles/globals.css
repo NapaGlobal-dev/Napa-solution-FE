@@ -29,6 +29,15 @@ h2,
 a {
   color: #23496d;
 }
+
+.btn-dark-mode {
+  position: fixed;
+  z-index: 20px;
+  top: 28px;
+  right: 150px;
+  height: 30px;
+}
+
 .white-border {
   position: absolute;
   right: -100%;
