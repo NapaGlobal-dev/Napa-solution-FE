@@ -54,6 +54,10 @@ const Service = (props) => {
   return (
     <div className={clsx("container-fluid", styles.container)}>
       <div className={clsx(styles.mainRoot)}>
+        <div className={clsx(styles.title)}>
+          <h3>SERVICES</h3>
+          <p>最新ニュース</p>
+        </div>
         {data.map((item, index) => (
           <div key={index}>
             {index % 2 == 0 && (
