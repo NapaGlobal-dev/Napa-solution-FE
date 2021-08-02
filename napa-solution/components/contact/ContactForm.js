@@ -4,107 +4,65 @@ import { convertArrToObject } from '../../util/converArrayToObject';
 const ContactForm = (props) => {
     const data = convertArrToObject(props.data.property);
     return (
-        <div>
-            <div className="container-fluid no-default-spacing">
-                <div className="container main-content no-default-spacing">
-                    <div className="row no-default-spacing">
-                        <div className="col-12 no-default-spacing title-wrapper">
-                            <span className="font-01">{data["Contact_ContactForm_Title"].value}</span>
+        <>
+            <div className='textC'>
+                <div className='titleC'>お問い合わせ</div>
+                <div className='subtitleC'>
+                    ご質問がございましたらお気軽にお問合せ下さい。 お電話03-4530-0001にてご連絡頂くか、 下記のフォームにご記入の上、送信下さい。
+                </div>
+            </div>
+
+            <div
+                style={{
+                    display:'flex',
+                    justifyContent:'center',
+                    marginTop:45
+                }}
+            >
+                <div className='containerD'>
+                    <div className='tableD'> 
+                        <div className='titleD'>会社名</div>
+                        <div>
+                            <input type='text' className='textBoxD'/>
                         </div>
-                        <form action="mailto:system_e@system.nikku.co.jp" method="post" encType="text/plain">
-                            <div className="container row no-default-spacing form-wrapper">
-                                <div className="col-lg-3 col-5 no-default-spacing label-wrapper">
-                                    <div className="red-bg">
-                                        <span className="font-02">{data["Contact_ContactForm_Require"].value}</span>
-                                    </div>
-                                    <span className="font-03">{data["Contact_ContactForm_Content1"].value}</span>
-                                </div>
-                                <div className="col-lg-6 col-7 no-default-spacing input-wrapper">
-                                    <input className="input-form" name="Fist Name" type="text" required />
-                                </div>
-                            </div>
-                            <div className="row col-12 no-default-spacing form-wrapper">
-                                <div className="col-lg-3 col-5 no-default-spacing label-wrapper">
-                                    <div className="red-bg">
-                                        <span className="font-02">{data["Contact_ContactForm_Require"].value}</span>
-                                    </div>
-                                    <span className="font-03">{data["Contact_ContactForm_Content2"].value}</span>
-                                </div>
-                                <div className="col-lg-6 col-7 no-default-spacing input-wrapper">
-                                    <input className="input-form" name="Last Name" type="text" required />
-                                </div>
-                            </div>
-                            <div className="row col-12 no-default-spacing form-wrapper">
-                                <div className="col-lg-3 col-5 no-default-spacing label-wrapper">
-                                    <div className="red-bg">
-                                        <span className="font-02">{data["Contact_ContactForm_Require"].value}</span>
-                                    </div>
-                                    <span className="font-03">{data["Contact_ContactForm_Content3"].value}</span>
-                                </div>
-                                <div className="col-lg-6 col-7 no-default-spacing input-wrapper">
-                                    <input className="input-form" name="Company Name" type="text" required />
-                                </div>
-                            </div>
-                            <div className="row col-12 no-default-spacing form-wrapper">
-                                <div className="col-lg-3 col-5 no-default-spacing label-wrapper">
-                                    <div className="red-bg">
-                                        <span className="font-02">{data["Contact_ContactForm_Require"].value}</span>
-                                    </div>
-                                    <span className="font-03">{data["Contact_ContactForm_Content4"].value}</span>
-                                </div>
-                                <div className="col-lg-6 col-7 no-default-spacing input-wrapper">
-                                    <input className="input-form" name="Company Name" type="text" required />
-                                </div>
-                            </div>
-                            <div className="row col-12 no-default-spacing form-wrapper">
-                                <div className="col-lg-3 col-5 no-default-spacing label-wrapper">
-                                    <div className="red-bg">
-                                        <span className="font-02">{data["Contact_ContactForm_Require"].value}</span>
-                                    </div>
-                                    <span className="font-03">{data["Contact_ContactForm_Content5"].value}</span>
-                                </div>
-                                <div className="col-lg-6 col-7 no-default-spacing input-wrapper">
-                                    <input className="input-form" name="Email" type="email" required />
-                                </div>
-                            </div>
-                            <div className="row col-12 no-default-spacing form-wrapper">
-                                <div className="col-lg-3 col-5 no-default-spacing label-wrapper">
-                                    <div className="red-bg">
-                                        <span className="font-02">{data["Contact_ContactForm_Require"].value}</span>
-                                    </div>
-                                    <span className="font-03">{data["Contact_ContactForm_Content6"].value}</span>
-                                </div>
-                                <div className="col-lg-6 col-7 no-default-spacing input-wrapper">
-                                    <input className="input-form" name="Phone Number" type="text" required />
-                                </div>
-                            </div>
-                            <div className="row col-12 no-default-spacing form-wrapper-special">
-                                <div className="col-lg-3 col-5 no-default-spacing label-wrapper-special">
-                                    <div className="red-bg">
-                                        <span className="font-02">{data["Contact_ContactForm_Require"].value}</span>
-                                    </div>
-                                    <span className="font-03">{data["Contact_ContactForm_Content7"].value}</span>
-                                </div>
-                                <div className="col-lg-9 col-7 no-default-spacing input-wrapper-special">
-                                    <textarea className="input-form-special" name="Content" rows={10} type="text" required defaultValue={""} />
-                                </div>
-                            </div>
-                            <div className="col-12 col-lg-9 offset-lg-3 checkbox-wrapper">
-                                <div className="policy-wrapper">
-                                    <input type="checkbox" name="checkbox" className="checkbox" />
-                                    <span className="font-04">{data["Contact_ContactForm_CheckBox"].value}</span>
-                                </div>
-                            </div>
-                            <div className="col-12 no-default-spacing button-wrapper">
-                                {/*<img src="./img/index-image-04.svg" class="arrow-icon" />*/}
-                                <button type="submit" style={{ backgroundImage: 'url("./img/index-image-04.svg")', backgroundRepeat: 'no-repeat', backgroundPosition: '20px center' }} className="font-05 button-submit">送信</button>
-                            </div>
-                        </form>
+                        <div className='titleD'>会社名カナ</div>
+                        <div>
+                            <input type='text' className='textBoxD'/>
+                        </div>
+                        <div className='titleD'>会社名</div>
+                        <div>
+                            <input type='text' className='textBoxD'/>
+                        </div>
+                        <div className='titleD'>会社名</div>
+                        <div>
+                            <input type='text' className='textBoxD'/>
+                        </div>
+                        <div className='titleD'>会社名</div>
+                        <div>
+                            <input type='text' className='textBoxD'/>
+                        </div>
+                        <div className='titleD'>*お問い合わせ内容</div>
+                        <div>
+                            <textarea name="お問い合わせ内容" className='textareaD' />
+                        </div>
+                    </div>
+                    <div className='buttonE'>
+                        送信する
+                        <svg 
+                            height='7px'
+                            fill='none'
+                            strokeWidth='2'
+                            stroke='#6C3AF5'
+                            strokeDasharray='69px 138px'
+                            viewBox="0 0 64 7"
+                            style={{position:'absolute', right:-16}}
+                        >
+                            <path d="M0 6h61.5l-5.2-5.2"></path>
+                        </svg>
                     </div>
                 </div>
             </div>
-            <div className="operation-management-divider" />
-        </div>
+        </>
     );
 }
 
