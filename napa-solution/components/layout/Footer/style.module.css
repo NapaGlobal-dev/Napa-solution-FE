@@ -486,7 +486,7 @@
 
   .coverInput {
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     justify-content: center;
   }
@@ -495,8 +495,8 @@
     background: #412490 0% 0% no-repeat padding-box;
     padding: 2px 19px;
     color: #fff;
-    margin-top: 22px;
-    width: 100%;
+    margin-top: 4px;
+    /* width: 100%; */
     margin-left: 0;
   }
 
