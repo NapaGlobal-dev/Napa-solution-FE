@@ -7,9 +7,37 @@
 html {
   scroll-behavior: smooth;
 }
-body {
-    font-family: 'Noto Sans JP', sans-serif;
-    }
+
+body.light-mode {
+  font-family: "Noto Sans JP", sans-serif;
+  /* body: "#FFF"; */
+  color: #363537;
+  /* toggleBorder: "#FFF"; */
+  background: #fff;
+}
+
+body.dark-mode {
+  color: #23496d;
+  background: #000a35;
+}
+
+body.dark-mode p,
+h3,
+h4,
+h5,
+h2,
+a {
+  color: #23496d;
+}
+
+.btn-dark-mode {
+  position: fixed;
+  z-index: 20px;
+  top: 28px;
+  right: 150px;
+  height: 30px;
+}
+
 .white-border {
   position: absolute;
   right: -100%;
@@ -28,17 +56,17 @@ body {
   opacity: 1;
 }
 
-#stroke-arr-btn{
-    display: block;
-    right: -16px;
-    height: 7px;
-    fill: none;
-    stroke: #6C3AF5;
-    stroke-width: 2;
-    transition: stroke-dashoffset .6s cubic-bezier(0.215, 0.61, 0.355, 1);
-    width: 64px;
-    stroke-dasharray: 69px 138px;
-    position: absolute;
+#stroke-arr-btn {
+  display: block;
+  right: -16px;
+  height: 7px;
+  fill: none;
+  stroke: #6c3af5;
+  stroke-width: 2;
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 64px;
+  stroke-dasharray: 69px 138px;
+  position: absolute;
 }
 
 #detail-btn-company {
@@ -58,7 +86,7 @@ body {
   text-align: left;
   font: normal normal bold 26px/30px Roboto;
   letter-spacing: 0.78px;
-  color: #9E9E9E;
+  color: #9e9e9e;
   opacity: 1;
 }
 
@@ -67,10 +95,9 @@ body {
   text-align: left;
   font: normal normal bold 16px/30px Roboto;
   letter-spacing: 0px;
-  color: #FFFFFF;
+  color: #ffffff;
   opacity: 1;
 }
-
 
 #scroll {
   position: fixed;
@@ -96,7 +123,7 @@ body {
   width: 100%;
 }
 
-@media (max-width: 414px){
+@media (max-width: 414px) {
   #main-title {
     font: normal normal bold 20px/26px Roboto;
   }
@@ -105,7 +132,7 @@ body {
     font: normal normal bold 14px/30px Roboto;
   }
 
-  #detail-btn-company{
+  #detail-btn-company {
     width: 227px;
     margin-left: 80px;
     height: 66px;
@@ -113,6 +140,5 @@ body {
 
   #detail-btn-company-content {
     font: normal normal bold 14px/30px Roboto;
+  }
 }
-}
-

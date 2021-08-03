@@ -13,23 +13,20 @@ const Layout = ({ footerData, children, ...props }) => {
   }
 
   useEffect(() => {
-    demoAsyncCall().then(() => setLoading(false))
-  })
+    demoAsyncCall().then(() => setLoading(false));
+  });
 
-  return (
-    loading ?
-      (
-        <>
-          <Header />
-          <Loading />
-        </>) :
-      (
-        <>
-          <Header />
-          <div>{children}</div>
-          <Footer data={footerData} />
-        </>
-      )
+  return loading ? (
+    <>
+      {/* <Header /> */}
+      <Loading />
+    </>
+  ) : (
+    <>
+      <Header />
+      <div>{children}</div>
+      <Footer data={footerData} />
+    </>
   );
 };
 
