@@ -10,6 +10,40 @@ import { StoreContext } from "../../../util/language/store";
 import useDarkMode from "use-dark-mode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
+function Language() {
+  const [openDropdown, setOpenDropndown] = useState(false);
+  const [language, setLanguage] = useState({});
+  const dataLang = useContext(StoreContext)?.language;
+  useEffect(() => {
+    setLanguage(dataLang);
+  }, []);
+  return (
+    <div className="langWrapper">
+      <div className="langBtn" onClick={() => setOpenDropndown(!openDropdown)}>
+        <div>{languages[2]}</div>
+        <div className="arr-down lang-arr"></div>
+      </div>
+      <div
+        className={clsx("lang-list", openDropdown ? "show-lang-list" : " ")}
+        id="lang-list"
+      >
+        {languages.map((lang, index) => (
+          <div
+            key={index}
+            onClick={() => {
+              language && language[1](index);
+              setOpenDropndown(false);
+            }}
+            className={index === (language && language[0]) ? "lang-active" : ""}
+          >
+            <div>{lang}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const Header = () => {
   const darkmode = useDarkMode(true);
 
@@ -62,45 +96,6 @@ const Header = () => {
       languageId: index,
     })),
   ];
-
-  function Language() {
-    const [openDropdown, setOpenDropndown] = useState(false);
-    const [language, setLanguage] = useState({});
-    const dataLang = useContext(StoreContext)?.language;
-    useEffect(() => {
-      setLanguage(dataLang);
-    }, []);
-    return (
-      <div className="langWrapper">
-        <div
-          className="langBtn"
-          onClick={() => setOpenDropndown(!openDropdown)}
-        >
-          <div>{languages[2]}</div>
-          <div className="arr-down lang-arr"></div>
-        </div>
-        <div
-          className={clsx("lang-list", openDropdown ? "show-lang-list" : " ")}
-          id="lang-list"
-        >
-          {languages.map((lang, index) => (
-            <div
-              key={index}
-              onClick={() => {
-                language && language[1](index);
-                setOpenDropndown(false);
-              }}
-              className={
-                index === (language && language[0]) ? "lang-active" : ""
-              }
-            >
-              <div>{lang}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
 
   const scrollEvent = () => {
     if (window.pageYOffset !== 0 && changeNav === false) {
@@ -224,6 +219,7 @@ const Header = () => {
         </div>
         <DarkModeSwitch
           style={{ margin: "0 12px" }}
+          className="nav-darkmode-icon"
           checked={!!darkmode.value}
           onChange={darkmode.toggle}
           size={40}
