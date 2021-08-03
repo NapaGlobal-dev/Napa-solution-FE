@@ -63,6 +63,12 @@ const Index = (props) => {
             rel="stylesheet"
             href="css/home-page.module.css"
           />
+
+          <link
+            key="css/home-page-slide.css"
+            rel="stylesheet"
+            href="css/home-page-slide.css"
+          />
           <link
             rel="stylesheet"
             type="text/css"
