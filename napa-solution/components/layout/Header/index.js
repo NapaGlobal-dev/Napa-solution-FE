@@ -131,6 +131,8 @@ const Header = () => {
     }
   }
 
+  console.log("render ", darkmode);
+
   return (
     <>
       <Head>
@@ -216,10 +218,24 @@ const Header = () => {
               </button>
             </a>
           ))}
+          <div className="wrap-link-mobile">
+            <span>{!!darkmode.value ? "Dark" : "Light"}</span>
+            <div className="wrap-icon nav-darkmode-icon-mobile">
+              <DarkModeSwitch
+                style={{ margin: "0 12px" }}
+                className="nav-darkmode-icon"
+                checked={!!darkmode.value}
+                onChange={darkmode.toggle}
+                size={40}
+              />
+            </div>
+          </div>
+
+          <Language />
         </div>
         <DarkModeSwitch
           style={{ margin: "0 12px" }}
-          className="nav-darkmode-icon"
+          className="nav-darkmode-icon hide-on-mobile"
           checked={!!darkmode.value}
           onChange={darkmode.toggle}
           size={40}

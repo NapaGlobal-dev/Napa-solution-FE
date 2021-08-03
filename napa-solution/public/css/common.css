@@ -1748,6 +1748,10 @@ body {
     width: 22px;
     height: 22px;
   }
+
+  .hide-on-mobile {
+    display: none !important;
+  }
 }
 
 .nav-darkmode-icon {
@@ -1756,4 +1760,13 @@ body {
 
 .nav-darkmode-icon > circle {
   fill: white;
+}
+.nav-darkmode-icon-mobile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-darkmode-icon-mobile > .nav-darkmode-icon {
+  margin: 8px !important;
 }
