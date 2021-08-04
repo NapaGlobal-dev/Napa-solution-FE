@@ -99,6 +99,14 @@ export const HomePage = gql`
         path
       }
     }
+
+    new: allNews(sortBy: createdDate_DESC, first: 1) {
+      title
+      type
+      typeJP
+      description
+      createdDate
+    }
   }
 `;
 
@@ -273,7 +281,7 @@ export const GET_COMPANYHISTORY = gql`
   query getCompanyHistory {
     banner: allLayouts(where: { name: "CompanyHistory_Banner" }) {
       name
-      property{
+      property {
         name
         value
         image {
@@ -284,7 +292,7 @@ export const GET_COMPANYHISTORY = gql`
     }
     breadcrumb: allLayouts(where: { name: "CompanyHistory_Breadcrumb" }) {
       name
-      property{
+      property {
         name
         value
         url
@@ -292,7 +300,7 @@ export const GET_COMPANYHISTORY = gql`
     }
     content: allLayouts(where: { name: "CompanyHistory_Content" }) {
       name
-      property{
+      property {
         name
         value
       }
@@ -300,10 +308,10 @@ export const GET_COMPANYHISTORY = gql`
     history: allHistories(search: "CompanyHistory") {
       name
       year
-      milestones{
+      milestones {
         name
         date
-        events{
+        events {
           name
           event
         }
@@ -403,20 +411,20 @@ export const RemoteManage = gql`
 `;
 
 export const GET_PRIVACYPOLICY = gql`
-  query getPrivacyPolicy{
-    privacyPolicy: allPages(where:{url:"/privacy-policy"}){
+  query getPrivacyPolicy {
+    privacyPolicy: allPages(where: { url: "/privacy-policy" }) {
       name
       url
-      layouts{
+      layouts {
         name
-        property{
+        property {
           name
           value
-          image{
+          image {
             original: publicUrl
             thumbnail: publicUrlTransformed(transformation: { width: "64" })
           }
-          content{
+          content {
             name
             value
           }
