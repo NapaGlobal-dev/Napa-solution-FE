@@ -2,7 +2,6 @@ import { client } from "../apolo-client";
 import { useQuery } from "@apollo/client";
 import { HomePage } from "../query/general";
 import { convertArrToObject } from "../util/converArrayToObject";
-import Service from "../components/homepage/Service/index.js";
 import Company from "../components/homepage/Company";
 // import Recruit from "../components/homepage/Recruit";
 // import News from "../components/homepage/News";
@@ -12,47 +11,13 @@ import Head from "next/head";
 // import { useEffect } from "react";
 import Begin from "../components/homepage/Begin";
 import News from "../components/homepage/News/index.js";
+import Service from "../components/homepage/Service/index.js";
 import Project from "../components/homepage/Project/index.js";
 const Index = (props) => {
   const { data, loading, error } = useQuery(HomePage);
   if (error) return <>Your query is Error !</>;
   const datas = loading || convertArrToObject(data.page.layouts);
-  // console.log("Data Home:", data);
-  // useEffect(() => {
-  //   $(document).ready(function () {
-  //     $(".more-section-right").on("click", function () {
-  //       const arrowUp = "./img/Symbol156-14.svg";
-  //       const arrowDown = "./img/Symbol156-12.svg";
-  //       const text = $(this).find(".more-content").text();
-  //       $(this)
-  //         .find(".more-content")
-  //         .text(text == "MORE" ? "CLOSE" : "MORE");
-  //       $(this)
-  //         .find(".more-dropdown-icon")
-  //         .attr("src", text == "MORE" ? arrowUp : arrowDown);
-  //     });
-  //   });
-  //   var mybutton = document.getElementById("scroll");
 
-  //   window.onscroll = function () {
-  //     scrollFunction();
-  //   };
-
-  //   function scrollFunction() {
-  //     if (
-  //       document.body.scrollTop > 20 ||
-  //       document.documentElement.scrollTop > 20
-  //     ) {
-  //       mybutton.style.display = "block";
-  //     } else {
-  //       mybutton.style.display = "none";
-  //     }
-  //   }
-  // });
-  // const topFunction = () => {
-  //   document.body.scrollTop = 0;
-  //   document.documentElement.scrollTop = 0;
-  // };
   return (
     loading || (
       <>
@@ -83,7 +48,7 @@ const Index = (props) => {
             referrerpolicy="no-referrer"
           />
         </Head>
-        <Begin />
+        <Begin data={data.banner} />
 
         <div
           id="root"
