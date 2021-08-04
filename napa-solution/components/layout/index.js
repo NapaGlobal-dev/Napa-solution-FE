@@ -12,33 +12,33 @@ const Layout = ({ footerData, children, ...props }) => {
   function demoAsyncCall() {
     return new Promise((resolve) => setTimeout(() => resolve(), 4000));
   }
-  
+
   const router = useRouter();
 
   const handleLoading = () => {
-      document.body.style.overflow = "auto";
-      setLoading(false);
+    document.body.style.overflow = "auto";
+    setLoading(false);
   }
 
   useEffect(() => {
-    if(router.pathname === "/"){
+    if (router.pathname === "/") {
       document.body.style.overflow = "hidden";
       demoAsyncCall().then(() => handleLoading())
-    }else{
+    } else {
       setLoading(false)
     }
-    
+
   }, [])
 
   return (
     <>
-      <Header isLoading = {loading} />
+      <Header isLoading={loading} />
       <div id="wrapper-landing-loader"
-        style={{ position: "fixed", left: 0, right: 0, marginLeft: "auto", marginRight: "auto", zIndex: 99, visibility : loading ? "visible" : "hidden" }}>
+        style={{ position: "fixed", left: 0, right: 0, marginLeft: "auto", marginRight: "auto", zIndex: 99, visibility: loading ? "visible" : "hidden" }}>
         <Loading />
       </div>
-       <div>{children}</div>
-      <Footer data={footerData} isLoading = {loading}/>
+      <div>{children}</div>
+      <Footer data={footerData} isLoading={loading} />
     </>
   );
 };

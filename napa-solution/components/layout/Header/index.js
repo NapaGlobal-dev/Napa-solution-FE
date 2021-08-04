@@ -3,92 +3,103 @@ import { GET_HEADER } from "../../../query/general";
 import { getData } from "../../../util/converArrayToObject";
 import Head from "next/head";
 import { useContext, useEffect, useState } from "react";
-import languages from '../../../util/language/language'
+import languages from "../../../util/language/language";
 import clsx from "clsx";
 import { StoreContext } from "../../../util/language/store";
 
+import useDarkMode from "use-dark-mode";
+import { DarkModeSwitch } from "react-toggle-dark-mode";
+
 const Header = (props) => {
+  const darkmode = useDarkMode(true);
+
   const { data, loading, error } = useQuery(GET_HEADER);
-  const navbarLogo = getData(data, /Navbar_Logo/)[0]
-  const navbarHome = getData(data, /Navbar_Menu1/)[0]
-  const navbarMenu = getData(data, /Navbar_Menu([2-9]|1[0-9])/)
-  const navbarMenuIcon = getData(data, /Navbar_MenuIcon/)[0]
+  const navbarLogo = getData(data, /Navbar_Logo/)[0];
+  const navbarHome = getData(data, /Navbar_Menu1/)[0];
+  const navbarMenu = getData(data, /Navbar_Menu([2-9]|1[0-9])/);
+  const navbarMenuIcon = getData(data, /Navbar_MenuIcon/)[0];
   const [changeNav, setChangeNav] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activePath, setActivePath] = useState(0);
-  const [navColor, setNavColor] = useState('light');
+  const [navColor, setNavColor] = useState("light");
   const headerNavigations = [
     {
-      name: 'Home',
-      path: '/',
-      id: 'home-section',
-      icon: "img/header/home.svg"
+      name: "Home",
+      path: "/",
+      id: "home-section",
+      icon: "img/header/home.svg",
     },
     {
-      name: '事業概要',
-      path: '/business-summary',
-      icon: "img/header/service.svg"
+      name: "事業概要",
+      path: "/business-summary",
+      icon: "img/header/service.svg",
     },
     {
-      name: '企業情報',
-      path: '/company',
-      id: 'company-section',
-      icon: "img/header/profile.svg"
+      name: "企業情報",
+      path: "/company",
+      id: "company-section",
+      icon: "img/header/profile.svg",
     },
     {
-      name: '採用情報',
-      path: '/recruit',
-      icon: "img/header/project.svg"
+      name: "採用情報",
+      path: "/recruit",
+      icon: "img/header/project.svg",
     },
     {
-      name: 'お問い合わせ',
-      path: '/contact',
-      icon: "img/header/contact.svg"
-    }
+      name: "お問い合わせ",
+      path: "/contact",
+      icon: "img/header/contact.svg",
+    },
   ];
 
   const mobileHeaderNav = [
     ...headerNavigations,
     ...languages.map((lang, index) => ({
-      path: '#',
+      path: "#",
       name: lang,
-      type: 'language',
+      type: "language",
       icon: "img/header/lang.svg",
-      languageId: index
-    }))
+      languageId: index,
+    })),
   ];
 
   function Language() {
     const [openDropdown, setOpenDropndown] = useState(false);
-    const [language, setLanguage] = useState({})
-    const dataLang = useContext(StoreContext)?.language; 
-    useEffect(()=>{
-       setLanguage(dataLang)
-    },[])
+    const [language, setLanguage] = useState({});
+    const dataLang = useContext(StoreContext)?.language;
+    useEffect(() => {
+      setLanguage(dataLang);
+    }, []);
     return (
-      <div className="langWrapper" >
-        <div className="langBtn" onClick={() => setOpenDropndown(!openDropdown)}>
+      <div className="langWrapper">
+        <div
+          className="langBtn"
+          onClick={() => setOpenDropndown(!openDropdown)}
+        >
           <div>{languages[2]}</div>
           <div className="arr-down lang-arr"></div>
         </div>
         <div
-          className={clsx("lang-list", openDropdown ? "show-lang-list" : " ")} id="lang-list"
+          className={clsx("lang-list", openDropdown ? "show-lang-list" : " ")}
+          id="lang-list"
         >
           {languages.map((lang, index) => (
             <div
               key={index}
               onClick={() => {
-                language && language[1](index)
+                language && language[1](index);
                 setOpenDropndown(false);
               }}
-              className={index === (language && language[0]) ? "lang-active" : ""}
+              className={
+                index === (language && language[0]) ? "lang-active" : ""
+              }
             >
               <div>{lang}</div>
             </div>
           ))}
         </div>
       </div>
-    )
+    );
   }
 
   const scrollEvent = () => {
@@ -101,26 +112,26 @@ const Header = (props) => {
   };
 
   useEffect(() => {
-    if (window.location.pathname === '/') {
-      setNavColor('light');
+    if (window.location.pathname === "/") {
+      setNavColor("light");
     } else {
-      setNavColor('dark');
+      setNavColor("dark");
     }
-    window.addEventListener('scroll', scrollEvent);
+    window.addEventListener("scroll", scrollEvent);
     return function cleanup() {
-      window.removeEventListener('scroll', scrollEvent);
+      window.removeEventListener("scroll", scrollEvent);
     };
   }, []);
 
   function handleClickMenu(entry, index) {
     setIsOpen(false);
     setActivePath(index);
-    if (entry.type === 'language') {
-      if (entry.name === 'JP') {
+    if (entry.type === "language") {
+      if (entry.name === "JP") {
         setLanguageId(entry.languageId);
       }
-      if (entry.name === 'EN') {
-        window.location = 'http://www.napaglobal.com';
+      if (entry.name === "EN") {
+        window.location = "http://www.napaglobal.com";
       }
     }
   }
@@ -187,7 +198,7 @@ const Header = (props) => {
 
             // </Link>
             <a
-              href={entry.path[0] === '/' ? entry.path : `#${entry.path}`}
+              href={entry.path[0] === "/" ? entry.path : `#${entry.path}`}
               key={index}
               className="wrap-link-mobile"
             >
@@ -203,16 +214,22 @@ const Header = (props) => {
                   key={index}
                   className="icon"
                   src={entry.icon}
-                  alt='Mobile Icon'
+                  alt="Mobile Icon"
                 />
               </button>
             </a>
           ))}
         </div>
+        <DarkModeSwitch
+          style={{ margin: "0 12px" }}
+          checked={!!darkmode.value}
+          onChange={darkmode.toggle}
+          size={40}
+        />
         <Language />
       </nav>
     </>
-  )
-}
+  );
+};
 
 export default Header;
