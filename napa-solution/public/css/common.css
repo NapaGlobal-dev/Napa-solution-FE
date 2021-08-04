@@ -65,6 +65,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   border-bottom: 1px solid #adb5bd ;
+  z-index: 99999999;
   /* margin-top: 12px; */
 }
 
@@ -1746,4 +1747,8 @@ body {
     width: 22px;
     height: 22px;
   }
+}
+
+.hidden{
+  visibility: hidden;
 }

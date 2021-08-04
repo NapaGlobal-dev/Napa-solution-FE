@@ -7,7 +7,7 @@ import languages from '../../../util/language/language'
 import clsx from "clsx";
 import { StoreContext } from "../../../util/language/store";
 
-const Header = () => {
+const Header = (props) => {
   const { data, loading, error } = useQuery(GET_HEADER);
   const navbarLogo = getData(data, /Navbar_Logo/)[0]
   const navbarHome = getData(data, /Navbar_Menu1/)[0]
@@ -66,7 +66,7 @@ const Header = () => {
        setLanguage(dataLang)
     },[])
     return (
-      <div className="langWrapper">
+      <div className="langWrapper" >
         <div className="langBtn" onClick={() => setOpenDropndown(!openDropdown)}>
           <div>{languages[2]}</div>
           <div className="arr-down lang-arr"></div>
@@ -132,6 +132,7 @@ const Header = () => {
       </Head>
       <nav
         id="navbar"
+        style = {{borderBottom: !props.isLoading && "none"}}
         className={clsx("navbar navbar-expand-lg navbar-light no-default-spacing", changeNav ? "dark-nav" : "",
           navColor === 'dark' ? "dark-nav" : "")}
       >

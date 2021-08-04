@@ -7,9 +7,15 @@ import { client } from "../apolo-client";
 import { footerDataQuery } from "../query/general";
 import '../styles/globals.css';
 import StoreProvier, { StoreContext } from "../util/language/store";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import Fonts from "../util/fonts";
 
 function MyApp({ Component, pageProps, footerData, ...props }) {
+  
+  useEffect(() => {
+    Fonts();
+  },[])
+  
   return (
     <StoreProvier>
       <ApolloProvider client={client}>
