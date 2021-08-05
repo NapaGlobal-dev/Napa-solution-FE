@@ -10,6 +10,7 @@ import { StoreContext } from "../../../util/language/store";
 import useDarkMode from "use-dark-mode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
+const Header = (props) => {
 function Language() {
   const [openDropdown, setOpenDropndown] = useState(false);
   const [language, setLanguage] = useState({});
@@ -44,7 +45,6 @@ function Language() {
   );
 }
 
-const Header = () => {
   const darkmode = useDarkMode(true);
 
   const { data, loading, error } = useQuery(GET_HEADER);
@@ -140,11 +140,9 @@ const Header = () => {
       </Head>
       <nav
         id="navbar"
-        className={clsx(
-          "navbar navbar-expand-lg navbar-light no-default-spacing",
-          changeNav ? "dark-nav" : "",
-          navColor === "dark" ? "dark-nav" : ""
-        )}
+        style = {{borderBottom: !props.isLoading && "none"}}
+        className={clsx("navbar navbar-expand-lg navbar-light no-default-spacing", changeNav ? "dark-nav" : "",
+          navColor === 'dark' ? "dark-nav" : "")}
       >
         <a className="navbar-brand no-default-spacing" href={navbarLogo?.url}>
           <img
