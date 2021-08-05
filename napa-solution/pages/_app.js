@@ -7,6 +7,7 @@ import { client } from "../apolo-client";
 import { footerDataQuery } from "../query/general";
 import "../styles/globals.css";
 import StoreProvier, { StoreContext } from "../util/language/store";
+import Fonts from "../util/fonts";
 import React, { useState, useEffect } from "react";
 
 import useDarkMode from "use-dark-mode";
@@ -14,6 +15,11 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../themeConfig";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 function MyApp({ Component, pageProps, footerData, ...props }) {
+  
+  useEffect(() => {
+    Fonts();
+  },[])
+  
   const [isMounted, setIsMounted] = useState(false);
   const darkmode = useDarkMode(true);
   const theme = darkmode.value ? darkTheme : lightTheme;

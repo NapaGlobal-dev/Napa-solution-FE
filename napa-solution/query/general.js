@@ -106,6 +106,13 @@ export const HomePage = gql`
         value
       }
     }
+    new: allNews(sortBy: createdDate_DESC, first: 1) {
+      title
+      type
+      typeJP
+      description
+      createdDate
+    }
   }
 `;
 

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Loading from "../../pages/loading";
 import { useQuery } from "@apollo/client";
 import { footerDataQuery } from "../../query/general";
+import { useRouter } from "next/router";
 
 const Layout = ({ footerData, children, ...props }) => {
   // console.log("sssss", footerData);
@@ -12,20 +13,32 @@ const Layout = ({ footerData, children, ...props }) => {
     return new Promise((resolve) => setTimeout(() => resolve(), 4000));
   }
 
-  useEffect(() => {
-    demoAsyncCall().then(() => setLoading(false));
-  });
+  const router = useRouter();
 
-  return loading ? (
+  const handleLoading = () => {
+    document.body.style.overflow = "auto";
+    setLoading(false);
+  }
+
+  useEffect(() => {
+    if (router.pathname === "/") {
+      document.body.style.overflow = "hidden";
+      demoAsyncCall().then(() => handleLoading())
+    } else {
+      setLoading(false)
+    }
+
+  }, [])
+
+  return (
     <>
-      {/* <Header /> */}
-      <Loading />
-    </>
-  ) : (
-    <>
-      <Header />
+      <Header isLoading={loading} />
+      <div id="wrapper-landing-loader"
+        style={{ position: "fixed", left: 0, right: 0, marginLeft: "auto", marginRight: "auto", zIndex: 99, visibility: loading ? "visible" : "hidden" }}>
+        <Loading />
+      </div>
       <div>{children}</div>
-      <Footer data={footerData} />
+      <Footer data={footerData} isLoading={loading} />
     </>
   );
 };
