@@ -145,7 +145,7 @@ const Header = (props) => {
     }
   }
 
-  console.log("render ", darkmode);
+  // console.log("render ", darkmode);
 
   return (
     <>
