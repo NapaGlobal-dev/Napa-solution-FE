@@ -2,7 +2,10 @@
   background: #0f0922 0% 0% no-repeat padding-box;
   border: 1px solid #707070;
   opacity: 1;
-  margin-top: 269px;
+  /* margin-top: 269px;
+  position: absolute; */
+  top: 269px;
+  position: relative;
 }
 
 .h3text {
