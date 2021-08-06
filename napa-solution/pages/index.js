@@ -92,8 +92,8 @@ const Index = (props) => {
           className="container-fluid content-wrapper no-default-spacing"
         >
           {/* <Carousel data={data["Carousel"]} /> */}
-          {/* <News data={data["Home_News"]} /> */}
-          <News data={data.new[0]} />
+          <News data={data["Home_News"]} />
+          {/* <News data={data.new[0]} /> */}
           {/* <div className="blue-line"></div> */}
           <Service data={datas["Service"]} />
           <Company data={datas["Company"]} />
