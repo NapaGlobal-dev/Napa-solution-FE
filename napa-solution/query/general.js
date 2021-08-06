@@ -107,7 +107,13 @@ export const HomePage = gql`
     }
   }
 `;
-
+// new: allNews(sortBy: createdDate_DESC, first: 1) {
+//   title
+//   type
+//   typeJP
+//   description
+//   createdDate
+// }
 export const contactQuery = gql`
   query getContact {
     page: Page(where: { id: "60f10dca64a49c3384b60661" }) {
