@@ -13,10 +13,12 @@ import Head from "next/head";
 import Begin from "../components/homepage/Begin";
 import News from "../components/homepage/News/index.js";
 import Project from "../components/homepage/Project/index.js";
+import ClientSay from "../components/homepage/ClientSay";
 const Index = (props) => {
   const { data, loading, error } = useQuery(HomePage);
   if (error) return <>Your query is Error !</>;
   const datas = loading || convertArrToObject(data.page.layouts);
+  const clientSay = loading || data.clientSay;
   // console.log("Data Home:", data);
   // useEffect(() => {
   //   $(document).ready(function () {
@@ -98,6 +100,7 @@ const Index = (props) => {
           {/* <Recruit data={data["Recruit"]} /> */}
           {/* <Slider data={data["Slides_Section"]} /> */}
           <Project data={datas["Slides_Section"]} />
+          <ClientSay data={clientSay} />
           {/* <div style={{ height: 300 }}></div> */}
           {/* <iframe
           src="./html/slide.html"
