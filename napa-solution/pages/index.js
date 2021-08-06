@@ -2,7 +2,6 @@ import { client } from "../apolo-client";
 import { useQuery } from "@apollo/client";
 import { HomePage } from "../query/general";
 import { convertArrToObject } from "../util/converArrayToObject";
-import Service from "../components/homepage/Service/index.js";
 import Company from "../components/homepage/Company";
 // import Recruit from "../components/homepage/Recruit";
 // import News from "../components/homepage/News";
@@ -12,6 +11,7 @@ import Head from "next/head";
 // import { useEffect } from "react";
 import Begin from "../components/homepage/Begin";
 import News from "../components/homepage/News/index.js";
+import Service from "../components/homepage/Service/index.js";
 import Project from "../components/homepage/Project/index.js";
 import ClientSay from "../components/homepage/ClientSay";
 const Index = (props) => {
@@ -40,21 +40,6 @@ const Index = (props) => {
   //     scrollFunction();
   //   };
 
-  //   function scrollFunction() {
-  //     if (
-  //       document.body.scrollTop > 20 ||
-  //       document.documentElement.scrollTop > 20
-  //     ) {
-  //       mybutton.style.display = "block";
-  //     } else {
-  //       mybutton.style.display = "none";
-  //     }
-  //   }
-  // });
-  // const topFunction = () => {
-  //   document.body.scrollTop = 0;
-  //   document.documentElement.scrollTop = 0;
-  // };
   return (
     loading || (
       <>
@@ -85,7 +70,7 @@ const Index = (props) => {
             referrerpolicy="no-referrer"
           />
         </Head>
-        <Begin />
+        <Begin data={data.banner} />
 
         <div
           id="root"

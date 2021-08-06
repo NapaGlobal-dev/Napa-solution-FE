@@ -99,11 +99,25 @@ export const HomePage = gql`
         path
       }
     }
+    banner: allBanners {
+      name
+      property {
+        name
+        value
+      }
+    }
     clientSay: ClientSay(where: { id: "610c7b46f17d152a94a2c535" }) {
       name
       title
       subTitle
       video
+    }
+    new: allNews(sortBy: createdDate_DESC, first: 1) {
+      title
+      type
+      typeJP
+      description
+      createdDate
     }
   }
 `;

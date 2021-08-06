@@ -15,32 +15,27 @@ const BannerHome3 = "/assets/images/en/home/banner-3/banner-mobile_app.png";
 const BannerHome4 = "/assets/images/en/home/banner-2/banner-2-bg.png";
 // import LazyLoadImage from "components/en/common/LazyLoadImage";
 
-const contentSlide = [
-  {
-    id: 0,
-    title: "Building Digital Products and Services?",
-    desc: "NAPA GLOBAL is your trusted technical partner. ",
-    desc1: "Realize your vision with us.",
-  },
-  {
-    id: 1,
-    title: "Power Up Your Products with AI Solutions",
-    desc: "Our AI/ML experts and development team offer comprehensive services for you to harness the power of AI technologies.",
-  },
-  {
-    id: 2,
-    title: "Develop Your Web and Mobile Apps",
-    desc: "We build large-scale apps everyday, and our responsive designs will make your apps look good in every screen of any device.",
-  },
-  {
-    id: 3,
-    title: "Tap Into The Innovation of Blockchain",
-    desc: "We partner with you to make full-fledged cryptocurrency exchanges and dApps. ",
-    desc1: "With our expertise, blockchain-based applications are accessible.",
-  },
-];
+const convertData = (data = []) => {
+  const newdata = data
+    .map((item) => ({
+      ...item.property.reduce((acc, cur) => {
+        const name = cur.name.split("_")[2].split("-")[0];
+        acc[name] = cur.value;
+        return acc;
+      }, {}),
+      _order: parseInt(item.name.split("_")[1].split("-")[1]),
+    }))
+    .sort((a, b) => a._order - b._order)
+    .map((item) => ({
+      id: item._order,
+      title: item.Title,
+      desc: item.Subtitle.split("\\n"),
+    }));
 
-const Element = ({ currentSlide, index, img }) => {
+  return newdata;
+};
+
+const Element = ({ currentSlide, index, img, data }) => {
   return (
     <div className={clsx(styles.container)} id={`slide${index + 1}`}>
       <img
@@ -59,19 +54,19 @@ const Element = ({ currentSlide, index, img }) => {
               currentSlide === index && styles.slideInTop
             )}
           >
-            {contentSlide[index].title}
+            {data.title}
           </h1>
           <div className={styles.wrapSubTitle}>
             <p
               className={clsx(
                 styles.text,
                 currentSlide === index && styles.slideInBottomText,
-                !contentSlide[index].desc1 && styles.width70
+                !data.desc[1] && styles.width70
               )}
             >
-              {contentSlide[index].desc}
+              {data.desc[0]}
             </p>
-            {contentSlide[index].desc1 && (
+            {data.desc[1] && (
               <p
                 className={clsx(
                   styles.text,
@@ -79,7 +74,7 @@ const Element = ({ currentSlide, index, img }) => {
                   styles.hidden
                 )}
               >
-                {contentSlide[index].desc1}
+                {data.desc[1]}
               </p>
             )}
           </div>
@@ -104,11 +99,13 @@ const Element = ({ currentSlide, index, img }) => {
   );
 };
 
-const Begin = () => {
+const Begin = (props) => {
+  const data = convertData(props.data);
+
   const [curSlide, setCurSlide] = useState(0);
   const [arrSlide, setArrSlide] = useState([
-    { id: 1, img: BannerHome1, title: "We made web and mobile app" },
-    { id: 2, img: BannerHome2, title: "We provide AI solution" },
+    { id: 1, img: BannerHome1 },
+    { id: 2, img: BannerHome2 },
     { id: 3, img: BannerHome3 },
     { id: 4, img: BannerHome4 },
   ]);
@@ -161,10 +158,15 @@ const Begin = () => {
       <div className={styles.sliderBox}>
         <SliderWrapper>
           <Slider {...sliderSettings}>
-            <Element currentSlide={curSlide} index={0} img={arrSlide[0].img} />
-            <Element currentSlide={curSlide} index={1} img={arrSlide[1].img} />
-            <Element currentSlide={curSlide} index={2} img={arrSlide[2].img} />
-            <Element currentSlide={curSlide} index={3} img={arrSlide[3].img} />
+            {data.map((item, index) => (
+              <Element
+                currentSlide={curSlide}
+                key={index}
+                index={index}
+                img={arrSlide[index].img}
+                data={item}
+              />
+            ))}
           </Slider>
         </SliderWrapper>
       </div>
