@@ -32,7 +32,7 @@ const Loading = (props) => {
                     </div>
                 </div>
                 <div className="loader-text">
-
+                    Welcome To Napa-Solutions
                 </div>
             </div>
 
