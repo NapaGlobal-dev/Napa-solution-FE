@@ -2,12 +2,13 @@ import { convertArrToObject } from "../../../util/converArrayToObject";
 import styles from "./style.module.css";
 import clsx from "clsx";
 import { useEffect } from "react";
-const Footer = (props) => {
-  // console.log("footer data", props.data);
+import joinJsx from "../../../util/joinJsx";
 
-  // const data = convertArrToObject(props.data.layout[0].property);
+const Footer = (props) => {
+  const data = convertArrToObject(props.data.layout[0].property);
   // const page_urls = props.data.pages;
   useEffect(() => {
+    window.convertArrToObject = convertArrToObject;
     Array.from({ length: 4 }, (num, index) => {
       $(`#btn-up-${index + 1}`).click(() => {
         $(`#ul-item-${index + 1}`).css({
@@ -32,15 +33,21 @@ const Footer = (props) => {
       <footer id="sticky-s-footer" className={clsx(styles.footer)}>
         <div className="container-fluid d-flex justify-content-center flex-column ">
           <div className="container-fluid">
-            <div className={clsx(styles.covergalery)}>
+            <div
+              className={clsx(styles.covergalery)}
+              style={{
+                backgroundImage: `url(${data.Footer_ContactImage.image.original})`,
+              }}
+            >
               <div className={clsx(styles.scaleText)}>
                 <h3 className={clsx(styles.h3text)}>
-                  ベトナムオフショア開発を始めたい」「自社のアイデアを製品化したい」
-                  「人材不足を解決したい」「ベトナムへ進出したい」
+                  {joinJsx(data.Footer_ContactTitle.value.split("\\n"), <br />)}
                 </h3>
                 <p className={clsx(styles.ptext)}>
-                  そんな想いを持って共に歩みたいという企業様、是非お問い合わせください。
-                  また、業務等のご相談・ご依頼、採用に関するご相談もお待ちしております。
+                  {joinJsx(
+                    data.Footer_ContactContent.value.split("\\n"),
+                    <br />
+                  )}
                 </p>
                 <a href="company.html">
                   <div
@@ -53,7 +60,9 @@ const Footer = (props) => {
                       transform: "translateY(-15px)",
                     }}
                   >
-                    <span id="detail-btn-company-content">お問い合わせ</span>
+                    <span id="detail-btn-company-content">
+                      {data.Footer_ContactButton.value}
+                    </span>
                     <svg id="stroke-arr-btn" viewBox="0 0 64 7">
                       <path d="M0 6h61.5l-5.2-5.2"></path>
                     </svg>

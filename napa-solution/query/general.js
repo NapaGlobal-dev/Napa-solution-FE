@@ -99,7 +99,13 @@ export const HomePage = gql`
         path
       }
     }
-
+    banner: allBanners {
+      name
+      property {
+        name
+        value
+      }
+    }
     new: allNews(sortBy: createdDate_DESC, first: 1) {
       title
       type

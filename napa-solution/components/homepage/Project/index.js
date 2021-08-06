@@ -1,12 +1,17 @@
 import SlideSection from "../SlideSection";
+import React from "react";
+import { convertArrToObject } from "../../../util/converArrayToObject";
 const Project = (props) => {
+  const data = convertArrToObject(props.data.property);
   return (
     <div className="sl-container">
       <div className="sl-pos-relative">
         <div className="sl-container-ratio"></div>
         <div className="sl-box-color">
-          <h4 className="sl-box-title">PROJECT</h4>
-          <p className="sl-box-subtitle">顧客製品</p>
+          <h4 className="sl-box-title">{data["Slides_List_Title"]?.value}</h4>
+          <p className="sl-box-subtitle">
+            {data["Slides_List_Subtitle"]?.value}
+          </p>
           <div className="sl-quarter-img">
             <img src="/img/home/box-style.svg" />
           </div>

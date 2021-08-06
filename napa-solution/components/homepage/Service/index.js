@@ -1,56 +1,43 @@
 import styles from "./style.module.css";
 import clsx from "clsx";
-const data = [
-  {
-    img: "img/home/service1.png",
-    title: "ウエブアプリ開発",
-    subTitle:
-      "レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良",
-    url: "company.html",
-    btnContent: "企業情報",
-  },
-  {
-    img: "img/home/service2.png",
-    title: "ウエブアプリ開発",
-    subTitle:
-      "レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良",
-    url: "company.html",
-    btnContent: "企業情報",
-  },
-  {
-    img: "img/home/service3.png",
-    title: "ウエブアプリ開発",
-    subTitle:
-      "レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良",
-    url: "company.html",
-    btnContent: "企業情報",
-  },
-  {
-    img: "img/home/service4.png",
-    title: "ウエブアプリ開発",
-    subTitle:
-      "レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良",
-    url: "company.html",
-    btnContent: "企業情報",
-  },
-  {
-    img: "img/home/service5.png",
-    title: "ウエブアプリ開発",
-    subTitle:
-      "レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良",
-    url: "company.html",
-    btnContent: "企業情報",
-  },
-  {
-    img: "img/home/service6.png",
-    title: "ウエブアプリ開発",
-    subTitle:
-      "レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良",
-    url: "company.html",
-    btnContent: "企業情報",
-  },
-];
+
+const convertData = (data) => {
+  const newdata = {};
+  data.map((item) => {
+    const [name, order] = item.name.split("_")[2].split("-");
+    // item.name.includes("Img", "title", "subTitle", "url", "btn");
+
+    if (!newdata[order]) newdata[order] = {};
+    newdata[order][name] = item;
+    newdata[order]["_order"] = order;
+  });
+
+  const a = Object.values(newdata).sort((a, b) => a._order > b._order);
+
+  const b = a.map((item) => ({
+    img: item.Image.image.original,
+    title: item.Title.value,
+    subTitle: item.Content.value,
+    url: item.Button.url,
+    btnContent: item.Button.value,
+  }));
+
+  return b;
+};
+// const data = [
+//   {
+//     img: "img/home/service1.png",
+//     title: "ウエブアプリ開発",
+//     subTitle:
+//       "レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良",
+//     url: "company.html",
+//     btnContent: "企業情報",
+//   },
+// ];
+
 const Service = (props) => {
+  const data = convertData(props.data.property);
+
   return (
     <div className={clsx("container-fluid", styles.container)}>
       <div className={clsx(styles.mainRoot)}>

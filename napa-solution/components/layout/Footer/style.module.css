@@ -52,7 +52,7 @@
   display: flex;
   justify-content: center;
   /* transform: translateY(-130px); */
-  background-image: url("/img/home/bild.galerie.jpg");
+  /* background-image: url("/img/home/bild.galerie.jpg"); */
   margin: 0 30px;
   position: relative;
   top: -120px;

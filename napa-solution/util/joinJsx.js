@@ -1,13 +1,13 @@
 import React from "react";
 
-const joinJsx = (arr = [], object, autoKey = true) => {
+const joinJsx = (arr = [], seperator, autoKey = true) => {
   const arrLength = arr.length;
   const newArr = [];
   arr.forEach((i, index) => {
     i = autoKey ? fragment(i, index) : i;
     newArr.push(i);
     if (index < arrLength)
-      newArr.push(autoKey ? fragment(object, index + arrLength) : object);
+      newArr.push(autoKey ? fragment(seperator, index + arrLength) : seperator);
   });
 
   return newArr;
