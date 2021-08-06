@@ -1,15 +1,14 @@
 import React from "react";
-import Banner from "../../components/outsourcing/Banner";
+import Banner from "../../components/offshore/Banner";
 import Head from "next/head";
-import Bill from "../../components/outsourcing/Bill";
-import Download from "../../components/outsourcing/Download";
+import Advantages from "../../components/offshore/Advantages";
+import Method from "../../components/offshore/Method";
+import Project from "../../components/homepage/Project/index.js";
 import Breadcrumb from "../../components/layout/breadcrumb";
-
-import { OutsourcingQuery } from "../../query/general";
+import { OffshoreQuery } from "../../query/general";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
-
-const Outsourcing = (props) => {
+const Offshore = (props) => {
   const data = convertArrToObject(props.data.page.layouts);
   const listBreadcrumb = [
     { url: props.data.page.url, pageName: props.data.page.name },
@@ -33,6 +32,16 @@ const Outsourcing = (props) => {
           rel="stylesheet"
           href="css/outsourcing.module.css"
         />
+        <link
+          key="css/home-page-slide.css"
+          rel="stylesheet"
+          href="css/home-page-slide.css"
+        />
+        <link
+          key="css/slides-section.module.css"
+          rel="stylesheet"
+          href="css/slides-section.module.css"
+        />
       </Head>
       {/* <div
         id="root"
@@ -40,13 +49,18 @@ const Outsourcing = (props) => {
       > */}
       <Banner data={data["Outsourcing_Banner"]} />
       <Breadcrumb listBreadcrumb={listBreadcrumb} />
-      <Bill data={data["Outsourcing_Bill"]} />
-      <Download data={data["Outsourcing_Download"]} />
+      <Advantages data={data["Offshore_Advantages"]} />
+      <Method data={data["Offshore_Method"]} />
+      <Project data={data["Slide_Section"]} />
       {/* </div> */}
-      <iframe
+      {/* <iframe
         src="./html/slide.html"
-        style={{ border: "unset", marginTop: "20px", width: "100%" }}
-      ></iframe>
+        style={{
+          border: "unset",
+          marginTop: "20px",
+          width: "100%",
+        }}
+      ></iframe> */}
       {/* <a href="#root" id="scroll" style={{ display: "none" }}>
         <img src="./img/scroll-top.png"></img>
       </a> */}
@@ -55,11 +69,11 @@ const Outsourcing = (props) => {
 };
 
 export async function getStaticProps() {
-  const { data } = await client.query({ query: OutsourcingQuery });
+  const { data } = await client.query({ query: OffshoreQuery });
 
   return {
     props: { data },
   };
 }
 
-export default Outsourcing;
+export default Offshore;

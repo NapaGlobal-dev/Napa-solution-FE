@@ -227,8 +227,8 @@ export const InspectMaintenanceQuery = gql`
     }
   }
 `;
-export const OutsourcingQuery = gql`
-  query OutsourcingQuery {
+export const OffshoreQuery = gql`
+  query OffshoreQuery {
     page: Page(where: { id: "60f67674b9a5b934e0c79908" }) {
       name
       url
