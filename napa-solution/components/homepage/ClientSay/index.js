@@ -16,7 +16,7 @@ const ClientSay = (props) => {
           width="1500"
           height="700"
         >
-          <source src={data.video} type="video/mp4" />
+          <source src={data.video} type="video/mp4" autostart="false" />
         </video>
       </div>
     </div>
