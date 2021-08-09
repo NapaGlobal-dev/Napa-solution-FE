@@ -1,3 +1,6 @@
+.carousel-indicators .active {
+  background-color: #23496d;
+}
 @media (min-width: 768px) {
   .vert .carousel-item-next.carousel-item-left,
   .vert .carousel-item-prev.carousel-item-right {
