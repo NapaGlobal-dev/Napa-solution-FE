@@ -1,33 +1,24 @@
 import React from 'react';
+import { convertArrToObject, getData } from '../../util/converArrayToObject';
 
 const Banner = (props) => {
-    return (
-        <div>
-            <div id="root" class="hearder-container">
-                <div class="overlay-header"></div>
-                <img src="./img/untitled-img/main-img.png" class="image-header" alt="" />
-                <div class="header-service">
-                    <div class="header-service-text text-center">COMPANY</div>
-                    <div class="header-service-name text-center">企業情報</div>
-                </div>
-                <div class="header-title">
-                    <span class="header-title-text">会社概要</span>
-                </div>
-            </div>
 
-            <div class="container-fluid breadcrumb-container">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 spacing-mobile">
-                            <div class="breadcrumb-header">
-                                <a href="index.html">HOME</a>
-                                <span class="breadcrumb-icon">{">"}</span>
-                                <a href="recruit.html">企業情報</a>
-                                <span class="breadcrumb-icon">{">"}</span>
-                                <a href="companyProfile">会社概要</a>
-                            </div>
-                        </div>
-                    </div>
+    const data = convertArrToObject(props.data.property);
+
+    return (
+        <div className="banner">
+            <div className="overlay-header"></div>
+            <img src='/img/untitled-img/contact.jpeg' className="image" alt="" />
+            <div className='border-title'>
+                <h1 style={{ letterSpacing: -3, fontSize: '3.3rem' }}>{data["CompanyProfile_Banner_Title"].value}</h1>
+                <div style={{ marginTop: 20, fontSize: '1.2rem' }}>{data["CompanyProfile_Banner_SubTitle"].value}</div>
+            </div>
+            <div className='textB'>
+                <div className='titleB'>
+                    {data["CompanyProfile_Banner_Content"].value}
+                </div>
+                <div className='subtitleB'>
+                    {data["CompanyProfile_Banner_SubContent"].value}
                 </div>
             </div>
         </div>
