@@ -451,3 +451,23 @@ export const GET_PRIVACYPOLICY = gql`
     }
   }
 `;
+
+export const GET_COMPANYPROFILE = gql`
+query getCompanyProfile {
+  page: Page(where: { id: "60f0f35c0682d00030558c54" }) {
+    name
+    url
+    layouts {
+      name
+      property {
+        name
+        value
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+    }
+  }
+}`;
