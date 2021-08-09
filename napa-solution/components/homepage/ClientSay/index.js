@@ -10,7 +10,7 @@ const ClientSay = (props) => {
         <h3>{data.title}</h3>
         <p>{data.subTitle}</p>
         <video
-          autoplay="autoplay"
+          // autoplay="autoplay"
           controls="controls"
           className={clsx(styles.video)}
           width="1500"
