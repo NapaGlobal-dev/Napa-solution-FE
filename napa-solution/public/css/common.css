@@ -59,14 +59,21 @@ body {
   width: 100%;
   opacity: 0.85;
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 20;
   padding: 20px 100px 20px 100px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  border-bottom: 1px solid #adb5bd ;
+  border-bottom: 1px solid #adb5bd;
   z-index: 99999999;
+  transition: all 0.5s ease-in-out;
   /* margin-top: 12px; */
+}
+
+.navbar-hidden {
+  top: -120px !important;
 }
 
 #navbar-new {
@@ -1772,6 +1779,6 @@ body {
   margin: 8px !important;
 }
 
-.hidden{
+.hidden {
   visibility: hidden;
 }

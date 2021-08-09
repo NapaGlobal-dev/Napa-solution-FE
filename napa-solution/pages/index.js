@@ -2,7 +2,6 @@ import { client } from "../apolo-client";
 import { useQuery } from "@apollo/client";
 import { HomePage } from "../query/general";
 import { convertArrToObject } from "../util/converArrayToObject";
-import Service from "../components/homepage/Service/index.js";
 import Company from "../components/homepage/Company";
 // import Recruit from "../components/homepage/Recruit";
 // import News from "../components/homepage/News";
@@ -12,11 +11,14 @@ import Head from "next/head";
 // import { useEffect } from "react";
 import Begin from "../components/homepage/Begin";
 import News from "../components/homepage/News/index.js";
+import Service from "../components/homepage/Service/index.js";
 import Project from "../components/homepage/Project/index.js";
+import ClientSay from "../components/homepage/ClientSay/index.js";
 const Index = (props) => {
   const { data, loading, error } = useQuery(HomePage);
   if (error) return <>Your query is Error !</>;
   const datas = loading || convertArrToObject(data.page.layouts);
+  const clientSay = loading || data.clientSay;
   // console.log("Data Home:", data);
   // useEffect(() => {
   //   $(document).ready(function () {
@@ -38,21 +40,6 @@ const Index = (props) => {
   //     scrollFunction();
   //   };
 
-  //   function scrollFunction() {
-  //     if (
-  //       document.body.scrollTop > 20 ||
-  //       document.documentElement.scrollTop > 20
-  //     ) {
-  //       mybutton.style.display = "block";
-  //     } else {
-  //       mybutton.style.display = "none";
-  //     }
-  //   }
-  // });
-  // const topFunction = () => {
-  //   document.body.scrollTop = 0;
-  //   document.documentElement.scrollTop = 0;
-  // };
   return (
     loading || (
       <>
@@ -83,21 +70,22 @@ const Index = (props) => {
             referrerpolicy="no-referrer"
           />
         </Head>
-        <Begin />
+        <Begin data={data.banner} />
 
         <div
           id="root"
           className="container-fluid content-wrapper no-default-spacing"
         >
           {/* <Carousel data={data["Carousel"]} /> */}
-          {/* <News data={data["Home_News"]} /> */}
-          <News data={data.new[0]} />
+          <News data={data["Home_News"]} />
+          {/* <News data={data.new[0]} /> */}
           {/* <div className="blue-line"></div> */}
           <Service data={datas["Service"]} />
           <Company data={datas["Company"]} />
           {/* <Recruit data={data["Recruit"]} /> */}
           {/* <Slider data={data["Slides_Section"]} /> */}
           <Project data={datas["Slides_Section"]} />
+          <ClientSay data={clientSay} />
           {/* <div style={{ height: 300 }}></div> */}
           {/* <iframe
           src="./html/slide.html"

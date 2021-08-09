@@ -18,15 +18,10 @@ const CompanyProfilePage = (props) => {
                     rel='stylesheet'
                     href='css/company-profile.css'
                 />
-                <link
-                    key='css/contact.css'
-                    rel='stylesheet'
-                    href='css/contact.css'
-                />
             </Head>
             <Banner data={data.CompanyProfile_Banner} />
-            <Profile data = {data.CompanyProfile_Corporate}/>
-            <Message data = {data.CompanyProfile_Message}/>
+            <Profile data={data.CompanyProfile_Corporate} />
+            <Message data={data.CompanyProfile_Message} />
         </>
     );
 }

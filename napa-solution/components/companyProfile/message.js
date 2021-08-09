@@ -3,7 +3,6 @@ import { convertArrToObject } from '../../util/converArrayToObject';
 
 const Message = (props) => {
     const data = convertArrToObject(props.data.property);
-    console.log(data)
 
     const [defaultCenter, setDefaultCenter] = useState({ lat: 35.68965254335417, lng: 139.77491259808536 })
 
