@@ -3,7 +3,7 @@ import Head from "next/head";
 import { contactQuery, HomePage } from "../../query/general";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
-import ContactBanner from "../../components/contact/Banner";
+import ContactBanner from "../../components/company-history/Banner";
 import WhyNapa from "../../components/company-profile/WhyNapa";
 import Message from "../../components/company-profile/Message";
 const CompanyProfilePage = (props) => {
