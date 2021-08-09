@@ -10,9 +10,11 @@ import Head from "next/head";
 import { companyQuery } from "../../query/general";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import { client } from "../../apolo-client";
+import useDarkMode from "use-dark-mode";
 
 const Company = (props) => {
   const data = convertArrToObject(props.page.layouts);
+  const darkmode = useDarkMode();
 
   return (
     <>
@@ -36,7 +38,7 @@ const Company = (props) => {
       <Banner data={data["Company_Banner"]} />
       <CompanyPages />
       <AboutCompany data={data["Company_AboutCompany"]} />
-      <div className="container-fluid content-wrapper-02 ">
+      <div className={darkmode?.value? "container-fluid content-wrapper-02 darkmode-content-wrapper-02":"container-fluid content-wrapper-02"}>
         <div className="container  cw2-child-01">
           <div className="row ">
             <Philosophy data={data["Company_Philosophy"]} />

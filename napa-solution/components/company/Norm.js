@@ -1,13 +1,15 @@
 import React from "react";
 import { convertArrToObject } from "../../util/converArrayToObject";
+import useDarkMode from "use-dark-mode";
 
 const Norm = (props) => {
+  const darkmode = useDarkMode();
   const data = convertArrToObject(props.data.property);
 
   return (
     <>
       <div className="col-12  button-wrapper">
-        <div className="button-01">
+        <div className={darkmode?.value? "button-01 darkmode-button-01":"button-01"}>
           <span className="font-03">{data["Company_Norm_Norm"].key}</span>
         </div>
       </div>
