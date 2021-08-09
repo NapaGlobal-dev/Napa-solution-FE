@@ -1,6 +1,8 @@
 import Head from "next/head";
 import clsx from "clsx";
 import styles from "./style.module.css";
+import useDarkMode from "use-dark-mode";
+import { useEffect } from "react";
 const data = {
   title: "MESSAGE",
   subTitle: "代表の想い",
@@ -48,6 +50,16 @@ const data = {
   ],
 };
 const Message = (props) => {
+  const darkmode = useDarkMode(true);
+  // useEffect(() => {
+  //   if (darkmode) {
+  //     $("#carouselExampleControls").css("color", "#21293029 !important");
+  //     // $(".next").css("color", "#FFF");
+  //   } else {
+  //     $("a.prev ").css("color", "#21293029 !important");
+  //     // $(".prev").css("color", "#21293029");
+  //   }
+  // }, [darkmode]);
   return (
     <>
       <Head>
@@ -130,7 +142,12 @@ const Message = (props) => {
                 ></li>
                 <div>
                   <a
-                    class={("carousel-control-prev", clsx(styles.prev))}
+                    class={
+                      ("carousel-control-prev",
+                      darkmode.value
+                        ? clsx(styles.btndark, styles.prev)
+                        : clsx(styles.prev))
+                    }
                     href="#carouselExampleControls"
                     role="button"
                     data-slide="prev"
@@ -152,7 +169,12 @@ const Message = (props) => {
                     </svg>
                   </a>
                   <a
-                    class={("carousel-control-next", clsx(styles.next))}
+                    class={
+                      ("carousel-control-next",
+                      darkmode.value
+                        ? clsx(styles.btndark, styles.next)
+                        : clsx(styles.next))
+                    }
                     href="#carouselExampleControls"
                     role="button"
                     data-slide="next"

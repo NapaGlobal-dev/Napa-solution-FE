@@ -120,6 +120,9 @@
 .next {
   color: #21293029;
 }
+.btndark {
+  color: grey;
+}
 @media (max-width: 1810px) {
   .slider > div > ol {
     transform: translateX(60px);
