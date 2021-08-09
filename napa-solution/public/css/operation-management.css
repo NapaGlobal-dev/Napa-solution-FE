@@ -78,6 +78,9 @@
     padding: 30px 0;
     width: 100%;
 }
+.darkmode-operation-management-people{
+    background: unset;
+}
 
 .operation-management-people-intro {
     /* width: 1020px; */

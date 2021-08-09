@@ -1,8 +1,10 @@
 import React from "react";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import joinJsx from "../../util/joinJsx";
+import useDarkMode from "use-dark-mode";
 
 const Philosophy = (props) => {
+  const darkmode = useDarkMode();
   const data = convertArrToObject(props.data.property);
   //  { data[].value}
 
@@ -20,7 +22,7 @@ const Philosophy = (props) => {
         className="col-12 "
         style={{ display: "flex", justifyContent: "center" }}
       >
-        <div className="button-01">
+        <div className={darkmode?.value? "button-01 darkmode-button-01":"button-01"}>
           <span className="font-03">
             {data["Company_Philosophy_Philosophy"].value}
           </span>
