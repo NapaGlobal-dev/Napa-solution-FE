@@ -24,7 +24,7 @@
 }
 
 .cover > p {
-  margin-bottom: 130px;
+  /* margin-bottom: 130px; */
 
   text-align: left;
   font: normal normal normal 26px/40px Noto Sans JP;
@@ -102,21 +102,24 @@
   width: 10px;
   height: 10px;
 }
-.slider > div > ol > a {
-  color: #21293029;
+/* .slider > div > ol > a {
+  color: #21293029 !important;
   width: 30px;
   height: auto;
   z-index: 1000;
   display: contents !important;
 }
 .slider > div > ol > a:hover {
-  color: #21293029;
+  color: #21293029 !important;
   width: 22px;
   height: auto;
   z-index: 1000;
   display: contents !important;
+} */
+.prev,
+.next {
+  color: #21293029;
 }
-
 @media (max-width: 1810px) {
   .slider > div > ol {
     transform: translateX(60px);
@@ -149,15 +152,7 @@
     transform: translateX(170px);
   }
 }
-@media (max-width: 800px) {
-  .slider > div > ol {
-    display: flex;
-    flex-direction: column;
-    left: auto;
-    height: 100%;
-    transform: translateX(130px);
-  }
-}
+
 @media (min-width: 950px) {
   .slider > div > ol {
     bottom: 0;
@@ -165,6 +160,18 @@
   }
   .cover {
     margin: 50px 50px 0px 180px;
+  }
+  .prev {
+    position: absolute;
+    top: 190px;
+    width: 20px;
+    left: 7px;
+  }
+  .next {
+    position: absolute;
+    bottom: 190px;
+    width: 20px;
+    left: 7px;
   }
 }
 @media (max-width: 950px) {
@@ -203,9 +210,71 @@
     display: none;
   }
   .slider > div > ol {
-    margin-right: 150px;
+    margin-right: 167px;
   }
   .cover > p {
     margin-bottom: 0px;
+  }
+  .slider > div > ol > div > a > svg {
+    transform: rotate(-90deg);
+  }
+  .prev {
+    width: 20px;
+    position: absolute;
+    left: 131px;
+    bottom: -12px;
+  }
+  .next {
+    width: 20px;
+    position: absolute;
+    right: 131px;
+    bottom: -12px;
+  }
+}
+/* @media (max-width: 800px) {
+  .slider > div > ol {
+    transform: translateX(130px);
+  }
+} */
+@media (max-width: 768px) {
+  .prev {
+    width: 20px;
+    position: absolute;
+    left: 133px;
+    bottom: -12px;
+  }
+  .next {
+    width: 20px;
+    position: absolute;
+    right: 133px;
+    bottom: -12px;
+  }
+}
+@media (max-width: 645px) {
+  .prev {
+    width: 20px;
+    position: absolute;
+    left: 43px;
+    bottom: -12px;
+  }
+  .next {
+    width: 20px;
+    position: absolute;
+    right: 43px;
+    bottom: -12px;
+  }
+}
+@media (max-width: 414px) {
+  .prev {
+    width: 20px;
+    position: absolute;
+    left: 22px;
+    bottom: -12px;
+  }
+  .next {
+    width: 20px;
+    position: absolute;
+    right: 22px;
+    bottom: -12px;
   }
 }
