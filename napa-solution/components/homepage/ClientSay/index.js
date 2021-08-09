@@ -7,8 +7,8 @@ const ClientSay = (props) => {
     // <div className="container">
     <div className="container-fluid">
       <div className={clsx(styles.cover)}>
-        <h3>{data.title}</h3>
-        <p>{data.subTitle}</p>
+        <h3 id="main-title">{data.title}</h3>
+        <p id="sub-title">{data.subTitle}</p>
         <video
           autoplay="autoplay"
           controls="controls"
