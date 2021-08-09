@@ -10,7 +10,6 @@ import { StoreContext } from "../../../util/language/store";
 import useDarkMode from "use-dark-mode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
-const Header = (props) => {
 function Language() {
   const [openDropdown, setOpenDropndown] = useState(false);
   const [language, setLanguage] = useState({});
@@ -45,6 +44,7 @@ function Language() {
   );
 }
 
+const Header = (props) => {
   const darkmode = useDarkMode(true);
 
   const { data, loading, error } = useQuery(GET_HEADER);
@@ -56,6 +56,7 @@ function Language() {
   const [isOpen, setIsOpen] = useState(false);
   const [activePath, setActivePath] = useState(0);
   const [navColor, setNavColor] = useState("light");
+  const [hideNav, setHideNav] = useState(false);
   const headerNavigations = [
     {
       name: "Home",
@@ -118,6 +119,19 @@ function Language() {
     };
   }, []);
 
+  const hideNavbar = (e) => {
+    let shouldHideNavbar = e.deltaY > 0 ? true : false;
+    shouldHideNavbar = shouldHideNavbar && window.pageYOffset > 10;
+    if (shouldHideNavbar !== hideNav) setHideNav(shouldHideNavbar);
+  };
+
+  useEffect(() => {
+    window.addEventListener("wheel", hideNavbar);
+    return () => {
+      window.removeEventListener("wheel", hideNavbar);
+    };
+  }, [hideNav, setHideNav]);
+
   function handleClickMenu(entry, index) {
     setIsOpen(false);
     setActivePath(index);
@@ -131,7 +145,7 @@ function Language() {
     }
   }
 
-  console.log("render ", darkmode);
+  // console.log("render ", darkmode);
 
   return (
     <>
@@ -140,9 +154,13 @@ function Language() {
       </Head>
       <nav
         id="navbar"
-        style = {{borderBottom: !props.isLoading && "none"}}
-        className={clsx("navbar navbar-expand-lg navbar-light no-default-spacing", changeNav ? "dark-nav" : "",
-          navColor === 'dark' ? "dark-nav" : "")}
+        style={{ borderBottom: !props.isLoading && "none" }}
+        className={clsx(
+          "navbar navbar-expand-lg navbar-light no-default-spacing",
+          changeNav ? "dark-nav" : "",
+          navColor === "dark" ? "dark-nav" : "",
+          hideNav && "navbar-hidden"
+        )}
       >
         <a className="navbar-brand no-default-spacing" href={navbarLogo?.url}>
           <img

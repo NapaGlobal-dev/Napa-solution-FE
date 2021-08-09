@@ -34,7 +34,7 @@ const Layout = ({ footerData, children, ...props }) => {
     <>
       <Header isLoading={loading} />
       <div id="wrapper-landing-loader"
-        style={{ position: "fixed", left: 0, right: 0, marginLeft: "auto", marginRight: "auto", zIndex: 99, visibility: loading ? "visible" : "hidden" }}>
+        style={{ position: "fixed", left: 0, right: 0, marginLeft: "auto", marginRight: "auto", zIndex: 99, visibility: loading ? "visible" : "hidden"  }}>
         <Loading />
       </div>
       <div>{children}</div>

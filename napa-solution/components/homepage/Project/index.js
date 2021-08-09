@@ -1,3 +1,4 @@
+import React from "react";
 import SlideSection from "../SlideSection";
 import Slider from "react-slick";
 import { convertArrToObject } from "../../../util/converArrayToObject";
@@ -43,8 +44,10 @@ const Project = (props) => {
         <div className="sl-container-ratio"></div>
         <div className="sl-box-color">
           <div className="sl-box-text">
-            <h4 className="sl-box-title">PROJECT</h4>
-            <p className="sl-box-subtitle">顧客製品</p>
+            <h4 className="sl-box-title">{data["Slides_List_Title"]?.value}</h4>
+            <p className="sl-box-subtitle">
+              {data["Slides_List_Subtitle"]?.value}
+            </p>
             <div className="sl-quarter-img">
               <img height="100%" src="/img/home/box-style.svg" />
             </div>
@@ -84,16 +87,6 @@ const Project = (props) => {
                         width="100%"
                         className="sl-img-item"
                       />
-                      {/* <LazyLoadImage
-                    alt="imgSlide"
-                    effect="blur"
-                    src={item?.image.original}
-                    placeholderSrc={item?.image.thumbnail}
-                    threshold={100}
-                    width="100%"
-                    height="100%"
-                    className="img-fluid mx-auto d-block"
-                  /> */}
                     </a>
                   </div>
                 </div>
