@@ -6,9 +6,13 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
+  height: 50vh;
 }
 .reverse {
   flex-direction: row-reverse;
+}
+.wrapServices{
+  /* height: 100vh; */
 }
 .groupImg {
   position: relative;
@@ -41,6 +45,11 @@
   align-items: center;
   margin: 0px 71px 0px 214px;
   /* max-width: 544px; */
+}
+.contentText a:hover svg{
+  transition: stroke-dashoffset .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+  stroke-width: 2;
+  stroke-dashoffset: -207px;
 }
 .contentText > h3 {
   text-align: left;
