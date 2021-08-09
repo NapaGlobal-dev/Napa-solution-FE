@@ -19,20 +19,24 @@
   border: 10px #7c57e2 solid;
   top: 0;
   left: 0;
+}
 
+.sl-box-text {
+  z-index: 9;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 93%;
 }
 
 .sl-box-title {
-  font-size: 45px;
+  font-size: 2.4vw;
   font-weight: bold;
 }
 
 .sl-box-subtitle {
-  font-size: 24px;
+  font-size: 1.2vw;
   color: #9e9e9e;
 }
 
@@ -40,10 +44,11 @@
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: -1;
+  height: 50%;
 }
 
 .sl-control {
-  z-index: 9999;
 }
 
 .sl-control img {
@@ -53,11 +58,56 @@
 
 .sl-slider {
   position: absolute;
-  top: 13%;
+  top: 0;
   right: 0px;
   width: 78.5%;
+  height: 100%;
+}
+
+.sl-slick-container {
+  margin: 0 -16px;
+}
+
+.sl-slick-container .slick-list .slick-track .slick-slide {
+  /* padding: 2px; */
+}
+
+.sl-fill,
+.sl-box-text,
+.sl-full-height,
+.sl-carousel-item_url,
+.sl-slick-container,
+.sl-slick-container .slick-list,
+.sl-slick-container .slick-list .slick-track,
+.sl-slick-container .slick-list .slick-track .slick-slide,
+.sl-slick-container .slick-list .slick-track .slick-slide > div {
+  height: 100%;
+}
+
+.sl-carousel-item_flex {
+  display: flex;
+  align-items: center;
+}
+
+.sl-carousel-item_spacing {
+  padding: 0 16px;
+  background-color: white;
+  width: 100%;
   height: 73%;
-  overflow: hidden;
+}
+
+.sl-carousel-item_url {
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.sl-img-item {
+  padding: 20px;
+  height: auto;
 }
 
 @media (max-width: 768px) {
@@ -71,6 +121,7 @@
     flex-direction: column;
   }
 
+  .sl-control,
   .sl-container-ratio,
   .sl-quarter-img {
     display: none;
@@ -80,6 +131,10 @@
     position: relative;
     width: 100%;
     border: none;
+  }
+
+  .sl-box-text {
+    width: 100%;
   }
 
   .sl-box-title {
@@ -93,6 +148,25 @@
   .sl-slider {
     position: relative;
     width: 100%;
+    overflow: hidden;
+    height: 40vw;
+  }
+
+  .sl-carousel-item_spacing {
+    padding: 0 8px;
+    transition: all 0.3s;
+  }
+
+  .slick-slide.slick-center .sl-carousel-item_spacing {
+    height: 90%;
+  }
+
+  .slick-slide:not(.slick-center) .sl-carousel-item_spacing {
+    height: 73%;
+  }
+
+  .sl-img-item {
+    padding: 0 12px;
   }
 }
 
@@ -100,4 +174,8 @@
   .sl-quarter-img {
     display: none;
   }
+}
+
+.slick-arrow {
+  display: none !important;
 }

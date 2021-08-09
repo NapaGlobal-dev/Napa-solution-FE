@@ -13,7 +13,7 @@ import Begin from "../components/homepage/Begin";
 import News from "../components/homepage/News/index.js";
 import Service from "../components/homepage/Service/index.js";
 import Project from "../components/homepage/Project/index.js";
-import ClientSay from "../components/homepage/ClientSay";
+import ClientSay from "../components/homepage/ClientSay/index.js";
 const Index = (props) => {
   const { data, loading, error } = useQuery(HomePage);
   if (error) return <>Your query is Error !</>;
