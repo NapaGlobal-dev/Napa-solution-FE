@@ -9,7 +9,6 @@
 }
 
 .h3text {
-  margin-top: 52px;
   color: var(--unnamed-color-ffffff);
   text-align: center;
   font: normal normal bold 35px/60px Roboto;
@@ -60,6 +59,8 @@
   position: relative;
   top: -120px;
   background-size: cover;
+  height: 100vh;
+  align-items: center;
 }
 
 .liText {
@@ -150,7 +151,11 @@
   transform: translateY(-52px);
   padding: 0 85px;
 }
-
+.elementFooter{
+  height: 100vh;
+  display: flex;
+  margin: 50px 0;
+}
 .groupMapIcon {
   width: 650px;
 }

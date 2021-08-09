@@ -80,6 +80,7 @@ const Footer = (props) => {
             )}
             // className={clsx(styles.containX)}
           >
+            <div className={clsx(styles.elementFooter)}>
             <div className={clsx(styles.groupMapIcon)}>
               <div
                 className={clsx(
@@ -575,7 +576,8 @@ const Footer = (props) => {
                 </div>
               </div>
             </div>
-          </div>
+            </div>
+            </div>
 
           <div
             className="d-flex justify-content-center"
