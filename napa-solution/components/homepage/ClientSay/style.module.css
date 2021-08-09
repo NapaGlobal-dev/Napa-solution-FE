@@ -1,0 +1,39 @@
+.cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 100px 0px;
+}
+.video {
+  background: gray;
+  width: 100%;
+  max-width: 1555px;
+  height: 100%;
+  min-height: 300px;
+  margin-top: 70px;
+}
+.cover > h3 {
+  text-align: center;
+  font: normal normal bold 45px/59px Roboto;
+  letter-spacing: 0px;
+  color: #212121;
+  opacity: 1;
+}
+.cover > p {
+  text-align: center;
+  font: normal normal bold 26px/30px Roboto;
+  letter-spacing: 0.78px;
+  color: #9e9e9e;
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .cover {
+    margin: 0px;
+  }
+  .cover > h3 {
+    font: normal normal bold 20px/26px Roboto;
+  }
+  .cover > p {
+    font-size: 14px;
+  }
+}

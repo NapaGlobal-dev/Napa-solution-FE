@@ -15,11 +15,11 @@ const convertData = (data) => {
   const a = Object.values(newdata).sort((a, b) => a._order > b._order);
 
   const b = a.map((item) => ({
-    img: item.Image.image.original,
-    title: item.Title.value,
-    subTitle: item.Content.value,
-    url: item.Button.url,
-    btnContent: item.Button.value,
+    img: item?.Image?.image?.original,
+    title: item?.Title?.value,
+    subTitle: item?.Content?.value,
+    url: item?.Button?.url,
+    btnContent: item?.Button?.value,
   }));
 
   return b;

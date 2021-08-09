@@ -13,10 +13,32 @@ import Begin from "../components/homepage/Begin";
 import News from "../components/homepage/News/index.js";
 import Service from "../components/homepage/Service/index.js";
 import Project from "../components/homepage/Project/index.js";
+import ClientSay from "../components/homepage/ClientSay/index.js";
 const Index = (props) => {
   const { data, loading, error } = useQuery(HomePage);
   if (error) return <>Your query is Error !</>;
   const datas = loading || convertArrToObject(data.page.layouts);
+  const clientSay = loading || data.clientSay;
+  // console.log("Data Home:", data);
+  // useEffect(() => {
+  //   $(document).ready(function () {
+  //     $(".more-section-right").on("click", function () {
+  //       const arrowUp = "./img/Symbol156-14.svg";
+  //       const arrowDown = "./img/Symbol156-12.svg";
+  //       const text = $(this).find(".more-content").text();
+  //       $(this)
+  //         .find(".more-content")
+  //         .text(text == "MORE" ? "CLOSE" : "MORE");
+  //       $(this)
+  //         .find(".more-dropdown-icon")
+  //         .attr("src", text == "MORE" ? arrowUp : arrowDown);
+  //     });
+  //   });
+  //   var mybutton = document.getElementById("scroll");
+
+  //   window.onscroll = function () {
+  //     scrollFunction();
+  //   };
 
   return (
     loading || (
@@ -55,7 +77,7 @@ const Index = (props) => {
           className="container-fluid content-wrapper no-default-spacing"
         >
           {/* <Carousel data={data["Carousel"]} /> */}
-          {/* <News data={data["Home_News"]} /> */}
+          <News data={data["Home_News"]} />
           {/* <News data={data.new[0]} /> */}
           {/* <div className="blue-line"></div> */}
           <Service data={datas["Service"]} />
@@ -66,7 +88,8 @@ const Index = (props) => {
           
           {/* <Recruit data={data["Recruit"]} /> */}
           {/* <Slider data={data["Slides_Section"]} /> */}
-          
+          <Project data={datas["Slides_Section"]} />
+          <ClientSay data={clientSay} />
           {/* <div style={{ height: 300 }}></div> */}
           {/* <iframe
           src="./html/slide.html"
