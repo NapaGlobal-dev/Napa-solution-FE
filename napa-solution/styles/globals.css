@@ -9,7 +9,7 @@ html {
 }
 
 body.light-mode {
-  font-family: 'Noto Sans JP',Arial,sans-serif;;
+  font-family: "Noto Sans JP", Arial, sans-serif;
   /* body: "#FFF"; */
   color: #363537;
   /* toggleBorder: "#FFF"; */
@@ -22,11 +22,11 @@ body.dark-mode {
 }
 
 body.dark-mode p,
+h1,
+h2,
 h3,
 h4,
-h5,
-h2,
-a {
+h5 {
   color: #23496d;
 }
 
