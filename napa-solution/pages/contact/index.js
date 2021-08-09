@@ -5,7 +5,7 @@ import { client } from '../../apolo-client';
 import { convertArrToObject } from '../../util/converArrayToObject';
 import ContactForm from '../../components/contact/ContactForm';
 import Project from '../../components/homepage/Project/index';
-import ContactBanner from '../../components/contact/Banner';
+import Banner from '../../components/Company-history/Banner';
 import { getData } from "../../util/converArrayToObject"
 
 const ContactPage = (props) => {
@@ -16,7 +16,7 @@ const ContactPage = (props) => {
             <Head>
                 <link key="css/contact.css" rel="stylesheet" href="css/contact.css"/>
             </Head>
-            <ContactBanner data = {data.ContactBanner}/>
+            <Banner data = {data.ContactBanner}/>
             <ContactForm data = {data.ContactForm}/>
             <Project data={getData(props.data,/Slides_Section/)[0]}/>
         </>
