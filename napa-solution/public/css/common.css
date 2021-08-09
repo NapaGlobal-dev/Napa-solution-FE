@@ -1115,7 +1115,7 @@ body {
   }
 
   .company-content-wrapper {
-    padding: 20px 100px;
+    padding: 29px 105px 20px 130px;
   }
 
   .padding-title-cn {
@@ -1764,7 +1764,6 @@ body {
 
 .nav-darkmode-icon {
   color: white;
-  width: 28px;
 }
 
 .nav-darkmode-icon > circle {
@@ -1782,7 +1781,4 @@ body {
 
 .hidden {
   visibility: hidden;
-}
-.wrapTwoSection{
-  height: 100vh;
 }

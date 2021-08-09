@@ -81,11 +81,7 @@ const Index = (props) => {
           {/* <News data={data.new[0]} /> */}
           {/* <div className="blue-line"></div> */}
           <Service data={datas["Service"]} />
-          <div className="wrapTwoSection">
           <Company data={datas["Company"]} />
-          <Project data={datas["Slides_Section"]} />
-          </div>
-          
           {/* <Recruit data={data["Recruit"]} /> */}
           {/* <Slider data={data["Slides_Section"]} /> */}
           <Project data={datas["Slides_Section"]} />
