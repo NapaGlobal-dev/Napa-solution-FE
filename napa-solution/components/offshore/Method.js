@@ -1,8 +1,15 @@
 import { convertArrToObject } from "../../util/converArrayToObject";
+import useDarkMode from "use-dark-mode";
 const Method = (props) => {
   const data = convertArrToObject(props.data.property);
+  const darkmode = useDarkMode();
   return (
-    <section className="operation-management-people privacy-policy-flow">
+    <section className={
+      darkmode?.value?
+        "operation-management-people privacy-policy-flow darkmode-operation-management-people"
+        :
+        "operation-management-people privacy-policy-flow"
+    }>
       <div className="container-fluid">
         <div className="container">
           <div className="row">
