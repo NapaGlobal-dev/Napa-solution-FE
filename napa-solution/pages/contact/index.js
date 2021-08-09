@@ -10,15 +10,30 @@ import { getData } from "../../util/converArrayToObject"
 
 const ContactPage = (props) => {
     const data = convertArrToObject(props.data.page.layouts);
-
     return (
         <>
             <Head>
                 <link key="css/contact.css" rel="stylesheet" href="css/contact.css"/>
+                <link key="home-page-slide.css" rel="stylesheet" href="css/home-page-slide.css"/>
+                <link
+                    rel="stylesheet"
+                    type="text/css"
+                    charset="UTF-8"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+                />
+                <link
+                    rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+                    integrity="sha512-L/EyzxvZCddd652hKB4w2gEaZgCZSOaH0Ia6JoEGysTu27VnWvej5ipuBnru/iDhPWMO0AvwiVd0HHVUHWeDRA=="
+                    crossorigin="anonymous"
+                    referrerpolicy="no-referrer"
+                />
             </Head>
             <Banner data = {data.ContactBanner}/>
             <ContactForm data = {data.ContactForm}/>
-            <Project data={getData(props.data,/Slides_Section/)[0]}/>
+            <div className="container-fluid content-wrapper no-default-spacing">
+                <Project data={getData(props.data,/Slides_Section/)[0]} dele={console.log('ddd',getData(props.data,/Slides_Section/))}/>
+            </div>
         </>
     );
 }
