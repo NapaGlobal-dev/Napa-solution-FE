@@ -152,16 +152,14 @@ const Footer = (props) => {
                     <ul id={`ul-item-${index + 1}`}>
                       {item.content.map((item, key) => (
                         <li>
-                          <p className={clsx(styles.liText)} key = {key}>{item.value}</p>
+                          <p className={clsx(styles.liText)} key={key}>{item.value}</p>
                         </li>
                       ))}
                     </ul>
                   </div>
                 ))}
                 <div className={clsx(styles.socials)}>
-                  <p>FACEBOOK</p>
-                  <p>LINKEDIN</p>
-                  <p>TWITTER</p>
+                  <a>{joinJsx(data.Footer_Social.value.split("/n"), <br />)}</a>
                 </div>
                 <div className={clsx(styles.socialsIcon)}>
                   <svg
@@ -382,11 +380,16 @@ const Footer = (props) => {
                       </p>
                     </div>
                     {/* <div> */}
-                    <input
+                    <button className={clsx(styles.inputform)} >
+                      <a href={data.Footer_MapBtn_JP.url} target="_blank">
+                        {data.Footer_MapBtn_JP.value}
+                      </a>
+                    </button>
+                    {/* <input
                       type="button"
                       value={data.Footer_MapBtn.value}
                       className={clsx(styles.inputform)}
-                    />
+                    /> */}
                     {/* </div> */}
                   </div>
                 </div>
@@ -563,11 +566,16 @@ const Footer = (props) => {
                       </div>
                     </div>
                     {/* <div> */}
-                    <input
+                    {/* <input
                       type="button"
                       value={data.Footer_MapBtn.value}
                       className={clsx(styles.inputform)}
-                    />
+                    /> */}
+                    <button className={clsx(styles.inputform)}>
+                      <a href={data.Footer_MapBtn_EN.url} target="_blank">
+                        {data.Footer_MapBtn_EN.value}
+                      </a>
+                    </button>
                     {/* </div> */}
                   </div>
                 </div>
