@@ -149,34 +149,38 @@ export const contactQuery = gql`
 `;
 
 export const footerDataQuery = gql`
-  query FooterData {
-    layout: allLayouts(where: { name: "Footer" }, first: 1) {
+query FooterData {
+  layout: allLayouts(where: { name: "Footer" }, first: 1) {
+    name
+    property {
       name
-      property {
+      content{
         name
         value
-        url
-        image {
-          original: publicUrl
-          thumbnail: publicUrlTransformed(transformation: { width: "64" })
-        }
       }
-    }
-
-    pages: allPages(
-      where: { url_in: ["/business-summary", "/company"] }
-      sortBy: footerOrder_ASC
-    ) {
-      name
+      value
       url
-      subpages: childrenPage(sortBy: footerOrder_ASC) {
-        name
-        url
-        footerOrder
+      image {
+        original: publicUrl
+        thumbnail: publicUrlTransformed(transformation: { width: "64" })
       }
-      footerOrder
     }
   }
+
+  pages: allPages(
+    where: { url_in: ["/business-summary", "/company"] }
+    sortBy: footerOrder_ASC
+  ) {
+    name
+    url
+    subpages: childrenPage(sortBy: footerOrder_ASC) {
+      name
+      url
+      footerOrder
+    }
+    footerOrder
+  }
+}
 `;
 
 export const GET_HEADER = gql`

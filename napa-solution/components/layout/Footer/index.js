@@ -1,4 +1,4 @@
-import { convertArrToObject } from "../../../util/converArrayToObject";
+import { convertArrToObject, getData } from "../../../util/converArrayToObject";
 import styles from "./style.module.css";
 import clsx from "clsx";
 import { useEffect } from "react";
@@ -6,6 +6,8 @@ import joinJsx from "../../../util/joinJsx";
 
 const Footer = (props) => {
   const data = convertArrToObject(props.data.layout[0].property);
+  const summary = getData(props.data.layout[0].property, /Footer_Summary/);
+
   // const page_urls = props.data.pages;
   useEffect(() => {
     window.convertArrToObject = convertArrToObject;
@@ -78,7 +80,7 @@ const Footer = (props) => {
               // { transform: "translateY(-52px)", padding: "0 85px" },
               styles.containX
             )}
-            // className={clsx(styles.containX)}
+          // className={clsx(styles.containX)}
           >
             <div className={clsx(styles.groupMapIcon)}>
               <div
@@ -91,24 +93,24 @@ const Footer = (props) => {
                   解<br />決
                 </h2>
                 <img
-                  src="./img/home/logo_napa_white.svg"
+                  src={data.Footer_NapaLogo.image.original}
                   className={clsx(styles.imgNapa)}
                 />
               </div>
               <div className="container pl-0">
                 <img
-                  src="./img/home/world-map.svg"
+                  src={data.Footer_LocatedImg.image.original}
                   className={clsx(styles.imgMap)}
-                  // style={{ width: 600, height: "auto", marginTop: "67px" }}
+                // style={{ width: 600, height: "auto", marginTop: "67px" }}
                 />
               </div>
             </div>
             <div className={clsx(styles.half)}>
               <div className={clsx(styles.linksAndsocials)}>
-                {Array.from({ length: 4 }, (num, index) => (
+                {summary.map((item, index) => (
                   <div key={index} className={clsx(styles.groupText)}>
                     <h4>
-                      事業概要 {index}
+                      {item.value}
                       <span id={`btn-down-${index + 1}`}>
                         <svg
                           aria-hidden="true"
@@ -148,15 +150,11 @@ const Footer = (props) => {
                       </span>
                     </h4>
                     <ul id={`ul-item-${index + 1}`}>
-                      <li>
-                        <p className={clsx(styles.liText)}>運転管理</p>
-                      </li>
-                      <li>
-                        <p className={clsx(styles.liText)}>運転管理</p>
-                      </li>
-                      <li>
-                        <p className={clsx(styles.liText)}>運転管理</p>
-                      </li>
+                      {item.content.map((item, key) => (
+                        <li>
+                          <p className={clsx(styles.liText)} key = {key}>{item.value}</p>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 ))}
@@ -272,7 +270,7 @@ const Footer = (props) => {
                       </svg>
                     </div>
                     <p className={clsx(styles.contentp)}>
-                      〒103-0023 東京都中央区日本橋本町4-8-15 ネオカワイビル 6F
+                      {data.Footer_Address_JP.value}
                     </p>
                   </div>
                   <div className="d-flex">
@@ -320,7 +318,7 @@ const Footer = (props) => {
                         </g>
                       </svg>
                     </div>
-                    <p className={clsx(styles.contentp)}>03-4530-0001</p>
+                    <p className={clsx(styles.contentp)}>{data.Footer_Phone.value}</p>
                   </div>
                   <div className={clsx(styles.coverInput)}>
                     <div className="d-flex w-100">
@@ -380,13 +378,13 @@ const Footer = (props) => {
                         </svg>
                       </div>
                       <p className={clsx(styles.contentp, styles.contentlast)}>
-                        contact@napaglobal.com
+                        {data.Footer_Email.value}
                       </p>
                     </div>
                     {/* <div> */}
                     <input
                       type="button"
-                      value="MAP"
+                      value={data.Footer_MapBtn.value}
                       className={clsx(styles.inputform)}
                     />
                     {/* </div> */}
@@ -449,7 +447,7 @@ const Footer = (props) => {
                       </svg>
                     </div>
                     <p className={clsx(styles.contentp)}>
-                      〒103-0023 東京都中央区日本橋本町4-8-15 ネオカワイビル 6F
+                      {data.Footer_Address_EN.value}
                     </p>
                   </div>
                   <div className="d-flex">
@@ -497,7 +495,7 @@ const Footer = (props) => {
                         </g>
                       </svg>
                     </div>
-                    <p className={clsx(styles.contentp)}>03-4530-0001</p>
+                    <p className={clsx(styles.contentp)}>{data.Footer_Phone.value}</p>
                   </div>
                   <div className={clsx(styles.coverInput)}>
                     <div className="d-flex w-100">
@@ -560,14 +558,14 @@ const Footer = (props) => {
                         <p
                           className={clsx(styles.contentp, styles.contentlast)}
                         >
-                          contact@napaglobal.com
+                          {data.Footer_Email.value}
                         </p>
                       </div>
                     </div>
                     {/* <div> */}
                     <input
                       type="button"
-                      value="MAP"
+                      value={data.Footer_MapBtn.value}
                       className={clsx(styles.inputform)}
                     />
                     {/* </div> */}
@@ -589,7 +587,7 @@ const Footer = (props) => {
                 color: "#FFFFFF",
               }}
             >
-              © 2021 NAPA Global. All Rights Reserved.
+              {data.Footer_Publish.value}
             </p>
           </div>
         </div>
