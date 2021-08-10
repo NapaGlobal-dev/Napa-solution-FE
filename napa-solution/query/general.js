@@ -453,21 +453,51 @@ export const GET_PRIVACYPOLICY = gql`
 `;
 
 export const GET_COMPANYPROFILE = gql`
-query getCompanyProfile {
-  page: Page(where: { id: "60f0f35c0682d00030558c54" }) {
-    name
-    url
-    layouts {
+  query getCompanyProfile {
+    page: Page(where: { id: "60f0f35c0682d00030558c54" }) {
       name
-      property {
+      url
+      layouts {
         name
-        value
-        url
-        image {
-          original: publicUrl
-          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        property {
+          name
+          value
+          url
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
         }
       }
     }
   }
-}`;
+`;
+
+export const CompanyAbout = gql`
+  query getCompanyAbout {
+    page: Page(where: { id: "6112210aa5cb562704f92ecc" }) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          value
+          content {
+            name
+            value
+            image {
+              original: publicUrl
+              thumbnail: publicUrlTransformed(transformation: { width: "64" })
+            }
+            content {
+              name
+              key
+              value
+            }
+          }
+        }
+      }
+    }
+  }
+`;

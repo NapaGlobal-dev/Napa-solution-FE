@@ -1,5 +1,7 @@
 import clsx from "clsx";
 import styles from "./style.module.css";
+import { convertArrToObject } from "../../../util/converArrayToObject";
+
 const data = {
   title: "WHY NAPA?",
   subTitle: "なぜナパ？",
@@ -34,6 +36,20 @@ const data = {
   ],
 };
 const WhyNapa = (props) => {
+  const datas = convertArrToObject(props.data.property);
+  const title = Object.values(datas).filter((item) =>
+    item.name.includes("CompanyAbout_WhyNapa_Title")
+  )[0];
+  const subTitle = Object.values(datas).filter((item) =>
+    item.name.includes("CompanyAbout_WhyNapa_SubTitle")
+  )[0];
+  const tableWhy = Object.values(
+    datas.CompanyAbout_WhyNapa_Table.content
+  ).filter((item) => item.name.includes("CompanyAbout_WhyNapa_Table_Why"));
+  const tableReason = Object.values(
+    datas.CompanyAbout_WhyNapa_Table.content
+  ).filter((item) => item.name.includes("CompanyAbout_WhyNapa_Table_Reason"));
+
   return (
     <div className="container-fluid">
       <div className={clsx(styles.cover)}>
@@ -77,15 +93,15 @@ const WhyNapa = (props) => {
             />
           </g>
         </svg>
-        <h3>{data.title}</h3>
-        <p>{data.subTitle}</p>
+        <h3>{title.value}</h3>
+        <p>{subTitle.value}</p>
         <div className={clsx(styles.table)}>
-          {data.table.map((item, index) => (
+          {tableWhy?.map((item, index) => (
             <div className={clsx(styles.item)} key={index}>
-              <p>{item.why}</p>
+              <p>{item.value}</p>
               <div className={clsx(styles.groupReason)}>
-                {item.reason.map((reason, index) => (
-                  <p key={index}>{reason}</p>
+                {tableReason[index].content?.map((reason, index) => (
+                  <p key={index}>{reason.value}</p>
                 ))}
               </div>
             </div>
