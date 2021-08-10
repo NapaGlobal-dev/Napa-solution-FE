@@ -98,13 +98,14 @@ opacity: 1;
 .wrap-address-message{
   padding-top: 77px;
   padding-right: 100px;
-  
+  padding-left: 90px;
 }
 
 .wrap-detail{
   display: flex;
   justify-content: space-between;
   padding-top: 50px;
+  padding-right: 15px;
 }
 
 #google-map{
@@ -143,11 +144,14 @@ opacity: 1;
   }
   .wrap-address-message{
     padding-right: 0px;
+    padding-left: 0px;
   }
   .wrap-detail{
     flex-direction: column;
     text-align: center;
     align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .btn-message{
     margin-left: 0px !important;

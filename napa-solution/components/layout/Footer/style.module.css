@@ -111,6 +111,10 @@
   flex-direction: column;
   justify-content: right;
   align-items: flex-end;
+  line-height: 4.5;
+  color: #fff;
+  margin-top: -19px;
+  text-decoration: underline;
 }
 .socialsIcon {
   display: flex;
@@ -197,11 +201,17 @@
 .inputform {
   background: #412490 0% 0% no-repeat padding-box;
   padding: 2px 19px;
-  color: #fff;
   margin-left: 4px;
   border: none;
   height: 30px;
   width: 84px;
+}
+.inputform a{
+  color: #fff !important;
+}
+.inputform a:hover{
+  border:none;
+  text-decoration: none;
 }
 @media (min-width: 1600px) {
   .imgMap {
