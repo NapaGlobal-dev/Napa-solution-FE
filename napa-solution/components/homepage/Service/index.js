@@ -1,5 +1,6 @@
 import styles from "./style.module.css";
 import clsx from "clsx";
+import { useEffect } from "react";
 
 const convertData = (data) => {
   const newdata = {};
@@ -38,6 +39,16 @@ const convertData = (data) => {
 const Service = (props) => {
   const data = convertData(props.data.property);
 
+  useEffect(() => {
+    const offset = () => {
+      console.log(window.pageYOffset);
+    };
+    window.addEventListener("scroll", offset);
+    return () => {
+      window.removeEventListener("scroll", offset);
+    };
+  }, []);
+
   return (
     <div className={clsx("container-fluid", styles.container)}>
       <div className={clsx(styles.mainRoot)}>
@@ -54,49 +65,64 @@ const Service = (props) => {
             )}
             <div
               className={
+                // clsx("row", index % 2 != 0 && styles.reverse)
                 index % 2 == 0
                   ? clsx(styles.cover, styles.initial)
                   : clsx(styles.cover, styles.reverse)
               }
             >
-              <div className={clsx(styles.groupImg)}>
-                <img src={item.img} className={clsx(styles.mainImg)} />
-                <img
-                  src={
-                    index % 2 == 0
-                      ? "img/home/bg-service-left.png"
-                      : "img/home/bg_service.svg"
-                  }
-                  className={
-                    index % 2 == 0
-                      ? clsx(styles.bgImgOdd)
-                      : clsx(styles.bgImgEven)
-                  }
-                />
+              <div className={clsx(styles.blockContent)}>
+                <div className={styles.blockImageBounding}>
+                  <div className={clsx(styles.blockImage)}>
+                    <img src={item.img} className={clsx(styles.mainImage)} />
+                    <img
+                      src={
+                        index % 2 == 0
+                          ? "img/home/bg-service-left.png"
+                          : "img/home/bg_service.svg"
+                      }
+                      className={
+                        clsx(styles.decorImg)
+                        // index % 2 == 0
+                        //   ? clsx(styles.bgImgOdd)
+                        //   : clsx(styles.bgImgEven)
+                      }
+                    />
+                  </div>
+                </div>
               </div>
+              <div className={clsx(styles.spacing)}></div>
+
               <div
                 className={
-                  index % 2 == 0
-                    ? clsx(styles.contentText)
-                    : clsx(styles.contentReverse)
+                  clsx(styles.blockContent)
+                  // index % 2 == 0
+                  //   ? clsx(styles.contentText)
+                  //   : clsx(styles.contentReverse)
                 }
               >
-                <h3>{item.title}</h3>
-                <p>{item.subTitle}</p>
-                <a href={item.url}>
-                  <div
-                    className="col-xs-12 order-3 order-xl-4 no-default-spacing"
-                    id="detail-btn-company"
-                    style={{ width: 227, marginLeft: 0, height: 66 }}
-                  >
-                    <span id="detail-btn-company-content">
-                      {item.btnContent}
-                    </span>
-                    <svg id="stroke-arr-btn" viewBox="0 0 64 7">
-                      <path d="M0 6h61.5l-5.2-5.2"></path>
-                    </svg>
+                <div className={clsx(styles.centerContent)}>
+                  <div className={clsx(styles.boxContent)}>
+                    <h3>{item.title}</h3>
+                    <p>{item.subTitle}</p>
+                    <a href={item.url}>
+                      <div
+                        className={clsx(
+                          "col-xs-12 order-3 order-xl-4 no-default-spacing",
+                          styles.boxButton
+                        )}
+                        id="detail-btn-company"
+                      >
+                        <span id="detail-btn-company-content">
+                          {item.btnContent}
+                        </span>
+                        <svg id="stroke-arr-btn" viewBox="0 0 64 7">
+                          <path d="M0 6h61.5l-5.2-5.2"></path>
+                        </svg>
+                      </div>
+                    </a>
                   </div>
-                </a>
+                </div>
               </div>
             </div>
           </div>
