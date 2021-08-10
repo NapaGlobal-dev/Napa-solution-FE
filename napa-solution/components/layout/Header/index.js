@@ -46,6 +46,11 @@ function Language() {
 
 const Header = (props) => {
   const darkmode = useDarkMode(true);
+  useEffect(()=>{
+    const hour = (new Date()).getHours()
+    if(hour<5 || hour>=19)
+      darkmode.enable()
+  },[])
 
   const { data, loading, error } = useQuery(GET_HEADER);
   const navbarLogo = getData(data, /Navbar_Logo/)[0];
