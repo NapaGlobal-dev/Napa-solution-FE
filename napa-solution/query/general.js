@@ -149,38 +149,38 @@ export const contactQuery = gql`
 `;
 
 export const footerDataQuery = gql`
-query FooterData {
-  layout: allLayouts(where: { name: "Footer" }, first: 1) {
-    name
-    property {
+  query FooterData {
+    layout: allLayouts(where: { name: "Footer" }, first: 1) {
       name
-      content{
+      property {
         name
+        content {
+          name
+          value
+        }
         value
-      }
-      value
-      url
-      image {
-        original: publicUrl
-        thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
       }
     }
-  }
 
-  pages: allPages(
-    where: { url_in: ["/business-summary", "/company"] }
-    sortBy: footerOrder_ASC
-  ) {
-    name
-    url
-    subpages: childrenPage(sortBy: footerOrder_ASC) {
+    pages: allPages(
+      where: { url_in: ["/business-summary", "/company"] }
+      sortBy: footerOrder_ASC
+    ) {
       name
       url
+      subpages: childrenPage(sortBy: footerOrder_ASC) {
+        name
+        url
+        footerOrder
+      }
       footerOrder
     }
-    footerOrder
   }
-}
 `;
 
 export const GET_HEADER = gql`
@@ -477,7 +477,7 @@ export const GET_COMPANYPROFILE = gql`
   }
 `;
 
-export const CompanyAbout = gql`
+export const companyAbout = gql`
   query getCompanyAbout {
     page: Page(where: { id: "6112210aa5cb562704f92ecc" }) {
       name

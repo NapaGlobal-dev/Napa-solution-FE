@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { contactQuery, CompanyAbout } from "../../query/general";
+import { contactQuery, companyAbout } from "../../query/general";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import ContactBanner from "../../components/company-history/Banner";
@@ -23,7 +23,7 @@ const CompanyProfilePage = (props) => {
 };
 export async function getStaticProps() {
   const { data } = await client.query({ query: contactQuery });
-  const { data: adata } = await client.query({ query: CompanyAbout });
+  const { data: adata } = await client.query({ query: companyAbout });
   return {
     props: { data: { ...data, adata } },
   };
