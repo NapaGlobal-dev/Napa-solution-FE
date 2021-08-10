@@ -11,6 +11,8 @@ const apiEnv = {
 
 export const API_CMS = apiEnv[ENVIRONMENT];
 
+export const GOOGLE_API_KEY = "AIzaSyDauj3g7HyE202aDRkrUUBzcbCkcrK_CQg";
+
 // export const UPLOAD_S3_ENTRY_POINT =
 //   'https://tu3adfeu3l.execute-api.ap-southeast-1.amazonaws.com/api';
 // export const S3_URL = 'https://napa-web-store-private.s3-ap-southeast-1.amazonaws.com'

@@ -97,7 +97,7 @@ const Footer = (props) => {
               </div>
               <div className="container pl-0">
                 <img
-                  src="./img/home/world-map-4.svg"
+                  src="./img/home/world-map.svg"
                   className={clsx(styles.imgMap)}
                   // style={{ width: 600, height: "auto", marginTop: "67px" }}
                 />

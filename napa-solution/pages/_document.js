@@ -1,7 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import React, { Fragment } from "react";
 import StoreProvier from "../util/language/store";
-
+import { GOOGLE_API_KEY } from "../config";
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const originalRenderPage = ctx.renderPage;
@@ -58,11 +58,16 @@ class MyDocument extends Document {
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"
           ></script>
+          {/* google map api  */}
+          <script
+            src= {`https://maps.googleapis.com/maps/api/js?key=AIzaSyDauj3g7HyE202aDRkrUUBzcbCkcrK_CQg&libraries=&v=weekly`}
+            async
+          ></script>
         </Head>
         <body>
           <div id="wrapper">
-              <Main />
-              <NextScript />
+            <Main />
+            <NextScript />
           </div>
         </body>
       </Html>
