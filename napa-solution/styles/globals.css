@@ -20,7 +20,9 @@ body.dark-mode {
   color: #23496d;
   background: #000a35;
 }
-
+body.light-mode h1 {
+  color: #fff;
+}
 body.dark-mode p,
 h1,
 h2,

@@ -1,6 +1,8 @@
 import Head from "next/head";
 import clsx from "clsx";
 import styles from "./style.module.css";
+import { convertArrToObject } from "../../../util/converArrayToObject";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const data = {
   title: "MESSAGE",
   subTitle: "代表の想い",
@@ -48,6 +50,16 @@ const data = {
   ],
 };
 const Message = (props) => {
+  const datas = convertArrToObject(props.data.property);
+  const title = Object.values(datas).filter((item) =>
+    item.name.includes("CompanyAbout_Message_Title")
+  )[0];
+  const subTitle = Object.values(datas).filter((item) =>
+    item.name.includes("CompanyAbout_Message_SubTitle")
+  )[0];
+  const slider = Object.values(datas).filter((item) =>
+    item.name.includes("CompanyAbout_Message_Slider")
+  )[0];
   return (
     <>
       <Head>
@@ -95,42 +107,28 @@ const Message = (props) => {
               />
             </g>
           </svg>
-          <h3>{data.title}</h3>
-          <p>{data.subTitle}</p>
+          <h3>{title.value}</h3>
+          <p>{subTitle.value}</p>
           <div className={clsx(styles.slider)}>
             <div
               id="carouselExampleControls"
-              class="carousel vert slide"
+              className="carousel vert slide"
               // data-ride="carousel"
               // data-interval="900"
             >
-              {/* <div className={clsx(styles.controler)}> */}
+              <ol className="carousel-indicators">
+                {Array.from({ length: slider.content.length }, (num, index) => (
+                  <li
+                    data-target="#carouselExampleIndicators"
+                    data-slide-to={index}
+                    className={index == 0 ? "active" : ""}
+                    key={index}
+                  ></li>
+                ))}
 
-              <ol class="carousel-indicators">
-                <li
-                  data-target="#carouselExampleIndicators"
-                  data-slide-to="0"
-                  class="active"
-                ></li>
-                <li
-                  data-target="#carouselExampleIndicators"
-                  data-slide-to="1"
-                ></li>
-                <li
-                  data-target="#carouselExampleIndicators"
-                  data-slide-to="2"
-                ></li>
-                <li
-                  data-target="#carouselExampleIndicators"
-                  data-slide-to="3"
-                ></li>
-                <li
-                  data-target="#carouselExampleIndicators"
-                  data-slide-to="4"
-                ></li>
                 <div>
                   <a
-                    class={("carousel-control-prev", clsx(styles.prev))}
+                    className={("carousel-control-prev", clsx(styles.prev))}
                     href="#carouselExampleControls"
                     role="button"
                     data-slide="prev"
@@ -140,7 +138,7 @@ const Message = (props) => {
                       focusable="false"
                       data-prefix="fas"
                       data-icon="long-arrow-alt-up"
-                      class="svg-inline--fa fa-long-arrow-alt-up fa-w-8"
+                      className="svg-inline--fa fa-long-arrow-alt-up fa-w-8"
                       role="img"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 256 512"
@@ -152,7 +150,7 @@ const Message = (props) => {
                     </svg>
                   </a>
                   <a
-                    class={("carousel-control-next", clsx(styles.next))}
+                    className={("carousel-control-next", clsx(styles.next))}
                     href="#carouselExampleControls"
                     role="button"
                     data-slide="next"
@@ -162,7 +160,7 @@ const Message = (props) => {
                       focusable="false"
                       data-prefix="fas"
                       data-icon="long-arrow-alt-down"
-                      class="svg-inline--fa fa-long-arrow-alt-down fa-w-8"
+                      className="svg-inline--fa fa-long-arrow-alt-down fa-w-8"
                       role="img"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 256 512"
@@ -175,54 +173,38 @@ const Message = (props) => {
                   </a>
                 </div>
               </ol>
-              <div class="carousel-inner">
-                {/* <div class="carousel-item active">
-                  <img
-                    class="d-block mx-auto img-fluid"
-                    src="//via.placeholder.com/800x400"
-                    alt="First slide"
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    class="d-block mx-auto img-fluid"
-                    src="//via.placeholder.com/800x400/dd4444/fff"
-                    alt="Second slide"
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    class="d-block mx-auto img-fluid"
-                    src="//via.placeholder.com/800x400/777"
-                    alt="Third slide"
-                  />
-                </div> */}
-                {data.slider.map((item, index) => (
+              <div className="carousel-inner">
+                {slider?.content?.map((item, index) => (
                   <div
                     className={
                       index === 0 ? "carousel-item active" : "carousel-item"
                     }
                     key={index}
-                    // className={clsx(styles.coverItemInner)}
                   >
                     <div className={clsx(styles.coverItemInner)}>
                       <div className={clsx(styles.covermessage)}>
                         <div className={clsx(styles.message)}>
-                          <h4>{item.itemTitle}</h4>
-                          <p>{item.content}</p>
+                          <h4>{item.content[0].key}</h4>
+                          <p>{item.content[0].value}</p>
                           <div className={clsx(styles.sign)}>
-                            <p>{item.role}</p>
-                            <p>{item.name}</p>
+                            <p>{item.content[1].key}</p>
+                            <p>{item.content[1].value}</p>
                           </div>
                         </div>
                       </div>
                       <img
-                        src={item.img}
+                        src={item?.image?.original}
                         className={clsx(styles.img)}
-                        // class="d-block mx-auto img-fluid"
-                        // width="550"
-                        // height="550"
                       />
+                      {/* <LazyLoadImage
+                        effectb="lur"
+                        src={item?.image?.original}
+                        placeholderSrc={item?.image?.thumbnail}
+                        threshold={100}
+                        height="100%"
+                        width="100%"
+                        className={clsx(styles.img)}
+                      /> */}
                     </div>
                   </div>
                 ))}
