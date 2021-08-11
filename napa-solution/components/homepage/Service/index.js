@@ -13,12 +13,12 @@ const settings = {
   slidesPerView: 2,
   mousewheel: true,
   slidesPerGroup: 2,
-  breakpoints: {
-    768: {
-      slidesPerView: 1,
-      slidesPerGroup: 1,
-    },
-  },
+  // breakpoints: {
+  //   768: {
+  //     slidesPerView: 1,
+  //     slidesPerGroup: 1,
+  //   },
+  // },
 };
 
 const convertData = (data) => {
