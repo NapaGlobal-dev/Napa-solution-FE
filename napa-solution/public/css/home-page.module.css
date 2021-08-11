@@ -83,3 +83,67 @@
 #carousel-example > .carousel-inner {
   /* background-color: white; */
 }
+
+/* slide services */
+
+.sw-container {
+  position: relative;
+}
+
+.sw-placeholder {
+  /* height: 100vh;
+  width: 100%; */
+
+  padding: 40vh 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sw-trigger {
+  height: 100%;
+  width: 100%;
+}
+
+.sw-top-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.sw-sticky-element {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+.sw-bounding {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-slide {
+  /* height: 100% !important; */
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
