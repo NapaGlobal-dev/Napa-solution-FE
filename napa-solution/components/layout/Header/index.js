@@ -45,17 +45,18 @@ function Language() {
 }
 
 const Header = (props) => {
+  const { data } = useQuery(GET_HEADER);
+  const navbarLogo = getData(data, /Navbar_Logo/)[0];
+  const navbarHome = getData(data, /Navbar_Menu1/)[0];
+  const navbarMenu = getData(data, /Navbar_Menu([2-9]|1[0-9])/);
+  // const navbarMenuIcon = getData(data, /Navbar_MenuIcon/)[0];
+
   const darkmode = useDarkMode(true);
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 5 || hour >= 19) darkmode.enable();
-  }, []);
+  });
 
-  const { data, loading, error } = useQuery(GET_HEADER);
-  const navbarLogo = getData(data, /Navbar_Logo/)[0];
-  const navbarHome = getData(data, /Navbar_Menu1/)[0];
-  const navbarMenu = getData(data, /Navbar_Menu([2-9]|1[0-9])/);
-  const navbarMenuIcon = getData(data, /Navbar_MenuIcon/)[0];
   const [changeNav, setChangeNav] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activePath, setActivePath] = useState(0);
@@ -184,9 +185,32 @@ const Header = (props) => {
             {navbarMenu.map((menu, key) => (
               <li className="nav-item item-navbar-menu" key={key}>
                 <div className="slice-navbar-item" />
-                <a href={menu?.url} className="text-navbar-menu">
-                  {menu?.value}
-                </a>
+                <div className="dropdown">
+                  <a href={menu?.url} className="text-navbar-menu">
+                    {menu?.value}
+                  </a>
+                  <div class="dropdown-layer">
+                    <div className="dropdown-body">
+                      <ul>
+                        <li>
+                          <div>
+                            <a href="#">組み込み開発</a>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            <a href="#">組み込み開発</a>
+                          </div>
+                        </li>
+                        <li>
+                          <div>
+                            <a href="#">組み込み開発</a>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>
