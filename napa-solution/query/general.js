@@ -184,19 +184,24 @@ export const footerDataQuery = gql`
 `;
 
 export const GET_HEADER = gql`
-  query getHeader {
-    navbar: allLayouts(where: { name: "Navbar" }) {
+query getHeader {
+  navbar: allLayouts(where: { name: "Navbar" }) {
+    name
+    property(sortBy: name_ASC) {
       name
-      property(sortBy: name_ASC) {
+      value
+      content{
         name
         value
         url
-        image {
-          publicUrl
-        }
+      }
+      url
+      image {
+        publicUrl
       }
     }
   }
+}
 `;
 
 export const InspectMaintenanceQuery = gql`
