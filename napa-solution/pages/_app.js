@@ -15,11 +15,10 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../themeConfig";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 function MyApp({ Component, pageProps, footerData, ...props }) {
-  
   useEffect(() => {
     Fonts();
-  },[])
-  
+  }, []);
+
   const [isMounted, setIsMounted] = useState(false);
   const darkmode = useDarkMode(true);
   const theme = darkmode.value ? darkTheme : lightTheme;
@@ -44,13 +43,30 @@ function MyApp({ Component, pageProps, footerData, ...props }) {
               onChange={darkmode.toggle}
               size={120}
             /> */}
-            {isMounted && <Component {...pageProps} />}
+            {/* {isMounted && <Component {...pageProps} />} */}
+            <Component {...pageProps} />
           </Layout>
         </ThemeProvider>
       </ApolloProvider>
     </StoreProvier>
   );
 }
+
+// function MyApp({ Component, pageProps, footerData, ...props }) {
+//   const getLayout =
+//     Component.getLayout ||
+//     ((page) => <Layout data={footerData}>{page}</Layout>);
+
+//   const page = getLayout(<Component {...pageProps} />, {
+//     footerData: footerData,
+//   });
+
+//   return (
+//     <StoreProvier>
+//       <ApolloProvider client={client}>{page}</ApolloProvider>
+//     </StoreProvier>
+//   );
+// }
 
 MyApp.getInitialProps = async (ctx) => {
   const { data } = await client.query({

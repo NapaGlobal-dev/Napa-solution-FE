@@ -14,7 +14,8 @@ import News from "../components/homepage/News/index.js";
 import Service from "../components/homepage/Service/index.js";
 import Project from "../components/homepage/Project/index.js";
 import ClientSay from "../components/homepage/ClientSay/index.js";
-const Index = (props) => {
+
+const Index = ({ footer, ...props }) => {
   const { data, loading, error } = useQuery(HomePage);
   if (error) return <>Your query is Error !</>;
   const datas = loading || convertArrToObject(data.page.layouts);
@@ -70,37 +71,24 @@ const Index = (props) => {
             referrerpolicy="no-referrer"
           />
         </Head>
-        <Begin data={data.banner} />
 
-        <div
-          id="root"
-          className="container-fluid content-wrapper no-default-spacing"
-        >
-          {/* <Carousel data={data["Carousel"]} /> */}
-          <News data={data["Home_News"]} />
-          {/* <News data={data.new[0]} /> */}
-          {/* <div className="blue-line"></div> */}
+        <div className="scroll-snap-container">
+          <div className="scroll-snap-section">
+            <Begin data={data.banner} />
+          </div>
           <Service data={datas["Service"]} />
-          <Company data={datas["Company"]} />
-          {/* <Recruit data={data["Recruit"]} /> */}
-          {/* <Slider data={data["Slides_Section"]} /> */}
-          <Project data={datas["Slides_Section"]} />
-          <ClientSay data={clientSay} />
-          {/* <div style={{ height: 300 }}></div> */}
-          {/* <iframe
-          src="./html/slide.html"
-          style={{ border: "unset", marginTop: "20px", width: "100%" }}
-        ></iframe> */}
-          {/* <a
-            onClick={topFunction}
-            href="#root"
-            // onclick="topFunction()"
-            href=":root"
-            id="scroll"
-            style={{ display: "none", visibility: "hidden" }}
-          >
-            <img src="./img/scroll-top.png" />
-          </a> */}
+
+          <div className="scroll-snap-section">
+            <div
+              id="root"
+              className="container-fluid content-wrapper no-default-spacing"
+            >
+              <Company data={datas["Company"]} />
+              <Project data={datas["Slides_Section"]} />
+              <ClientSay data={clientSay} />
+              {footer}
+            </div>
+          </div>
         </div>
       </>
     )

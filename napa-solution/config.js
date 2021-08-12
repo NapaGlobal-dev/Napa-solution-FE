@@ -1,6 +1,6 @@
 export const ENVIRONMENT = "dev";
 //export const ENVIRONMENT = "production";
-const HOST = "192.168.1.6";
+const HOST = "localhost";
 const PORT = "3001";
 
 const apiEnv = {
