@@ -5,7 +5,7 @@
 .cover {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 50px;
+  padding-bottom: 2.6%;
 }
 .reverse {
   flex-direction: row-reverse;
