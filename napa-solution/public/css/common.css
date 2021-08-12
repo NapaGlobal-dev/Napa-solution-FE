@@ -183,7 +183,6 @@ body {
 
 .text-navbar-menu {
   text-align: left;
-  padding-left: 32px;
   font: normal normal normal 18px/30px Roboto;
   letter-spacing: 0;
   color: #fff;
@@ -219,6 +218,7 @@ body {
   border: 1px solid #fff;
   opacity: 1;
   transform: rotate(25deg);
+  margin-right: 30px;
 }
 
 #navbar-toggler {
@@ -1781,4 +1781,59 @@ body {
 
 .hidden {
   visibility: hidden;
+}
+.dropdown{
+  position: relative;
+}
+.dropdown-layer{
+  display: none;
+  padding-top: 28px;
+  min-width: 160px;
+  width: 200px;
+  z-index: 1;
+  position: absolute;
+  animation-name: dropdown;
+  animation-duration: .4s;
+  animation-fill-mode: forwards;
+  left: 51% !important;
+  right: auto !important;
+}
+.dropdown-body {
+  padding: 5px 15px 18px;
+  background-color: #412490 ;
+  border: 3px solid #FFF ;
+  color: #FFF;
+}
+.dropdown:hover .dropdown-layer{
+  display: block;
+}
+.dropdown-body ul{
+  list-style: none;
+}
+.dropdown-body  a:before{
+  content: '/';
+  position: absolute;
+  left: 5px;
+  transform: rotate(15deg);
+}
+.dropdown-body  a{
+  transition: margin-left .5s;
+  color: #FFF;
+}
+.dropdown-body  div{
+  position: relative;
+  border-bottom: 2px solid #FFF;
+  padding: 10px 0 4px 25px;
+}
+.dropdown-body  li:hover a{
+  margin-left: 10px;
+}
+
+@keyframes dropdown {
+  from {
+    transform: translate(-51%, 5px);
+  }
+  to {
+    transform: translate(-51%, 0px);
+  }
 }
