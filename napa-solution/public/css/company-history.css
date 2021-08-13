@@ -1,6 +1,6 @@
 
 .containerC{
-  margin-top: 100px;
+  /* margin-top: 100px; */
   padding: 0px 100px;
   display: flex;
   align-items: center;
@@ -184,7 +184,7 @@
   display: none;
 }
 .containerD{
-  margin-top: 100px;
+  /* margin-top: 100px; */
   padding: 0px 210px;
   display: flex;
   align-items: center;
@@ -194,7 +194,7 @@
 .titleD{
   font: normal normal bold 45px/59px Roboto;
   letter-spacing: 0px;
-  color: #212121;
+  color: #212121!important;
   text-transform: uppercase;
   opacity: 1;
 }
@@ -245,6 +245,7 @@
     padding:0px 2vh;
     width:100%;
     height:100%;
+    margin-top: 10px;
   }
   .timeline{
     height: auto;
@@ -304,7 +305,7 @@
       width: 60%;
   }
   .containerD{
-    margin-top: 100px;
+    /* margin-top: 100px; */
     padding: 0px 20px;
   }
   .rowD{
