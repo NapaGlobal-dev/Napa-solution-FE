@@ -49,6 +49,7 @@ const Header = (props) => {
   const navbarLogo = getData(data, /Navbar_Logo/)[0];
   const navbarHome = getData(data, /Navbar_Menu1/)[0];
   const navbarMenu = getData(data, /Navbar_Menu([2-9]|1[0-9])/);
+  const navbarMobile = getData(data, /Navbar_Menu/);
   // const navbarMenuIcon = getData(data, /Navbar_MenuIcon/)[0];
 
   const darkmode = useDarkMode(true);
@@ -62,38 +63,36 @@ const Header = (props) => {
   const [activePath, setActivePath] = useState(0);
   const [navColor, setNavColor] = useState("light");
   const [hideNav, setHideNav] = useState(false);
-  const headerNavigations = [
-    {
-      name: "Home",
-      path: "/",
-      id: "home-section",
-      icon: "img/header/home.svg",
-    },
-    {
-      name: "事業概要",
-      path: "/business-summary",
-      icon: "img/header/service.svg",
-    },
-    {
-      name: "企業情報",
-      path: "/company",
-      id: "company-section",
-      icon: "img/header/profile.svg",
-    },
-    {
-      name: "採用情報",
-      path: "/recruit",
-      icon: "img/header/project.svg",
-    },
-    {
-      name: "お問い合わせ",
-      path: "/contact",
-      icon: "img/header/contact.svg",
-    },
-  ];
+  // const headerNavigations = [
+  //   {
+  //     name: "Home",
+  //     path: "/",
+  //     icon: "img/header/home.svg",
+  //   },
+  //   {
+  //     name: "事業概要",
+  //     path: "/business-summary",
+  //     icon: "img/header/service.svg",
+  //   },
+  //   {
+  //     name: "企業情報",
+  //     path: "/company",
+  //     icon: "img/header/profile.svg",
+  //   },
+  //   {
+  //     name: "採用情報",
+  //     path: "/recruit",
+  //     icon: "img/header/project.svg",
+  //   },
+  //   {
+  //     name: "お問い合わせ",
+  //     path: "/contact",
+  //     icon: "img/header/contact.svg",
+  //   },
+  // ];
 
   const mobileHeaderNav = [
-    ...headerNavigations,
+    ...navbarMobile,
     ...languages.map((lang, index) => ({
       path: "#",
       name: lang,
@@ -138,9 +137,8 @@ const Header = (props) => {
   }, [hideNav, setHideNav]);
 
   function handleClickMenu(entry, index) {
-    setIsOpen(false);
     setActivePath(index);
-    if (entry.type === "language") {
+    if (entry?.type && entry?.type === "language") {
       if (entry.name === "JP") {
         setLanguageId(entry.languageId);
       }
@@ -189,27 +187,21 @@ const Header = (props) => {
                   <a href={menu?.url} className="text-navbar-menu">
                     {menu?.value}
                   </a>
-                  <div class="dropdown-layer">
-                    <div className="dropdown-body">
-                      <ul>
-                        <li>
-                          <div>
-                            <a href="#">組み込み開発</a>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            <a href="#">組み込み開発</a>
-                          </div>
-                        </li>
-                        <li>
-                          <div>
-                            <a href="#">組み込み開発</a>
-                          </div>
-                        </li>
-                      </ul>
+                  {menu.content.length !== 0 &&
+                    <div className="dropdown-layer">
+                      <div className="dropdown-body">
+                        <ul>
+                          {menu.content.map((item, index) => (
+                            <li key={index}>
+                              <div>
+                                <a href={item.url}>{item.value}</a>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                  </div>
+                  }
                 </div>
               </li>
             ))}
@@ -229,7 +221,7 @@ const Header = (props) => {
           </button> */}
         <div
           className={clsx("wrap-menu", isOpen ? "change" : "")}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() =>{ setIsOpen(!isOpen), setActivePath(0)}}
         >
           <div className="bar1" />
           <div className="bar2" />
@@ -241,27 +233,45 @@ const Header = (props) => {
             // <Link to={`#${entry.path}`} key={index} className={styles.wrapLinkMobile}>
 
             // </Link>
-            <a
-              href={entry.path[0] === "/" ? entry.path : `#${entry.path}`}
-              key={index}
-              className="wrap-link-mobile"
-            >
-              <span>{entry.name}</span>
-              <button
-                onClick={() => handleClickMenu(entry, index)}
-                className={clsx(
-                  "wrap-icon",
-                  activePath === index ? "active" : ""
-                )}
+            <div className="dropdown">
+              <a
+                href={entry?.url}
+                key={index}
+                className="wrap-link-mobile"
               >
-                <img
-                  key={index}
-                  className="icon"
-                  src={entry.icon}
-                  alt="Mobile Icon"
-                />
-              </button>
-            </a>
+                <span>{entry?.value ? entry?.value : entry.name}</span>
+                <button
+                  onClick={() => handleClickMenu(entry, index)}
+                  className={clsx(
+                    "wrap-icon",
+                    activePath === index ? "active" : ""
+                  )}
+                >
+                  <img
+                    key={index}
+                    className="icon"
+                    src={entry?.image?.publicUrl ? entry?.image?.publicUrl : entry.icon}
+                    alt="Mobile Icon"
+                  />
+
+                </button>
+              </a>
+              {entry.content && entry.content.length !== 0 &&
+                <div className="dropdown-layer">
+                  <div className="dropdown-body">
+                    <ul>
+                      {entry.content.map((item, index) => (
+                        <li key={index}>
+                          <div>
+                            <a href={item.url}>{item.value}</a>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              }
+            </div>
           ))}
           <div className="wrap-link-mobile">
             <span>{!!darkmode.value ? "Dark" : "Light"}</span>

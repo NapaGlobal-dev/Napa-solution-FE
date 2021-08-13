@@ -185,9 +185,12 @@ body {
   text-align: left;
   font: normal normal normal 18px/30px Roboto;
   letter-spacing: 0;
-  color: #fff;
+  color: #fff !important;
   opacity: 1;
+  text-decoration: none;
+  cursor: pointer;
 }
+
 
 .navbar-menu {
   padding-left: 10%;
@@ -1646,6 +1649,11 @@ body {
     width: 145px;
     height: auto;
   }
+  .dropdown-layer{
+    right: 0 !important;
+    top: -7px;
+    left: auto !important;
+  }
   .wrap-menu {
     width: 35px;
     height: 35px;
@@ -1713,7 +1721,7 @@ body {
     flex-direction: column;
     align-items: flex-end;
     position: absolute;
-    top: 45px;
+    top: 50px;
     right: 15px;
     z-index: 7;
     transition: 0.8s cubic-bezier(0.39, 0.58, 0.57, 1);
@@ -1725,7 +1733,7 @@ body {
     display: flex;
     align-items: center;
     font-weight: bold;
-    color: #fff;
+    color: #fff !important;
   }
   .wrap-link-mobile > span {
     padding-right: 20px;
@@ -1760,10 +1768,17 @@ body {
   .hide-on-mobile {
     display: none !important;
   }
+  .langBtn{
+    display: none;
+  }
 }
 
 .nav-darkmode-icon {
   color: white;
+}
+
+button:focus{
+  outline: none;
 }
 
 .nav-darkmode-icon > circle {
@@ -1795,8 +1810,8 @@ body {
   animation-name: dropdown;
   animation-duration: .4s;
   animation-fill-mode: forwards;
-  left: 51% !important;
-  right: auto !important;
+  left: 51%;
+  right: auto;
 }
 .dropdown-body {
   padding: 5px 15px 18px;

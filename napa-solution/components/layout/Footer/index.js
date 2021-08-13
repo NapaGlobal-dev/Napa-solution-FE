@@ -152,7 +152,7 @@ const Footer = (props) => {
                     <ul id={`ul-item-${index + 1}`}>
                       {item.content.map((item, key) => (
                         <li>
-                          <p className={clsx(styles.liText)} key={key}>{item.value}</p>
+                          <a className={clsx(styles.liText)} key={key}>{item.value}</a>
                         </li>
                       ))}
                     </ul>

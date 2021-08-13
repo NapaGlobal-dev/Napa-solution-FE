@@ -49,6 +49,7 @@
   color: #ffffff;
   opacity: 1;
   margin-bottom: 45px;
+  margin-left: 10px;
 }
 
 .covergalery {
@@ -67,8 +68,9 @@
   text-align: left;
   font: normal normal normal 14px/30px Roboto;
   letter-spacing: 0.42px;
-  color: #ffffff;
+  color: #ffffff !important;
   opacity: 1;
+  line-height: 3;
 }
 
 .iconcover {
