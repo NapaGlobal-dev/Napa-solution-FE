@@ -70,16 +70,16 @@ const Service = (props) => {
         className="sw-container"
         onSwiper={setSwiperRef}
         direction={"vertical"}
-        slidesPerView={1}
+        slidesPerView={2}
         mousewheel
-        slidesPerGroup={1}
+        slidesPerGroup={2}
         nested
-        breakpoints={{
-          768: {
-            slidesPerView: 2,
-            slidesPerGroup: 2,
-          },
-        }}
+        // breakpoints={{
+        //   768: {
+        //     slidesPerView: 2,
+        //     slidesPerGroup: 2,
+        //   },
+        // }}
       >
         <div
           className={clsx("container-fluid", styles.container)}

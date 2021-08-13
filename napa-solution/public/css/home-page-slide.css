@@ -169,7 +169,7 @@
     padding: 0 12px;
   }
 
-  .sw-box-bounding {
+  .sw-slide-services:nth-child(odd) .sw-box-bounding {
     align-items: center !important;
   }
 

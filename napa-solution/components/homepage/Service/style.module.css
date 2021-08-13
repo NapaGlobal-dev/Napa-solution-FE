@@ -270,7 +270,7 @@
   .cover {
     flex-direction: column !important;
     padding: 0px;
-    margin: 35px 24px;
+    margin: 0 32px;
   }
   .container {
     padding: 0;
@@ -451,7 +451,7 @@
   }
 
   .boxContent {
-    padding-top: 35px;
+    padding-top: 15px;
   }
 
   .blockImageBounding {
@@ -473,6 +473,7 @@
 
   .boxContent h3 {
     font-size: 16px;
+    padding-bottom: 12px;
   }
 
   .boxContent p {
@@ -484,6 +485,10 @@
   }
   .h2Text {
     display: none;
+  }
+
+  .boxButton {
+    margin-top: 0 !important;
   }
 }
 

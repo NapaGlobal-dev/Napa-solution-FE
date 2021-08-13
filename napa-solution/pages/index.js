@@ -10,6 +10,7 @@ import Project from "../components/homepage/Project/index.js";
 import ClientSay from "../components/homepage/ClientSay/index.js";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Mousewheel } from "swiper";
+import { client } from "../apolo-client";
 
 import "swiper/swiper.min.css";
 import { useEffect, useState } from "react";
