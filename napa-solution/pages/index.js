@@ -89,6 +89,7 @@ const Index = ({ footer, data, ...props }) => {
             mousewheel
             freeMode
             nested
+            onScroll={(sw, e) => sw.update()}
           >
             <SwiperSlide className="sw-slide-free-mode ">
               <div
