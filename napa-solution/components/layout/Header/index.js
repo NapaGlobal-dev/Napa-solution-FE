@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import languages from "../../../util/language/language";
 import clsx from "clsx";
 import { StoreContext } from "../../../util/language/store";
-
+import ScrollToTop from "../ScrollToTop";
 import useDarkMode from "use-dark-mode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
@@ -157,6 +157,7 @@ const Header = (props) => {
       <Head>
         <link key="css/common.css" rel="stylesheet" href="css/common.css" />
       </Head>
+
       <nav
         id="navbar"
         style={{ borderBottom: !props.isLoading && "none" }}
@@ -286,6 +287,7 @@ const Header = (props) => {
         />
         <Language />
       </nav>
+      <ScrollToTop />
     </>
   );
 };

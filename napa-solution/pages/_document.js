@@ -60,8 +60,12 @@ class MyDocument extends Document {
           ></script>
           {/* google map api  */}
           <script
-            src= {`https://maps.googleapis.com/maps/api/js?key=AIzaSyDauj3g7HyE202aDRkrUUBzcbCkcrK_CQg&libraries=&v=weekly`}
+            src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyDauj3g7HyE202aDRkrUUBzcbCkcrK_CQg&libraries=&v=weekly`}
             async
+          ></script>
+          <script
+            src="https://kit.fontawesome.com/c6253efcfe.js"
+            crossorigin="anonymous"
           ></script>
         </Head>
         <body>
