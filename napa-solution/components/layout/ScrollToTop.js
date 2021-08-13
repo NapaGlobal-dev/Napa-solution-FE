@@ -51,6 +51,11 @@ export default function ScrollToTop() {
         transition:all 0.3s;
         opacity:1;
     }   
+    .scroll_to_top:not(:hover) {
+      transform: translateX(64px);
+      transition:all 0.3s;
+      opacity:0.7;
+  }   
     </style>`);
     // $(".scroll_to_topp").hover(() => {
     //   $(this).css("transform", "translateX(0px) !important");
