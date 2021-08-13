@@ -1,4 +1,3 @@
-import { client } from "../apolo-client";
 import { useQuery } from "@apollo/client";
 import { HomePage } from "../query/general";
 import { convertArrToObject } from "../util/converArrayToObject";
