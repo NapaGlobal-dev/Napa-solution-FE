@@ -1,3 +1,4 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import styles from "./ai.module.css";
 const ImgAI = "/assets/images/en/home/banner-2/main-min.png";
 const ImgShadow = "/assets/images/en/home/banner-2/shadow.svg";
@@ -9,12 +10,12 @@ const ImgPhone = "/assets/images/en/home/banner-2/scan-min.png";
 const AI = () => {
   return (
     <>
-      <img alt="AI" src={ImgAI} className={styles.imgAI} />
-      <img alt="Shadow AI" src={ImgShadow} className={styles.imgShadow} />
-      <img alt="Database" src={ImgDataBase} className={styles.imgDB} />
-      <img alt="Chat" src={ImgChat} className={styles.imgChat} />
-      <img alt="Robot" src={ImgRobot} className={styles.imgRobot} />
-      <img alt="Phone" src={ImgPhone} className={styles.imgPhone} />
+      <LazyLoadImage alt="AI" src={ImgAI} className={styles.imgAI} />
+      <LazyLoadImage alt="Shadow AI" src={ImgShadow} className={styles.imgShadow} />
+      <LazyLoadImage alt="Database" src={ImgDataBase} className={styles.imgDB} />
+      <LazyLoadImage alt="Chat" src={ImgChat} className={styles.imgChat} />
+      <LazyLoadImage alt="Robot" src={ImgRobot} className={styles.imgRobot} />
+      <LazyLoadImage alt="Phone" src={ImgPhone} className={styles.imgPhone} />
     </>
   );
 };

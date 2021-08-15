@@ -7,6 +7,7 @@ import SliderWrapper from "./sliderWrapper";
 import Banner4Component from "./banner4/blockchain";
 import Banner2Component from "./banner2/ai";
 import Banner3Component from "./banner3";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const BannerHome1 = "/assets/images/en/home/banner-1.png";
 const BannerHome1Mobile = "/assets/images/en/home/banner-1-mobile.png";
@@ -38,13 +39,15 @@ const convertData = (data = []) => {
 const Element = ({ currentSlide, index, img, data }) => {
   return (
     <div className={clsx(styles.container)} id={`slide${index + 1}`}>
-      <img
+      <LazyLoadImage
         alt="Banner"
         src={img}
         className={clsx(
           styles.bannerImg,
           currentSlide === index && styles.zoomInBanner
         )}
+        effect = "blur"
+        width = "100%"
       />
       <div className={styles.wrapper}>
         <div className={styles.content}>
