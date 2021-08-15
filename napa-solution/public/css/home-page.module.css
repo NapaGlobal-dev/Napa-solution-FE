@@ -83,3 +83,7 @@
 #carousel-example > .carousel-inner {
   /* background-color: white; */
 }
+
+.company {
+  margin: unset;
+}

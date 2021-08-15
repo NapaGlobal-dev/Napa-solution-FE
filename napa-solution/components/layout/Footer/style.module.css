@@ -4,7 +4,7 @@
   opacity: 1;
   /* margin-top: 269px;
   position: absolute; */
-  top: 269px;
+  margin-top: 269px;
   position: relative;
 }
 
@@ -89,7 +89,7 @@
 
 .imgMap {
   width: 100%;
-  max-width: 500px; 
+  max-width: 500px;
   height: auto;
   margin-top: 67px;
 }
@@ -208,11 +208,11 @@
   height: 30px;
   width: 84px;
 }
-.inputform a{
+.inputform a {
   color: #fff !important;
 }
-.inputform a:hover{
-  border:none;
+.inputform a:hover {
+  border: none;
   text-decoration: none;
 }
 @media (min-width: 1600px) {
