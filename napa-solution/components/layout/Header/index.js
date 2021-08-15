@@ -51,12 +51,8 @@ const Header = (props) => {
   const navbarMenu = getData(data, /Navbar_Menu([2-9]|1[0-9])/);
   const navbarMobile = getData(data, /Navbar_Menu/);
   // const navbarMenuIcon = getData(data, /Navbar_MenuIcon/)[0];
-
+  console.log("navbarsss", navbarMobile);
   const darkmode = useDarkMode(true);
-  useEffect(() => {
-    const hour = new Date().getHours();
-    if (hour < 5 || hour >= 19) darkmode.enable();
-  });
 
   const [changeNav, setChangeNav] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -101,7 +97,13 @@ const Header = (props) => {
       languageId: index,
     })),
   ];
-
+  const languagesdata = languages.map((lang, index) => ({
+    url: lang !== "JP" ? "http://www.napaglobal.com" : "#",
+    languageId: index,
+    icon: "img/header/lang.svg",
+    name: lang,
+    type: "language",
+  }));
   const scrollEvent = () => {
     if (window.pageYOffset !== 0 && changeNav === false) {
       setChangeNav(true);
@@ -112,12 +114,20 @@ const Header = (props) => {
   };
 
   useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour < 5 || hour >= 19) darkmode.enable();
+
     if (window.location.pathname === "/") {
       setNavColor("light");
     } else {
       setNavColor("dark");
     }
+
     window.addEventListener("scroll", scrollEvent);
+    $(".menu-icon-toggle").on("click", function (e) {
+      $("body").toggleClass("open");
+      $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+    });
     return function cleanup() {
       window.removeEventListener("scroll", scrollEvent);
     };
@@ -129,14 +139,19 @@ const Header = (props) => {
     if (shouldHideNavbar !== hideNav) setHideNav(shouldHideNavbar);
   };
 
-  useEffect(() => {
-    window.addEventListener("wheel", hideNavbar);
-    return () => {
-      window.removeEventListener("wheel", hideNavbar);
-    };
-  }, [hideNav, setHideNav]);
+  // useEffect(() => {
+  //   window.addEventListener("wheel", hideNavbar);
+  //   $(".menu-icon-toggle").on("click", function (e) {
+  //     $("body").toggleClass("open");
+  //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+  //   });
 
-  function handleClickMenu(entry, index) {
+  //   return () => {
+  //     window.removeEventListener("wheel", hideNavbar);
+  //   };
+  // }, [hideNav, setHideNav]);
+
+  function handleClickLanguage(entry, index) {
     setActivePath(index);
     if (entry?.type && entry?.type === "language") {
       if (entry.name === "JP") {
@@ -144,23 +159,78 @@ const Header = (props) => {
       }
       if (entry.name === "EN") {
         window.location = "http://www.napaglobal.com";
+        localStorage.setItem("languageID", 0);
+      }
+      if (entry.name === "VI") {
+        window.location = "http://www.napaglobal.com";
+        localStorage.setItem("languageID", 1);
       }
     }
   }
 
-  // console.log("render ", darkmode);
+  useEffect(() => {
+    Array.from({ length: navbarMobile.length }, (num, index) => {
+      $(`#btn-item-up-${index + 1}`).click(() => {
+        $(`#ul-subitem-${index + 1}`).css({
+          display: "none",
+          transition: "all 0.5s ease",
+        });
+        $(`#btn-item-down-${index + 1}`).css("display", "block");
+        $(`#btn-item-up-${index + 1}`).css("display", "none");
+      });
+      $(`#btn-item-down-${index + 1}`).click(() => {
+        $(`#ul-subitem-${index + 1}`).css({
+          display: "block",
+          transition: "all 0.5s ease",
+        });
+        $(`#btn-item-down-${index + 1}`).css("display", "none");
+        $(`#btn-item-up-${index + 1}`).css("display", "block");
+      });
+    });
 
+    if ($("#navbar").hasClass("dark-nav")) {
+      $(".menu-icon-toggle").on("click", function (e) {
+        $("body").toggleClass("open");
+        $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+      });
+    }
+    if ($("#navbar").hasClass("home")) {
+      $(".menu-icon-toggle").on("click", function (e) {
+        $("body").toggleClass("open");
+        $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+      });
+    }
+  });
+
+  useEffect(() => {
+    Array.from({ length: navbarMobile.length }, (num, index) => {
+      $(`#btn-item-up-${index + 1}`).css("display", "none");
+      $(`#ul-subitem-${index + 1}`).css({
+        display: "none",
+        transition: "all 0.5s ease",
+      });
+    });
+    $(".menu-icon-toggle").on("click", function (e) {
+      $("body").toggleClass("open");
+      $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+    });
+  }, []);
   return (
     <>
       <Head>
         <link key="css/common.css" rel="stylesheet" href="css/common.css" />
+        <link
+          key="css/header.module.css"
+          rel="stylesheet"
+          href="css/header.module.css"
+        />
       </Head>
 
       <nav
         id="navbar"
         style={{ borderBottom: !props.isLoading && "none" }}
         className={clsx(
-          "navbar navbar-expand-lg navbar-light no-default-spacing",
+          "navbar navbar-expand-lg navbar-light no-default-spacing home",
           changeNav ? "dark-nav" : "",
           navColor === "dark" ? "dark-nav" : "",
           hideNav && "navbar-hidden"
@@ -187,7 +257,7 @@ const Header = (props) => {
                   <a href={menu?.url} className="text-navbar-menu">
                     {menu?.value}
                   </a>
-                  {menu.content.length !== 0 &&
+                  {menu.content.length !== 0 && (
                     <div className="dropdown-layer">
                       <div className="dropdown-body">
                         <ul>
@@ -201,34 +271,129 @@ const Header = (props) => {
                         </ul>
                       </div>
                     </div>
-                  }
+                  )}
                 </div>
               </li>
             ))}
           </ul>
         </div>
-        {/* <button
-            id="navbar-toggler"
-            className="navbar-toggler no-default-spacing"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav .lang-list"
-            aria-controls="navbarNav lang-list"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <img alt="button-collapse" src={navbarMenuIcon.image.publicUrl} />
-          </button> */}
+
         <div
-          className={clsx("wrap-menu", isOpen ? "change" : "")}
-          onClick={() =>{ setIsOpen(!isOpen), setActivePath(0)}}
+          className="wrap-menu menu-icon-toggle"
+          // onClick={() => {
+          //   setIsOpen(!isOpen);
+          //   // setActivePath(0);
+          // }}
         >
           <div className="bar1" />
           <div className="bar2" />
           <div className="bar3" />
         </div>
-        <div className={isOpen ? clsx("overlay", "show") : "overlay"}></div>
-        <div className={clsx("mobile-menu", isOpen ? "show" : "")}>
+
+        <div
+          className="mobile-menu popcover"
+          style={{ width: "100%", zIndex: 25 }}
+        >
+          <i className="menu-background top"></i>
+          <i className="menu-background middle"></i>
+          <i className="menu-background bottom"></i>
+          <i className="menu-background top2"></i>
+          <i className="menu-background middle2"></i>
+          <i className="menu-background bottom2"></i>
+          <i className="menu-background top3"></i>
+          <i className="menu-background middle3"></i>
+          <i className="menu-background bottom3"></i>
+          <div className="menu logo-backdrop">
+            <a className="logo" href={navbarLogo?.url}>
+              <img
+                alt="LOGO"
+                src={navbarLogo?.image?.publicUrl}
+                className="img-backdrop"
+              />
+            </a>
+          </div>
+          <div className="menu boxcover">
+            {navbarMobile.length > 0 &&
+              navbarMobile.map((item, index) => (
+                <div key={index} className="mainItem">
+                  <h4>
+                    <a href={item.url}> {item.value}</a>
+                    <span
+                      id={`btn-item-down-${index + 1}`}
+                      style={item.content.length > 0 ? {} : { display: "none" }}
+                    >
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        data-prefix="fas"
+                        data-icon="sort-down"
+                        className="svg-inline--fa fa-sort-down fa-w-10"
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z"
+                        ></path>
+                      </svg>
+                    </span>
+                    <span
+                      id={`btn-item-up-${index + 1}`}
+                      style={{ display: "none" }}
+                    >
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        data-prefix="fas"
+                        data-icon="sort-up"
+                        className="svg-inline--fa fa-sort-up fa-w-10"
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z"
+                        ></path>
+                      </svg>
+                    </span>
+                  </h4>
+                  <ul id={`ul-subitem-${index + 1}`}>
+                    {item.content.length > 0 &&
+                      item.content.map((subitem, key) => (
+                        <li>
+                          <a className="liText" href={subitem.url} key={key}>
+                            {subitem.value}
+                          </a>
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+              ))}
+          </div>
+          <div className="menu languages-group">
+            {languagesdata.map((lang, index) => (
+              <div className="language-item" key={index}>
+                <a href={lang.url}>{lang.name}</a>
+              </div>
+            ))}
+          </div>
+          <div className="menu darkmode-checkbox">
+            {!!darkmode.value ? <p>Dark</p> : <p>Light</p>}
+            <label>
+              <input
+                onClick={darkmode.toggle}
+                type="checkbox"
+                id="checkbox-dark-mode"
+              />
+              <span className="check"></span>
+            </label>
+          </div>
+        </div>
+        {/* <div className={isOpen ? clsx("overlay", "show") : "overlay"}></div> */}
+
+        {/* <div className={clsx("mobile-menu", isOpen ? "show" : "")}>
           {mobileHeaderNav.map((entry, index) => (
             // <Link to={`#${entry.path}`} key={index} className={styles.wrapLinkMobile}>
 
@@ -287,7 +452,7 @@ const Header = (props) => {
           </div>
 
           <Language />
-        </div>
+        </div> */}
         <DarkModeSwitch
           style={{ margin: "0 12px" }}
           className="nav-darkmode-icon hide-on-mobile"
