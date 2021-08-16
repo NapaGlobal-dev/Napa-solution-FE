@@ -124,10 +124,23 @@ const Header = (props) => {
     }
 
     window.addEventListener("scroll", scrollEvent);
-    $(".menu-icon-toggle").on("click", function (e) {
-      $("body").toggleClass("open");
-      $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-    });
+
+    if ($("#navbar").hasClass("dark-nav")) {
+      $(".menu-icon-toggle").on("click", function (e) {
+        $("body").toggleClass("open");
+        $(".popcover").toggleClass("toggle");
+        $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+      });
+    }
+    if ($("#navbar").hasClass("home")) {
+      $(".menu-icon-toggle").on("click", function (e) {
+        $("body").toggleClass("open");
+
+        $(".popcover").toggleClass("toggle");
+        $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+      });
+    }
+
     return function cleanup() {
       window.removeEventListener("scroll", scrollEvent);
     };
@@ -143,6 +156,7 @@ const Header = (props) => {
   //   window.addEventListener("wheel", hideNavbar);
   //   $(".menu-icon-toggle").on("click", function (e) {
   //     $("body").toggleClass("open");
+  //     $(".popcover").toggleClass("toggle");
   //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
   //   });
 
@@ -191,30 +205,48 @@ const Header = (props) => {
     if ($("#navbar").hasClass("dark-nav")) {
       $(".menu-icon-toggle").on("click", function (e) {
         $("body").toggleClass("open");
+        $(".popcover").toggleClass("toggle");
         $(".wrap-menu.menu-icon-toggle").toggleClass("change");
       });
     }
     if ($("#navbar").hasClass("home")) {
       $(".menu-icon-toggle").on("click", function (e) {
         $("body").toggleClass("open");
+
+        $(".popcover").toggleClass("toggle");
         $(".wrap-menu.menu-icon-toggle").toggleClass("change");
       });
     }
+
+    $(".popcover").addClass("toggle");
   });
 
-  useEffect(() => {
-    Array.from({ length: navbarMobile.length }, (num, index) => {
-      $(`#btn-item-up-${index + 1}`).css("display", "none");
-      $(`#ul-subitem-${index + 1}`).css({
-        display: "none",
-        transition: "all 0.5s ease",
-      });
-    });
-    $(".menu-icon-toggle").on("click", function (e) {
-      $("body").toggleClass("open");
-      $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-    });
-  }, []);
+  // useEffect(() => {
+  //   Array.from({ length: navbarMobile.length }, (num, index) => {
+  //     $(`#btn-item-up-${index + 1}`).css("display", "none");
+  //     $(`#ul-subitem-${index + 1}`).css({
+  //       display: "none",
+  //       transition: "all 0.5s ease",
+  //     });
+  //   });
+
+  //   // if ($("#navbar").hasClass("dark-nav")) {
+  //   //   $(".menu-icon-toggle").on("click", function (e) {
+  //   //     $("body").toggleClass("open");
+
+  //   //     $(".popcover").toggleClass("toggle");
+  //   //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+  //   //   });
+  //   // } else if ($("#navbar").hasClass("home")) {
+  //   //   $(".menu-icon-toggle").on("click", function (e) {
+  //   //     $("body").toggleClass("open");
+  //   //     $(".popcover").toggleClass("toggle");
+  //   //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+  //   //   });
+  //   // }
+
+  //   // $(".popcover").addClass("toggle");
+  // }, []);
   return (
     <>
       <Head>
@@ -278,7 +310,7 @@ const Header = (props) => {
           </ul>
         </div>
 
-        <div
+        <a
           className="wrap-menu menu-icon-toggle"
           // onClick={() => {
           //   setIsOpen(!isOpen);
@@ -288,7 +320,7 @@ const Header = (props) => {
           <div className="bar1" />
           <div className="bar2" />
           <div className="bar3" />
-        </div>
+        </a>
 
         <div
           className="mobile-menu popcover"
@@ -453,13 +485,13 @@ const Header = (props) => {
 
           <Language />
         </div> */}
-        <DarkModeSwitch
+        {/* <DarkModeSwitch
           style={{ margin: "0 12px" }}
           className="nav-darkmode-icon hide-on-mobile"
           checked={!!darkmode.value}
           onChange={darkmode.toggle}
           size={40}
-        />
+        /> */}
         <Language />
       </nav>
       <ScrollToTop />
