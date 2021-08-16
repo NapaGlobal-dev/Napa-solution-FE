@@ -79,14 +79,14 @@ const Header = (props) => {
     name: lang,
     type: "language",
   }));
-  const scrollEvent = () => {
-    if (window.pageYOffset !== 0 && changeNav === false) {
-      setChangeNav(true);
-    }
-    if (window.pageYOffset === 0) {
-      setChangeNav(false);
-    }
-  };
+  // const scrollEvent = () => {
+  //   if (window.pageYOffset !== 0 && changeNav === false) {
+  //     setChangeNav(true);
+  //   }
+  //   if (window.pageYOffset === 0) {
+  //     setChangeNav(false);
+  //   }
+  // };
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -98,27 +98,27 @@ const Header = (props) => {
       setNavColor("dark");
     }
 
-    window.addEventListener("scroll", scrollEvent);
+    // window.addEventListener("scroll", scrollEvent);
 
-    if ($("#navbar").hasClass("dark-nav")) {
-      $(".menu-icon-toggle").on("click", function (e) {
-        $("body").toggleClass("open");
-        $(".popcover").toggleClass("toggle");
-        $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-      });
-    }
-    if ($("#navbar").hasClass("home")) {
-      $(".menu-icon-toggle").on("click", function (e) {
-        $("body").toggleClass("open");
+    // if ($("#navbar").hasClass("dark-nav")) {
+    //   $(".menu-icon-toggle").on("click", function (e) {
+    //     $("body").toggleClass("open");
+    //     // $(".popcover").toggleClass("toggle");
+    //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+    //   });
+    // }
+    // if ($("#navbar").hasClass("home")) {
+    //   $(".menu-icon-toggle").on("click", function (e) {
+    //     $("body").toggleClass("open");
 
-        $(".popcover").toggleClass("toggle");
-        $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-      });
-    }
+    //     // $(".popcover").toggleClass("toggle");
+    //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+    //   });
+    // }
 
-    return function cleanup() {
-      window.removeEventListener("scroll", scrollEvent);
-    };
+    // return function cleanup() {
+    //   window.removeEventListener("scroll", scrollEvent);
+    // };
   }, []);
 
   const hideNavbar = (e) => {
@@ -156,6 +156,33 @@ const Header = (props) => {
       }
     }
   }
+  useEffect(() => {
+    Array.from({ length: navbarMobile.length }, (num, index) => {
+      $(`#btn-item-up-${index + 1}`).css("display", "none");
+      $(`#ul-subitem-${index + 1}`).css({
+        display: "none",
+        transition: "all 0.5s ease",
+      });
+    });
+
+    if ($("#navbar").hasClass("dark-nav")) {
+      $(".menu-icon-toggle").on("click", function (e) {
+        $("body").toggleClass("open");
+        // $(".popcover").toggleClass("toggle");
+        $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+      });
+    } else if ($("#navbar").hasClass("home")) {
+      $(".menu-icon-toggle").on("click", function (e) {
+        $("body").toggleClass("open");
+        // $(".popcover").toggleClass("toggle");
+        $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+      });
+    }
+
+    // if (darkmode.value) {
+    //   $("#checkbox-dark-mode").attr("checked", true);
+    // }
+  }, []);
 
   useEffect(() => {
     Array.from({ length: navbarMobile.length }, (num, index) => {
@@ -166,6 +193,8 @@ const Header = (props) => {
         });
         $(`#btn-item-down-${index + 1}`).css("display", "block");
         $(`#btn-item-up-${index + 1}`).css("display", "none");
+
+        $(`#item-link-${index + 1}`).css("border-bottom", "0.5px solid #fff");
       });
       $(`#btn-item-down-${index + 1}`).click(() => {
         $(`#ul-subitem-${index + 1}`).css({
@@ -174,54 +203,32 @@ const Header = (props) => {
         });
         $(`#btn-item-down-${index + 1}`).css("display", "none");
         $(`#btn-item-up-${index + 1}`).css("display", "block");
+
+        $(`#item-link-${index + 1}`).css("border", "none");
       });
     });
 
-    if ($("#navbar").hasClass("dark-nav")) {
-      $(".menu-icon-toggle").on("click", function (e) {
-        $("body").toggleClass("open");
-        $(".popcover").toggleClass("toggle");
-        $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-      });
-    }
-    if ($("#navbar").hasClass("home")) {
-      $(".menu-icon-toggle").on("click", function (e) {
-        $("body").toggleClass("open");
+    // if ($("#navbar").hasClass("dark-nav")) {
+    //   $(".menu-icon-toggle").on("click", function (e) {
+    //     $("body").toggleClass("open");
+    //     // $(".popcover").toggleClass("toggle");
+    //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+    //   });
+    // }
+    // if ($("#navbar").hasClass("home")) {
+    //   $(".menu-icon-toggle").on("click", function (e) {
+    //     $("body").toggleClass("open");
 
-        $(".popcover").toggleClass("toggle");
-        $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-      });
-    }
-
-    $(".popcover").addClass("toggle");
+    //     // $(".popcover").toggleClass("toggle");
+    //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
+    //   });
+    // }
+    if (darkmode.value) {
+      $("#checkbox-dark-mode").attr("checked", false);
+    } else $("#checkbox-dark-mode").attr("checked", true);
+    // $(".popcover").addClass("toggle");
   });
 
-  // useEffect(() => {
-  //   Array.from({ length: navbarMobile.length }, (num, index) => {
-  //     $(`#btn-item-up-${index + 1}`).css("display", "none");
-  //     $(`#ul-subitem-${index + 1}`).css({
-  //       display: "none",
-  //       transition: "all 0.5s ease",
-  //     });
-  //   });
-
-  //   // if ($("#navbar").hasClass("dark-nav")) {
-  //   //   $(".menu-icon-toggle").on("click", function (e) {
-  //   //     $("body").toggleClass("open");
-
-  //   //     $(".popcover").toggleClass("toggle");
-  //   //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-  //   //   });
-  //   // } else if ($("#navbar").hasClass("home")) {
-  //   //   $(".menu-icon-toggle").on("click", function (e) {
-  //   //     $("body").toggleClass("open");
-  //   //     $(".popcover").toggleClass("toggle");
-  //   //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-  //   //   });
-  //   // }
-
-  //   // $(".popcover").addClass("toggle");
-  // }, []);
   return (
     <>
       <Head>
@@ -310,92 +317,102 @@ const Header = (props) => {
           <i className="menu-background top3"></i>
           <i className="menu-background middle3"></i>
           <i className="menu-background bottom3"></i>
-          <div className="menu logo-backdrop">
-            <a className="logo" href={navbarLogo?.url}>
-              <img
-                alt="LOGO"
-                src={navbarLogo?.image?.publicUrl}
-                className="img-backdrop"
-              />
-            </a>
-          </div>
-          <div className="menu boxcover">
-            {navbarMobile.length > 0 &&
-              navbarMobile.map((item, index) => (
-                <div key={index} className="mainItem">
-                  <h4>
-                    <a href={item.url}> {item.value}</a>
-                    <span
-                      id={`btn-item-down-${index + 1}`}
-                      style={item.content.length > 0 ? {} : { display: "none" }}
-                    >
-                      <svg
-                        aria-hidden="true"
-                        focusable="false"
-                        data-prefix="fas"
-                        data-icon="sort-down"
-                        className="svg-inline--fa fa-sort-down fa-w-10"
-                        role="img"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 320 512"
+          <div className="menu content-backdrop">
+            <div className="menu logo-backdrop">
+              <a className="logo" href={navbarLogo?.url}>
+                <img
+                  alt="LOGO"
+                  src={navbarLogo?.image?.publicUrl}
+                  className="img-backdrop"
+                />
+              </a>
+            </div>
+            <div className="menu boxcover">
+              {navbarMobile.length > 0 &&
+                navbarMobile.map((item, index) => (
+                  <div
+                    key={index}
+                    className="mainItem"
+                    id={`item-link-${index + 1}`}
+                  >
+                    <h4>
+                      <a href={item.url}> {item.value}</a>
+                      <span
+                        id={`btn-item-down-${index + 1}`}
+                        style={
+                          item.content.length > 0 ? {} : { display: "none" }
+                        }
                       >
-                        <path
-                          fill="currentColor"
-                          d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z"
-                        ></path>
-                      </svg>
-                    </span>
-                    <span
-                      id={`btn-item-up-${index + 1}`}
-                      style={{ display: "none" }}
-                    >
-                      <svg
-                        aria-hidden="true"
-                        focusable="false"
-                        data-prefix="fas"
-                        data-icon="sort-up"
-                        className="svg-inline--fa fa-sort-up fa-w-10"
-                        role="img"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 320 512"
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          data-prefix="fas"
+                          data-icon="sort-down"
+                          className="svg-inline--fa fa-sort-down fa-w-10"
+                          role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 320 512"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span
+                        id={`btn-item-up-${index + 1}`}
+                        style={{ display: "none" }}
                       >
-                        <path
-                          fill="currentColor"
-                          d="M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z"
-                        ></path>
-                      </svg>
-                    </span>
-                  </h4>
-                  <ul id={`ul-subitem-${index + 1}`}>
-                    {item.content.length > 0 &&
-                      item.content.map((subitem, key) => (
-                        <li>
-                          <a className="liText" href={subitem.url} key={key}>
-                            {subitem.value}
-                          </a>
-                        </li>
-                      ))}
-                  </ul>
-                </div>
-              ))}
-          </div>
-          <div className="menu languages-group">
-            {languagesdata.map((lang, index) => (
-              <div className="language-item" key={index}>
-                <a href={lang.url}>{lang.name}</a>
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          data-prefix="fas"
+                          data-icon="sort-up"
+                          className="svg-inline--fa fa-sort-up fa-w-10"
+                          role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 320 512"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z"
+                          ></path>
+                        </svg>
+                      </span>
+                    </h4>
+                    <ul id={`ul-subitem-${index + 1}`}>
+                      {item.content.length > 0 &&
+                        item.content.map((subitem, key) => (
+                          <li>
+                            <a className="liText" href={subitem.url} key={key}>
+                              {subitem.value}
+                            </a>
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
+                ))}
+            </div>
+            <div className="group-control">
+              <div className="menu languages-group">
+                {languagesdata.map((lang, index) => (
+                  <div className="language-item" key={index}>
+                    <a href={lang.url}>{lang.name}</a>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          <div className="menu darkmode-checkbox">
-            {!!darkmode.value ? <p>Dark</p> : <p>Light</p>}
-            <label>
-              <input
-                onClick={darkmode.toggle}
-                type="checkbox"
-                id="checkbox-dark-mode"
-              />
-              <span className="check"></span>
-            </label>
+              <div className="menu darkmode-checkbox">
+                {!darkmode.value ? <p>Dark</p> : <p>Light</p>}
+                <label>
+                  <input
+                    onClick={darkmode.toggle}
+                    type="checkbox"
+                    id="checkbox-dark-mode"
+                  />
+                  <span className="check"></span>
+                </label>
+              </div>
+            </div>
           </div>
         </div>
         {/* <div className={isOpen ? clsx("overlay", "show") : "overlay"}></div> */}
@@ -459,13 +476,13 @@ const Header = (props) => {
 
           <Language />
         </div> */}
-        {/* <DarkModeSwitch
+        <DarkModeSwitch
           style={{ margin: "0 12px" }}
           className="nav-darkmode-icon hide-on-mobile"
           checked={!!darkmode.value}
           onChange={darkmode.toggle}
           size={40}
-        /> */}
+        />
         <Language />
       </nav>
       <ScrollToTop />
