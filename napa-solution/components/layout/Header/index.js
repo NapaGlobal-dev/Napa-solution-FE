@@ -9,6 +9,7 @@ import { StoreContext } from "../../../util/language/store";
 import ScrollToTop from "../ScrollToTop";
 import useDarkMode from "use-dark-mode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
+import { useSwipeDirection } from "../../../util/windowEvents";
 
 function Language() {
   const [openDropdown, setOpenDropndown] = useState(false);
@@ -54,38 +55,12 @@ const Header = (props) => {
   console.log("navbarsss", navbarMobile);
   const darkmode = useDarkMode(true);
 
-  const [changeNav, setChangeNav] = useState(false);
+  const [changeNav, setChangeNav] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [activePath, setActivePath] = useState(0);
   const [navColor, setNavColor] = useState("light");
-  const [hideNav, setHideNav] = useState(false);
-  // const headerNavigations = [
-  //   {
-  //     name: "Home",
-  //     path: "/",
-  //     icon: "img/header/home.svg",
-  //   },
-  //   {
-  //     name: "事業概要",
-  //     path: "/business-summary",
-  //     icon: "img/header/service.svg",
-  //   },
-  //   {
-  //     name: "企業情報",
-  //     path: "/company",
-  //     icon: "img/header/profile.svg",
-  //   },
-  //   {
-  //     name: "採用情報",
-  //     path: "/recruit",
-  //     icon: "img/header/project.svg",
-  //   },
-  //   {
-  //     name: "お問い合わせ",
-  //     path: "/contact",
-  //     icon: "img/header/contact.svg",
-  //   },
-  // ];
+
+  const { direction } = useSwipeDirection({});
 
   const mobileHeaderNav = [
     ...navbarMobile,
@@ -265,7 +240,7 @@ const Header = (props) => {
           "navbar navbar-expand-lg navbar-light no-default-spacing home",
           changeNav ? "dark-nav" : "",
           navColor === "dark" ? "dark-nav" : "",
-          hideNav && "navbar-hidden"
+          direction && "navbar-hidden"
         )}
       >
         <a className="navbar-brand no-default-spacing" href={navbarLogo?.url}>
@@ -431,11 +406,7 @@ const Header = (props) => {
 
             // </Link>
             <div className="dropdown">
-              <a
-                href={entry?.url}
-                key={index}
-                className="wrap-link-mobile"
-              >
+              <a href={entry?.url} key={index} className="wrap-link-mobile">
                 <span>{entry?.value ? entry?.value : entry.name}</span>
                 <button
                   onClick={() => handleClickMenu(entry, index)}
@@ -447,13 +418,16 @@ const Header = (props) => {
                   <img
                     key={index}
                     className="icon"
-                    src={entry?.image?.publicUrl ? entry?.image?.publicUrl : entry.icon}
+                    src={
+                      entry?.image?.publicUrl
+                        ? entry?.image?.publicUrl
+                        : entry.icon
+                    }
                     alt="Mobile Icon"
                   />
-
                 </button>
               </a>
-              {entry.content && entry.content.length !== 0 &&
+              {entry.content && entry.content.length !== 0 && (
                 <div className="dropdown-layer">
                   <div className="dropdown-body">
                     <ul>
@@ -467,7 +441,7 @@ const Header = (props) => {
                     </ul>
                   </div>
                 </div>
-              }
+              )}
             </div>
           ))}
           <div className="wrap-link-mobile">
