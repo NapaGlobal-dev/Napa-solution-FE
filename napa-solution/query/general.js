@@ -445,11 +445,8 @@ export const GET_PRIVACYPOLICY = gql`
         name
         property {
           name
+          key
           value
-          image {
-            original: publicUrl
-            thumbnail: publicUrlTransformed(transformation: { width: "64" })
-          }
           content {
             name
             value

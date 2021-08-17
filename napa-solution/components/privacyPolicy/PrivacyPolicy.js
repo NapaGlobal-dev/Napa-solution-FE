@@ -1,134 +1,64 @@
-
 import { getData } from "../../util/converArrayToObject"
 
 export default function PrivacyPolicy({data}){
-    const privacyPolicy1Title1 = getData(data, /PrivacyPolicy_1_Title_Subtitle1/)[0]
-    const privacyPolicy1Title2 = getData(data, /PrivacyPolicy_1_Title_Subtitle2/)[0]
-    const privacyPolicy1Contents = getData(data, /PrivacyPolicy_1_Content/)
-    const privacyPolicy1Roots = getData(data, /PrivacyPolicy_1_Foot_Content/)
-
-    const privacyPolicy2Title1 = getData(data, /PrivacyPolicy_2_Title_Subtitle1/)[0]
-    const privacyPolicy2Title2 = getData(data, /PrivacyPolicy_2_Title_Subtitle2/)[0]
-    const privacyPolicy2Contents = getData(data, /PrivacyPolicy_2_Content/)
-
-    const privacyPolicy3Title1 = getData(data, /PrivacyPolicy_3_Title_Subtitle1/)[0]
-    const privacyPolicy3Title2 = getData(data, /PrivacyPolicy_3_Title_Subtitle2/)[0]
-    const privacyPolicy3Contents = getData(data, /PrivacyPolicy_3_Content/)
-    const privacyPolicy3Roots = getData(data, /PrivacyPolicy_3_Foot_Content/)
+    const title = getData(data, /PrivacyPolicy_Title/)[0]
+    const policyContent = getData(data, /PrivacyPolicy_Content/)[0]
+    const contact = getData(data, /PrivacyPolicy_Contact/)[0]
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
     return (
-        <>
-            <section className="privacy-policy-flow">
-                <div className="container-fluid">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-sm-12">
-
-                                <h2 className="operation-management-wrap operation-management-flow-title">
-                                    <span className="operation-management-flow-spec">{privacyPolicy1Title1?.value}</span>
-                                    {privacyPolicy1Title2?.value}
-                                </h2>
-
-                                {privacyPolicy1Contents.map((content, index)=>(
-                                    <div key={index}>
-                                        <div className="privacy-policy-info-element">
-                                            <p className="privacy-policy-info-no">{index+1}</p>
-                                            <p className="privacy-policy-info-desc">{content.value}</p>
-                                        </div>
-                                        {content.content.length?
-                                            <div className="privacy-policy-info-group-element-spec">
-                                                {content.content.map((subcontent, index)=>(
-                                                    <p className="privacy-policy-info-desc" key={index}>{index+1+') '+subcontent.value}</p>
-                                                ))}
-                                            </div>
-                                            :
-                                            <></>
-                                        }
-                                    </div>
-                                ))}
-
-                                    {privacyPolicy1Roots.map((content,index)=>(
-                                        <div className="privacy-policy-info-element-foot" key={index}>
-                                            <p className="privacy-policy-info-element-foot-desc">
-                                                {content.value}
-                                            </p>
-                                        </div>
-                                    ))}
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="operation-management-people privacy-policy-flow">
-                <div className="container-fluid">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-sm-12">
-
-                                <h2 className="operation-management-wrap operation-management-flow-title">
-                                    <span className="operation-management-flow-spec">{privacyPolicy2Title1?.value}</span>
-                                    {privacyPolicy2Title2?.value}
-                                </h2>
-
-                                {privacyPolicy2Contents.map((content, index)=>(
-                                    <div key={index}>
-                                        <div className="privacy-policy-info-element">
-                                            <p className="privacy-policy-info-desc privacy-policy-info-desc-spec">
-                                                {content.value}
-                                            </p>
-                                        </div>
-                                        {content.content.map((subcontent, index)=>(
-                                            <div className="privacy-policy-info-element" key={index}>
-                                                <p className="privacy-policy-info-no">{index+1}</p>
-                                                <p className="privacy-policy-info-desc">
-                                                    {subcontent.value}
-                                                </p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                ))}
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="privacy-policy-flow">
-                <div className="container-fluid">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-sm-12">
-
-                                <h2 className="operation-management-wrap operation-management-flow-title">
-                                    <span className="operation-management-flow-spec">{privacyPolicy3Title1?.value}</span>
-                                    {privacyPolicy3Title2?.value}
-                                </h2>
-
-                                {privacyPolicy3Contents.map((content, index)=>(
-                                    <div className="privacy-policy-info-element" key={index}>
-                                        <p className="privacy-policy-info-desc privacy-policy-info-desc-spec">
-                                            {content.value}
-                                        </p>
-                                    </div>
-                                ))}
-                                {privacyPolicy3Roots.map((content, index)=>(
-                                    <div className="privacy-policy-info-element" key={index}>
-                                        <p className="privacy-policy-info-desc">
-                                            {content.value}
-                                        </p>
-                                    </div>
-                                ))}
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <div className="operation-management-divider"></div>
-        </>
+        <div className='cover policy'>
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="58.948"
+            height="124.343"
+            viewBox="0 0 58.948 124.343"
+            >
+            <g
+                id="Group_135"
+                data-name="Group 135"
+                transform="translate(-98.543 -1182.829)"
+            >
+                <line
+                id="Line_88"
+                data-name="Line 88"
+                x1="94.203"
+                transform="matrix(0.574, -0.819, 0.819, 0.574, 101, 1261.142)"
+                fill="none"
+                stroke="#6a43d5"
+                stroke-width="4"
+                />
+                <line
+                id="Line_89"
+                data-name="Line 89"
+                x1="94.203"
+                transform="matrix(0.574, -0.819, 0.819, 0.574, 101, 1283.819)"
+                fill="none"
+                stroke="#6a43d5"
+                stroke-width="6"
+                />
+                <line
+                id="Line_90"
+                data-name="Line 90"
+                x1="94.203"
+                transform="matrix(0.574, -0.819, 0.819, 0.574, 101, 1306.024)"
+                fill="none"
+                stroke="#6a43d5"
+                stroke-width="4"
+                />
+            </g>
+            </svg>
+            <h3>{title?.key}</h3>
+            <p>{title?.value}</p>
+            <div className='devider'/>
+            <div className='policy-content'>{policyContent?.value}</div>
+            {policyContent?.content.map((policy,index)=>
+                <div className='p-subcontent' key={index}>{alphabet[index]+') '+policy?.value}</div>
+            )}
+            <div className='p-contact'>{contact?.value}</div>
+            {contact?.content.map((c,index)=>
+                <div className='c-content' key={index}>{c?.value}</div>
+            )}
+        </div>
     )
 }
