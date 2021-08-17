@@ -56,7 +56,7 @@ const Header = (props) => {
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 5 || hour >= 19) darkmode.enable();
-  });
+  },[]);
 
   const [changeNav, setChangeNav] = useState(false);
   const [isOpen, setIsOpen] = useState(false);

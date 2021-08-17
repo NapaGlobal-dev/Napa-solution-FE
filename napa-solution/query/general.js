@@ -317,31 +317,30 @@ export const GET_COMPANYHISTORY = gql`
         }
       }
     }
-    breadcrumb: allLayouts(where: { name: "CompanyHistory_Breadcrumb" }) {
+    timeline: allLayouts(where: { name: "CompanyHistory_Timeline" }) {
       name
       property {
         name
+        key
         value
         url
+        image{
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+        content{
+          name
+          key
+          value
+        }
       }
     }
-    content: allLayouts(where: { name: "CompanyHistory_Content" }) {
+    credo: allLayouts(where: { name: "CompanyHistory_Credo" }) {
       name
       property {
         name
+        key
         value
-      }
-    }
-    history: allHistories(search: "CompanyHistory") {
-      name
-      year
-      milestones {
-        name
-        date
-        events {
-          name
-          event
-        }
       }
     }
   }

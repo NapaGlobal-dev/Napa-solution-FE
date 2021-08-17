@@ -1,13 +1,13 @@
 import { getData } from "../../util/converArrayToObject"
 
-export default function Hisory({next}){
-    // const history = getData(data, /CompanyHistory_History/)
+export default function Hisory({next, timeline}){
+    const subcontent = getData(timeline, /Subcontent/)[0]
     return(
             <div className='content'>
                 <div className='leftC'>
-                    <div className='yearC'>2008</div>
-                    <div className='titleC'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-                    <div className='subtitleC'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus laoreet luctus consequat. Nulla consequat dignissim ultricies. Ut ac tincidunt nibh, a tristique magna. Duis ullamcorper justo sit amet erat efficitur lacinia.</div>
+                    <div className='yearC'>{timeline?.key}</div>
+                    <div className='titleC'>{subcontent?.key}</div>
+                    <div className='subtitleC'>{subcontent?.value}</div>
                     <div className='buttonC' onClick={next}>
                         次の一歩
                         <svg 

@@ -9,7 +9,7 @@ import Head from "next/head"
 
 
 export default function CompanyHistory(){
-    const {data, loading, error} = useQuery(GET_COMPANYHISTORY)
+    const {data} = useQuery(GET_COMPANYHISTORY)
     return (
         <>
             <Head>
