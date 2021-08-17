@@ -491,6 +491,10 @@ export const companyAbout = gql`
         property {
           name
           value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
           content {
             name
             value

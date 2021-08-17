@@ -3,11 +3,12 @@ import Head from "next/head";
 import { contactQuery, companyAbout, PROJECTS } from "../../query/general";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
-import ContactBanner from "../../components/company-history/Banner";
+// import ContactBanner from "../../components/company-history/Banner";
+import Banner from "../../components/company-about/banner";
 import WhyNapa from "../../components/company-about/WhyNapa";
 import Message from "../../components/company-about/Message";
 import Project from "../../components/homepage/Project";
-const CompanyProfilePage = ({ projects, ...props }) => {
+const CompanyAbout = ({ projects, ...props }) => {
   const data = convertArrToObject(props.data.page.layouts);
   const adata = convertArrToObject(props.data.adata.page.layouts);
 
@@ -27,7 +28,7 @@ const CompanyProfilePage = ({ projects, ...props }) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
       </Head>
-      <ContactBanner data={data.ContactBanner} />
+      <Banner data={adata.CompanyAbout_Banner} />
       <WhyNapa data={adata["WhyNapa"]} />
       <Message data={adata["Message"]} />
       <Project data={projects} />
@@ -51,4 +52,4 @@ export async function getStaticProps() {
     },
   };
 }
-export default CompanyProfilePage;
+export default CompanyAbout;
