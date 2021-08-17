@@ -11,6 +11,29 @@ export const GET_NEWS = gql`
   }
 `;
 
+export const PAGEGROUPS = gql`
+  query PageGroups {
+    groups: allPages(
+      where: {
+        OR: [
+          { nameEN_contains: "Infomation" }
+          { nameEN_contains: "Services" }
+          { nameEN_contains: "Company" }
+        ]
+      }
+    ) {
+      name
+      nameEN
+      url
+      childrenPage {
+        name
+        nameEN
+        url
+      }
+    }
+  }
+`;
+
 export const businessSumaryQuery = gql`
   query BusinessSummary {
     page: allPages(where: { url: "/business-summary" }, first: 1) {
@@ -179,6 +202,25 @@ export const footerDataQuery = gql`
         footerOrder
       }
       footerOrder
+    }
+
+    groups: allPages(
+      where: {
+        OR: [
+          { nameEN_contains: "Infomation" }
+          { nameEN_contains: "Services" }
+          { nameEN_contains: "Company" }
+        ]
+      }
+    ) {
+      name
+      nameEN
+      url
+      childrenPage {
+        name
+        nameEN
+        url
+      }
     }
   }
 `;

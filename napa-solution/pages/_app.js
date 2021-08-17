@@ -56,6 +56,7 @@ MyApp.getInitialProps = async (ctx) => {
   const { data } = await client.query({
     query: footerDataQuery,
   });
+
   const appData = await App.getInitialProps(ctx);
   return {
     ...appData,
