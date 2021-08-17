@@ -3,10 +3,6 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// import SwiperCore, { Mousewheel } from "swiper";
-
-// SwiperCore.use([Mousewheel]);
-
 const convertData = (data) => {
   const newdata = {};
   data.map((item) => {
@@ -30,16 +26,6 @@ const convertData = (data) => {
 
   return b;
 };
-// const data = [
-//   {
-//     img: "img/home/service1.png",
-//     title: "ウエブアプリ開発",
-//     subTitle:
-//       "レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良,レスポンシブウェブサイトのデザインにより、すべての画面で見栄えが良",
-//     url: "company.html",
-//     btnContent: "企業情報",
-//   },
-// ];
 
 const Service = (props) => {
   const data = convertData(props.data.property);
@@ -54,16 +40,6 @@ const Service = (props) => {
     }
   }, [swiperRef, setSwiperRef]);
 
-  // useEffect(() => {
-  //   const offset = () => {
-  //     console.log(window.pageYOffset);
-  //   };
-  //   window.addEventListener("scroll", offset);
-  //   return () => {
-  //     window.removeEventListener("scroll", offset);
-  //   };
-  // }, []);
-
   return (
     <>
       <Swiper
@@ -74,12 +50,6 @@ const Service = (props) => {
         mousewheel
         slidesPerGroup={2}
         nested
-        // breakpoints={{
-        //   768: {
-        //     slidesPerView: 2,
-        //     slidesPerGroup: 2,
-        //   },
-        // }}
       >
         <div
           className={clsx("container-fluid", styles.container)}

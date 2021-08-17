@@ -169,8 +169,8 @@
     padding: 0 12px;
   }
 
-  .sw-slide-services:nth-child(odd) .sw-box-bounding {
-    align-items: center !important;
+  .sw-slide-services:nth-child(even) .sw-box-bounding {
+    align-items: flex-start;
   }
 
   .sw-box-bounding .sw-box-content {
