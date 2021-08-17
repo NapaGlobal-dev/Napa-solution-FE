@@ -53,6 +53,10 @@ const Header = (props) => {
   // const navbarMenuIcon = getData(data, /Navbar_MenuIcon/)[0];
   console.log("navbarsss", navbarMobile);
   const darkmode = useDarkMode(true);
+  useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour < 5 || hour >= 19) darkmode.enable();
+  },[]);
 
   const [changeNav, setChangeNav] = useState(true);
   const [isOpen, setIsOpen] = useState(false);

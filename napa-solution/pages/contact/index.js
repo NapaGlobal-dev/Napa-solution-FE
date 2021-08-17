@@ -32,7 +32,7 @@ const ContactPage = (props) => {
             <Banner data = {data.ContactBanner}/>
             <ContactForm data = {data.ContactForm}/>
             <div className="container-fluid content-wrapper no-default-spacing">
-                <Project data={getData(props.data,/Slides_Section/)[0]} dele={console.log('ddd',getData(props.data,/Slides_Section/))}/>
+                <Project data={getData(props.data,/Slides_Section/)[0]}/>
             </div>
         </>
     );
