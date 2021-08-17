@@ -117,18 +117,26 @@
 .socials {
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  justify-content: space-between;
   align-items: flex-end;
-  line-height: 4.5;
+  line-height: 1;
   color: #fff;
-  margin-top: -19px;
   text-decoration: underline;
 }
+
+.socials a {
+  line-height: 2;
+}
+
 .socialsIcon {
   display: flex;
   flex-direction: column;
   justify-content: right;
   align-items: flex-start;
+}
+
+.socialsIcon a {
+  padding-right: 8px;
 }
 
 .socials > p {
