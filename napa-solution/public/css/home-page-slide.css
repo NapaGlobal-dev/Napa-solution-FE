@@ -225,6 +225,10 @@
   height: 100%;
   display: flex;
   justify-content: center;
+}
+
+.sw-slide-services:nth-child(even) .sw-box-bounding , 
+.sw-slide-services:nth-child(odd) .sw-box-bounding {
   align-items: center;
 }
 
