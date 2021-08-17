@@ -138,17 +138,27 @@ const Header = (props) => {
         <div className="collapse navbar-collapse navbar-menu" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item item-navbar-menu active item-home">
-              <a href={navbarHome?.url} className="text-navbar-menu">
+              <div className="hover-o">
+                <div className="hover-t">
+                <a href={navbarHome?.url} className="text-navbar-menu">
                 {navbarHome?.value}
               </a>
+              <a className="text-navbar-menu">{navbarHome?.value}</a>
+                </div>
+              </div>
             </li>
             {navbarMenu.map((menu, key) => (
               <li className="nav-item item-navbar-menu" key={key}>
                 <div className="slice-navbar-item" />
                 <div className="dropdown">
-                  <a href={menu?.url} className="text-navbar-menu">
+                <div className="hover-o">
+                <div className="hover-t">
+                <a href={menu?.url} className="text-navbar-menu">
                     {menu?.value}
                   </a>
+                  <a className="text-navbar-menu">{menu?.value}</a>
+                </div>
+              </div>
                   {menu.content.length !== 0 && (
                     <div className="dropdown-layer">
                       <div className="dropdown-body">

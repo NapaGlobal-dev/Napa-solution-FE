@@ -499,7 +499,8 @@
   }
 
   .h2Text::after {
-    height: 6px;
+    height: 15px;
+    opacity: 0.8;
   }
 
   .boxContent {
