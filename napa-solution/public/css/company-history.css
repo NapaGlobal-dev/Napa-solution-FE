@@ -8,7 +8,7 @@
   text-align: center;
 }
 .timeline{
-  height: 690px;
+  height: 600px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -124,10 +124,10 @@
   /* position: absolute;
   top: -400px; */
 }
-.content{
+.contentC{
   width: 100%;
   height: 100%;
-  padding-left: 100px;
+  padding-left: 80px;
   text-align: left;
   display: flex;
   align-items: center;
@@ -258,7 +258,7 @@
     height: 100%;
     display: -webkit-box;
   }
-  .content{
+  .contentC{
     width: 100%;
     height: fit-content;
     padding-left: 0px;

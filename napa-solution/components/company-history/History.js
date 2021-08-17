@@ -3,7 +3,7 @@ import { getData } from "../../util/converArrayToObject"
 export default function Hisory({next, timeline}){
     const subcontent = getData(timeline, /Subcontent/)[0]
     return(
-            <div className='content'>
+            <div className='contentC'>
                 <div className='leftC'>
                     <div className='yearC'>{timeline?.key}</div>
                     <div className='titleC'>{subcontent?.key}</div>

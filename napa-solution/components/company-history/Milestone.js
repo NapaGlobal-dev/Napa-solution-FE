@@ -193,7 +193,7 @@ export default function Milestone({scrollE, time, setTime, nextR, number=5}){
         if(newtime<number){
             animate(newtime+1, newtime)
             scrollE.current?.scrollTo({
-                top: newtime*690,
+                top: newtime*600,
                 left: 0,
                 behavior: 'smooth'
             })
@@ -205,7 +205,7 @@ export default function Milestone({scrollE, time, setTime, nextR, number=5}){
     function history(newtime){
         animate(newtime, time)
         scrollE.current?.scrollTo({
-            top: (newtime-1)*690,
+            top: (newtime-1)*600,
             left: 0,
             behavior: 'smooth'
         })

@@ -64,7 +64,9 @@ body {
   height: 127.4px;
   padding-left: 48px;
 }
-
+#navbar svg{
+  width: 35px;
+}
 #navbar-new {
   width: 100%;
   background-color: #ffffff;

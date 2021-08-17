@@ -1,11 +1,17 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { getData } from "../../util/converArrayToObject";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 
 export default function Banner({ data }) {
   const banner = getData(data, /Banner_Banner/)[0];
   const title = getData(data, /CompanyHistory_Banner_Content1/)[0];
   const subtitle = getData(data, /CompanyHistory_Banner_Content2/)[0];
+  useEffect(() => {
+    window.onload = function() {
+        document.getElementById('banner').className = 'wrap-banner open';
+      };
+  }, []);
   return (
     <>
       <Head>
@@ -23,11 +29,13 @@ export default function Banner({ data }) {
                 /> */}
         <div className="overlay-headerA"></div>
         <img src="/img/untitled-img/contact.jpeg" className="imageA" alt="" />
-        <div className="border-titleA">
-          <h1 style={{ letterSpacing: -3, fontSize: "3.3rem" }}>Company</h1>
+        <div className="wrap-banner" id="banner">
+          <h1 className="main-title">Company</h1>
           <div style={{ marginTop: 20, fontSize: "1.2rem" }}>
             {banner ? banner.value : "お問い合わせ"}
           </div>
+          <div className="frame-tb"></div>
+          <div className="frame-lr"></div>
         </div>
         <div className="textB">
           <div className="titleB">

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Head from "next/head";
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -60,40 +61,50 @@ export default function ScrollToTop() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  useEffect(() => {
-    $("head").append(`<style>
-    .scroll_to_top {
-        position: fixed;
-        background-color: #000a35;
-        bottom: 10px;
-        height: 60px;
-        right: 0px;
-        z-index: 20;
-        width: 120px;
-        padding: 12px;
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
-        cursor: pointer;
-        display: flex;
-        alignItems: center;
-        transform: translateX(64px);
-        opacity:0.7;
-    }
-    .scroll_to_top:hover {
-        transform: translateX(0px);
-        transition:all 0.3s;
-        opacity:1;
-    }   
-    .scroll_to_top:not(:hover) {
-      transform: translateX(64px);
-      transition:all 0.3s;
-      opacity:0.7;
-  }   
-    </style>`);
-  });
-
+  // useEffect(() => {
+  //   $("head").append(`<style>
+  //   .scroll_to_top {
+  //       position: fixed;
+  //       background-color: #000a35;
+  //       bottom: 10px;
+  //       height: 60px;
+  //       right: 0px;
+  //       z-index: 20;
+  //       width: 120px;
+  //       padding: 12px;
+  //       border-top-left-radius: 15px;
+  //       border-bottom-left-radius: 15px;
+  //       cursor: pointer;
+  //       display: flex;
+  //       alignItems: center;
+  //       transform: translateX(64px);
+  //       opacity:0.7;
+  //   }
+  //   .scroll_to_top:hover {
+  //       transform: translateX(0px);
+  //       transition:all 0.3s;
+  //       opacity:1;
+  //   }
+  //   .scroll_to_top:not(:hover) {
+  //     transform: translateX(64px);
+  //     transition:all 0.3s;
+  //     opacity:0.7;
+  // }
+  //   </style>`);
+  //   // $(".scroll_to_topp").hover(() => {
+  //   //   $(this).css("transform", "translateX(0px) !important");
+  //   // });
+  // });
+  //scroll-to-top classes: fixed, bottom:0, right:0
   return (
     <>
+      <Head>
+        <link
+          key="css/header.module.css"
+          rel="stylesheet"
+          href="css/header.module.css"
+        />
+      </Head>
       {isVisible && (
         <div className="scroll_to_top" id="scrollToTop" onClick={scrollToTop}>
           <img

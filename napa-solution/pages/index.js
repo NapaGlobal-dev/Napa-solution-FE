@@ -13,12 +13,13 @@ import SwiperCore, { Mousewheel } from "swiper";
 import { client } from "../apolo-client";
 
 import "swiper/swiper.min.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 SwiperCore.use([Mousewheel]);
 
 const Index = ({ footer, data, ...props }) => {
   const [swiperRef, setSwiperRef] = useState(null);
+  const onTopBtnRef = useRef();
 
   // const { data, loading, error } = useQuery(HomePage);
   // if (error) return <>Your query is Error !</>;
@@ -35,6 +36,24 @@ const Index = ({ footer, data, ...props }) => {
       swiperRef.updateSlides();
     }
   }, [swiperRef, setSwiperRef]);
+
+  const scrollToTop = () => {
+    if (swiperRef) {
+      swiperRef.slideTo(0);
+    }
+  };
+
+  const toggleScrollTopBtn = (sw) => {
+    console.log(sw.activeIndex);
+
+    if (onTopBtnRef.current) {
+      if (sw.activeIndex > 0) {
+        onTopBtnRef.current.classList.add("ot-container-visible");
+      } else {
+        onTopBtnRef.current.classList.remove("ot-container-visible");
+      }
+    }
+  };
 
   return (
     <>
@@ -70,6 +89,7 @@ const Index = ({ footer, data, ...props }) => {
       <Swiper
         className="sw-container "
         onSwiper={setSwiperRef}
+        onSlideChange={toggleScrollTopBtn}
         direction={"vertical"}
         slidesPerView={1}
         mousewheel
@@ -90,6 +110,7 @@ const Index = ({ footer, data, ...props }) => {
             freeMode
             nested
             onScroll={(sw, e) => sw.update()}
+            onTouchStart={(sw, e) => sw.update()}
           >
             <SwiperSlide className="sw-slide-free-mode ">
               <div
@@ -107,6 +128,9 @@ const Index = ({ footer, data, ...props }) => {
           </Swiper>
         </SwiperSlide>
       </Swiper>
+      <div ref={onTopBtnRef} className="ot-container" onClick={scrollToTop}>
+        <img className="ot-image" src="./img/scroll-top.png" />
+      </div>
     </>
   );
 };
