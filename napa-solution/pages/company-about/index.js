@@ -3,10 +3,11 @@ import Head from "next/head";
 import { contactQuery, companyAbout } from "../../query/general";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
-import ContactBanner from "../../components/company-history/Banner";
+// import ContactBanner from "../../components/company-history/Banner";
+import Banner from "../../components/company-about/banner";
 import WhyNapa from "../../components/company-about/WhyNapa";
 import Message from "../../components/company-about/Message";
-const CompanyProfilePage = (props) => {
+const CompanyAbout = (props) => {
   const data = convertArrToObject(props.data.page.layouts);
   const adata = convertArrToObject(props.data.adata.page.layouts);
 
@@ -15,7 +16,7 @@ const CompanyProfilePage = (props) => {
       <Head>
         <link key="css/contact.css" rel="stylesheet" href="css/contact.css" />
       </Head>
-      <ContactBanner data={data.ContactBanner} />
+      <Banner data={adata.CompanyAbout_Banner} />
       <WhyNapa data={adata["WhyNapa"]} />
       <Message data={adata["Message"]} />
     </>
@@ -28,4 +29,4 @@ export async function getStaticProps() {
     props: { data: { ...data, adata } },
   };
 }
-export default CompanyProfilePage;
+export default CompanyAbout;

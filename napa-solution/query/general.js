@@ -184,24 +184,24 @@ export const footerDataQuery = gql`
 `;
 
 export const GET_HEADER = gql`
-query getHeader {
-  navbar: allLayouts(where: { name: "Navbar" }) {
-    name
-    property(sortBy: name_ASC) {
+  query getHeader {
+    navbar: allLayouts(where: { name: "Navbar" }) {
       name
-      value
-      content{
+      property(sortBy: name_ASC) {
         name
         value
+        content {
+          name
+          value
+          url
+        }
         url
-      }
-      url
-      image {
-        publicUrl
+        image {
+          publicUrl
+        }
       }
     }
   }
-}
 `;
 
 export const InspectMaintenanceQuery = gql`
@@ -492,6 +492,10 @@ export const companyAbout = gql`
         property {
           name
           value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
           content {
             name
             value
