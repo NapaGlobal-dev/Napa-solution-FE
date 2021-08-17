@@ -3,61 +3,62 @@ import styles from "./style.module.css";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import joinJsx from "../../../util/joinJsx";
+import Link from "next/link";
 
 function createAnimation() {
-  var list = []
-  function addElememtAnimation(e, className = '') {
-    if (!e) return
-    if (!list.find(currentE => currentE.element === e))
-      list.push({ element: e, className })
+  var list = [];
+  function addElememtAnimation(e, className = "") {
+    if (!e) return;
+    if (!list.find((currentE) => currentE.element === e))
+      list.push({ element: e, className });
   }
 
   function animate() {
-    list.forEach(e => {
-      if (e.isRemove) return
-      var rect = e.element.getBoundingClientRect()
+    list.forEach((e) => {
+      if (e.isRemove) return;
+      var rect = e.element.getBoundingClientRect();
       if (
         rect.bottom > 0 &&
         rect.right > 0 &&
-        rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
+        rect.left <
+          (window.innerWidth || document.documentElement.clientWidth) &&
         rect.top < (window.innerHeight || document.documentElement.clientHeight)
       ) {
-        e.element.style.opacity = 0
-        e.element.classList.add(e.className)
-        e.isRemove = true
-        console.log('hereeeee')
+        e.element.style.opacity = 0;
+        e.element.classList.add(e.className);
+        e.isRemove = true;
+        console.log("hereeeee");
       }
-    })
+    });
     for (const e of list) {
-      if (!e.isRemove)
-        return
+      if (!e.isRemove) return;
     }
-    removeEvent()
+    removeEvent();
   }
 
   function removeEvent() {
-    window.removeEventListener('scroll', animate)
+    window.removeEventListener("scroll", animate);
   }
 
   function getList() {
-    return list
+    return list;
   }
   return {
     addElememtAnimation,
     animate,
-    getList
-  }
+    getList,
+  };
 }
 
 const Footer = (props) => {
   const data = convertArrToObject(props.data.layout[0].property);
   const summary = getData(props.data.layout[0].property, /Footer_Summary/);
-  const animation = createAnimation()
+  const animation = createAnimation();
 
   // const page_urls = props.data.pages;
   useEffect(() => {
-    window.addEventListener('scroll', animation.animate)
-    console.log('list', animation.getList())
+    window.addEventListener("scroll", animation.animate);
+    console.log("list", animation.getList());
     window.convertArrToObject = convertArrToObject;
     Array.from({ length: 4 }, (num, index) => {
       $(`#btn-up-${index + 1}`).click(() => {
@@ -90,16 +91,25 @@ const Footer = (props) => {
               }}
             >
               <div className={clsx(styles.scaleText)}>
-                <h3 className={clsx(styles.h3text)} ref={e => animation.addElememtAnimation(e, 'bounceInRight')}>
+                <h3
+                  className={clsx(styles.h3text)}
+                  ref={(e) => animation.addElememtAnimation(e, "bounceInRight")}
+                >
                   {joinJsx(data.Footer_ContactTitle.value.split("\\n"), <br />)}
                 </h3>
-                <p className={clsx(styles.ptext)} ref={e => animation.addElememtAnimation(e, 'bounceInLeft')}>
+                <p
+                  className={clsx(styles.ptext)}
+                  ref={(e) => animation.addElememtAnimation(e, "bounceInLeft")}
+                >
                   {joinJsx(
                     data.Footer_ContactContent.value.split("\\n"),
                     <br />
                   )}
                 </p>
-                <a href="company.html" ref={e => animation.addElememtAnimation(e, 'bounceInRight')}>
+                <a
+                  href="company.html"
+                  ref={(e) => animation.addElememtAnimation(e, "bounceInRight")}
+                >
                   <div
                     className="col-xs-12 order-3 order-xl-4 no-default-spacing"
                     id="detail-btn-company"
@@ -121,15 +131,7 @@ const Footer = (props) => {
               </div>
             </div>
           </div>
-          <div
-            // className="container-fluid" // d-flex justify-content-between"
-            className={clsx(
-              "container-fluid",
-              // { transform: "translateY(-52px)", padding: "0 85px" },
-              styles.containX
-            )}
-          // className={clsx(styles.containX)}
-          >
+          <div className={clsx("container-fluid", styles.containX)}>
             <div className={clsx(styles.groupMapIcon)}>
               <div
                 className={clsx(
@@ -149,16 +151,21 @@ const Footer = (props) => {
                 <img
                   src={data.Footer_LocatedImg.image.original}
                   className={clsx(styles.imgMap)}
-                // style={{ width: 600, height: "auto", marginTop: "67px" }}
                 />
               </div>
             </div>
             <div className={clsx(styles.half)}>
               <div className={clsx(styles.linksAndsocials)}>
-                {summary.map((item, index) => (
+                {props.data.groups.map((page, index) => (
                   <div key={index} className={clsx(styles.groupText)}>
                     <h4>
-                      {item.value}
+                      {!!page.url ? (
+                        <Link href={page.url}>
+                          <a className={styles.colorWhite}>{page.name}</a>
+                        </Link>
+                      ) : (
+                        page.name
+                      )}
                       <span id={`btn-down-${index + 1}`}>
                         <svg
                           aria-hidden="true"
@@ -198,11 +205,13 @@ const Footer = (props) => {
                       </span>
                     </h4>
                     <ul id={`ul-item-${index + 1}`}>
-                      {item.content.map((item, key) => (
-                        <li>
-                          <a className={clsx(styles.liText)} key={key}>
-                            {item.value}
-                          </a>
+                      {page.childrenPage.map((childPage, key) => (
+                        <li key={key}>
+                          <Link href={childPage.url}>
+                            <a className={clsx(styles.liText)} key={key}>
+                              {childPage.name}
+                            </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>

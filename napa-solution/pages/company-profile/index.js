@@ -14,7 +14,6 @@ import Project from "../../components/homepage/Project";
 
 const CompanyProfilePage = ({ projects, ...props }) => {
   const data = convertArrToObject(props.data.page.layouts);
-  console.log(projects);
 
   return (
     <>
