@@ -339,11 +339,11 @@ export const GET_COMPANYHISTORY = gql`
         key
         value
         url
-        image{
+        image {
           original: publicUrl
           thumbnail: publicUrlTransformed(transformation: { width: "64" })
         }
-        content{
+        content {
           name
           key
           value
@@ -538,6 +538,27 @@ export const PROJECTS = gql`
         image {
           original: publicUrl
           thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+    }
+  }
+`;
+
+export const GET_SERVICES_PAGE_DATA = gql`
+  query getServicesPageData {
+    page: allPages(where: { nameEN_contains: "Services" }) {
+      name
+      nameEN
+      url
+      layouts {
+        name
+        property {
+          name
+          value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
         }
       }
     }
