@@ -453,17 +453,18 @@
   .boxContent {
     padding-top: 15px;
   }
+  .boxButton{
+    margin: auto !important;
+  }
 
   .blockImageBounding {
     padding-bottom: 5%;
   }
 
-  .initial .blockImageBounding {
-    padding-left: 6%;
-  }
-
-  .reverse .blockImageBounding {
-    padding-right: 6%;
+  .reverse .blockImageBounding, .initial .blockImageBounding {
+    padding: 0;
+    max-width: 80%;
+    margin: auto;
   }
 
   .boxButton {
@@ -477,7 +478,7 @@
   }
 
   .boxContent p {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .boxContent span {
