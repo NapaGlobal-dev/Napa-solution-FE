@@ -29,27 +29,27 @@ const Company = (props) => {
         </div>
       </div>
       <div className="col-xl-6 col-xs-12 no-default-spacing company-content-wrapper">
-        <div className="col-xs-12 order-1 order-xl-1 no-default-spacing section-title-company-wrapped">
+        <div className="col-xs-12 order-1 order-xl-1 no-default-spacing section-title-company-wrapped" id='down-up'>
           <span className="section-title-company" id="main-title">
             {data["Home_Company_Title"]?.value}
           </span>
         </div>
-        <div className="col-xs-12 order-2 order-xl-2 no-default-spacing section-subtitle-company">
+        <div className="col-xs-12 order-2 order-xl-2 no-default-spacing section-subtitle-company" id='down-up'>
           <span className="section-title-cn-company" id="sub-title">
             {data["Home_Company_Subtitle"]?.value}
           </span>
         </div>
-        <div className="col-xs-12 order-4 order-xl-3 no-default-spacing section-content-company">
+        <div className="col-xs-12 order-4 order-xl-3 no-default-spacing section-content-company" id='down-up'>
           <span className="section-content content-company">
             {data["Home_Company_Content"]?.value}
           </span>
         </div>
-        <div className="col-xs-12 order-4 order-xl-3 no-default-spacing section-sub-content-company">
+        <div className="col-xs-12 order-4 order-xl-3 no-default-spacing section-sub-content-company" id='down-up'>
           <span className="section-sub-content content-company">
           {data["Home_Company_Subcontent"]?.value}
           </span>
         </div>
-        <a href="company.html">
+        <a href="company.html" id='fade-out'>
           <div className="col-xs-12 order-3 order-xl-4 no-default-spacing" id = "detail-btn-company">
             <span id = "detail-btn-company-content">
               {data["Home_Company_Btn"]?.value}

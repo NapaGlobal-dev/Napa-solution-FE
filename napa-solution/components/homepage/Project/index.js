@@ -44,8 +44,8 @@ const Project = (props) => {
         <div className="sl-container-ratio"></div>
         <div className="sl-box-color">
           <div className="sl-box-text">
-            <h4 className="sl-box-title">{data["Slides_List_Title"]?.value}</h4>
-            <p className="sl-box-subtitle">
+            <h4 className="sl-box-title" id='down-up'>{data["Slides_List_Title"]?.value}</h4>
+            <p className="sl-box-subtitle" id='down-up'>
               {data["Slides_List_Subtitle"]?.value}
             </p>
             <div className="sl-quarter-img">

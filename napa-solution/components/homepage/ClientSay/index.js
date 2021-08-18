@@ -76,8 +76,8 @@ const ClientSay = (props) => {
       </Head>
       <div className="container-fluid">
         <div className={clsx(styles.cover)}>
-          <h3 id="main-title">{data.title}</h3>
-          <p id="sub-title">{data.subTitle}</p>
+          <h3 id="main-title" id='down-up'>{data.title}</h3>
+          <p id="sub-title" id='down-up'>{data.subTitle}</p>
           <video
             // autoplay="autoplay"
             // controls="controls"

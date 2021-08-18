@@ -5,7 +5,7 @@ const ContactForm = (props) => {
   const data = convertArrToObject(props.data.property);
   return (
     <>
-      <div className="textC">
+      <div className="textC" id='down-up'>
         <div className="titleC">{data["Contact_ContactForm_Title"]?.value}</div>
         <div className="subtitleC">
           {data["Contact_ContactForm_SubTitle"]?.value}
@@ -20,33 +20,33 @@ const ContactForm = (props) => {
       >
         <div className="containerD">
           <div className="tableD">
-            <div className="titleD">
+            <div className="titleD" id='down-up'>
               {" "}
               {data["Contact_ContactForm_Content1"]?.value}
             </div>
             <div>
               <input type="text" className="textBoxD" />
             </div>
-            <div className="titleD">
+            <div className="titleD" id='down-up'>
               {" "}
               {data["Contact_ContactForm_Content2"]?.value}
             </div>
             <div>
               <input type="text" className="textBoxD" />
             </div>
-            <div className="titleD">
+            <div className="titleD" id='down-up'>
               {data["Contact_ContactForm_Content3"]?.value}
             </div>
             <div>
               <input type="text" className="textBoxD" />
             </div>
-            <div className="titleD">
+            <div className="titleD" id='down-up'>
               {data["Contact_ContactForm_Content4"]?.value}
             </div>
             <div>
               <input type="text" className="textBoxD" />
             </div>
-            <div className="titleD">
+            <div className="titleD" id='down-up'>
               {data["Contact_ContactForm_Content5"]?.value}
             </div>
             <div>
