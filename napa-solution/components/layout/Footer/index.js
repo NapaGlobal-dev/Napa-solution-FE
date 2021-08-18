@@ -663,7 +663,7 @@ const Footer = (props) => {
             className="d-flex justify-content-center"
             style={{ height: 40, paddingBottom: 64 }}
           >
-            <p
+            <p className="txt-bottom-footer"
               style={{
                 color: "var(--unnamed-color-ffffff)",
                 font: "normal normal normal 16px/25px Roboto",

@@ -96,6 +96,7 @@ a:hover{
   color: #9e9e9e;
   opacity: 1;
   font-weight: normal;
+  margin-bottom: 0;
 }
 
 #detail-btn-company-content {
@@ -143,7 +144,7 @@ a:hover{
 
   #detail-btn-company {
     width: 227px;
-    margin-left: 80px;
+    margin: 30px auto auto;
     height: 66px;
   }
 
