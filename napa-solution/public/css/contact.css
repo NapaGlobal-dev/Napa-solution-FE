@@ -93,7 +93,7 @@
     }
 
 }
-@media (max-width:640px) {
+@media (max-width:768px) {
     .containerD{
         width: 100%;
     }
@@ -105,14 +105,16 @@
         margin-top: 50px;
     }
     .titleC{
-        font: normal normal bold 45px/59px Roboto;
+        font-size: 20px;
+        line-height: 1;
+        margin-bottom: 10px;
     }
     .subtitleC{
-        margin-top: 20px;
-        font: normal normal bold 20px/30px Roboto;
         letter-spacing: 0.78px;
         padding: 0px 20px;
         width: auto;
+        font-size: 14px;
+        line-height: 1.5;
     }
     .textBoxD{
         height: 50px;

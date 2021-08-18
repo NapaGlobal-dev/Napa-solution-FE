@@ -123,12 +123,6 @@ const Footer = (props) => {
                   <div
                     className="col-xs-12 order-3 order-xl-4 no-default-spacing"
                     id="detail-btn-company"
-                    style={{
-                      width: 227,
-                      marginLeft: 0,
-                      height: 66,
-                      transform: "translateY(-15px)",
-                    }}
                   >
                     <span id="detail-btn-company-content">
                       {data.Footer_ContactButton.value}

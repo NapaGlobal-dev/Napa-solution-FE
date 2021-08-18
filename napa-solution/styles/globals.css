@@ -17,8 +17,7 @@ body.light-mode {
 }
 
 body.dark-mode {
-  color: #23496d;
-  background: #000a35;
+  background: #0f0922;
 }
 body.light-mode h1 {
   color: #fff;
@@ -28,10 +27,10 @@ h1,
 h2,
 h3,
 h4,
-h5 {
-  color: #23496d;
+h5,
+div {
+  color: #ffffff !important;
 }
-
 .btn-dark-mode {
   position: fixed;
   z-index: 20px;
@@ -132,7 +131,13 @@ a:hover{
   height: 100%;
   width: 100%;
 }
-
+@media (max-width: 768px) {
+  #detail-btn-company{
+    width: auto;
+    height: auto;
+    padding: 15px 50px;
+  }
+}
 @media (max-width: 414px) {
   #main-title {
     font: normal normal bold 20px/26px Roboto;
