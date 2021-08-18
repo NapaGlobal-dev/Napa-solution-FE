@@ -5,6 +5,7 @@ import Loading from "../../pages/loading";
 import { useQuery } from "@apollo/client";
 import { footerDataQuery } from "../../query/general";
 import { useRouter } from "next/router";
+import ScrollToTop from "./ScrollToTop";
 
 const Layout = ({ footerData, children, ...props }) => {
   // console.log("sssss", footerData);
@@ -72,6 +73,7 @@ const Layout = ({ footerData, children, ...props }) => {
         <Loading />
       </div>
       <div>{children}</div>
+      <ScrollToTop />
       <Footer data={footerData} isLoading={loading} />
     </>
   );
