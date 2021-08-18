@@ -1,15 +1,45 @@
-import {useRef, useState} from 'react'
+import {useRef} from 'react'
 
-export default function HorizonMilestone({scrollE, time, setTime}){
+export default function HorizonMilestone({scrollE, time, setTime, number=5}){
+    if(number<5) number=5
+    if(number>8) number=8
+
     const time1 = useRef()
     const time2 = useRef()
     const time3 = useRef()
     const time4 = useRef()
+    const time5 = useRef()
+    const time6 = useRef()
+    const time7 = useRef()
+    const time8 = useRef()
     const animateRing = useRef()
     const animateLine = useRef()
 
+    
+    const arr = [time1, time2, time3, time4, time5, time6, time7, time8]
+
+    const choices = {
+        number5:{
+            between:40,
+        },
+        number6:{
+            between:30,
+        },
+        number7:{
+            between:30,
+        },
+        number8:{
+            between:20,
+        },
+    }
+
+    const choiced = choices['number'+number]
+    const unitDistance1 = 30
+    const unitDistance2 = 25
+    const between = choiced.between
+    const gap = 5
+
     function animate(time, current){
-        const arr = [time1, time2, time3, time4]
         const distance = time - current
         if(!distance) return
 
@@ -19,21 +49,27 @@ export default function HorizonMilestone({scrollE, time, setTime}){
         else
             times = arr.slice(time, current).reverse()
         
+        const startLine = (unitDistance1-unitDistance2)*2
         const linePosition =[
-            'm16,50l0,0',
-            'm16,50l134,0',
-            'm16,50l274,0',
-            'm16,50l414,0'
+            'm'+startLine+',50l0,0',
         ]
-        const ringPosition =[
-            'm10,50l30,-30 l30,30 l-30,30 l-30,-30 l30,-30',
-            'm150,50l30,-30 l30,30 l-30,30 l-30,-30 l30,-30',
-            'm290,50l30,-30 l30,30 l-30,30 l-30,-30 l30,-30',
-            'm430,50l30,-30 l30,30 l-30,30 l-30,-30 l30,-30'
-        ]
-        const timeDistance = Math.abs(distance)*50+200
+        arr.forEach((e,index)=> linePosition.push( 'm'+startLine+',50l'+((unitDistance1*2+between)*(index+1)-startLine+2)+',0'))
+
+        const diamondPosition =[]
+        arr.forEach((e,index)=> diamondPosition.push(
+            'm'+(1+index*(unitDistance1*2+between))+
+            ',50l'+
+            unitDistance1+',-'+unitDistance1+' l'+
+            unitDistance1+','+unitDistance1+' l-'+
+            unitDistance1+','+unitDistance1+' l-'+
+            unitDistance1+',-'+unitDistance1+' l'+
+            unitDistance1+',-'+unitDistance1
+            )
+        )
+
+
+        const timeDistance = Math.abs(distance)*(50**((Math.abs(distance)-1)*.03+1))+200
         
-        console.log(timeDistance)
         animateLine.current.setAttributeNS(
             null,
             'values',
@@ -52,7 +88,7 @@ export default function HorizonMilestone({scrollE, time, setTime}){
         animateRing.current.setAttributeNS(
             null,
             'values',
-            ringPosition[current-1]+';'+ringPosition[time-1]
+            diamondPosition[current-1]+';'+diamondPosition[time-1]
         )
         animateRing.current.setAttributeNS(null, 'dur', timeDistance+'ms')
         animateRing.current.beginElement()
@@ -73,6 +109,29 @@ export default function HorizonMilestone({scrollE, time, setTime}){
             })
 
     }
+    function diamond2N(n){
+        return 'm'+(1+n*(unitDistance1*2+between)+gap)+
+                ',50l'+
+                unitDistance2+',-'+unitDistance2+' l'+
+                unitDistance2+','+unitDistance2+' l-'+
+                unitDistance2+','+unitDistance2+' l-'+
+                unitDistance2+',-'+unitDistance2+' l'+
+                unitDistance2+',-'+unitDistance2
+    }
+
+    function diamond1N(n){
+        return 'm'+(1+n*(unitDistance1*2+between))+
+                ',50l'+
+                unitDistance1+',-'+unitDistance1+' l'+
+                unitDistance1+','+unitDistance1+' l-'+
+                unitDistance1+','+unitDistance1+' l-'+
+                unitDistance1+',-'+unitDistance1+' l'+
+                unitDistance1+',-'+unitDistance1
+    }
+
+    function backgroundlineN(n){
+        return 'm'+(unitDistance1*2+(unitDistance1*2+between)*(n-1))+',50l'+(between)+',0'
+    }
 
     function history(newtime){
         animate(newtime, time)
@@ -86,86 +145,47 @@ export default function HorizonMilestone({scrollE, time, setTime}){
     }
 
     return (
-        // <div className='milestone'>
-        //     <div className='circle1' onClick={()=>history(1)} ref={time1}>1</div>
-        //     <div className='ring' ref={ring}></div>
-        //     <div className='line' ref={line}></div>
-        //     <div className='line1'></div>
-        //     <div className='circle2' onClick={()=>history(2)} ref={time2}>2</div>
-        //     <div className='circle3' onClick={()=>history(3)} ref={time3}>3</div>
-        //     <div className='circle4' onClick={()=>history(4)} ref={time4}>4</div>
-        // </div>
-        <svg viewBox='0 0 500 100' >
-            {/* <rect width="1000" height="100" fill='#9E9E9E' /> */}
-            <path d='m69,50l82,0' stroke="#9E9E9E" strokeWidth="2" />
-            <path d='m209,50l82,0' stroke="#9E9E9E" strokeWidth="2" />
-            <path d='m349,50l82,0' stroke="#9E9E9E" strokeWidth="2" />
+        <svg viewBox={'0 0 '+(unitDistance1*2+(number-1)*(unitDistance1*2+between)+3)+' 100'} >
+            {(()=>{
+                const backgroundlines = []
+                for(let i=1;i<number;i++){
+                    backgroundlines.push(
+                        <path d={backgroundlineN(i)} stroke="#9E9E9E" strokeWidth="2" key={i}/>
+                    )
+                }
+                return backgroundlines
+            })()}
             <path stroke="#412490" strokeWidth="2">
                 <animate attributeName="d" begin="indefinite" fill='freeze' ref={animateLine}></animate>
             </path>
-            <path
-                d='m15,50l25,-25 l25,25 l-25,25 l-25,-25 l25,-25'
-                fill="#412490"
-                ref={time1}
-                onClick={()=>history(1)}
-            />
-            <text
-                x="34"
-                y="57"
-                fontSize="1.5em"
-                fontWeight='bold'
-                fontFamily="roboto"
-                fill="#FFFFFF"
-                onClick={()=>history(1)}
-            >1</text>
+            {(()=>{
+                const diamonds = []
+                for(let i=1;i<=number;i++){
+                    diamonds.push(
+                        <g key={i}>
+                            <path
+                                d={diamond2N(i-1)}
+                                fill={i!==1? '#9E9E9E' : "#412490"}
+                                ref={arr[i-1]}
+                                onClick={()=>history(i)}
+                            />
+                            <text
+                                x={1+(i-1)*(unitDistance1*2+between)+gap+19+''}
+                                y="57"
+                                fontSize="1.5em"
+                                fontWeight='bold'
+                                fontFamily="roboto"
+                                fill="#FFFFFF"
+                                onClick={()=>history(i)}
+                            >{i}</text>
+                        </g>
+                    )
+                }
+                return diamonds
+            })()}
 
             <path
-                d='m155,50l25,-25 l25,25 l-25,25 l-25,-25 l25,-25'
-                fill="#9E9E9E"
-                ref={time2}
-                onClick={()=>history(2)}
-            />
-            <text
-                x="174"
-                y="57"
-                fontSize="1.5em"
-                fontWeight='bold'
-                fontFamily="roboto"
-                fill="#FFFFFF"
-                onClick={()=>history(2)}
-            >2</text>
-            <path
-                d='m295,50l25,-25 l25,25 l-25,25 l-25,-25 l25,-25'
-                fill="#9E9E9E"
-                ref={time3}
-                onClick={()=>history(3)}
-            />
-            <text
-                x="314"
-                y="57"
-                fontSize="1.5em"
-                fontWeight='bold'
-                fontFamily="roboto"
-                fill="#FFFFFF"
-                onClick={()=>history(3)}
-            >3</text>
-            <path
-                d='m435,50l25,-25 l25,25 l-25,25 l-25,-25 l25,-25'
-                fill="#9E9E9E"
-                ref={time4}
-                onClick={()=>history(4)}
-            />
-            <text
-                x="453"
-                y="57"
-                fontSize="1.5em"
-                fontWeight='bold'
-                fontFamily="roboto"
-                fill="#FFFFFF"
-                onClick={()=>history(4)}
-            >4</text>
-            <path
-                d='m10,50l30,-30 l30,30 l-30,30 l-30,-30 l30,-30'
+                d={diamond1N(0)}
                 stroke="#412490"
                 strokeWidth="2"
                 fill="none"

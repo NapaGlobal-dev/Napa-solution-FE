@@ -11,6 +11,29 @@ export const GET_NEWS = gql`
   }
 `;
 
+export const PAGEGROUPS = gql`
+  query PageGroups {
+    groups: allPages(
+      where: {
+        OR: [
+          { nameEN_contains: "Infomation" }
+          { nameEN_contains: "Services" }
+          { nameEN_contains: "Company" }
+        ]
+      }
+    ) {
+      name
+      nameEN
+      url
+      childrenPage {
+        name
+        nameEN
+        url
+      }
+    }
+  }
+`;
+
 export const businessSumaryQuery = gql`
   query BusinessSummary {
     page: allPages(where: { url: "/business-summary" }, first: 1) {
@@ -180,28 +203,47 @@ export const footerDataQuery = gql`
       }
       footerOrder
     }
+
+    groups: allPages(
+      where: {
+        OR: [
+          { nameEN_contains: "Infomation" }
+          { nameEN_contains: "Services" }
+          { nameEN_contains: "Company" }
+        ]
+      }
+    ) {
+      name
+      nameEN
+      url
+      childrenPage {
+        name
+        nameEN
+        url
+      }
+    }
   }
 `;
 
 export const GET_HEADER = gql`
-query getHeader {
-  navbar: allLayouts(where: { name: "Navbar" }) {
-    name
-    property(sortBy: name_ASC) {
+  query getHeader {
+    navbar: allLayouts(where: { name: "Navbar" }) {
       name
-      value
-      content{
+      property(sortBy: name_ASC) {
         name
         value
+        content {
+          name
+          value
+          url
+        }
         url
-      }
-      url
-      image {
-        publicUrl
+        image {
+          publicUrl
+        }
       }
     }
   }
-}
 `;
 
 export const InspectMaintenanceQuery = gql`
@@ -290,31 +332,30 @@ export const GET_COMPANYHISTORY = gql`
         }
       }
     }
-    breadcrumb: allLayouts(where: { name: "CompanyHistory_Breadcrumb" }) {
+    timeline: allLayouts(where: { name: "CompanyHistory_Timeline" }) {
       name
       property {
         name
+        key
         value
         url
+        image{
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+        content{
+          name
+          key
+          value
+        }
       }
     }
-    content: allLayouts(where: { name: "CompanyHistory_Content" }) {
+    credo: allLayouts(where: { name: "CompanyHistory_Credo" }) {
       name
       property {
         name
+        key
         value
-      }
-    }
-    history: allHistories(search: "CompanyHistory") {
-      name
-      year
-      milestones {
-        name
-        date
-        events {
-          name
-          event
-        }
       }
     }
   }
@@ -419,11 +460,8 @@ export const GET_PRIVACYPOLICY = gql`
         name
         property {
           name
+          key
           value
-          image {
-            original: publicUrl
-            thumbnail: publicUrlTransformed(transformation: { width: "64" })
-          }
           content {
             name
             value
@@ -465,6 +503,10 @@ export const companyAbout = gql`
         property {
           name
           value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
           content {
             name
             value
@@ -478,6 +520,24 @@ export const companyAbout = gql`
               value
             }
           }
+        }
+      }
+    }
+  }
+`;
+
+export const PROJECTS = gql`
+  query Projects {
+    projects: allLayouts(search: "Slides_Section", first: 1) {
+      name
+      property {
+        name
+        key
+        value
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
         }
       }
     }

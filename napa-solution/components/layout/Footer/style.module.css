@@ -1,3 +1,7 @@
+.colorWhite {
+  color: white;
+}
+
 .footer {
   background: #0f0922 0% 0% no-repeat padding-box;
   border: 1px solid #707070;
@@ -9,16 +13,12 @@
 }
 
 .h3text {
-  margin-top: 52px;
-  color: var(--unnamed-color-ffffff);
   text-align: center;
-  font: normal normal bold 35px/60px Roboto;
-  letter-spacing: 1.05px;
+  font: normal normal bold 25px/60px Roboto;
+  letter-spacing: 1.5px;
   color: #ffffff;
   opacity: 1;
-  /* text-shadow: 2px 2px gray; */
-  /* z-index: 50; */
-  /* margin-top: 40px; */
+  line-height: 1.8;
 }
 
 .ptext {
@@ -41,15 +41,15 @@
   opacity: 1;
 }
 
-.groupText > h4 {
+.groupText>h4 {
   color: var(--unnamed-color-ffffff);
   text-align: left;
-  font: normal normal normal 14px/30px Roboto;
+  font: bold 16px/30px Roboto;
   letter-spacing: 0.42px;
   color: #ffffff;
   opacity: 1;
-  margin-bottom: 45px;
-  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-left: -10px;
 }
 
 .covergalery {
@@ -61,16 +61,24 @@
   position: relative;
   top: -120px;
   background-size: cover;
+  background-position: center;
 }
 
 .liText {
   color: var(--unnamed-color-ffffff);
   text-align: left;
-  font: normal normal normal 14px/30px Roboto;
+  font: normal normal normal 13px/30px Roboto;
   letter-spacing: 0.42px;
   color: #ffffff !important;
   opacity: 1;
   line-height: 3;
+  display: block;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.liText:hover {
+  opacity: 1;
 }
 
 .iconcover {
@@ -89,9 +97,9 @@
 
 .imgMap {
   width: 100%;
-  max-width: 500px;
   height: auto;
-  margin-top: 67px;
+  margin-top: 50px;
+  max-width: 550px;
 }
 
 .groupNapaIcon {
@@ -111,13 +119,23 @@
 .socials {
   display: flex;
   flex-direction: column;
-  justify-content: right;
-  align-items: flex-end;
-  line-height: 4.5;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1;
   color: #fff;
-  margin-top: -19px;
   text-decoration: underline;
 }
+
+.socials a {
+  line-height: 2;
+  opacity: 0.7;
+}
+
+.socials a:hover {
+  opacity: 1;
+  color: #ffffff;
+}
+
 .socialsIcon {
   display: flex;
   flex-direction: column;
@@ -125,7 +143,11 @@
   align-items: flex-start;
 }
 
-.socials > p {
+.socialsIcon a {
+  padding-right: 8px;
+}
+
+.socials>p {
   color: var(--unnamed-color-ffffff);
   text-align: left;
   font: normal normal bold 16px/30px Roboto;
@@ -135,18 +157,21 @@
   opacity: 1;
   border-bottom: 1px solid #fff;
 }
+
 .groupText {
   flex: 1;
   margin: 4px;
 }
+
 .upIcon {
   display: none;
 }
-.groupText > ul {
+
+.groupText>ul {
   margin-left: 15px;
 }
 
-.groupText > ul > li::marker {
+.groupText>ul>li::marker {
   color: #fff;
 }
 
@@ -180,7 +205,7 @@
 .coverform {
   display: flex;
   justify-content: space-between;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .formstyle1 {
@@ -207,32 +232,41 @@
   border: none;
   height: 30px;
   width: 84px;
+  opacity: 0.7;
 }
+
+.inputform:hover {
+  opacity: 1;
+}
+
 .inputform a {
   color: #fff !important;
 }
+
 .inputform a:hover {
   border: none;
   text-decoration: none;
 }
+
 @media (min-width: 1600px) {
   .imgMap {
     width: 100%;
     height: auto;
-    margin-top: 67px;
-    position: absolute;
     bottom: 0;
   }
+
   .groupMapIcon {
     position: relative;
   }
 }
+
 @media (max-width: 1600px) {
   .coverform {
     display: flex;
     justify-content: space-between;
-    margin-top: 60px;
+    margin-top: 10px;
     flex-direction: column;
+    font-size: 12px;
   }
 
   .formstyle1 {
@@ -245,6 +279,7 @@
     width: 100%;
   }
 }
+
 .scaleText {
   /* transform: translateX(-15px); */
   flex-direction: column;
@@ -383,79 +418,132 @@
     display: flex;
     justify-content: space-between;
   }
-  .groupText > h4 {
+
+  .groupText>h4 {
     position: relative;
   }
-  .groupText > h4 > span > svg {
+
+  .groupText>h4>span>svg {
     display: none;
   }
+
   .socialsIcon {
     display: none;
   }
 }
+
 @media (max-width: 768px) {
+  .footer{
+    margin-top: 200px;
+  }
+  .liText {
+    opacity: 1;
+    font-size: 12px;
+  }
+
+  .groupText h4 {
+    font-size: 14px;
+    margin-left: 0px;
+  }
+
+  .socialsIcon a {
+    padding-right: 15px;
+  }
+
+  .socialsIcon svg {
+    width: 30px;
+  }
+
+  .txt-bottom-footer {
+    font-size: 14px;
+    color: "#FFFFFF"
+  }
+
   .linksAndsocials {
     display: flex;
     flex-direction: column;
   }
-  .groupText > h4 {
+
+  .groupText>h4 {
     position: relative;
   }
-  .groupText > ul {
+
+  .groupText {
+    padding: 15px 0;
+  }
+
+  .groupText>ul {
     transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s,
       z-index 0s linear 0.01s;
+    margin-left: 45px;
+    list-style-type: circle;
   }
-  .groupText > h4 > span > svg {
+
+  .groupText>h4>span>svg {
     display: block;
     height: 22px;
     position: absolute;
-    right: 14px;
+    right: 0;
     bottom: 10px;
   }
+
   .socials {
     display: none;
   }
+
   .socialsIcon {
     /* background-color: #fff; */
     width: 100%;
     display: flex;
     flex-direction: row;
-    height: 30px;
-    margin-top: 15px;
+    margin: 20px 0 30px 0;
   }
-  .socialsIcon > svg {
+
+  .socialsIcon>svg {
     width: 25px;
     height: auto;
     color: #fff;
-    margin-right: 15px;
+    margin-right: 20px;
   }
+
   .groupText {
     border-bottom: 1px solid #fff;
   }
-  .groupText > ul > li::marker {
+
+  .groupText>ul>li::marker {
     transform: translateX(10px) !important;
   }
-  .groupText > h4 {
-    margin-bottom: 15px;
+
+  .groupText>h4 {
+    margin-bottom: 0;
   }
-  .groupText > ul {
+
+  .groupText>ul {
     display: none;
   }
-  .coverform {
-    margin-top: 30px;
-  }
+
   .containX {
     margin-top: 0;
     padding: 0 24px;
   }
+
   .groupMapIcon {
     display: none;
   }
 }
 
 @media (max-width: 570px) {
+  .txt-bottom-footer {
+    font-size: 14px;
+    color: "#FFFFFF"
+  }
+
+  .covergalery {
+    margin: -12px;
+  }
+
   .scaleText {
-    margin: 0px 20px;
+    margin: 0px 12px 10px 12px;
   }
 
   .containX {
@@ -467,20 +555,23 @@
 
   .h3text {
     text-align: center;
-    font: normal normal bold 24px/30px Roboto;
     letter-spacing: 1.05px;
     color: #ffffff;
     opacity: 1;
-    margin-top: 40px;
+    font-size: 16px;
+    font-weight: lighter;
+    margin: 40px 0 12px 0;
   }
 
   .ptext {
-    padding: 0 30px;
+    padding: 0 12px;
     text-align: center;
-    font: normal normal bold 14px/16px Roboto;
+    font-size: 12px;
     letter-spacing: 0.48px;
     color: #ffffff;
     opacity: 1;
+    line-height: 2;
+    font-weight: lighter;
   }
 
   .half {
@@ -513,6 +604,7 @@
     margin-top: 4px;
     /* width: 100%; */
     margin-left: 0;
+    opacity: 1;
   }
 
   .containX {

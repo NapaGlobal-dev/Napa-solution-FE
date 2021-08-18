@@ -8,7 +8,7 @@
   text-align: center;
 }
 .timeline{
-  height: 690px;
+  height: 600px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -51,7 +51,7 @@
   background-color: #412490;
   position: absolute;
   top: 63px;
-  right: 39px;
+  right: 38px;
   z-index: 3;
 }
 .line1{
@@ -60,7 +60,7 @@
   background-color: #BDBDBD;
   position: absolute;
   top: 63px;
-  right: 39px;
+  right: 38px;
 }
 .circle2{
   width: 56px;
@@ -124,10 +124,10 @@
   /* position: absolute;
   top: -400px; */
 }
-.content{
+.contentC{
   width: 100%;
   height: 100%;
-  padding-left: 100px;
+  padding-left: 80px;
   text-align: left;
   display: flex;
   align-items: center;
@@ -165,7 +165,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 40%;
+  width: 200px;
   height: 70px;
   border-radius: 1px;
   cursor: pointer;
@@ -179,6 +179,9 @@
 .buttonC:hover{
   text-decoration: underline;
   text-decoration-color: #6C3AF5;
+}
+.milestone{
+  position: relative;
 }
 .horizonMilestone{
   display: none;
@@ -236,7 +239,7 @@
   opacity: 1;
 }
 
-@media (max-width:1280px) {
+@media (max-width:960px) {
   .containerD{
     padding: 0px 100px;
   }
@@ -255,7 +258,7 @@
     height: 100%;
     display: -webkit-box;
   }
-  .content{
+  .contentC{
     width: 100%;
     height: fit-content;
     padding-left: 0px;

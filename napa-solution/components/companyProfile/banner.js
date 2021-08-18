@@ -1,10 +1,16 @@
 import Head from 'next/head';
 import React from 'react';
 import { convertArrToObject, getData } from '../../util/converArrayToObject';
+import { useEffect, useState } from "react";
 
 const Banner = (props) => {
 
     const data = convertArrToObject(props.data.property);
+    useEffect(() => {
+        window.onload = function () {
+            document.getElementById('banner').className = 'wrap-banner open';
+        };
+    }, []);
 
     return (
         <>
@@ -18,9 +24,13 @@ const Banner = (props) => {
             <div className="banner">
                 <div className="overlay-headerA"></div>
                 <img src={data["CompanyProfile_Banner_Img"].image.original} className="imageA" alt="" />
-                <div className='border-titleA'>
-                    <h1 style={{ letterSpacing: -3, fontSize: '3.3rem' }}>{data["CompanyProfile_Banner_Title"].value}</h1>
-                    <div style={{ marginTop: 20, fontSize: '1.2rem' }}>{data["CompanyProfile_Banner_SubTitle"].value}</div>
+                <div className="wrap-banner" id="banner">
+                    <h1 className="main-title">{data["CompanyProfile_Banner_Title"].value}</h1>
+                    <div style={{ marginTop: 20, fontSize: "1.2rem" }}>
+                        {data["CompanyProfile_Banner_SubTitle"].value}
+                    </div>
+                    <div className="frame-tb"></div>
+                    <div className="frame-lr"></div>
                 </div>
                 <div className='textB'>
                     <div className='titleB'>

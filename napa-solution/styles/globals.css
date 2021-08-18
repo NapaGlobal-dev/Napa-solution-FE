@@ -57,16 +57,21 @@ h5 {
   color: #412490;
   opacity: 1;
 }
-
+a:hover{
+  text-decoration: none;
+}
+#detail-btn-company:hover svg{
+  stroke-dashoffset: -207px;
+}
 #stroke-arr-btn {
   display: block;
-  right: -16px;
+  right: -25px;
   height: 7px;
   fill: none;
   stroke: #6c3af5;
   stroke-width: 2;
   transition: stroke-dashoffset 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
-  width: 64px;
+  width: 50px;
   stroke-dasharray: 69px 138px;
   position: absolute;
 }
@@ -74,7 +79,7 @@ h5 {
 #detail-btn-company {
   background: #412490 0% 0% no-repeat padding-box;
   opacity: 1;
-  width: 308px;
+  width: 200px;
   height: 70px;
   display: flex;
   justify-content: center;
@@ -91,6 +96,7 @@ h5 {
   color: #9e9e9e;
   opacity: 1;
   font-weight: normal;
+  margin-bottom: 0;
 }
 
 #detail-btn-company-content {
@@ -138,7 +144,7 @@ h5 {
 
   #detail-btn-company {
     width: 227px;
-    margin-left: 80px;
+    margin: 30px auto auto;
     height: 66px;
   }
 

@@ -5,15 +5,66 @@
     background: #00589b40;
     opacity: .6;
   }
-  .border-titleA{
+  .wrap-banner{
     position: absolute;
     top: 26%;
-    border: #fff solid 4px;
-    padding: 30px 110px 20px;
+    padding: 50px 120px;
     text-align: center;
-    color: #fff;
-  
+    color: white;
   }
+  .wrap-banner.open .frame-tb::before, .wrap-banner.open .frame-tb::after{
+    height: 100%;
+  }
+  .wrap-banner.open .frame-lr::before, .wrap-banner.open .frame-lr::after{
+    width: 100%;
+  }
+.frame-tb::before{
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+}
+.frame-tb::after{
+  bottom: 0;
+  right: 0;
+  -webkit-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+}
+.frame-tb::before, .frame-tb::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  height: 0;
+  transition: height .4s .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 2px;
+  box-sizing: border-box;
+}
+.frame-lr::before, .frame-lr::after {
+  width: 0;
+  transition: width .6s .8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  height: 2px;
+  content: "";
+  position: absolute;
+  background: #fff;
+}
+.frame-lr::before{
+  bottom: 0;
+  left: 0;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+.frame-lr::after{
+  top: 0;
+  right: 0;
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+}
+.main-title{
+    font-weight: lighter;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 75px;
+}
   .banner{
     display: flex;
     flex-wrap: wrap;
@@ -50,6 +101,12 @@
   }
 
   @media (max-width:600px) {
+    .wrap-banner{
+      padding: 20px 40px;
+    }
+    .main-title{
+      font-size: 50px;
+    }
     .border-titleA{
         padding: 5px 40px 4px;
     }

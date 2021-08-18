@@ -5,7 +5,8 @@ import Milestone from "./Milestone"
 import HorizonMilestone from "./HorizonMilstone"
 
 export default function Timeline({data}){
-    // const history = getData(data, /CompanyHistory_History/)
+    const title = getData(data, /CompanyHistory_Timeline_Title/)[0]
+    const timelines = getData(data, /CompanyHistory_Timeline_Content/)
     const scrollE = useRef()
     const [time, setTime] = useState(1)
     const nextR = useRef()
@@ -57,24 +58,27 @@ export default function Timeline({data}){
                     />
                 </g>
                 </svg>
-                <h3>TIMELINE COMPANY</h3>
-                <p>会社情報</p>
+                <h3>{title?.key}</h3>
+                <p>{title?.value}</p>
             </div>
             <div className='containerC'>
                 <div className='timeline'>
-                    <Milestone scrollE={scrollE} setTime={setTime} nextR={nextR} time={time}/>
+                    <Milestone scrollE={scrollE} setTime={setTime} nextR={nextR} time={time} number={timelines.length}/>
                     <div className='slide'>
                         <div className='stack' ref={scrollE}>
-                            <Hisory next={()=>next(1)}/>
-                            <Hisory next={()=>next(2)}/>
-                            <Hisory next={()=>next(3)}/>
-                            <Hisory next={()=>next(4)}/>
+                            {timelines.map((timeline, index)=>(
+                                <Hisory next={()=>next(index+1)} timeline={timeline} key={index}/>
+                            ))}
                         </div>
                     </div>
                 </div>
-                <div className='horizonMilestone'>
-                    <HorizonMilestone scrollE={scrollE} setTime={setTime} time={time}/>
-                </div>
+                {title?
+                    <div className='horizonMilestone'>
+                        <HorizonMilestone scrollE={scrollE} setTime={setTime} time={time} number={timelines.length}/>
+                    </div>
+                    :
+                    <></>
+                }
             </div>
         </>
     )
