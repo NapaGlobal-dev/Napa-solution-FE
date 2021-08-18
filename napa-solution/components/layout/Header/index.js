@@ -50,31 +50,19 @@ const Header = (props) => {
   const navbarHome = getData(data, /Navbar_Menu1/)[0];
   const navbarMenu = getData(data, /Navbar_Menu([2-9]|1[0-9])/);
   const navbarMobile = getData(data, /Navbar_Menu/);
-  // const navbarMenuIcon = getData(data, /Navbar_MenuIcon/)[0];
-  console.log("navbarsss", navbarMobile);
+
+  // console.log("navbarsss", navbarMenu, data);
   const darkmode = useDarkMode(true);
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 5 || hour >= 19) darkmode.enable();
-  },[]);
+  }, []);
 
   const [changeNav, setChangeNav] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
-  const [activePath, setActivePath] = useState(0);
   const [navColor, setNavColor] = useState("light");
 
   const { direction } = useSwipeDirection({});
 
-  const mobileHeaderNav = [
-    ...navbarMobile,
-    ...languages.map((lang, index) => ({
-      path: "#",
-      name: lang,
-      type: "language",
-      icon: "img/header/lang.svg",
-      languageId: index,
-    })),
-  ];
   const languagesdata = languages.map((lang, index) => ({
     url: lang !== "JP" ? "http://www.napaglobal.com" : "#",
     languageId: index,
@@ -82,14 +70,6 @@ const Header = (props) => {
     name: lang,
     type: "language",
   }));
-  // const scrollEvent = () => {
-  //   if (window.pageYOffset !== 0 && changeNav === false) {
-  //     setChangeNav(true);
-  //   }
-  //   if (window.pageYOffset === 0) {
-  //     setChangeNav(false);
-  //   }
-  // };
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -100,65 +80,8 @@ const Header = (props) => {
     } else {
       setNavColor("dark");
     }
-
-    // window.addEventListener("scroll", scrollEvent);
-
-    // if ($("#navbar").hasClass("dark-nav")) {
-    //   $(".menu-icon-toggle").on("click", function (e) {
-    //     $("body").toggleClass("open");
-    //     // $(".popcover").toggleClass("toggle");
-    //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-    //   });
-    // }
-    // if ($("#navbar").hasClass("home")) {
-    //   $(".menu-icon-toggle").on("click", function (e) {
-    //     $("body").toggleClass("open");
-
-    //     // $(".popcover").toggleClass("toggle");
-    //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-    //   });
-    // }
-
-    // return function cleanup() {
-    //   window.removeEventListener("scroll", scrollEvent);
-    // };
   }, []);
 
-  const hideNavbar = (e) => {
-    let shouldHideNavbar = e.deltaY > 0 ? true : false;
-    shouldHideNavbar = shouldHideNavbar && window.pageYOffset > 10;
-    if (shouldHideNavbar !== hideNav) setHideNav(shouldHideNavbar);
-  };
-
-  // useEffect(() => {
-  //   window.addEventListener("wheel", hideNavbar);
-  //   $(".menu-icon-toggle").on("click", function (e) {
-  //     $("body").toggleClass("open");
-  //     $(".popcover").toggleClass("toggle");
-  //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-  //   });
-
-  //   return () => {
-  //     window.removeEventListener("wheel", hideNavbar);
-  //   };
-  // }, [hideNav, setHideNav]);
-
-  function handleClickLanguage(entry, index) {
-    setActivePath(index);
-    if (entry?.type && entry?.type === "language") {
-      if (entry.name === "JP") {
-        setLanguageId(entry.languageId);
-      }
-      if (entry.name === "EN") {
-        window.location = "http://www.napaglobal.com";
-        localStorage.setItem("languageID", 0);
-      }
-      if (entry.name === "VI") {
-        window.location = "http://www.napaglobal.com";
-        localStorage.setItem("languageID", 1);
-      }
-    }
-  }
   useEffect(() => {
     Array.from({ length: navbarMobile.length }, (num, index) => {
       $(`#btn-item-up-${index + 1}`).css("display", "none");
@@ -171,20 +94,14 @@ const Header = (props) => {
     if ($("#navbar").hasClass("dark-nav")) {
       $(".menu-icon-toggle").on("click", function (e) {
         $("body").toggleClass("open");
-        // $(".popcover").toggleClass("toggle");
         $(".wrap-menu.menu-icon-toggle").toggleClass("change");
       });
     } else if ($("#navbar").hasClass("home")) {
       $(".menu-icon-toggle").on("click", function (e) {
         $("body").toggleClass("open");
-        // $(".popcover").toggleClass("toggle");
         $(".wrap-menu.menu-icon-toggle").toggleClass("change");
       });
     }
-
-    // if (darkmode.value) {
-    //   $("#checkbox-dark-mode").attr("checked", true);
-    // }
   }, []);
 
   useEffect(() => {
@@ -210,22 +127,6 @@ const Header = (props) => {
         $(`#item-link-${index + 1}`).css("border", "none");
       });
     });
-
-    // if ($("#navbar").hasClass("dark-nav")) {
-    //   $(".menu-icon-toggle").on("click", function (e) {
-    //     $("body").toggleClass("open");
-    //     // $(".popcover").toggleClass("toggle");
-    //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-    //   });
-    // }
-    // if ($("#navbar").hasClass("home")) {
-    //   $(".menu-icon-toggle").on("click", function (e) {
-    //     $("body").toggleClass("open");
-
-    //     // $(".popcover").toggleClass("toggle");
-    //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-    //   });
-    // }
     if (darkmode.value) {
       $("#checkbox-dark-mode").attr("checked", false);
     } else $("#checkbox-dark-mode").attr("checked", true);
@@ -250,7 +151,7 @@ const Header = (props) => {
           "navbar navbar-expand-lg navbar-light no-default-spacing home",
           changeNav ? "dark-nav" : "",
           navColor === "dark" ? "dark-nav" : "",
-          direction && "navbar-hidden"
+          direction && !props.isLoading && "navbar-hidden"
         )}
       >
         <a className="navbar-brand no-default-spacing" href={navbarLogo?.url}>
@@ -265,10 +166,12 @@ const Header = (props) => {
             <li className="nav-item item-navbar-menu active item-home">
               <div className="hover-o">
                 <div className="hover-t">
-                <a href={navbarHome?.url} className="text-navbar-menu">
-                {navbarHome?.value}
-              </a>
-              <a className="text-navbar-menu">{navbarHome?.value}</a>
+                  <a href={navbarHome?.url} className="text-navbar-menu">
+                    {navbarHome?.value}
+                  </a>
+                  <a href={navbarHome?.url} className="text-navbar-menu">
+                    {navbarHome?.value}
+                  </a>
                 </div>
               </div>
             </li>
@@ -276,14 +179,16 @@ const Header = (props) => {
               <li className="nav-item item-navbar-menu" key={key}>
                 <div className="slice-navbar-item" />
                 <div className="dropdown">
-                <div className="hover-o">
-                <div className="hover-t">
-                <a href={menu?.url} className="text-navbar-menu">
-                    {menu?.value}
-                  </a>
-                  <a className="text-navbar-menu">{menu?.value}</a>
-                </div>
-              </div>
+                  <div className="hover-o">
+                    <div className="hover-t">
+                      <a href={menu?.url} className="text-navbar-menu">
+                        {menu?.value}
+                      </a>
+                      <a href={menu?.url} className="text-navbar-menu">
+                        {menu?.value}
+                      </a>
+                    </div>
+                  </div>
                   {menu.content.length !== 0 && (
                     <div className="dropdown-layer">
                       <div className="dropdown-body">
@@ -305,13 +210,7 @@ const Header = (props) => {
           </ul>
         </div>
 
-        <a
-          className="wrap-menu menu-icon-toggle"
-          // onClick={() => {
-          //   setIsOpen(!isOpen);
-          //   // setActivePath(0);
-          // }}
-        >
+        <a className="wrap-menu menu-icon-toggle">
           <div className="bar1" />
           <div className="bar2" />
           <div className="bar3" />
@@ -428,67 +327,6 @@ const Header = (props) => {
             </div>
           </div>
         </div>
-        {/* <div className={isOpen ? clsx("overlay", "show") : "overlay"}></div> */}
-
-        {/* <div className={clsx("mobile-menu", isOpen ? "show" : "")}>
-          {mobileHeaderNav.map((entry, index) => (
-            // <Link to={`#${entry.path}`} key={index} className={styles.wrapLinkMobile}>
-
-            // </Link>
-            <div className="dropdown">
-              <a href={entry?.url} key={index} className="wrap-link-mobile">
-                <span>{entry?.value ? entry?.value : entry.name}</span>
-                <button
-                  onClick={() => handleClickMenu(entry, index)}
-                  className={clsx(
-                    "wrap-icon",
-                    activePath === index ? "active" : ""
-                  )}
-                >
-                  <img
-                    key={index}
-                    className="icon"
-                    src={
-                      entry?.image?.publicUrl
-                        ? entry?.image?.publicUrl
-                        : entry.icon
-                    }
-                    alt="Mobile Icon"
-                  />
-                </button>
-              </a>
-              {entry.content && entry.content.length !== 0 && (
-                <div className="dropdown-layer">
-                  <div className="dropdown-body">
-                    <ul>
-                      {entry.content.map((item, index) => (
-                        <li key={index}>
-                          <div>
-                            <a href={item.url}>{item.value}</a>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-          <div className="wrap-link-mobile">
-            <span>{!!darkmode.value ? "Dark" : "Light"}</span>
-            <div className="wrap-icon nav-darkmode-icon-mobile">
-              <DarkModeSwitch
-                style={{ margin: "0 12px" }}
-                className="nav-darkmode-icon"
-                checked={!!darkmode.value}
-                onChange={darkmode.toggle}
-                size={40}
-              />
-            </div>
-          </div>
-
-          <Language />
-        </div> */}
         <DarkModeSwitch
           style={{ margin: "0 12px" }}
           className="nav-darkmode-icon hide-on-mobile"
@@ -498,7 +336,6 @@ const Header = (props) => {
         />
         <Language />
       </nav>
-      {/* <ScrollToTop /> */}
     </>
   );
 };

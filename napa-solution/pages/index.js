@@ -128,7 +128,12 @@ const Index = ({ footer, data, ...props }) => {
           </Swiper>
         </SwiperSlide>
       </Swiper>
-      <div ref={onTopBtnRef} className="ot-container" onClick={scrollToTop}>
+      <div
+        ref={onTopBtnRef}
+        className="scroll_to_top ot-container"
+        id="scrollToTop"
+        onClick={scrollToTop}
+      >
         <img className="ot-image" src="./img/scroll-top.png" />
       </div>
     </>
