@@ -87,8 +87,6 @@
 .ot-container {
   position: fixed;
   bottom: -100px;
-  right: 30px;
-  z-index: 10;
   transition: all 0.5s ease-in-out;
 }
 
@@ -97,5 +95,12 @@
 }
 
 .ot-image {
-  width: 100%;
+  width: auto;
+  height: 30px;
+  margin-right: 12px;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
