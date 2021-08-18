@@ -1,25 +1,45 @@
+import Head from "next/head";
+import { useEffect } from "react";
 import { convertArrToObject } from "../../util/converArrayToObject";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 const Banner = (props) => {
   const data = convertArrToObject(props.data.property);
-  // console.log("data banner:", data);
+  useEffect(() => {
+    window.onload = function () {
+      document.getElementById("banner").className = "wrap-banner open";
+    };
+  }, []);
   return (
-    <div className="hearder-container">
-      <div className="overlay-header"></div>
-      <LazyLoadImage
-        alt="ImageOutsourcingbanner"
-        effect="blur"
-        src={data["Outsourcing_Banner_background"].image?.original}
-        placeholderSrc={data["Outsourcing_Banner_background"].image?.thumbnail}
-        threshold={100}
-        width="100%"
-        className="image-header"
-        height="100%"
-      />
-      <div className="header-title-page header-title-page-spec">
-        {data["Outsourcing_Banner_Title"]?.value}
+    <>
+      <Head>
+        <link key="css/banner.css" rel="stylesheet" href="css/banner.css" />
+      </Head>
+      <div className="banner">
+        <div className="overlay-headerA"></div>
+        <img
+          src={data["Offshore_Banner_Img"].image.original}
+          className="imageA"
+          alt=""
+        />
+        <div className="wrap-banner" id="banner">
+          <h1 className="main-title">
+            {data["Offshore_Banner_Title"].value}
+          </h1>
+          <div style={{ marginTop: 20, fontSize: "1.2rem" }}>
+            {data["Offshore_Banner_Subtitle"].value}
+          </div>
+          <div className="frame-tb"></div>
+          <div className="frame-lr"></div>
+        </div>
+        <div className="textB">
+          <div className="titleB">
+            {data["Offshore_Banner_Content"].value}
+          </div>
+          <div className="subtitleB">
+            {data["Offshore_Banner_Subcontent"].value}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

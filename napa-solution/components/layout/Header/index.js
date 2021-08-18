@@ -250,7 +250,7 @@ const Header = (props) => {
           "navbar navbar-expand-lg navbar-light no-default-spacing home",
           changeNav ? "dark-nav" : "",
           navColor === "dark" ? "dark-nav" : "",
-          direction && "navbar-hidden"
+          (direction && !props.isLoading) && "navbar-hidden"
         )}
       >
         <a className="navbar-brand no-default-spacing" href={navbarLogo?.url}>
