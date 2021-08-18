@@ -61,7 +61,7 @@ body {
 /* Navbar section */
 #navbar {
   width: 100%;
-  opacity: 0.85;
+  opacity: 1;
   position: fixed;
   top: 0;
   left: 0;
@@ -154,7 +154,7 @@ body {
   top: 46px;
 }
 
-.lang-list>* {
+.lang-list > * {
   color: #fff;
   padding: 6px 0;
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.18);
@@ -194,7 +194,6 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-
 
 .navbar-menu {
   padding-left: 10%;
@@ -239,7 +238,7 @@ body {
 }
 
 .hover-t {
-  transition: transform .8s cubic-bezier(.32, .94, .6, 1);
+  transition: transform 0.8s cubic-bezier(0.32, 0.94, 0.6, 1);
 }
 
 .hover-o .hover-t {
@@ -663,7 +662,8 @@ body {
 }
 
 .recruit {
-  background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat padding-box;
+  background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat
+    padding-box;
   opacity: 0.9;
   height: 445px;
   margin-top: 85px;
@@ -837,7 +837,7 @@ body {
 }
 
 .text-navbar-menu:hover::before {
-  transition: transform .5s cubic-bezier(.32, .94, .6, 1);
+  transition: transform 0.5s cubic-bezier(0.32, 0.94, 0.6, 1);
   transform: translateY(-30%);
   display: block;
 }
@@ -989,7 +989,8 @@ body {
   }
 
   .recruit {
-    background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat padding-box;
+    background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat
+      padding-box;
     opacity: 0.9;
     height: 445px;
     margin-top: 85px;
@@ -1183,7 +1184,6 @@ body {
 }
 
 @media (max-width: 1000px) {
-
   /* .detail-btn,
   .detail-btn-icon,
   .detail-btn-text {
@@ -1804,7 +1804,7 @@ body {
     color: #fff !important;
   }
 
-  .wrap-link-mobile>span {
+  .wrap-link-mobile > span {
     padding-right: 20px;
   }
 
@@ -1823,7 +1823,7 @@ body {
     box-shadow: 0 0 4px rgb(0 0 0 / 14%), 0 4px 8px rgb(0 0 0 / 28%);
   }
 
-  .wrap-link-mobile>.active {
+  .wrap-link-mobile > .active {
     background-color: #e40a5d;
   }
 
@@ -1853,7 +1853,7 @@ button:focus {
   outline: none;
 }
 
-.nav-darkmode-icon>circle {
+.nav-darkmode-icon > circle {
   fill: white;
 }
 
@@ -1863,7 +1863,7 @@ button:focus {
   align-items: center;
 }
 
-.nav-darkmode-icon-mobile>.nav-darkmode-icon {
+.nav-darkmode-icon-mobile > .nav-darkmode-icon {
   margin: 8px !important;
 }
 
@@ -1883,7 +1883,7 @@ button:focus {
   z-index: 1;
   position: absolute;
   animation-name: dropdown;
-  animation-duration: .4s;
+  animation-duration: 0.4s;
   animation-fill-mode: forwards;
   left: 51%;
   right: auto;
@@ -1892,8 +1892,8 @@ button:focus {
 .dropdown-body {
   padding: 5px 15px 18px;
   background-color: #412490;
-  border: 3px solid #FFF;
-  color: #FFF;
+  border: 3px solid #fff;
+  color: #fff;
 }
 
 .dropdown:hover .dropdown-layer {
@@ -1905,20 +1905,20 @@ button:focus {
 }
 
 .dropdown-body a:before {
-  content: '/';
+  content: "/";
   position: absolute;
   left: 5px;
   transform: rotate(15deg);
 }
 
 .dropdown-body a {
-  transition: margin-left .5s;
-  color: #FFF;
+  transition: margin-left 0.5s;
+  color: #fff;
 }
 
 .dropdown-body div {
   position: relative;
-  border-bottom: 2px solid #FFF;
+  border-bottom: 2px solid #fff;
   padding: 10px 0 4px 25px;
 }
 
@@ -1944,7 +1944,7 @@ button:focus {
   position: relative;
 }
 
-.cover>svg {
+.cover > svg {
   position: absolute;
   top: 0;
   left: 0;
@@ -1953,7 +1953,7 @@ button:focus {
   width: auto; */
 }
 
-.cover>h3 {
+.cover > h3 {
   text-align: left;
   font: normal normal bold 45px/65px Noto Sans JP;
   letter-spacing: 0px;
@@ -1962,7 +1962,7 @@ button:focus {
   opacity: 1;
 }
 
-.cover>p {
+.cover > p {
   margin-bottom: 130px;
 
   text-align: left;
@@ -1973,7 +1973,7 @@ button:focus {
 }
 
 @media (max-width: 768px) {
-  .cover>svg {
+  .cover > svg {
     display: none;
   }
 
@@ -1981,7 +1981,7 @@ button:focus {
     margin: 30px 24px;
   }
 
-  .cover>h3 {
+  .cover > h3 {
     text-align: left;
     font: normal normal bold 20px/26px Roboto;
     letter-spacing: 0px;
@@ -1990,7 +1990,7 @@ button:focus {
     opacity: 1;
   }
 
-  .cover>p {
+  .cover > p {
     text-align: left;
     font: normal normal normal 16px/40px Roboto;
     letter-spacing: 0.48px;
@@ -2148,10 +2148,9 @@ button:focus {
 }
 
 .bounceInLeft {
-
   animation-name: bounceInLeft;
   animation-duration: 2s;
-  animation-delay: .5s;
+  animation-delay: 0.5s;
   animation-fill-mode: forwards;
   /* animation-iteration-count: infinite; */
 }
