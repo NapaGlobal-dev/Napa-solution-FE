@@ -1,25 +1,40 @@
+import Head from "next/head";
 import { convertArrToObject } from "../../util/converArrayToObject";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 const Banner = (props) => {
-  const data = convertArrToObject(props.data.property);
-  // console.log("data banner:", data);
+  const banner = convertArrToObject(props.data.property)
   return (
-    <div className="hearder-container">
-      <div className="overlay-header"></div>
-      <LazyLoadImage
-        alt="ImageOutsourcingbanner"
-        effect="blur"
-        src={data["Outsourcing_Banner_background"].image?.original}
-        placeholderSrc={data["Outsourcing_Banner_background"].image?.thumbnail}
-        threshold={100}
-        width="100%"
-        className="image-header"
-        height="100%"
-      />
-      <div className="header-title-page header-title-page-spec">
-        {data["Outsourcing_Banner_Title"]?.value}
+    <>
+      <Head>
+        <link key="css/banner.css" rel="stylesheet" href="css/banner.css" />
+      </Head>
+      <div className="banner">
+        {/* <LazyLoadImage
+                    effect='blur'
+                    src={banner?.image?.original}
+                    placeholderSrc={banner?.image?.thumbnail}
+                    threshold={100}
+                    height='100%'
+                    width='100%'
+                    className="image-header"
+                /> */}
+        <div className="overlay-headerA"></div>
+        <img src="/img/untitled-img/contact.jpeg" className="imageA" alt="" />
+        <div className="border-titleA">
+          <h1 style={{ letterSpacing: -3, fontSize: "3.3rem" }}>Offshore</h1>
+          <div style={{ marginTop: 20, fontSize: "1.2rem" }}>
+            {banner.Offshore_Banner_Title.value}
+          </div>
+        </div>
+        <div className="textB">
+          <div className="titleB">
+            ブルー・マーリン・パートナーズに、ご興味をお持ちいただきありがとうございます。
+          </div>
+          <div className="subtitleB">
+            下記受付フォームに必要項目を入力して送信してください。3営業日以内に担当者より折り返しご連絡させていただきます。
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

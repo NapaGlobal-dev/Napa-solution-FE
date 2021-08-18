@@ -313,3 +313,21 @@
       opacity: .75;
     }
   }
+
+  @media (max-width:360px) {
+    .loader-text{
+      padding: 0px 46px; 
+    }
+    .loader{
+      width: 18rem;
+      height: 18rem;
+    }
+    .loader .box{
+      width: 9rem;
+      height: 9rem;
+    }
+    .loader::before{
+      width: 7.6956521739rem;
+      height: 7.6956521739rem;
+    }
+  }
