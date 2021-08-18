@@ -38,6 +38,7 @@
     margin-bottom: 80px;
     border-top: 1px solid #c8b8f4;
     padding-top: 40px;
+    flex-direction: column;
   }
   .introduce {
     margin-bottom: 40px;
@@ -61,16 +62,7 @@ letter-spacing: 0px;
 color: #172052;
 }
 
-@media (max-width: 1024px) {
-  .item > p {
-    max-width: 200px;
-    min-width: 100px;
-  }
-  .groupReason {
-    margin: 0px;
-  }
-}
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
   .item {
     flex-direction: column;
     margin: 0px;

@@ -51,7 +51,7 @@
 
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1023px) {
     .item {
       flex-direction: column;
       margin: 0px;
