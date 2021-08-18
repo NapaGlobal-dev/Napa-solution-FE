@@ -9,7 +9,7 @@ import { StoreContext } from "../../../util/language/store";
 import useDarkMode from "use-dark-mode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { useSwipeDirection } from "../../../util/windowEvents";
-
+import ScrollToTop from "../ScrollToTop";
 function Language() {
   const [openDropdown, setOpenDropndown] = useState(false);
   const [language, setLanguage] = useState({});
@@ -56,7 +56,7 @@ const Header = (props) => {
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 5 || hour >= 19) darkmode.enable();
-  },[]);
+  }, []);
 
   const [changeNav, setChangeNav] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
@@ -265,10 +265,10 @@ const Header = (props) => {
             <li className="nav-item item-navbar-menu active item-home">
               <div className="hover-o">
                 <div className="hover-t">
-                <a href={navbarHome?.url} className="text-navbar-menu">
-                {navbarHome?.value}
-              </a>
-              <a className="text-navbar-menu">{navbarHome?.value}</a>
+                  <a href={navbarHome?.url} className="text-navbar-menu">
+                    {navbarHome?.value}
+                  </a>
+                  <a className="text-navbar-menu">{navbarHome?.value}</a>
                 </div>
               </div>
             </li>
@@ -276,14 +276,14 @@ const Header = (props) => {
               <li className="nav-item item-navbar-menu" key={key}>
                 <div className="slice-navbar-item" />
                 <div className="dropdown">
-                <div className="hover-o">
-                <div className="hover-t">
-                <a href={menu?.url} className="text-navbar-menu">
-                    {menu?.value}
-                  </a>
-                  <a className="text-navbar-menu">{menu?.value}</a>
-                </div>
-              </div>
+                  <div className="hover-o">
+                    <div className="hover-t">
+                      <a href={menu?.url} className="text-navbar-menu">
+                        {menu?.value}
+                      </a>
+                      <a className="text-navbar-menu">{menu?.value}</a>
+                    </div>
+                  </div>
                   {menu.content.length !== 0 && (
                     <div className="dropdown-layer">
                       <div className="dropdown-body">
@@ -498,7 +498,7 @@ const Header = (props) => {
         />
         <Language />
       </nav>
-      {/* <ScrollToTop /> */}
+      <ScrollToTop />
     </>
   );
 };

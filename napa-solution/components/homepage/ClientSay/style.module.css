@@ -11,7 +11,7 @@
   width: 100%;
   max-width: 1555px;
   height: 100%;
-  min-height: 300px;
+  /* min-height: 300px; */
   margin-top: 50px;
 }
 .cover > h3 {
@@ -90,13 +90,13 @@
 .bigplaypause {
   position: absolute;
   top: 50%;
-  left: 50%;
+  /* left: 50%;
 
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%); */
 }
 .bigplaypause > button {
-  height: 71px;
-  width: 210px;
+  /* height: 71px;
+  width: 210px; */
   background: transparent;
   border: none;
   outline: none;
@@ -104,20 +104,37 @@
 .bigplaypause > button::before {
   content: "\f144";
   font-family: "Font Awesome 5 Free";
-  width: 70px;
-  height: 70px;
+  width: 203px;
+  height: 203px;
   display: inline-block;
   font-size: 137px;
-  color: #442493;
+  color: #6c3af5;
   outline: none;
   background: transparent;
   border: none;
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(50%, -50%);
+  transform: translate(-50%, 0%);
 }
-
+@media (max-width: 1024px) {
+  .bigplaypause > button::before {
+    content: "\f144";
+    font-family: "Font Awesome 5 Free";
+    width: 203px;
+    height: 203px;
+    display: inline-block;
+    font-size: 100px;
+    color: #6c3af5;
+    outline: none;
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, 0%);
+  }
+}
 @media (max-width: 768px) {
   .cover {
     margin: 0px;
@@ -127,5 +144,24 @@
   }
   .cover > p {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 414px) {
+  .bigplaypause > button::before {
+    content: "\f144";
+    font-family: "Font Awesome 5 Free";
+    width: 137px;
+    height: 137px;
+    display: inline-block;
+    font-size: 80px;
+    color: #6c3af5;
+    outline: none;
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, 0%);
   }
 }
