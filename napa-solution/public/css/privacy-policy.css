@@ -9,16 +9,12 @@
   margin-top: 120px;
   text-align: left;
   font-size: 16px;
-  font-weight: normal;
-  line-height: 30px;
   letter-spacing: 0px;
   color: #23496d;
   opacity: 1;
 }
-.policy p {
-  margin-bottom: 0px !important;
-}
 .policy-content {
+  margin-top: 80px;
   margin-bottom: 40px;
 }
 .p-subcontent {
@@ -27,13 +23,9 @@
 .p-contact {
   margin: 50px 0px 40px 0px;
   font-size: 20px !important;
-  font-weight: bold;
-  line-height: 30px;
+  font-weight: bold !important;
   color: #6c3af5 !important;
 }
 .c-content {
   margin-bottom: 30px;
-}
-
-@media screen and (max-width: 1136px) {
 }

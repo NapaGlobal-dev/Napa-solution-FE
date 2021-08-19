@@ -46,9 +46,9 @@ const WhatOffshore = (props) => {
                         />
                     </g>
                 </svg>
-                <h3>{whatOffshore.Offshore_WhatOfshore_Title.value}</h3>
-                <p>{whatOffshore.Offshore_WhatOfshore_Subtitle.value}</p>
-                <div className = {styles.item}>
+                <h3 id='down-up'>{whatOffshore.Offshore_WhatOfshore_Title.value}</h3>
+                <p id='down-up'>{whatOffshore.Offshore_WhatOfshore_Subtitle.value}</p>
+                <div className = {styles.item} id='down-up'>
                     <p>{whatOffshore.Offshore_WhatOfshore_Content.value}</p>
                 </div>
             </div>

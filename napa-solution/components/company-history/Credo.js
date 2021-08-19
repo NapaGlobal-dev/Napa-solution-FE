@@ -5,7 +5,7 @@ export default function Credo({data}){
     const credos = getData(data, /CompanyHistory_Credo_[0-9]/)
     return(
         <>
-            <div className='cover' id='down-up'>
+            <div className='cover'>
                 <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="58.948"
@@ -46,8 +46,8 @@ export default function Credo({data}){
                     />
                 </g>
                 </svg>
-                <h3>{title?.key}</h3>
-                <p>{title?.value}</p>
+                <h3 id='down-up'>{title?.key}</h3>
+                <p id='down-up'>{title?.value}</p>
             </div>
             <div className='containerD'  id='down-up'>
                 {credos.map((credo,index)=>(

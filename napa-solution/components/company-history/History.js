@@ -5,7 +5,7 @@ export default function Hisory({ next, timeline }) {
 
     return (
         <div className='contentC'>
-            <div className='leftC'>
+            <div className='leftC' id='down-up'>
                 <div className='yearC'>{timeline?.key}</div>
                 <div className='titleC'>{subcontent?.key}</div>
                 <div className='subtitleC'>{subcontent?.value}</div>

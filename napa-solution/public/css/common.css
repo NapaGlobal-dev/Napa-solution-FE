@@ -220,9 +220,11 @@ body {
 }
 
 .item-navbar-menu {
-  padding-left: 50px;
   display: flex;
   pointer-events: auto;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .text-navbar-menu a {
@@ -256,6 +258,7 @@ body {
   opacity: 1;
   transform: rotate(25deg);
   margin-right: 30px;
+  height: 30px;
 }
 
 #navbar-toggler {
@@ -867,15 +870,6 @@ body {
   .navbar-menu {
     padding-left: 30%;
   }
-
-  .item-navbar-menu {
-    padding-left: 30px;
-    display: flex;
-  }
-
-  /* .text-navbar-menu {
-    padding-left: 2px;
-  } */
 
   .detail-btn {
     width: 302px;

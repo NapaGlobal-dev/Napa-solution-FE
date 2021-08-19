@@ -5,6 +5,7 @@
   background: #00589b40;
   opacity: 0.6;
 }
+
 .wrap-banner {
   position: absolute;
   top: 26%;
@@ -12,26 +13,31 @@
   text-align: center;
   color: white;
 }
+
 .wrap-banner.open .frame-tb::before,
 .wrap-banner.open .frame-tb::after {
   height: 100%;
 }
+
 .wrap-banner.open .frame-lr::before,
 .wrap-banner.open .frame-lr::after {
   width: 100%;
 }
+
 .frame-tb::before {
   top: 0;
   left: 0;
   -webkit-transform-origin: 0 50%;
   transform-origin: 0 50%;
 }
+
 .frame-tb::after {
   bottom: 0;
   right: 0;
   -webkit-transform-origin: 100% 50%;
   transform-origin: 100% 50%;
 }
+
 .frame-tb::before,
 .frame-tb::after {
   content: "";
@@ -42,6 +48,7 @@
   width: 2px;
   box-sizing: border-box;
 }
+
 .frame-lr::before,
 .frame-lr::after {
   width: 0;
@@ -51,24 +58,28 @@
   position: absolute;
   background: #fff;
 }
+
 .frame-lr::before {
   bottom: 0;
   left: 0;
   -webkit-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
 }
+
 .frame-lr::after {
   top: 0;
   right: 0;
   -webkit-transform-origin: 50% 0;
   transform-origin: 50% 0;
 }
+
 .main-title {
   font-weight: lighter;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 75px;
 }
+
 .banner {
   display: flex;
   flex-wrap: wrap;
@@ -80,10 +91,12 @@
   position: relative;
   overflow: hidden;
 }
+
 .imageA {
   /* height: auto; */
   min-width: 100%;
 }
+
 .textB {
   padding: 50px 100px 30px 100px;
   background: #412490 0% 0% no-repeat padding-box;
@@ -94,12 +107,14 @@
   bottom: 0;
   opacity: 1;
 }
+
 .titleB {
   font-weight: bold;
   font-size: 22px;
   letter-spacing: 0.72px;
   margin-bottom: 10px;
 }
+
 .subtitleB {
   font-weight: bold;
   font-size: 13px;
@@ -110,24 +125,30 @@
   .textB {
     padding: 50px 24px 30px 24px;
   }
+
   .wrap-banner {
-    padding: 20px 40px;
+    padding: 40px;
   }
+
   .main-title {
     font-size: 50px;
   }
+
   .border-titleA {
     padding: 5px 40px 4px;
   }
+
   .textB {
     padding: 30px 30px 20px 30px;
     font-size: 14px;
   }
+
   .titleB {
     font-size: 16px;
     letter-spacing: 0.72px;
     margin-bottom: 10px;
   }
+
   .subtitleB {
     font-size: 10px;
     font-weight: bold;
@@ -135,8 +156,20 @@
     letter-spacing: 0.48px;
   }
 }
+
 @media (max-width: 1280px) {
   .imageA {
     min-width: auto;
+  }
+}
+
+@media (max-width: 414px) {
+  .main-title {
+    font-size: 30px;
+  }
+
+  .wrap-banner {
+    margin: 0 12px;
+    padding: 40px 20px;
   }
 }

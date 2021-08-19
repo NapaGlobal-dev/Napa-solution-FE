@@ -8,6 +8,8 @@ import clsx from "clsx";
 import { StoreContext } from "../../../util/language/store";
 import useDarkMode from "use-dark-mode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
+import { useSwipeDirection } from "../../../util/windowEvents";
+import ScrollToTop from "../ScrollToTop";
 import { registerSwipeEvent } from "../../../util/windowEvents";
 
 function Language() {
@@ -53,10 +55,13 @@ const Header = (props) => {
   const navRef = useRef(null);
 
   // console.log("navbarsss", navbarMenu, data);
-  const darkmode = useDarkMode(true);
+  const darkmode = useDarkMode()
   useEffect(() => {
-    const hour = new Date().getHours();
-    if (hour < 5 || hour >= 19) darkmode.enable();
+    const hour = new Date().getHours()
+    if (hour < 5 || hour >= 19)
+      darkmode.enable()
+    else
+      darkmode.disable()
   }, []);
 
   // const [changeNav, setChangeNav] = useState(true);
@@ -365,6 +370,7 @@ const Header = (props) => {
         />
         <Language />
       </nav>
+      <ScrollToTop />
     </>
   );
 };

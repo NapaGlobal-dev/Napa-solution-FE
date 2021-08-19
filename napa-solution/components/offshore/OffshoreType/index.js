@@ -53,11 +53,11 @@ const OffshoreType = (props) => {
                             />
                         </g>
                     </svg>
-                    <h3>{typeOffshore.Offshore_OffshoreType_Title.value}</h3>
-                    <p>{typeOffshore.Offshore_OffshoreType_Subtitle.value}</p>
+                    <h3 id='down-up'>{typeOffshore.Offshore_OffshoreType_Title.value}</h3>
+                    <p id='down-up'>{typeOffshore.Offshore_OffshoreType_Subtitle.value}</p>
                     <div className={styles.item}>
                         {offshoreIntro.map((item, key) => (
-                            <div className = {styles.introduce} key = {key}>
+                            <div className = {styles.introduce} key = {key} id='down-up'>
                             <p className={styles.title}> {item.title} </p>
                             <p className={styles.subtitle}> {item.subtitle}</p>
                             {item.content.map((content, key) =>(

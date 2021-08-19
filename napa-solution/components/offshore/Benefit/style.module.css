@@ -148,12 +148,15 @@
     max-width: none;
     min-width: none;
   }
+
   .cover > svg {
     display: none;
   }
+
   .cover {
     margin: 60px 24px;
   }
+
   .cover > h3 {
     text-align: left;
     font-size: 20px;
@@ -222,6 +225,9 @@
   }
 }
 @media (max-width: 767px) {
+  .benefitBorder {
+    margin-top: 10px;
+  }
   .wraperContent {
     align-items: center;
     margin-top: 30px;
@@ -271,6 +277,17 @@
     letter-spacing: 0px;
     color: #23496d;
     opacity: 1;
+  }
+
+  .benefitNumber {
+    width: 35px;
+    height: 35px;
+    left: -7px;
+  }
+  .benefitContent {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 30px;
   }
 
   .item > img {
