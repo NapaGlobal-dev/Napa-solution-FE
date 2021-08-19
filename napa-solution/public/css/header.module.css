@@ -15,7 +15,16 @@
   transform: translateX(64px);
   opacity: 0.7;
 }
-
+.scroll-top-img {
+  height: 30px;
+  width: auto;
+  margin-right: 12px;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .scroll_to_top:hover {
   transform: translateX(0px);
   transition: all 0.3s;
