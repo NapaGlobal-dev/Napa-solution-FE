@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from "react";
-
-export const useSwipeDirection = ({ moveDistance = 30 }) => {
+export const registerSwipeEvent = (
+  callback = ({ direction }) => {},
+  { moveDistance = 30 } = {}
+) => {
   // true = "down"
   // false = "up"
-  const [direction, setDirection] = useState(null);
-
+  let direction = null;
   let isSwipeable = false;
   let touchedPosition = { x: null, y: null };
+  let scrollPosition = { x: window.scrollX, y: window.scrollY };
+
+  const setDirection = (dir) => {
+    direction = dir;
+    callback({ direction });
+  };
 
   const handleWheel = (e) => {
     if (Math.abs(e.deltaY) < moveDistance) return;
@@ -49,21 +55,30 @@ export const useSwipeDirection = ({ moveDistance = 30 }) => {
     touchedPosition = { x: null, y: null };
   };
 
-  useEffect(() => {
-    window.addEventListener("wheel", handleWheel, true);
-    window.addEventListener("touchstart", handleTouchStart, true);
-    window.addEventListener("touchmove", handleTouchMove, true);
-    window.addEventListener("touchend", handleTouchEnd, true);
-    window.addEventListener("touchcancel", handleTouchCancel, true);
+  const handleScroll = (e) => {
+    // console.log("Scroll: ", window.scrollY - scrollPosition.y, direction);
+    if (window.scrollY - scrollPosition.y >= moveDistance && !direction) {
+      setDirection(true);
+    } else if (scrollPosition.y - window.scrollY >= moveDistance && direction) {
+      setDirection(false);
+    } else {
+      scrollPosition = { x: window.scrollX, y: window.scrollY };
+    }
+  };
 
-    return () => {
-      window.removeEventListener("wheel", handleWheel, true);
-      window.removeEventListener("touchstart", handleTouchStart, true);
-      window.removeEventListener("touchmove", handleTouchMove, true);
-      window.removeEventListener("touchend", handleTouchEnd, true);
-      window.removeEventListener("touchcancel", handleTouchCancel, true);
-    };
-  });
+  window.addEventListener("wheel", handleWheel, true);
+  window.addEventListener("touchstart", handleTouchStart, true);
+  window.addEventListener("touchmove", handleTouchMove, true);
+  window.addEventListener("touchend", handleTouchEnd, true);
+  window.addEventListener("touchcancel", handleTouchCancel, true);
+  window.addEventListener("scroll", handleScroll, true);
 
-  return { direction };
+  return () => {
+    window.removeEventListener("wheel", handleWheel, true);
+    window.removeEventListener("touchstart", handleTouchStart, true);
+    window.removeEventListener("touchmove", handleTouchMove, true);
+    window.removeEventListener("touchend", handleTouchEnd, true);
+    window.removeEventListener("touchcancel", handleTouchCancel, true);
+    window.removeEventListener("scroll", handleScroll, true);
+  };
 };

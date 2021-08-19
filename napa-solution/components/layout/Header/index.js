@@ -2,13 +2,13 @@ import { useQuery } from "@apollo/client";
 import { GET_HEADER } from "../../../query/general";
 import { getData } from "../../../util/converArrayToObject";
 import Head from "next/head";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import languages from "../../../util/language/language";
 import clsx from "clsx";
 import { StoreContext } from "../../../util/language/store";
 import useDarkMode from "use-dark-mode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
-import { useSwipeDirection } from "../../../util/windowEvents";
+import { registerSwipeEvent } from "../../../util/windowEvents";
 
 function Language() {
   const [openDropdown, setOpenDropndown] = useState(false);
@@ -50,6 +50,7 @@ const Header = (props) => {
   const navbarHome = getData(data, /Navbar_Menu1/)[0];
   const navbarMenu = getData(data, /Navbar_Menu([2-9]|1[0-9])/);
   const navbarMobile = getData(data, /Navbar_Menu/);
+  const navRef = useRef(null);
 
   // console.log("navbarsss", navbarMenu, data);
   const darkmode = useDarkMode(true);
@@ -58,10 +59,8 @@ const Header = (props) => {
     if (hour < 5 || hour >= 19) darkmode.enable();
   }, []);
 
-  const [changeNav, setChangeNav] = useState(true);
-  const [navColor, setNavColor] = useState("light");
-
-  const { direction } = useSwipeDirection({});
+  // const [changeNav, setChangeNav] = useState(true);
+  // const [navColor, setNavColor] = useState("light");
 
   const languagesdata = languages.map((lang, index) => ({
     url: lang !== "JP" ? "http://www.napaglobal.com" : "#",
@@ -71,15 +70,44 @@ const Header = (props) => {
     type: "language",
   }));
 
+  const scrollEvent = () => {
+    if (navRef.current) {
+      if (window.pageYOffset >= 20) {
+        navRef.current.classList.add("dark-nav");
+      } else {
+        navRef.current.classList.remove("dark-nav");
+      }
+    }
+  };
+
+  useEffect(() => {
+    // if (window.location.pathname !== "/") {
+    window.addEventListener("scroll", scrollEvent, true);
+    // }
+
+    const cleanupSwipeEvent = registerSwipeEvent(({ direction }) => {
+      // console.log("direction", direction);
+      if (navRef.current) {
+        if (direction) navRef.current.classList.add("navbar-hidden");
+        else navRef.current.classList.remove("navbar-hidden");
+      }
+    });
+
+    return () => {
+      window.removeEventListener("scroll", scrollEvent, true);
+      cleanupSwipeEvent();
+    };
+  }, [navRef]);
+
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 5 || hour >= 19) darkmode.enable();
 
-    if (window.location.pathname === "/") {
-      setNavColor("light");
-    } else {
-      setNavColor("dark");
-    }
+    // if (window.location.pathname === "/") {
+    //   setNavColor("light");
+    // } else {
+    //   setNavColor("dark");
+    // }
   }, []);
 
   useEffect(() => {
@@ -131,7 +159,7 @@ const Header = (props) => {
       $("#checkbox-dark-mode").attr("checked", false);
     } else $("#checkbox-dark-mode").attr("checked", true);
     // $(".popcover").addClass("toggle");
-  });
+  }, []);
 
   return (
     <>
@@ -146,12 +174,13 @@ const Header = (props) => {
 
       <nav
         id="navbar"
+        ref={navRef}
         style={{ borderBottom: !props.isLoading && "none" }}
         className={clsx(
-          "navbar navbar-expand-lg navbar-light no-default-spacing home",
-          changeNav ? "dark-nav" : "",
-          navColor === "dark" ? "dark-nav" : "",
-          direction && !props.isLoading && "navbar-hidden"
+          "navbar navbar-expand-lg navbar-light no-default-spacing home"
+          // changeNav ? "dark-nav" : "",
+          // navColor === "dark" ? "dark-nav" : "",
+          // direction && !props.isLoading && "navbar-hidden"
         )}
       >
         <a className="navbar-brand no-default-spacing" href={navbarLogo?.url}>
@@ -295,7 +324,7 @@ const Header = (props) => {
                     <ul id={`ul-subitem-${index + 1}`}>
                       {item.content.length > 0 &&
                         item.content.map((subitem, key) => (
-                          <li>
+                          <li key={key}>
                             <a className="liText" href={subitem.url} key={key}>
                               {subitem.value}
                             </a>
