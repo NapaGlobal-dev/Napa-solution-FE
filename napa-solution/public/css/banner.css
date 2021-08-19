@@ -9,11 +9,14 @@
 .wrap-banner {
   position: absolute;
   top: 26%;
-  padding: 50px 120px;
+  padding: 70px 100px;
   text-align: center;
   color: white;
 }
-
+.sub-title{
+  font-size: 25px;
+  letter-spacing: 5px;  
+}
 .wrap-banner.open .frame-tb::before,
 .wrap-banner.open .frame-tb::after {
   height: 100%;
@@ -122,6 +125,9 @@
 }
 
 @media (max-width:768px) {
+  .sub-title{
+    font-size: 20px;
+  }
   .textB {
     padding: 50px 24px 30px 24px;
   }
@@ -155,12 +161,14 @@
   }
 }
 
-@media (max-width:1280px) {
+@media (max-width:1290px) {
   .imageA {
     min-width: auto;
   }
+  .wrap-banner{
+    padding: 80px 120px;
+  }
 }
-
 @media (max-width:414px) {
   .main-title {
     font-size: 30px;
