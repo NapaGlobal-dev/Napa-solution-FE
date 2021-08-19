@@ -64,7 +64,7 @@ const Index = ({ footer, data, ...props }) => {
   return (
     <>
       <Head>
-        {/* <link key="css/common.css" rel="stylesheet" href="css/common.css" /> */}
+        <link key="css/common.css" rel="stylesheet" href="css/common.css" />
         <link
           key="css/home-page.module.css"
           rel="stylesheet"
@@ -133,13 +133,16 @@ const Index = ({ footer, data, ...props }) => {
           </Swiper>
         </SwiperSlide>
       </Swiper>
+      {/* <div ref={onTopBtnRef} className="ot-container" onClick={scrollToTop}>
+        <img className="ot-image" src="./img/scroll-top.png" />
+      </div> */}
       <div
         ref={onTopBtnRef}
-        className="scroll_to_top ot-container"
+        className="scroll_to_top "
         id="scrollToTop"
         onClick={scrollToTop}
       >
-        <img className="ot-image" src="./img/scroll-top.png" />
+        <img src="./img/scroll-top.png" className="scroll-top-img" />
       </div>
     </>
   );

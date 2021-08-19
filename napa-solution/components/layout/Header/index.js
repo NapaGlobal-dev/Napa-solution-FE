@@ -8,6 +8,8 @@ import clsx from "clsx";
 import { StoreContext } from "../../../util/language/store";
 import useDarkMode from "use-dark-mode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
+import { useSwipeDirection } from "../../../util/windowEvents";
+import ScrollToTop from "../ScrollToTop";
 import { registerSwipeEvent } from "../../../util/windowEvents";
 
 function Language() {
@@ -368,6 +370,7 @@ const Header = (props) => {
         />
         <Language />
       </nav>
+      <ScrollToTop />
     </>
   );
 };
