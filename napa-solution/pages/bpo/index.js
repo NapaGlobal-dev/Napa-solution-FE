@@ -1,8 +1,8 @@
 import React from "react";
 import Head from "next/head";
-import Banner from "../../components/services/banner";
+import BPOBanner from "../../components/services/BPO/BPOBanner";
 import Project from "../../components/homepage/Project";
-import BPO from "../../components/services/bpo";
+import BPO from "../../components/services/BPO/bpo";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import { client } from "../../apolo-client";
 import { GET_SERVICES_PAGE_DATA, PROJECTS } from "../../query/general";
@@ -32,8 +32,8 @@ const Services = ({ projects, ...props }) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
       </Head>
-      <Banner data={data.Services_Banner} />
-      <BPO data = {data.BPO}/>
+      <BPOBanner data={data.ServicesBPO_Banner} />
+      <BPO data={data.BPO} />
       <Project data={projects} />
     </>
   );
@@ -41,7 +41,10 @@ const Services = ({ projects, ...props }) => {
 
 export async function getStaticProps() {
   const [pageData, projectData] = await Promise.allSettled([
-    client.query({ query: GET_SERVICES_PAGE_DATA, variables:{id: "611d02a01a5f420538983592"} }),
+    client.query({
+      query: GET_SERVICES_PAGE_DATA,
+      variables: { id: "611d02a01a5f420538983592" },
+    }),
     client.query({ query: PROJECTS }),
   ]);
 

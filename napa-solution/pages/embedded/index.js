@@ -1,8 +1,8 @@
 import React from "react";
 import Head from "next/head";
-import Banner from "../../components/services/banner";
+import EmbeddBanner from "../../components/services/Embedded/EmbeddBanner";
 import Project from "../../components/homepage/Project";
-import Embedded from "../../components/services/embedded";
+import Embedded from "../../components/services/Embedded/embedded";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import { client } from "../../apolo-client";
 import { GET_SERVICES_PAGE_DATA, PROJECTS } from "../../query/general";
@@ -32,8 +32,8 @@ const Services = ({ projects, ...props }) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
       </Head>
-      <Banner data={data.Services_Banner} />
-      <Embedded data = {data.Embedded}/>
+      <EmbeddBanner data={data.EmbeddedServices_Banner} />
+      <Embedded data={data.Embedded} />
       <Project data={projects} />
     </>
   );
@@ -41,7 +41,10 @@ const Services = ({ projects, ...props }) => {
 
 export async function getStaticProps() {
   const [pageData, projectData] = await Promise.allSettled([
-    client.query({ query: GET_SERVICES_PAGE_DATA, variables: {id:"611d04201a5f420538984380"}}),
+    client.query({
+      query: GET_SERVICES_PAGE_DATA,
+      variables: { id: "611d04201a5f420538984380" },
+    }),
     client.query({ query: PROJECTS }),
   ]);
 
