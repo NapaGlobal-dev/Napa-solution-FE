@@ -25,7 +25,7 @@ const ClientSay = (props) => {
       transiton: ease 0.3s;
     }
     </style>`);
-    var video = document.getElementById("video");
+    var video = document.querySelector("video");
     // var juice = document.getElementById("orange-juice");
     // var btn = document.querySelector("#play-pause");
     var bigbtn = document.querySelector("#big-play-pause");
@@ -34,11 +34,13 @@ const ClientSay = (props) => {
     //   $(".pause:before").css({ content: "/f28b" });
     // }
     function togglePlayPause() {
+      $("#video").attr("controls", "enabled");
       if (video.paused) {
         // btn.className = "pause";
         bigbtn.className = "pause";
         // btn.addClass("displaynone");
         // btn.className = "displaynone";
+
         video.play();
         setTimeout(function () {
           // btn.className = "pause";
@@ -49,6 +51,7 @@ const ClientSay = (props) => {
         bigbtn.className = "play";
         // bigbtn.addClass("displaynone");
         // bigbtn.className = "displaynone";
+
         video.pause();
       }
     }
@@ -62,6 +65,13 @@ const ClientSay = (props) => {
       togglePlayPause();
     };
 
+    if (video.currentTime == 0) {
+      $("#video").removeAttr("controls");
+    }
+
+    if (video.currentTime > 0) {
+      $("#video").attr("controls", "enabled");
+    }
     video.addEventListener("timeupdate", function () {
       // var juicePos = video.currentTime / video.duration;
       // juice.style.width = juicePos * 100 + "%";
@@ -75,12 +85,7 @@ const ClientSay = (props) => {
     //   video.currentTime = progressTime;
     // });
   });
-  useEffect(() => {
-    // Element
-    if (!video.paused) {
-      console.log("play");
-    } else console.log("pause");
-  });
+
   return (
     // <div className="container">
     <>

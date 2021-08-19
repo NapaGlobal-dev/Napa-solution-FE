@@ -51,7 +51,7 @@ const Header = (props) => {
   const navbarMenu = getData(data, /Navbar_Menu([2-9]|1[0-9])/);
   const navbarMobile = getData(data, /Navbar_Menu/);
   // const navbarMenuIcon = getData(data, /Navbar_MenuIcon/)[0];
-  console.log("navbarsss", navbarMobile);
+
   const darkmode = useDarkMode(true);
   useEffect(() => {
     const hour = new Date().getHours();
