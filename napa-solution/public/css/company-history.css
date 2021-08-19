@@ -1,7 +1,7 @@
 
 .containerC{
-  /* margin-top: 100px; */
-  padding: 0px 100px;
+  margin-top: -80px;
+  padding: 0px 100px 0 180px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -141,7 +141,8 @@
   float: left;
 }
 .yearC{
-  font: normal normal bold 50px/66px Roboto;
+  font-size: 50px;
+  font-weight: bold;
   letter-spacing: 0px;
   color: #23496D;
   margin-bottom: 50px;
@@ -160,26 +161,6 @@
   opacity: 1;
   margin-bottom: 50px;
 }
-.buttonC{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 200px;
-  height: 70px;
-  border-radius: 1px;
-  cursor: pointer;
-  background: #412490 0% 0% no-repeat padding-box;
-  opacity: 1;
-  color: var(--unnamed-color-ffffff);
-  font: normal normal bold 16px/30px Roboto;
-  letter-spacing: 0px;
-  color: #FFFFFF;
-}
-.buttonC:hover{
-  text-decoration: underline;
-  text-decoration-color: #6C3AF5;
-}
 .milestone{
   position: relative;
 }
@@ -188,7 +169,7 @@
 }
 .containerD{
   /* margin-top: 100px; */
-  padding: 0px 210px;
+  padding: 0 100px 0 180px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -213,7 +194,7 @@
   padding: 30px 0px;
   display: flex;
   text-align: left;
-  border-bottom: solid 1px #23496D;
+  border-bottom: solid 1px #4e7eac;
 }
 .rowD-end{
   width: 100%;
@@ -223,17 +204,19 @@
 }
 .leftColumn{
   float: left;
-  width: 35%;
+  width: 45%;
   padding-right: 4px;
-  font: normal normal bold 26px/30px Roboto;
+  font-size: 18px;
+  font-weight: bold;
   letter-spacing: 0.78px;
   color: #23496D;
   opacity: 1;
+  margin-right: 50px;
 }
 .rightColumn{
   float: left;
   width: 65%;
-  font: normal normal normal 26px/30px Roboto;
+  font-size: 18px;
   letter-spacing: 0.78px;
   color: #23496D;
   opacity: 1;
@@ -283,33 +266,34 @@
   .milestone{
     display: none;
   }
-  .containerC{
-    padding: 0px;
-  }
   .yearC{
-    font: normal normal bold 30px/66px Roboto;
+    font-size: 30px;
     margin-bottom: 0px;
   }
   .titleC{
-    font: normal normal bold 16px/26px Roboto;
+    font-size: 16px;
     margin-bottom: 5px;
   }
   .subtitleC{
-    font: normal normal normal 16px/26px Roboto;
+    font-size: 16px;
     margin-bottom: 0px;
   }
-  .buttonC{
+  #detail-btn-company{
     display: none;
   }
 
 }
-@media (max-width:600px) {
-  .buttonC{
-      width: 60%;
+@media (max-width:768px) {
+  .containerC{
+    padding: 0;
+    margin-top: 30px;
   }
   .containerD{
     /* margin-top: 100px; */
     padding: 0px 20px;
+  }
+  .leftC #detail-btn-company{
+    display: none;
   }
   .rowD{
     margin: unset;

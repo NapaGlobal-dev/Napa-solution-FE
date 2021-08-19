@@ -114,8 +114,16 @@ const Service = (props) => {
                   >
                     <div className={clsx(styles.centerContent)}>
                       <div className={clsx(styles.boxContent)}>
-                        <h3>{item.title}</h3>
-                        <p>{item.subTitle}</p>
+                        <h3
+                          id='down-up'
+                        >
+                          {item.title}
+                        </h3>
+                        <p
+                          id='down-up'
+                        >
+                          {item.subTitle}
+                        </p>
                         <a href={item.url}>
                           <div
                             className={clsx(

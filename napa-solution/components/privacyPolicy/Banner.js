@@ -3,11 +3,11 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 
 export default function Banner({ data }) {
-  const banner = getData(data, /CompanyHistory_Banner_Img/)[0];
-  const title = getData(data, /CompanyHistory_Banner_Title/)[0];
-  const subtitle = getData(data, /CompanyHistory_Banner_SubTitle/)[0];
-  const content = getData(data, /CompanyHistory_Banner_Content/)[0];
-  const subcontent = getData(data, /CompanyHistory_Banner_SubContent/)[0];
+  const banner = getData(data, /PrivacyPolicy_Banner_Img/)[0];
+  const title = getData(data, /PrivacyPolicy_Banner_Title/)[0];
+  const subtitle = getData(data, /PrivacyPolicy_Banner_SubTitle/)[0];
+  const content = getData(data, /PrivacyPolicy_Banner_Content/)[0];
+  const subcontent = getData(data, /PrivacyPolicy_Banner_SubContent/)[0];
   useEffect(() => {
     window.onload = function () {
       document.getElementById("banner").className = "wrap-banner open";

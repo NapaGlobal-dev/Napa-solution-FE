@@ -1,4 +1,3 @@
-import { useQuery } from "@apollo/client";
 import { HomePage } from "../query/general";
 import { convertArrToObject } from "../util/converArrayToObject";
 import Company from "../components/homepage/Company";
@@ -19,12 +18,9 @@ SwiperCore.use([Mousewheel]);
 
 const Index = ({ footer, data, ...props }) => {
   const [swiperRef, setSwiperRef] = useState(null);
-  const onTopBtnRef = useRef();
+  const onTopBtnRef = useRef(null);
+  let headerRef = useRef(null);
 
-  // const { data, loading, error } = useQuery(HomePage);
-  // if (error) return <>Your query is Error !</>;
-  // const datas = loading || convertArrToObject(data.page.layouts);
-  // const clientSay = loading || data.clientSay;
   const datas = convertArrToObject(data.page.layouts);
   const clientSay = data.clientSay;
 
@@ -35,6 +31,9 @@ const Index = ({ footer, data, ...props }) => {
       swiperRef.updateSize();
       swiperRef.updateSlides();
     }
+    headerRef.current = document.getElementById("navbar");
+
+    // console.log("header", headerRef);
   }, [swiperRef, setSwiperRef]);
 
   const scrollToTop = () => {
@@ -44,13 +43,20 @@ const Index = ({ footer, data, ...props }) => {
   };
 
   const toggleScrollTopBtn = (sw) => {
-    console.log(sw.activeIndex);
+    // console.log(sw.activeIndex, headerRef.current);
 
     if (onTopBtnRef.current) {
       if (sw.activeIndex > 0) {
         onTopBtnRef.current.classList.add("ot-container-visible");
       } else {
         onTopBtnRef.current.classList.remove("ot-container-visible");
+      }
+    }
+    if (headerRef.current) {
+      if (sw.activeIndex <= 0) {
+        headerRef.current.classList.remove("dark-nav");
+      } else {
+        headerRef.current.classList.add("dark-nav");
       }
     }
   };
@@ -93,7 +99,6 @@ const Index = ({ footer, data, ...props }) => {
         direction={"vertical"}
         slidesPerView={1}
         mousewheel
-        // enabled={false}
       >
         <SwiperSlide className="sw-slide-all-page ">
           <Begin data={data.banner} />
@@ -128,7 +133,12 @@ const Index = ({ footer, data, ...props }) => {
           </Swiper>
         </SwiperSlide>
       </Swiper>
-      <div ref={onTopBtnRef} className="ot-container" onClick={scrollToTop}>
+      <div
+        ref={onTopBtnRef}
+        className="scroll_to_top ot-container"
+        id="scrollToTop"
+        onClick={scrollToTop}
+      >
         <img className="ot-image" src="./img/scroll-top.png" />
       </div>
     </>

@@ -297,27 +297,27 @@ export const InspectMaintenanceQuery = gql`
   }
 `;
 export const OffshoreQuery = gql`
-query getContact {
-  page: Page(where: { id: "60f67674b9a5b934e0c79908" }) {
-    name
-    url
-    layouts {
+  query getContact {
+    page: Page(where: { id: "60f67674b9a5b934e0c79908" }) {
       name
-      property {
+      url
+      layouts {
         name
-        content{
+        property {
           name
+          content {
+            name
+            value
+          }
           value
-        }
-        value
-        image {
-          original: publicUrl
-          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
         }
       }
     }
   }
-}
 `;
 export const GET_COMPANYHISTORY = gql`
   query getCompanyHistory {
@@ -465,6 +465,10 @@ export const GET_PRIVACYPOLICY = gql`
           content {
             name
             value
+          }
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
           }
         }
       }
