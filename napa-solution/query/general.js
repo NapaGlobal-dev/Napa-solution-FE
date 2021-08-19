@@ -211,7 +211,7 @@ export const footerDataQuery = gql`
     groups: allPages(
       where: {
         OR: [
-          { nameEN_contains: "Infomation" }
+          { nameEN_contains: "Information" }
           { nameEN_contains: "Services" }
           { nameEN_contains: "Company" }
         ]
