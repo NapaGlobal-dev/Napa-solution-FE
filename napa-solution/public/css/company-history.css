@@ -151,10 +151,10 @@
   margin-bottom: 50px;
 }
 .titleC {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   line-height: 26px;
-  letter-spacing: 0px;
+  letter-spacing: 1px;
   color: #23496d;
   opacity: 1;
   margin-bottom: 20px;
@@ -175,12 +175,12 @@
   display: none;
 }
 .containerD {
-  /* margin-top: 100px; */
-  padding: 0 100px 0 180px;
+  padding: 0 100px 0 200px;
   display: flex;
   align-items: center;
   flex-direction: column;
   text-align: center;
+  margin-right: 100px;
 }
 .titleD {
   font-size: 45px;
@@ -302,6 +302,7 @@
   .containerD {
     /* margin-top: 100px; */
     padding: 0px 20px;
+    margin-right: 0;
   }
   .leftC #detail-btn-company {
     display: none;
