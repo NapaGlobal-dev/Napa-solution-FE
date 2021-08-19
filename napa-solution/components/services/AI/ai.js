@@ -11,7 +11,7 @@ const AI = (props) => {
           <img className="sv-decor-head-line" src="/img/line-style.svg" />
           <h3 id="down-up">{data.AI_TitleEN.value}</h3>
           <p id="down-up">{data.AI_TitleJP.value}</p>
-          <hr className="sv-horizontal-bar" />
+          
           <div className="sv-img-bouding">
             <picture>
               <source

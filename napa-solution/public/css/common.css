@@ -1236,7 +1236,9 @@ body {
   .service {
     width: 100%;
   }
-
+  .company-content-wrapper{
+    margin-bottom: 50px;
+  }
   .section-content {
     font-size: 14px;
     font-weight: normal;

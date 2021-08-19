@@ -50,13 +50,13 @@ export default function PrivacyPolicy({data}){
             </svg>
             <h3 id='down-up'>{title?.key}</h3>
             <p id='down-up'>{title?.value}</p>
-            <div id='down-up'>
+            <div className="wrap-content" id='down-up'>
                 <div className='policy-content'>{policyContent?.value}</div>
                 {policyContent?.content.map((policy,index)=>
                     <div className='p-subcontent' key={index}>{alphabet[index]+') '+policy?.value}</div>
                 )}
             </div>
-            <div id='down-up'>
+            <div className="wrap-content" id='down-up'>
                 <div className='p-contact'>{contact?.value}</div>
                 {contact?.content.map((c,index)=>
                     <div className='c-content' key={index}>{c?.value}</div>
