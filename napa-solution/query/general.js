@@ -134,6 +134,10 @@ export const HomePage = gql`
       title
       subTitle
       video
+      poster {
+        original: publicUrl
+        thumbnail: publicUrlTransformed(transformation: { width: "64" })
+      }
     }
     new: allNews(sortBy: createdDate_DESC, first: 1) {
       title

@@ -64,7 +64,11 @@ const Index = ({ footer, data, ...props }) => {
   return (
     <>
       <Head>
-        <link key="css/common.css" rel="stylesheet" href="css/common.css" />
+        <link
+          key="css/header.module.css"
+          rel="stylesheet"
+          href="css/header.module.css"
+        />
         <link
           key="css/home-page.module.css"
           rel="stylesheet"
