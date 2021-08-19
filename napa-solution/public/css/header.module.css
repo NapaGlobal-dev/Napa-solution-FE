@@ -224,6 +224,7 @@
 
   .open .menu {
     visibility: visible;
+    max-height: 530px;
   }
 
   .menu li {

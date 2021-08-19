@@ -2,9 +2,9 @@ import React from "react";
 import Head from "next/head";
 import { client } from "../../apolo-client";
 import { GET_SERVICES_PAGE_DATA, PROJECTS } from "../../query/general";
-import Banner from "../../components/services/banner";
+import BlockchainBanner from "../../components/services/Blockchain/BlockchainBanner";
 import Project from "../../components/homepage/Project";
-import BlockChain from "../../components/services/blockchain";
+import BlockChain from "../../components/services/Blockchain/blockchain";
 import { convertArrToObject } from "../../util/converArrayToObject";
 
 const Services = ({ projects, ...props }) => {
@@ -32,7 +32,7 @@ const Services = ({ projects, ...props }) => {
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
       </Head>
-      <Banner data={data.Services_Banner} />
+      <BlockchainBanner data={data.BlockchainServices_Banner} />
       <BlockChain data={data.BlockChain} />
       <Project data={projects} />
     </>
@@ -41,7 +41,10 @@ const Services = ({ projects, ...props }) => {
 
 export async function getStaticProps() {
   const [pageData, projectData] = await Promise.allSettled([
-    client.query({ query: GET_SERVICES_PAGE_DATA, variables:{id: "611d03e61a5f4205389841e0"} }),
+    client.query({
+      query: GET_SERVICES_PAGE_DATA,
+      variables: { id: "611d03e61a5f4205389841e0" },
+    }),
     client.query({ query: PROJECTS }),
   ]);
 

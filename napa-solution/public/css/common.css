@@ -215,6 +215,10 @@ body {
   opacity: 1;
 }
 
+.show-lang-list a{
+  color: #fff;
+}
+
 .mobile-menu {
   display: none;
 }
@@ -256,7 +260,7 @@ body {
 .item-navbar-menu {
   display: flex;
   pointer-events: auto;
-  width: 100%;
+  margin-right: 30px;
   align-items: center;
   justify-content: center;
 }
