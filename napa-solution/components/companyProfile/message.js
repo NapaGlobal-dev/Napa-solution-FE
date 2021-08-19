@@ -84,11 +84,13 @@ const Message = (props) => {
                             {data["CompanyProfile_Message_Title"].value}
                             </div>
                             <div className="message-content">
-                            {data["CompanyProfile_Message_Content"].value.split('/n').map((text, index) => (
-                                <React.Fragment key={index}>
-                                    {text}
-                                    <br />
-                                </React.Fragment>))}
+                                {data["CompanyProfile_Message_Title"].content.map((content, index) => (
+                                    <React.Fragment key={index}>
+                                        {'('+(index+1)+') '+content.value}
+                                        <br />
+                                        <br />
+                                    </React.Fragment>)
+                                )}
                             </div>
                         </div>
                         <div id="detail-btn-company" className="btn-message">

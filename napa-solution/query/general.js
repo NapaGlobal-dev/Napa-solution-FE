@@ -491,6 +491,10 @@ export const GET_COMPANYPROFILE = gql`
             original: publicUrl
             thumbnail: publicUrlTransformed(transformation: { width: "64" })
           }
+          content {
+            name
+            value
+          }
         }
       }
     }
