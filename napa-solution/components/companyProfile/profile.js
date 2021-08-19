@@ -16,7 +16,7 @@ const Profile = (props) => {
                         <div className="line-2" />
                         <div className="line-3" />
                     </div>
-                    <div className="profile-title">
+                    <div className="profile-title" id='down-up'>
                         <div className="profile-big-title">
                             <h1>{data["CompanyProfile_Corporate_Label"].value}</h1>
                         </div>
@@ -29,7 +29,7 @@ const Profile = (props) => {
             </div>
             {profileTitle.map((item, key) => (
                 <div className="wrap-container-content" key = {key}>
-                    <div className="wrap-profile">
+                    <div className="wrap-profile" id='down-up'>
                         <div className="profile-label">
                             {item.value}
                         </div>

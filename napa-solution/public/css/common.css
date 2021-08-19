@@ -1954,7 +1954,9 @@ button:focus {
 
 .cover > h3 {
   text-align: left;
-  font: normal normal bold 45px/65px Noto Sans JP;
+  font-family: Noto Sans JP;
+  font-size: 45px;
+  font-weight: bold;
   letter-spacing: 0px;
   color: #23496d;
   text-transform: uppercase;
@@ -1992,7 +1994,9 @@ button:focus {
 
   .cover > h3 {
     text-align: left;
-    font: normal normal bold 20px/26px Roboto;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: bold;
     letter-spacing: 0px;
     color: #23496d;
     text-transform: uppercase;

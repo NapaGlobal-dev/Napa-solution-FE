@@ -48,13 +48,13 @@ const Benefit = (props) => {
                         />
                     </g>
                 </svg>
-                <h3>{benefit.OffShore_Benefit_Title.value}</h3>
-                <p>{benefit.OffShore_Benefit_Subtitle.value}</p>
+                <h3 id='down-up'>{benefit.OffShore_Benefit_Title.value}</h3>
+                <p id='down-up'>{benefit.OffShore_Benefit_Subtitle.value}</p>
                 <div>
                     <div className = {styles.item}>
                         <img src = {benefit.OffShore_Benefit_Img.image.original}/>
                         <div className = {styles.benefitBorder}>
-                            <div className = {styles.benefitDetail}>
+                            <div className = {styles.benefitDetail} id='down-up'>
                                 {contentBenefit.map((item, index) => (
                                     <div className = {styles.wraperContent} key = {index}>
                                     <div className = {styles.benefitNumber}><p>{`0${index+1}`}</p></div>

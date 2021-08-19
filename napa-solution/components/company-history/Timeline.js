@@ -17,7 +17,7 @@ export default function Timeline({data}){
 
     return(
         <>
-            <div className='cover'  id='down-up'>
+            <div className='cover'>
                 <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="58.948"
@@ -58,8 +58,8 @@ export default function Timeline({data}){
                     />
                 </g>
                 </svg>
-                <h3>{title?.key}</h3>
-                <p>{title?.value}</p>
+                <h3 id='down-up'>{title?.key}</h3>
+                <p id='down-up'>{title?.value}</p>
             </div>
             <div className='containerC'>
                 <div className='timeline'>

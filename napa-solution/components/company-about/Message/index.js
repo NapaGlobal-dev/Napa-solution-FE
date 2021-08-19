@@ -107,8 +107,8 @@ const Message = (props) => {
               />
             </g>
           </svg>
-          <h3>{title.value}</h3>
-          <p>{subTitle.value}</p>
+          <h3 id='down-up'>{title.value}</h3>
+          <p id='down-up'>{subTitle.value}</p>
           <div className={clsx(styles.slider)}>
             <div
               id="carouselExampleControls"
