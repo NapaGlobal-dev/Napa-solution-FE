@@ -28,7 +28,7 @@ body.dark-mode h5,
 body.dark-mode div {
   color: #ffffff !important;
 }
-body.dark-mode #message, body.dark-mode #covermessage{
+body.dark-mode #message, body.dark-mode #covermessage, body.dark-mode #wrap-contact{
   background-color: #231846 ; 
 }
 .btn-dark-mode {

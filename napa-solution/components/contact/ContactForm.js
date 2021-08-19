@@ -12,7 +12,7 @@ const ContactForm = (props) => {
         </div>
       </div>
       <div className='contact'>
-        <div className="containerD">
+        <div className="containerD" id="wrap-contact">
           <div className="tableD">
             <div className="titleD" id='down-up'>
               {" "}
