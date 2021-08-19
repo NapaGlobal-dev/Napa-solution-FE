@@ -4,61 +4,17 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import joinJsx from "../../../util/joinJsx";
 import Link from "next/link";
-
-function createAnimation() {
-  var list = [];
-  function addElememtAnimation(e, className = "") {
-    if (!e) return;
-    if (!list.find((currentE) => currentE.element === e))
-      list.push({ element: e, className });
-  }
-
-  function animate() {
-    list.forEach((e) => {
-      if (e.isRemove) return;
-      var rect = e.element.getBoundingClientRect();
-      if (
-        rect.bottom > 0 &&
-        rect.right > 0 &&
-        rect.left <
-          (window.innerWidth || document.documentElement.clientWidth) &&
-        rect.top < (window.innerHeight || document.documentElement.clientHeight)
-      ) {
-        e.element.style.opacity = 0;
-        e.element.classList.add(e.className);
-        e.isRemove = true;
-        console.log("hereeeee");
-      }
-    });
-    for (const e of list) {
-      if (!e.isRemove) return;
-    }
-    removeEvent();
-  }
-
-  function removeEvent() {
-    window.removeEventListener("scroll", animate);
-  }
-
-  function getList() {
-    return list;
-  }
-  return {
-    addElememtAnimation,
-    animate,
-    getList,
-  };
-}
+import animate from "../../../util/animation";
 
 const Footer = (props) => {
   const data = convertArrToObject(props.data.layout[0].property);
   // const summary = getData(props.data.layout[0].property, /Footer_Summary/);
-  const animation = createAnimation();
 
+  useEffect(()=>{
+    animate()
+  },[])
   // const page_urls = props.data.pages;
   useEffect(() => {
-    window.addEventListener("scroll", animation.animate);
-    console.log("list", animation.getList());
     window.convertArrToObject = convertArrToObject;
     Array.from({ length: 4 }, (num, index) => {
       $(`#btn-up-${index + 1}`).click(() => {
@@ -100,26 +56,17 @@ const Footer = (props) => {
                 backgroundImage: `url(${data.Footer_ContactImage.image.original})`,
               }}
             >
-              <div className={clsx(styles.scaleText)}>
-                <h3
-                  className={clsx(styles.h3text)}
-                  ref={(e) => animation.addElememtAnimation(e, "bounceInRight")}
-                >
+              <div className={clsx(styles.scaleText)} id='down-up'>
+                <h3  className={clsx(styles.h3text)}>
                   {joinJsx(data.Footer_ContactTitle.value.split("\\n"), <br />)}
                 </h3>
-                <p
-                  className={clsx(styles.ptext)}
-                  ref={(e) => animation.addElememtAnimation(e, "bounceInLeft")}
-                >
+                <p className={clsx(styles.ptext)}>
                   {joinJsx(
                     data.Footer_ContactContent.value.split("\\n"),
                     <br />
                   )}
                 </p>
-                <a
-                  href="company.html"
-                  ref={(e) => animation.addElememtAnimation(e, "bounceInRight")}
-                >
+                <a href="company.html" >
                   <div
                     className="col-xs-12 order-3 order-xl-4 no-default-spacing"
                     id="detail-btn-company"

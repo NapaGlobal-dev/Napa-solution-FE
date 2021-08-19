@@ -2006,149 +2006,81 @@ button:focus {
   }
 }
 
-/* To play the animation only one time, replace "animation-iteration-count: infinite" by "animation-fill-mode: forwards" */
-.bounceInRight {
-  -webkit-animation-name: bounceInRight;
-  -webkit-animation-duration: 2s;
-  /* -webkit-animation-iteration-count: infinite; */
-  -moz-animation-name: bounceInRight;
-  -moz-animation-duration: 2s;
-  /* -moz-animation-iteration-count: infinite; */
-  -ms-animation-name: bounceInRight;
-  -ms-animation-duration: 2s;
-  /* -ms-animation-iteration-count: infinite; */
-  -o-animation-name: bounceInRight;
-  -o-animation-duration: 2s;
-  /* -o-animation-iteration-count: infinite; */
-  animation-name: bounceInRight;
-  animation-duration: 2s;
-  animation-delay: 0.5s;
+.animate-down-up {
+  -webkit-animation-name: animate-down-up;
+  -webkit-animation-duration:1.2s;
   animation-fill-mode: forwards;
-  /* animation-iteration-count: infinite; */
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  -moz-animation-name: animate-down-up;
+  -moz-animation-duration:1.2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  -ms-animation-name: animate-down-up;
+  -ms-animation-duration:1.2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  -o-animation-name: animate-down-up;
+  -o-animation-duration:1.2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  animation-name: animate-down-up;
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.45, 1);
 }
 
-@-webkit-keyframes bounceInRight {
-  0% {
+@-webkit-keyframes animate-down-up {
+  from{
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateY(150px);
   }
-
-  1% {
+  to{
     opacity: 1;
-    transform: translateX(100%);
-  }
-
-  35% {
-    transform: translateX(-4%);
-  }
-
-  50% {
-    transform: translateX(0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@-moz-keyframes bounceInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-
-  1% {
-    opacity: 1;
-    transform: translateX(100%);
-  }
-
-  35% {
-    transform: translateX(-4%);
-  }
-
-  50% {
-    transform: translateX(0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0px);
   }
 }
 
-@-ms-keyframes bounceInRight {
-  0% {
+@-moz-keyframes animate-down-up {
+  from{
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateY(150px);
   }
-
-  1% {
+  to{
     opacity: 1;
-    transform: translateX(100%);
-  }
-
-  35% {
-    transform: translateX(-4%);
-  }
-
-  50% {
-    transform: translateX(0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0px);
   }
 }
 
-@-o-keyframes bounceInRight {
-  0% {
+@-ms-keyframes animate-down-up {
+  from{
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateY(150px);
   }
-
-  1% {
+  to{
     opacity: 1;
-    transform: translateX(100%);
-  }
-
-  35% {
-    transform: translateX(-4%);
-  }
-
-  50% {
-    transform: translateX(0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0px);
   }
 }
 
-@keyframes bounceInRight {
-  0% {
+@-o-keyframes animate-down-up {
+  from{
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateY(150px);
   }
-
-  1% {
+  to{
     opacity: 1;
-    transform: translateX(100%);
+    transform: translateY(0px);
   }
+}
 
-  35% {
-    transform: translateX(-4%);
+@keyframes animate-down-up {
+  from{
+    opacity: 0;
+    transform: translateY(150px);
   }
-
-  50% {
-    transform: translateX(0);
-  }
-
-  100% {
+  to{
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0px);
   }
 }
 
@@ -2157,7 +2089,6 @@ button:focus {
   animation-duration: 2s;
   animation-delay: 0.5s;
   animation-fill-mode: forwards;
-  /* animation-iteration-count: infinite; */
 }
 
 @keyframes bounceInLeft {
@@ -2165,22 +2096,44 @@ button:focus {
     opacity: 0;
     transform: translateX(-100%);
   }
-
   1% {
-    opacity: 1;
+    opacity: .01;
     transform: translateX(-100%);
   }
-
   35% {
+    opacity: .6;
     transform: translateX(4%);
   }
-
   50% {
+    opacity: 1;
     transform: translateX(0);
   }
-
   100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
+<<<<<<< HEAD
+
+.down-up{
+  transform: translateY(150px);
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: .85s;
+  transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1), cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.activeT{
+  transform: translateY(0px);
+  opacity: 1 !important;
+}
+
+.fade-out{
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: .85s;
+  transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+=======
+>>>>>>> master
