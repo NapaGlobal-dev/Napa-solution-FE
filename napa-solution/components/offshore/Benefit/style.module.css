@@ -47,7 +47,7 @@
 }
 
 .item > img {
-  width: 579px;
+  max-width: 450px;
   height: 586px;
 }
 
