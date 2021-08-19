@@ -93,11 +93,11 @@ const WhyNapa = (props) => {
             />
           </g>
         </svg>
-        <h3>{title.value}</h3>
-        <p>{subTitle.value}</p>
+        <h3 id='down-up'>{title.value}</h3>
+        <p id='down-up'>{subTitle.value}</p>
         <div className={clsx(styles.table)}>
           {tableWhy?.map((item, index) => (
-            <div className={clsx(styles.item)} key={index}>
+            <div className={clsx(styles.item)} key={index} id='down-up'>
               <p>{item.value}</p>
               <div className={clsx(styles.groupReason)}>
                 {tableReason[index].content?.map((reason, index) => (
