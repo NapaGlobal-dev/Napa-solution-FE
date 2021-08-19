@@ -259,7 +259,7 @@ const Header = (props) => {
           <i className="menu-background middle3"></i>
           <i className="menu-background bottom3"></i>
           <div className="menu content-backdrop">
-            <div className="menu logo-backdrop">
+            <div className="menu logo-backdrop topOfMenu">
               <a className="logo" href={navbarLogo?.url}>
                 <img
                   alt="LOGO"
@@ -268,7 +268,7 @@ const Header = (props) => {
                 />
               </a>
             </div>
-            <div className="menu boxcover">
+            <div className="menu boxcover topOfMenu">
               {navbarMobile.length > 0 &&
                 navbarMobile.map((item, index) => (
                   <div
