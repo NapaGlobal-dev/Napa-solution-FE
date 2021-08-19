@@ -452,7 +452,9 @@
 
     color: var(--unnamed-color-ffffff);
     text-align: left;
-    font: normal normal normal 14px/30px Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 30px;
     letter-spacing: 0.42px;
     color: #ffffff;
     opacity: 1;
@@ -462,7 +464,9 @@
   .liText {
     color: var(--unnamed-color-ffffff);
     text-align: left;
-    font: normal normal normal 14px/30px Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 30px;
     letter-spacing: 0.42px;
     color: #ffffff;
     opacity: 1;
@@ -509,7 +513,9 @@
 
     color: var(--unnamed-color-ffffff);
     text-align: left;
-    font: normal normal bold 16px/30px Roboto;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
     letter-spacing: 0.48px;
     color: #ffffff;
     opacity: 1;
@@ -531,7 +537,9 @@
   .darkmode-checkbox > p {
     color: var(--unnamed-color-ffffff);
     text-align: left;
-    font: normal normal normal 16px/30px Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 30px;
     letter-spacing: 0.48px;
     color: #ffffff !important;
     opacity: 1;

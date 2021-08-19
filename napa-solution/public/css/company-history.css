@@ -1,5 +1,4 @@
-
-.containerC{
+.containerC {
   margin-top: -80px;
   padding: 0px 100px 0 180px;
   display: flex;
@@ -7,18 +6,18 @@
   flex-direction: column;
   text-align: center;
 }
-.timeline{
+.timeline {
   height: 600px;
   display: flex;
   align-items: center;
   width: 100%;
 }
-.milestone{
+.milestone {
   width: 80px;
   position: relative;
   height: 520px;
 }
-.circle1{
+.circle1 {
   width: 56px;
   height: 56px;
   border-radius: 100%;
@@ -26,26 +25,27 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font: normal normal bold 30px Roboto;
+  font-size: 30px;
+  font-weight: bold;
   background-color: #412490;
-  color: #FFFFFF;
+  color: #ffffff;
   position: absolute;
-  top:7px;
+  top: 7px;
   right: 12px;
   z-index: 9;
 }
-.ring{
+.ring {
   width: 70px;
   height: 70px;
   border: #412490 solid 3px;
   border-radius: 100%;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   position: absolute;
   top: 0px;
   right: 5px;
   z-index: 6;
 }
-.line{
+.line {
   width: 4px;
   height: 0px;
   background-color: #412490;
@@ -54,15 +54,15 @@
   right: 38px;
   z-index: 3;
 }
-.line1{
+.line1 {
   width: 4px;
   height: 394px;
-  background-color: #BDBDBD;
+  background-color: #bdbdbd;
   position: absolute;
   top: 63px;
   right: 38px;
 }
-.circle2{
+.circle2 {
   width: 56px;
   height: 56px;
   border-radius: 100%;
@@ -70,15 +70,16 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font: normal normal bold 30px Roboto;
-  background-color: #BDBDBD;
-  color: #FFFFFF;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #bdbdbd;
+  color: #ffffff;
   position: absolute;
-  top:157px;
+  top: 157px;
   right: 12px;
   z-index: 9;
 }
-.circle3{
+.circle3 {
   width: 56px;
   height: 56px;
   border-radius: 100%;
@@ -86,15 +87,16 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font: normal normal bold 30px Roboto;
-  background-color: #BDBDBD;
-  color: #FFFFFF;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #bdbdbd;
+  color: #ffffff;
   position: absolute;
-  top:307px;
+  top: 307px;
   right: 12px;
   z-index: 9;
 }
-.circle4{
+.circle4 {
   width: 56px;
   height: 56px;
   border-radius: 100%;
@@ -102,21 +104,22 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font: normal normal bold 30px Roboto;
-  background-color: #BDBDBD;
-  color: #FFFFFF;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #bdbdbd;
+  color: #ffffff;
   position: absolute;
   top: 457px;
   right: 12px;
   z-index: 9;
 }
-.slide{
+.slide {
   width: 100%;
   height: 100%;
   /* overflow: hidden; */
   /* position: relative; */
 }
-.stack{
+.stack {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -124,7 +127,7 @@
   /* position: absolute;
   top: -400px; */
 }
-.contentC{
+.contentC {
   width: 100%;
   height: 100%;
   padding-left: 80px;
@@ -132,42 +135,46 @@
   display: flex;
   align-items: center;
 }
-.leftC{
+.leftC {
   width: 45%;
   float: left;
 }
-.rightC{
+.rightC {
   width: 55%;
   float: left;
 }
-.yearC{
+.yearC {
   font-size: 50px;
   font-weight: bold;
   letter-spacing: 0px;
-  color: #23496D;
+  color: #23496d;
   margin-bottom: 50px;
 }
-.titleC{
-  font: normal normal bold 20px/26px Roboto;
+.titleC {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 26px;
   letter-spacing: 0px;
-  color: #23496D;
+  color: #23496d;
   opacity: 1;
   margin-bottom: 20px;
 }
-.subtitleC{
-  font: normal normal normal 20px/26px Roboto;
+.subtitleC {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 26px;
   letter-spacing: 0px;
-  color: #23496D;
+  color: #23496d;
   opacity: 1;
   margin-bottom: 50px;
 }
-.milestone{
+.milestone {
   position: relative;
 }
-.horizonMilestone{
+.horizonMilestone {
   display: none;
 }
-.containerD{
+.containerD {
   /* margin-top: 100px; */
   padding: 0 100px 0 180px;
   display: flex;
@@ -175,73 +182,77 @@
   flex-direction: column;
   text-align: center;
 }
-.titleD{
-  font: normal normal bold 45px/59px Roboto;
+.titleD {
+  font-size: 45px;
+  font-weight: bold;
+  line-height: 59px;
   letter-spacing: 0px;
-  color: #212121!important;
+  color: #212121 !important;
   text-transform: uppercase;
   opacity: 1;
 }
-.subtitleD{
-  font: normal normal bold 26px/40px Roboto;
+.subtitleD {
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 40px;
   letter-spacing: 0.78px;
-  color: #9E9E9E;
+  color: #9e9e9e;
   opacity: 1;
   margin-bottom: 20px;
 }
-.rowD{
+.rowD {
   width: 100%;
   padding: 30px 0px;
   display: flex;
   text-align: left;
   border-bottom: solid 1px #4e7eac;
 }
-.rowD-end{
+.rowD-end {
   width: 100%;
   padding: 30px 0px;
   display: flex;
   text-align: left;
 }
-.leftColumn{
+.leftColumn {
   float: left;
   width: 45%;
   padding-right: 4px;
   font-size: 18px;
   font-weight: bold;
   letter-spacing: 0.78px;
-  color: #23496D;
+  color: #23496d;
   opacity: 1;
   margin-right: 50px;
 }
-.rightColumn{
+.rightColumn {
   float: left;
   width: 65%;
   font-size: 18px;
   letter-spacing: 0.78px;
-  color: #23496D;
+  color: #23496d;
   opacity: 1;
 }
 
-@media (max-width:960px) {
-  .containerD{
+@media (max-width: 960px) {
+  .containerD {
     padding: 0px 100px;
   }
-  .horizonMilestone{
+  .horizonMilestone {
     display: flex;
-    padding:0px 2vh;
-    width:100%;
-    height:100%;
+    padding: 0px 2vh;
+    width: 100%;
+    height: 100%;
     margin-top: 10px;
   }
-  .timeline{
+  .timeline {
     height: auto;
   }
-  .stack{
+  .stack {
     width: 100%;
     height: 100%;
     display: -webkit-box;
   }
-  .contentC{
+  .contentC {
     width: 100%;
     height: fit-content;
     padding-left: 0px;
@@ -250,7 +261,7 @@
     align-items: center;
     flex-direction: column-reverse;
   }
-  .leftC{
+  .leftC {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -258,67 +269,73 @@
     text-align: center;
     padding: 0px 1vh;
   }
-  .rightC{
+  .rightC {
     width: 100%;
     display: flex;
     justify-content: center;
   }
-  .milestone{
+  .milestone {
     display: none;
   }
-  .yearC{
+  .yearC {
     font-size: 30px;
     margin-bottom: 0px;
   }
-  .titleC{
+  .titleC {
     font-size: 16px;
     margin-bottom: 5px;
   }
-  .subtitleC{
+  .subtitleC {
     font-size: 16px;
     margin-bottom: 0px;
   }
-  #detail-btn-company{
+  #detail-btn-company {
     display: none;
   }
-
 }
-@media (max-width:768px) {
-  .containerC{
+@media (max-width: 768px) {
+  .containerC {
     padding: 0;
     margin-top: 30px;
   }
-  .containerD{
+  .containerD {
     /* margin-top: 100px; */
     padding: 0px 20px;
   }
-  .leftC #detail-btn-company{
+  .leftC #detail-btn-company {
     display: none;
   }
-  .rowD{
+  .rowD {
     margin: unset;
     padding: 10px 0px;
   }
-  .rowD-end{
+  .rowD-end {
     margin: unset;
     padding: 10px 0px;
   }
-  .leftColumn{
+  .leftColumn {
     width: 35%;
-    font: normal normal bold 13px/30px Roboto;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 30px;
     letter-spacing: 0.78px;
   }
-  .rightColumn{
+  .rightColumn {
     width: 65%;
-    font: normal normal normal 13px/30px Roboto;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 30px;
     letter-spacing: 0.78px;
   }
-  .titleD{
-    font: normal normal bold 35px/59px Roboto;
+  .titleD {
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 59px;
     margin: 0;
   }
-  .subtitleD{
-    font: normal normal bold 16px/40px Roboto;
+  .subtitleD {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 40px;
   }
-
 }

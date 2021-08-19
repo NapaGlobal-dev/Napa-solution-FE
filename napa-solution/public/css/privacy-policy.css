@@ -1,36 +1,39 @@
-.devider{
+.devider {
   width: 100%;
-  border-bottom: 1px solid #C8B8F4;
+  border-bottom: 1px solid #c8b8f4;
   opacity: 1;
   margin-top: 40px;
   margin-bottom: 80px;
 }
-.policy{
+.policy {
   margin-top: 120px;
   text-align: left;
-  font: normal normal normal 16px/30px Noto Sans JP;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 30px;
   letter-spacing: 0px;
-  color: #23496D;
+  color: #23496d;
   opacity: 1;
 }
-.policy p{
+.policy p {
   margin-bottom: 0px !important;
 }
-.policy-content{
+.policy-content {
   margin-bottom: 40px;
 }
-.p-subcontent{
+.p-subcontent {
   margin-bottom: 30px;
 }
-.p-contact{
+.p-contact {
   margin: 50px 0px 40px 0px;
-  font: normal normal bold 20px/30px Noto Sans JP !important;
-  color: #6C3AF5 !important;
+  font-size: 20px !important;
+  font-weight: bold;
+  line-height: 30px;
+  color: #6c3af5 !important;
 }
-.c-content{
+.c-content {
   margin-bottom: 30px;
 }
 
 @media screen and (max-width: 1136px) {
-
 }

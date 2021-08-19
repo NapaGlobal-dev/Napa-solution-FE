@@ -187,7 +187,9 @@ body {
 
 .text-navbar-menu {
   text-align: left;
-  font: normal normal normal 18px/30px Roboto;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 30px;
   letter-spacing: 0;
   color: #fff !important;
   opacity: 1;
@@ -212,7 +214,9 @@ body {
 }
 
 .item-home {
-  font: normal normal bold 18px/30px Roboto;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 30px;
 }
 
 .item-navbar-menu {
@@ -360,7 +364,9 @@ body {
 
 .section-content {
   text-align: left;
-  font: normal normal bold 16px/30px Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 30px;
   letter-spacing: 0px;
   color: #212121;
   opacity: 1;
@@ -369,7 +375,9 @@ body {
 
 .section-sub-content {
   text-align: left;
-  font: normal normal bold 16px/30px Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 30px;
   letter-spacing: 0px;
   color: #212121;
   opacity: 1;
@@ -966,7 +974,9 @@ body {
   .detail-btn-company-content {
     color: var(--unnamed-color-ffffff);
     text-align: left;
-    font: normal normal bold 16px/30px Roboto;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
     letter-spacing: 0px;
     color: #ffffff;
     opacity: 1;
@@ -1073,7 +1083,9 @@ body {
 
   .section-content {
     text-align: left;
-    font: normal normal bold 16px/30px Roboto;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
     letter-spacing: 0px;
     color: #212121;
     opacity: 1;
@@ -1194,7 +1206,9 @@ body {
   }
 
   .section-content {
-    font: normal normal normal 14px/30px Noto Sans JP;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 30px;
   }
 }
 
@@ -1621,7 +1635,9 @@ body {
   }
 
   .section-sub-content {
-    font: normal normal normal 14px/30px Noto Sans JP;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 30px;
   }
 
   .section-subtitle-company {
@@ -1954,15 +1970,16 @@ button:focus {
 
 .cover > h3 {
   text-align: left;
-  font: normal normal bold 45px/65px Noto Sans JP;
+  font-size: 45px;
+  font-weight: bold;
+  line-height: 65px;
   letter-spacing: 0px;
   color: #23496d;
   text-transform: uppercase;
   opacity: 1;
 }
 
-
-.cover>p {
+.cover > p {
   text-align: left;
   font-size: 26px;
   letter-spacing: 0.78px;
@@ -1977,7 +1994,7 @@ button:focus {
     margin: 20px 0 40px 0 !important;
   }
 
-  .cover>svg {
+  .cover > svg {
     display: none;
   }
 
@@ -1992,14 +2009,16 @@ button:focus {
 
   .cover > h3 {
     text-align: left;
-    font: normal normal bold 20px/26px Roboto;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 26px;
     letter-spacing: 0px;
     color: #23496d;
     text-transform: uppercase;
     opacity: 1;
   }
 
-  .cover>p {
+  .cover > p {
     font-size: 16px;
     margin-bottom: 24px;
     padding-bottom: 20px;
@@ -2008,19 +2027,19 @@ button:focus {
 
 .animate-down-up {
   -webkit-animation-name: animate-down-up;
-  -webkit-animation-duration:1.2s;
+  -webkit-animation-duration: 1.2s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
   -moz-animation-name: animate-down-up;
-  -moz-animation-duration:1.2s;
+  -moz-animation-duration: 1.2s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
   -ms-animation-name: animate-down-up;
-  -ms-animation-duration:1.2s;
+  -ms-animation-duration: 1.2s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
   -o-animation-name: animate-down-up;
-  -o-animation-duration:1.2s;
+  -o-animation-duration: 1.2s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
   animation-name: animate-down-up;
@@ -2030,55 +2049,55 @@ button:focus {
 }
 
 @-webkit-keyframes animate-down-up {
-  from{
+  from {
     opacity: 0;
     transform: translateY(150px);
   }
-  to{
+  to {
     opacity: 1;
     transform: translateY(0px);
   }
 }
 
 @-moz-keyframes animate-down-up {
-  from{
+  from {
     opacity: 0;
     transform: translateY(150px);
   }
-  to{
+  to {
     opacity: 1;
     transform: translateY(0px);
   }
 }
 
 @-ms-keyframes animate-down-up {
-  from{
+  from {
     opacity: 0;
     transform: translateY(150px);
   }
-  to{
+  to {
     opacity: 1;
     transform: translateY(0px);
   }
 }
 
 @-o-keyframes animate-down-up {
-  from{
+  from {
     opacity: 0;
     transform: translateY(150px);
   }
-  to{
+  to {
     opacity: 1;
     transform: translateY(0px);
   }
 }
 
 @keyframes animate-down-up {
-  from{
+  from {
     opacity: 0;
     transform: translateY(150px);
   }
-  to{
+  to {
     opacity: 1;
     transform: translateY(0px);
   }
@@ -2097,11 +2116,11 @@ button:focus {
     transform: translateX(-100%);
   }
   1% {
-    opacity: .01;
+    opacity: 0.01;
     transform: translateX(-100%);
   }
   35% {
-    opacity: .6;
+    opacity: 0.6;
     transform: translateX(4%);
   }
   50% {
@@ -2113,27 +2132,32 @@ button:focus {
     transform: translateX(0);
   }
 }
-<<<<<<< HEAD
 
-.down-up{
+.txt-bottom-footer {
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 25px;
+  letter-spacing: 0.48px;
+}
+
+.down-up {
   transform: translateY(150px);
   opacity: 0;
   transition-property: opacity, transform;
-  transition-duration: .85s;
-  transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1), cubic-bezier(0.25, 1, 0.5, 1);
+  transition-duration: 0.85s;
+  transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1),
+    cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.activeT{
+.activeT {
   transform: translateY(0px);
   opacity: 1 !important;
 }
 
-.fade-out{
+.fade-out {
   opacity: 0;
   transition-property: opacity;
-  transition-duration: .85s;
+  transition-duration: 0.85s;
   transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
 }
-
-=======
->>>>>>> master
