@@ -139,9 +139,10 @@ a:hover {
 }
 @media (max-width: 768px) {
   #detail-btn-company {
-    width: auto;
+    width: 98%;
     height: auto;
     padding: 15px 0;
+    min-width: 180px;
   }
 }
 @media (max-width: 414px) {

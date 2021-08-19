@@ -29,6 +29,9 @@
   letter-spacing: 0.78px;
   color: #9e9e9e;
   opacity: 1;
+  border-bottom: 1px solid #c8b8f4;
+  padding-bottom: 20px;
+  margin-bottom: 70px;
 }
 
 .sv-position-relative {
@@ -83,7 +86,8 @@
     height: 250px;
   }
   .sv-cover-padding {
-    padding: 30px 24px;
+    padding: 0;
+    margin-top: 60px;
   }
   .sv-cover > h3 {
     text-align: left;
@@ -103,8 +107,7 @@
     letter-spacing: 0.48px;
     color: #9e9e9e;
     opacity: 1;
-
-    margin-bottom: 24px;
+    margin-bottom: 0px;
   }
 
   .sv-decor-head-line {
@@ -113,5 +116,7 @@
   .sv-content {
     font-size: 13px;
     line-height: 4.7vw;
+    padding: 0 20px;
+    text-align: center;
   }
 }
