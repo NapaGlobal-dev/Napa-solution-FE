@@ -19,9 +19,6 @@ body.light-mode {
 body.dark-mode {
   background: #0f0922;
 }
-body.light-mode h1 {
-  color: #fff;
-}
 body.dark-mode p,
 body.dark-mode h1,
 body.dark-mode h2,
@@ -30,6 +27,9 @@ body.dark-mode h4,
 body.dark-mode h5,
 body.dark-mode div {
   color: #ffffff !important;
+}
+body.dark-mode #message, body.dark-mode #covermessage{
+  background-color: #231846 ; 
 }
 .btn-dark-mode {
   position: fixed;

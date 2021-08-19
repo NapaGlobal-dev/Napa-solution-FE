@@ -35,14 +35,13 @@
 .wrapper-head {
   padding-bottom: 80px;
   padding: 0px 5%;
+  margin: 100px 40px 40px 40px;
 }
 
 .wrap-title {
   display: flex;
   align-items: flex-end;
-  margin-top: 60px;
   height: 150px;
-  margin-bottom: 40px;
 }
 
 .profile-title {
@@ -99,7 +98,7 @@
 }
 
 .message-content {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: normal;
   line-height: 30px;
   color: #23496d;
@@ -129,7 +128,9 @@
   width: 54px;
   height: 100%;
 }
-
+.wrap-message{
+  /* max-width: 75%; */
+}
 @media (max-width: 1000px) {
   .wrap-profile {
     padding: 0px 6% 0px 2%;

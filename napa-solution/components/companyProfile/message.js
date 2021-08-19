@@ -88,18 +88,17 @@ const Message = (props) => {
                                     <React.Fragment key={index}>
                                         {'('+(index+1)+') '+content.value}
                                         <br />
-                                        <br />
                                     </React.Fragment>)
                                 )}
                             </div>
                         </div>
-                        <div id="detail-btn-company" className="btn-message">
+                        {/* <div id="detail-btn-company" className="btn-message">
                             <a id="detail-btn-company-content" href = {data["CompanyProfile_Message_Btn"].url} >
                                 {data["CompanyProfile_Message_Btn"].value}
                             </a>
                             <svg id="stroke-arr-btn" viewBox="0 0 64 7"><path d="M0 6h61.5l-5.2-5.2"></path></svg>
                             
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

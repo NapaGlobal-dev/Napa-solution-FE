@@ -8,7 +8,7 @@ const data = {
   subTitle: "代表の想い",
   slider: [
     {
-      itemTitle: "ごあいさつ 1",
+      itemTitle: "ごあいさつ",
       content:
         "Azel Leは情報技術業界で10年以上の実務経験を持つ連続起 業家であり、経験豊富な技術者です。彼は組み込みシステ ム分野の専門家であり、多くの自動車会社に困難なエンジ ニアリング問題を解決するのを支援してきました。Azel Le はITおよび国際取引でサービスをご提供いたしますいくつか のスタートアップを設立しました。Azelは、NAPA Globalネ ットワークの拡大を支援するとともに、クライアントに高 品質のサービスをご提供いたしますために、ビジョンと専 門知識をもたらし続けています。",
       role: "代表取締役",
@@ -16,7 +16,7 @@ const data = {
       img: "img/ceo.png",
     },
     {
-      itemTitle: "ごあいさつ 2",
+      itemTitle: "ごあいさつ",
       content:
         "Azel Leは情報技術業界で10年以上の実務経験を持つ連続起 業家であり、経験豊富な技術者です。彼は組み込みシステ ム分野の専門家であり、多くの自動車会社に困難なエンジ ニアリング問題を解決するのを支援してきました。Azel Le はITおよび国際取引でサービスをご提供いたしますいくつか のスタートアップを設立しました。Azelは、NAPA Globalネ ットワークの拡大を支援するとともに、クライアントに高 品質のサービスをご提供いたしますために、ビジョンと専 門知識をもたらし続けています。",
       role: "代表取締役",
@@ -24,7 +24,7 @@ const data = {
       img: "img/ceo.png",
     },
     {
-      itemTitle: "ごあいさつ 3",
+      itemTitle: "ごあいさつ",
       content:
         "Azel Leは情報技術業界で10年以上の実務経験を持つ連続起 業家であり、経験豊富な技術者です。彼は組み込みシステ ム分野の専門家であり、多くの自動車会社に困難なエンジ ニアリング問題を解決するのを支援してきました。Azel Le はITおよび国際取引でサービスをご提供いたしますいくつか のスタートアップを設立しました。Azelは、NAPA Globalネ ットワークの拡大を支援するとともに、クライアントに高 品質のサービスをご提供いたしますために、ビジョンと専 門知識をもたらし続けています。",
       role: "代表取締役",
@@ -32,7 +32,7 @@ const data = {
       img: "img/ceo.png",
     },
     {
-      itemTitle: "ごあいさつ 4",
+      itemTitle: "ごあいさつ",
       content:
         "Azel Leは情報技術業界で10年以上の実務経験を持つ連続起 業家であり、経験豊富な技術者です。彼は組み込みシステ ム分野の専門家であり、多くの自動車会社に困難なエンジ ニアリング問題を解決するのを支援してきました。Azel Le はITおよび国際取引でサービスをご提供いたしますいくつか のスタートアップを設立しました。Azelは、NAPA Globalネ ットワークの拡大を支援するとともに、クライアントに高 品質のサービスをご提供いたしますために、ビジョンと専 門知識をもたらし続けています。",
       role: "代表取締役",
@@ -40,7 +40,7 @@ const data = {
       img: "img/ceo.png",
     },
     {
-      itemTitle: "ごあいさつ 5",
+      itemTitle: "ごあいさつ",
       content:
         "Azel Leは情報技術業界で10年以上の実務経験を持つ連続起 業家であり、経験豊富な技術者です。彼は組み込みシステ ム分野の専門家であり、多くの自動車会社に困難なエンジ ニアリング問題を解決するのを支援してきました。Azel Le はITおよび国際取引でサービスをご提供いたしますいくつか のスタートアップを設立しました。Azelは、NAPA Globalネ ットワークの拡大を支援するとともに、クライアントに高 品質のサービスをご提供いたしますために、ビジョンと専 門知識をもたらし続けています。",
       role: "代表取締役",
@@ -182,8 +182,8 @@ const Message = (props) => {
                     key={index}
                   >
                     <div className={clsx(styles.coverItemInner)}>
-                      <div className={clsx(styles.covermessage)}>
-                        <div className={clsx(styles.message)}>
+                      <div id="covermessage" className={clsx(styles.covermessage)}>
+                        <div id="message" className={clsx(styles.message)}>
                           <h4>{item.content[0].key}</h4>
                           <p>{item.content[0].value}</p>
                           <div className={clsx(styles.sign)}>
@@ -206,6 +206,7 @@ const Message = (props) => {
                         className={clsx(styles.img)}
                       /> */}
                     </div>
+                    
                   </div>
                 ))}
               </div>
