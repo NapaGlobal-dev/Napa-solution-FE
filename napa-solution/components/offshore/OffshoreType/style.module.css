@@ -1,65 +1,67 @@
 .cover {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    margin: 50px 50px 0px 100px;
-    position: relative;
-  }
-  
-  .cover > svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-90px, -20%);
-    /* height: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 50px 50px 0px 100px;
+  position: relative;
+}
+
+.cover>svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-90px, -20%);
+  /* height: 54px;
       width: auto; */
-  }
-  .cover > h3 {
-    text-align: left;
-    font: normal normal bold 45px/65px Noto Sans JP;
-    letter-spacing: 0px;
-    color: #23496d;
-    text-transform: uppercase;
-    opacity: 1;
-  }
-  
-  .cover > p {
-    margin-bottom: 50px;
-    text-align: left;
-    font: normal normal normal 26px/40px Noto Sans JP;
-    letter-spacing: 0.78px;
-    color: #9e9e9e;
-    opacity: 1;
-  }
-
-  .item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 80px;
-    border-top: 1px solid #c8b8f4;
-    padding-top: 40px;
-    flex-direction: column;
-  }
-  .introduce {
-    margin-bottom: 40px;
 }
 
-.title{
-    font: normal normal bold 18px/30px Noto Sans JP;
-letter-spacing: 0px;
-color: #23496D;
+.cover>h3 {
+  text-align: left;
+  font: normal normal bold 45px/65px Noto Sans JP;
+  letter-spacing: 0px;
+  color: #23496d;
+  text-transform: uppercase;
+  opacity: 1;
 }
 
-.subtitle{
-    font: normal normal normal 16px/30px Noto Sans JP;
-letter-spacing: 0px;
-color: #6C3AF5;
+.cover>p {
+  margin-bottom: 50px;
+  text-align: left;
+  font: normal normal normal 26px/40px Noto Sans JP;
+  letter-spacing: 0.78px;
+  color: #9e9e9e;
+  opacity: 1;
 }
 
-.content{
-    font: normal normal normal 16px/30px Noto Sans JP;
-letter-spacing: 0px;
-color: #172052;
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  border-top: 1px solid #c8b8f4;
+  padding-top: 40px;
+  flex-direction: column;
+}
+
+.introduce {
+  margin-bottom: 40px;
+}
+
+.title {
+  font: normal normal bold 18px/30px Noto Sans JP;
+  letter-spacing: 0px;
+  color: #23496D;
+}
+
+.subtitle {
+  font: normal normal normal 16px/30px Noto Sans JP;
+  letter-spacing: 0px;
+  color: #6C3AF5;
+}
+
+.content {
+  font: normal normal normal 16px/30px Noto Sans JP;
+  letter-spacing: 0px;
+  color: #172052;
 }
 
 @media (max-width: 1023px) {
@@ -67,17 +69,21 @@ color: #172052;
     flex-direction: column;
     margin: 0px;
   }
-  .item > p {
+
+  .item>p {
     max-width: none;
     min-width: none;
   }
-  .cover > svg {
+
+  .cover>svg {
     display: none;
   }
+
   .cover {
-    margin: 30px 24px;
+    margin: 100px 24px 30px 24px;
   }
-  .cover > h3 {
+
+  .cover>h3 {
     text-align: left;
     font: normal normal bold 20px/26px Roboto;
     letter-spacing: 0px;
@@ -85,7 +91,8 @@ color: #172052;
     text-transform: uppercase;
     opacity: 1;
   }
-  .cover > p {
+
+  .cover>p {
     text-align: left;
     font: normal normal normal 16px/40px Roboto;
     letter-spacing: 0.48px;
@@ -94,17 +101,30 @@ color: #172052;
 
     margin-bottom: 24px;
   }
-  .item > p {
+
+  .item>p {
     text-align: left;
     font: normal normal bold 16px/24px Noto Sans JP;
     letter-spacing: 0px;
     color: #23496d;
     opacity: 1;
   }
-  .groupReason > p {
+
+  .groupReason>p {
     text-align: left;
     font: normal normal normal 14px/30px Noto Sans JP;
     letter-spacing: 0px;
     opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .subtitle,
+  .content {
+    font-size: 14px;
+  }
+  .title{
+    font-size: 16px;
   }
 }
