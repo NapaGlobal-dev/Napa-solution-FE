@@ -1,3 +1,5 @@
+import clsx from "clsx";
+import useDarkMode from "use-dark-mode";
 import { convertArrToObject, getData } from "../../../util/converArrayToObject";
 import styles from "./style.module.css";
 const Benefit = (props) => {
@@ -7,6 +9,7 @@ const Benefit = (props) => {
     props.data.property,
     /OffShore_Benefit_Content/
   );
+  const darkmode = useDarkMode();
 
   return (
     <div className="container-fluid">
@@ -57,7 +60,7 @@ const Benefit = (props) => {
           <div className={styles.item}>
             <img src={benefit.OffShore_Benefit_Img.image.original} />
             <div className={styles.benefitBorder}>
-              <div className={styles.benefitDetail} id="down-up">
+              <div className={clsx(styles.benefitDetail, darkmode.value ? styles.benefitDetailDarkMode : "" )} id="down-up">
                 {contentBenefit.map((item, index) => (
                   <div className={styles.wraperContent} key={index}>
                     <div className={styles.benefitNumber}>

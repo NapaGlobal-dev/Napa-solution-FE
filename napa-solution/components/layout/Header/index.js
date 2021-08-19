@@ -19,6 +19,7 @@ function Language() {
   useEffect(() => {
     setLanguage(dataLang);
   }, []);
+  
   return (
     <div className="langWrapper">
       <div className="langBtn" onClick={() => setOpenDropndown(!openDropdown)}>
@@ -38,7 +39,7 @@ function Language() {
             }}
             className={index === (language && language[0]) ? "lang-active" : ""}
           >
-            <div>{lang}</div>
+            <a href = {lang !== "JP" ? "http://www.napaglobal.com" : "#"} >{lang}</a>
           </div>
         ))}
       </div>
@@ -53,7 +54,6 @@ const Header = (props) => {
   const navbarMenu = getData(data, /Navbar_Menu([2-9]|1[0-9])/);
   const navbarMobile = getData(data, /Navbar_Menu/);
   const navRef = useRef(null);
-
   // console.log("navbarsss", navbarMenu, data);
   const darkmode = useDarkMode()
   useEffect(() => {
@@ -153,6 +153,7 @@ const Header = (props) => {
         $(`#ul-subitem-${index + 1}`).css({
           display: "block",
           transition: "all 0.5s ease",
+          maxHeight: "200px",
         });
         $(`#btn-item-down-${index + 1}`).css("display", "none");
         $(`#btn-item-up-${index + 1}`).css("display", "block");
@@ -164,7 +165,7 @@ const Header = (props) => {
       $("#checkbox-dark-mode").attr("checked", false);
     } else $("#checkbox-dark-mode").attr("checked", true);
     // $(".popcover").addClass("toggle");
-  }, []);
+  });
 
   return (
     <>
@@ -198,15 +199,32 @@ const Header = (props) => {
         <div className="collapse navbar-collapse navbar-menu" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item item-navbar-menu active item-home">
-              <div className="hover-o">
-                <div className="hover-t">
-                  <a href={navbarHome?.url} className="text-navbar-menu">
-                    {navbarHome?.value}
-                  </a>
-                  <a href={navbarHome?.url} className="text-navbar-menu">
-                    {navbarHome?.value}
-                  </a>
+              <div className="dropdown">
+                <div className="hover-o">
+                  <div className="hover-t">
+                    <a href={navbarHome?.url} className="text-navbar-menu">
+                      {navbarHome?.value}
+                    </a>
+                    <a href={navbarHome?.url} className="text-navbar-menu">
+                      {navbarHome?.value}
+                    </a>
+                  </div>
                 </div>
+                {(navbarHome && navbarHome.content.length !== 0) && (
+                  <div className="dropdown-layer">
+                    <div className="dropdown-body">
+                      <ul>
+                        {navbarHome.content.map((item, index) => (
+                          <li key={index}>
+                            <div>
+                              <a href={item.url}>{item.value}</a>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
               </div>
             </li>
             {navbarMenu.map((menu, key) => (

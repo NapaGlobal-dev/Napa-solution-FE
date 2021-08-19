@@ -65,13 +65,18 @@
 .benefitDetail {
   width: 308px;
   height: 293px;
-  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
   background: #ffffff 0% 0% no-repeat padding-box;
-  opacity: 1;
+  opacity: 1 !important;
   position: absolute;
   top: 4px;
   left: -15px;
 }
+
+.benefitDetailDarkMode{
+  background: #0f0922 !important;
+  opacity: 1 !important;
+}
+
 .wraperContent {
   margin-bottom: 12px;
   display: flex;
