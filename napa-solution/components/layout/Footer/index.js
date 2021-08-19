@@ -10,9 +10,9 @@ const Footer = (props) => {
   const data = convertArrToObject(props.data.layout[0].property);
   // const summary = getData(props.data.layout[0].property, /Footer_Summary/);
 
-  useEffect(()=>{
-    animate()
-  },[])
+  useEffect(() => {
+    animate();
+  }, []);
   // const page_urls = props.data.pages;
   useEffect(() => {
     window.convertArrToObject = convertArrToObject;
@@ -56,8 +56,8 @@ const Footer = (props) => {
                 backgroundImage: `url(${data.Footer_ContactImage.image.original})`,
               }}
             >
-              <div className={clsx(styles.scaleText)} id='down-up'>
-                <h3  className={clsx(styles.h3text)}>
+              <div className={clsx(styles.scaleText)} id="down-up">
+                <h3 className={clsx(styles.h3text)}>
                   {joinJsx(data.Footer_ContactTitle.value.split("\\n"), <br />)}
                 </h3>
                 <p className={clsx(styles.ptext)}>
@@ -66,7 +66,7 @@ const Footer = (props) => {
                     <br />
                   )}
                 </p>
-                <a href="company.html" >
+                <a href="company.html">
                   <div
                     className="col-xs-12 order-3 order-xl-4 no-default-spacing"
                     id="detail-btn-company"
@@ -604,16 +604,7 @@ const Footer = (props) => {
             className="d-flex justify-content-center"
             style={{ height: 40, paddingBottom: 64 }}
           >
-            <p className="txt-bottom-footer"
-              style={{
-                color: "var(--unnamed-color-ffffff)",
-                font: "normal normal normal 16px/25px Roboto",
-                letterSpacing: 0.48,
-                color: "#FFFFFF",
-              }}
-            >
-              {data.Footer_Publish.value}
-            </p>
+            <p className="txt-bottom-footer">{data.Footer_Publish.value}</p>
           </div>
         </div>
       </footer>

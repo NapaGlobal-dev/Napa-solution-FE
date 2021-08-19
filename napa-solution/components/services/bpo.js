@@ -10,8 +10,8 @@ const BPO = (props) => {
       <div className="sv-cover-padding">
         <div className={clsx("sv-cover")}>
           <img className="sv-decor-head-line" src="/img/line-style.svg" />
-          <h3>{data.BPO_TitleEN.value}</h3>
-          <p>{data.BPO_TitleJP.value}</p>
+          <h3 id='down-up'>{data.BPO_TitleEN.value}</h3>
+          <p id='down-up'>{data.BPO_TitleJP.value}</p>
           <hr className="sv-horizontal-bar" />
           <div className="sv-img-bouding">
             <picture>
@@ -25,7 +25,7 @@ const BPO = (props) => {
               />
             </picture>
             <div className="sv-box">
-              <div className="sv-content">
+              <div className="sv-content" id='down-up'>
                 {joinJsx(
                   data.BPO_Content.value.split("\\n"),
                   <br />

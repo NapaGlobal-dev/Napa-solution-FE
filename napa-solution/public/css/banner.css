@@ -3,7 +3,7 @@
   height: 100%;
   position: absolute;
   background: #00589b40;
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .wrap-banner {
@@ -47,7 +47,7 @@
   position: absolute;
   background: #fff;
   height: 0;
-  transition: height .4s .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: height 0.4s 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   width: 2px;
   box-sizing: border-box;
 }
@@ -55,7 +55,7 @@
 .frame-lr::before,
 .frame-lr::after {
   width: 0;
-  transition: width .6s .8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: width 0.6s 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
   height: 2px;
   content: "";
   position: absolute;
@@ -156,7 +156,9 @@
   }
 
   .subtitleB {
-    font: normal normal bold 10px/20px Roboto;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 20px;
     letter-spacing: 0.48px;
   }
 }

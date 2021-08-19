@@ -10,8 +10,8 @@ const WebApp = (props) => {
       <div className="sv-cover-padding">
         <div className={clsx("sv-cover")}>
           <img className="sv-decor-head-line" src="/img/line-style.svg" />
-          <h3>{data.WebApp_TitleEN.value}</h3>
-          <p>{data.WebApp_TitleJP.value}</p>
+          <h3 id='down-up'>{data.WebApp_TitleEN.value}</h3>
+          <p id='down-up'>{data.WebApp_TitleJP.value}</p>
           <hr className="sv-horizontal-bar" />
           <div className="sv-img-bouding">
             <picture>
@@ -25,7 +25,7 @@ const WebApp = (props) => {
               />
             </picture>
             <div className="sv-box">
-              <div className="sv-content">
+              <div className="sv-content" id='down-up'>
                 {joinJsx(
                   data.WebApp_Content.value.split("\\n"),
                   <br />
