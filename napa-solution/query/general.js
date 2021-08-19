@@ -297,7 +297,7 @@ export const InspectMaintenanceQuery = gql`
   }
 `;
 export const OffshoreQuery = gql`
-  query OffshoreQuery {
+  query getContact {
     page: Page(where: { id: "60f67674b9a5b934e0c79908" }) {
       name
       url
@@ -305,43 +305,16 @@ export const OffshoreQuery = gql`
         name
         property {
           name
-          key
+          content {
+            name
+            value
+          }
           value
-          content {
-            name
-            key
-            value
-            content {
-              name
-              value
-            }
-          }
-          flag
-          url
-          content {
-            name
-            value
-            url
-          }
           image {
             original: publicUrl
             thumbnail: publicUrlTransformed(transformation: { width: "64" })
           }
         }
-      }
-      subpages: childrenPage {
-        name
-        url
-        image {
-          original: publicUrl
-          thumbnail: publicUrlTransformed(transformation: { width: "64" })
-        }
-      }
-      parentPage {
-        name
-      }
-      image {
-        path
       }
     }
   }
@@ -366,11 +339,11 @@ export const GET_COMPANYHISTORY = gql`
         key
         value
         url
-        image{
+        image {
           original: publicUrl
           thumbnail: publicUrlTransformed(transformation: { width: "64" })
         }
-        content{
+        content {
           name
           key
           value
@@ -493,6 +466,10 @@ export const GET_PRIVACYPOLICY = gql`
             name
             value
           }
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
         }
       }
     }
@@ -565,6 +542,27 @@ export const PROJECTS = gql`
         image {
           original: publicUrl
           thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+    }
+  }
+`;
+
+export const GET_SERVICES_PAGE_DATA = gql`
+  query getServicesPageData {
+    page: allPages(where: { nameEN_contains: "Services" }) {
+      name
+      nameEN
+      url
+      layouts {
+        name
+        property {
+          name
+          value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
         }
       }
     }

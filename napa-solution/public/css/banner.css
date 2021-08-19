@@ -91,16 +91,21 @@
     opacity: 1;
   }
   .titleB{
-    font: normal normal bold 22px/40px Roboto;
+    font-weight: bold;
+    font-size: 22px;
     letter-spacing: 0.72px;
     margin-bottom: 10px;
   }
   .subtitleB{
-    font: normal normal bold 13px/40px Roboto;
+    font-weight: bold;
+    font-size: 13px;
     letter-spacing: 0.48px;
   }
 
-  @media (max-width:600px) {
+  @media (max-width:768px) {
+    .textB{
+      padding: 50px 24px 30px 24px;
+    }
     .wrap-banner{
       padding: 20px 40px;
     }
@@ -112,9 +117,10 @@
     }
     .textB{
         padding: 30px 30px 20px 30px;
+        font-size: 14px;
     }
     .titleB{
-        font: normal normal bold 16px/30px Roboto;
+        font-size: 16px;
         letter-spacing: 0.72px;
         margin-bottom: 10px;
     }

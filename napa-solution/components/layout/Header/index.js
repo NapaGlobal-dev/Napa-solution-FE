@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { GET_HEADER } from "../../../query/general";
 import { getData } from "../../../util/converArrayToObject";
 import Head from "next/head";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import languages from "../../../util/language/language";
 import clsx from "clsx";
 import { StoreContext } from "../../../util/language/store";
@@ -10,6 +10,8 @@ import useDarkMode from "use-dark-mode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { useSwipeDirection } from "../../../util/windowEvents";
 import ScrollToTop from "../ScrollToTop";
+import { registerSwipeEvent } from "../../../util/windowEvents";
+
 function Language() {
   const [openDropdown, setOpenDropndown] = useState(false);
   const [language, setLanguage] = useState({});
@@ -50,31 +52,18 @@ const Header = (props) => {
   const navbarHome = getData(data, /Navbar_Menu1/)[0];
   const navbarMenu = getData(data, /Navbar_Menu([2-9]|1[0-9])/);
   const navbarMobile = getData(data, /Navbar_Menu/);
-  // const navbarMenuIcon = getData(data, /Navbar_MenuIcon/)[0];
+  const navRef = useRef(null);
 
+  // console.log("navbarsss", navbarMenu, data);
   const darkmode = useDarkMode(true);
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 5 || hour >= 19) darkmode.enable();
   }, []);
 
-  const [changeNav, setChangeNav] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
-  const [activePath, setActivePath] = useState(0);
-  const [navColor, setNavColor] = useState("light");
+  // const [changeNav, setChangeNav] = useState(true);
+  // const [navColor, setNavColor] = useState("light");
 
-  const { direction } = useSwipeDirection({});
-
-  const mobileHeaderNav = [
-    ...navbarMobile,
-    ...languages.map((lang, index) => ({
-      path: "#",
-      name: lang,
-      type: "language",
-      icon: "img/header/lang.svg",
-      languageId: index,
-    })),
-  ];
   const languagesdata = languages.map((lang, index) => ({
     url: lang !== "JP" ? "http://www.napaglobal.com" : "#",
     languageId: index,
@@ -82,83 +71,47 @@ const Header = (props) => {
     name: lang,
     type: "language",
   }));
-  // const scrollEvent = () => {
-  //   if (window.pageYOffset !== 0 && changeNav === false) {
-  //     setChangeNav(true);
-  //   }
-  //   if (window.pageYOffset === 0) {
-  //     setChangeNav(false);
-  //   }
-  // };
+
+  const scrollEvent = () => {
+    if (navRef.current) {
+      if (window.pageYOffset >= 20) {
+        navRef.current.classList.add("dark-nav");
+      } else {
+        navRef.current.classList.remove("dark-nav");
+      }
+    }
+  };
+
+  useEffect(() => {
+    // if (window.location.pathname !== "/") {
+    window.addEventListener("scroll", scrollEvent, true);
+    // }
+
+    const cleanupSwipeEvent = registerSwipeEvent(({ direction }) => {
+      // console.log("direction", direction);
+      if (navRef.current) {
+        if (direction) navRef.current.classList.add("navbar-hidden");
+        else navRef.current.classList.remove("navbar-hidden");
+      }
+    });
+
+    return () => {
+      window.removeEventListener("scroll", scrollEvent, true);
+      cleanupSwipeEvent();
+    };
+  }, [navRef]);
 
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 5 || hour >= 19) darkmode.enable();
 
-    if (window.location.pathname === "/") {
-      setNavColor("light");
-    } else {
-      setNavColor("dark");
-    }
-
-    // window.addEventListener("scroll", scrollEvent);
-
-    // if ($("#navbar").hasClass("dark-nav")) {
-    //   $(".menu-icon-toggle").on("click", function (e) {
-    //     $("body").toggleClass("open");
-    //     // $(".popcover").toggleClass("toggle");
-    //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-    //   });
+    // if (window.location.pathname === "/") {
+    //   setNavColor("light");
+    // } else {
+    //   setNavColor("dark");
     // }
-    // if ($("#navbar").hasClass("home")) {
-    //   $(".menu-icon-toggle").on("click", function (e) {
-    //     $("body").toggleClass("open");
-
-    //     // $(".popcover").toggleClass("toggle");
-    //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-    //   });
-    // }
-
-    // return function cleanup() {
-    //   window.removeEventListener("scroll", scrollEvent);
-    // };
   }, []);
 
-  const hideNavbar = (e) => {
-    let shouldHideNavbar = e.deltaY > 0 ? true : false;
-    shouldHideNavbar = shouldHideNavbar && window.pageYOffset > 10;
-    if (shouldHideNavbar !== hideNav) setHideNav(shouldHideNavbar);
-  };
-
-  // useEffect(() => {
-  //   window.addEventListener("wheel", hideNavbar);
-  //   $(".menu-icon-toggle").on("click", function (e) {
-  //     $("body").toggleClass("open");
-  //     $(".popcover").toggleClass("toggle");
-  //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-  //   });
-
-  //   return () => {
-  //     window.removeEventListener("wheel", hideNavbar);
-  //   };
-  // }, [hideNav, setHideNav]);
-
-  function handleClickLanguage(entry, index) {
-    setActivePath(index);
-    if (entry?.type && entry?.type === "language") {
-      if (entry.name === "JP") {
-        setLanguageId(entry.languageId);
-      }
-      if (entry.name === "EN") {
-        window.location = "http://www.napaglobal.com";
-        localStorage.setItem("languageID", 0);
-      }
-      if (entry.name === "VI") {
-        window.location = "http://www.napaglobal.com";
-        localStorage.setItem("languageID", 1);
-      }
-    }
-  }
   useEffect(() => {
     Array.from({ length: navbarMobile.length }, (num, index) => {
       $(`#btn-item-up-${index + 1}`).css("display", "none");
@@ -171,20 +124,14 @@ const Header = (props) => {
     if ($("#navbar").hasClass("dark-nav")) {
       $(".menu-icon-toggle").on("click", function (e) {
         $("body").toggleClass("open");
-        // $(".popcover").toggleClass("toggle");
         $(".wrap-menu.menu-icon-toggle").toggleClass("change");
       });
     } else if ($("#navbar").hasClass("home")) {
       $(".menu-icon-toggle").on("click", function (e) {
         $("body").toggleClass("open");
-        // $(".popcover").toggleClass("toggle");
         $(".wrap-menu.menu-icon-toggle").toggleClass("change");
       });
     }
-
-    // if (darkmode.value) {
-    //   $("#checkbox-dark-mode").attr("checked", true);
-    // }
   }, []);
 
   useEffect(() => {
@@ -210,27 +157,11 @@ const Header = (props) => {
         $(`#item-link-${index + 1}`).css("border", "none");
       });
     });
-
-    // if ($("#navbar").hasClass("dark-nav")) {
-    //   $(".menu-icon-toggle").on("click", function (e) {
-    //     $("body").toggleClass("open");
-    //     // $(".popcover").toggleClass("toggle");
-    //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-    //   });
-    // }
-    // if ($("#navbar").hasClass("home")) {
-    //   $(".menu-icon-toggle").on("click", function (e) {
-    //     $("body").toggleClass("open");
-
-    //     // $(".popcover").toggleClass("toggle");
-    //     $(".wrap-menu.menu-icon-toggle").toggleClass("change");
-    //   });
-    // }
     if (darkmode.value) {
       $("#checkbox-dark-mode").attr("checked", false);
     } else $("#checkbox-dark-mode").attr("checked", true);
     // $(".popcover").addClass("toggle");
-  });
+  }, []);
 
   return (
     <>
@@ -245,12 +176,13 @@ const Header = (props) => {
 
       <nav
         id="navbar"
+        ref={navRef}
         style={{ borderBottom: !props.isLoading && "none" }}
         className={clsx(
-          "navbar navbar-expand-lg navbar-light no-default-spacing home",
-          changeNav ? "dark-nav" : "",
-          navColor === "dark" ? "dark-nav" : "",
-          direction && "navbar-hidden"
+          "navbar navbar-expand-lg navbar-light no-default-spacing home"
+          // changeNav ? "dark-nav" : "",
+          // navColor === "dark" ? "dark-nav" : "",
+          // direction && !props.isLoading && "navbar-hidden"
         )}
       >
         <a className="navbar-brand no-default-spacing" href={navbarLogo?.url}>
@@ -268,7 +200,9 @@ const Header = (props) => {
                   <a href={navbarHome?.url} className="text-navbar-menu">
                     {navbarHome?.value}
                   </a>
-                  <a className="text-navbar-menu">{navbarHome?.value}</a>
+                  <a href={navbarHome?.url} className="text-navbar-menu">
+                    {navbarHome?.value}
+                  </a>
                 </div>
               </div>
             </li>
@@ -281,7 +215,9 @@ const Header = (props) => {
                       <a href={menu?.url} className="text-navbar-menu">
                         {menu?.value}
                       </a>
-                      <a className="text-navbar-menu">{menu?.value}</a>
+                      <a href={menu?.url} className="text-navbar-menu">
+                        {menu?.value}
+                      </a>
                     </div>
                   </div>
                   {menu.content.length !== 0 && (
@@ -305,13 +241,7 @@ const Header = (props) => {
           </ul>
         </div>
 
-        <a
-          className="wrap-menu menu-icon-toggle"
-          // onClick={() => {
-          //   setIsOpen(!isOpen);
-          //   // setActivePath(0);
-          // }}
-        >
+        <a className="wrap-menu menu-icon-toggle">
           <div className="bar1" />
           <div className="bar2" />
           <div className="bar3" />
@@ -396,7 +326,7 @@ const Header = (props) => {
                     <ul id={`ul-subitem-${index + 1}`}>
                       {item.content.length > 0 &&
                         item.content.map((subitem, key) => (
-                          <li>
+                          <li key={key}>
                             <a className="liText" href={subitem.url} key={key}>
                               {subitem.value}
                             </a>
@@ -428,67 +358,6 @@ const Header = (props) => {
             </div>
           </div>
         </div>
-        {/* <div className={isOpen ? clsx("overlay", "show") : "overlay"}></div> */}
-
-        {/* <div className={clsx("mobile-menu", isOpen ? "show" : "")}>
-          {mobileHeaderNav.map((entry, index) => (
-            // <Link to={`#${entry.path}`} key={index} className={styles.wrapLinkMobile}>
-
-            // </Link>
-            <div className="dropdown">
-              <a href={entry?.url} key={index} className="wrap-link-mobile">
-                <span>{entry?.value ? entry?.value : entry.name}</span>
-                <button
-                  onClick={() => handleClickMenu(entry, index)}
-                  className={clsx(
-                    "wrap-icon",
-                    activePath === index ? "active" : ""
-                  )}
-                >
-                  <img
-                    key={index}
-                    className="icon"
-                    src={
-                      entry?.image?.publicUrl
-                        ? entry?.image?.publicUrl
-                        : entry.icon
-                    }
-                    alt="Mobile Icon"
-                  />
-                </button>
-              </a>
-              {entry.content && entry.content.length !== 0 && (
-                <div className="dropdown-layer">
-                  <div className="dropdown-body">
-                    <ul>
-                      {entry.content.map((item, index) => (
-                        <li key={index}>
-                          <div>
-                            <a href={item.url}>{item.value}</a>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-          <div className="wrap-link-mobile">
-            <span>{!!darkmode.value ? "Dark" : "Light"}</span>
-            <div className="wrap-icon nav-darkmode-icon-mobile">
-              <DarkModeSwitch
-                style={{ margin: "0 12px" }}
-                className="nav-darkmode-icon"
-                checked={!!darkmode.value}
-                onChange={darkmode.toggle}
-                size={40}
-              />
-            </div>
-          </div>
-
-          <Language />
-        </div> */}
         <DarkModeSwitch
           style={{ margin: "0 12px" }}
           className="nav-darkmode-icon hide-on-mobile"

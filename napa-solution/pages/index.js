@@ -1,4 +1,3 @@
-import { useQuery } from "@apollo/client";
 import { HomePage } from "../query/general";
 import { convertArrToObject } from "../util/converArrayToObject";
 import Company from "../components/homepage/Company";
@@ -19,12 +18,9 @@ SwiperCore.use([Mousewheel]);
 
 const Index = ({ footer, data, ...props }) => {
   const [swiperRef, setSwiperRef] = useState(null);
-  const onTopBtnRef = useRef();
+  const onTopBtnRef = useRef(null);
+  let headerRef = useRef(null);
 
-  // const { data, loading, error } = useQuery(HomePage);
-  // if (error) return <>Your query is Error !</>;
-  // const datas = loading || convertArrToObject(data.page.layouts);
-  // const clientSay = loading || data.clientSay;
   const datas = convertArrToObject(data.page.layouts);
   const clientSay = data.clientSay;
 
@@ -35,6 +31,9 @@ const Index = ({ footer, data, ...props }) => {
       swiperRef.updateSize();
       swiperRef.updateSlides();
     }
+    headerRef.current = document.getElementById("navbar");
+
+    // console.log("header", headerRef);
   }, [swiperRef, setSwiperRef]);
 
   const scrollToTop = () => {
@@ -44,7 +43,7 @@ const Index = ({ footer, data, ...props }) => {
   };
 
   const toggleScrollTopBtn = (sw) => {
-    console.log(sw.activeIndex);
+    // console.log(sw.activeIndex, headerRef.current);
 
     if (onTopBtnRef.current) {
       if (sw.activeIndex > 0) {
@@ -53,12 +52,19 @@ const Index = ({ footer, data, ...props }) => {
         onTopBtnRef.current.classList.remove("ot-container-visible");
       }
     }
+    if (headerRef.current) {
+      if (sw.activeIndex <= 0) {
+        headerRef.current.classList.remove("dark-nav");
+      } else {
+        headerRef.current.classList.add("dark-nav");
+      }
+    }
   };
 
   return (
     <>
       <Head>
-        {/* <link key="css/common.css" rel="stylesheet" href="css/common.css" /> */}
+        <link key="css/common.css" rel="stylesheet" href="css/common.css" />
         <link
           key="css/home-page.module.css"
           rel="stylesheet"
@@ -93,7 +99,6 @@ const Index = ({ footer, data, ...props }) => {
         direction={"vertical"}
         slidesPerView={1}
         mousewheel
-        // enabled={false}
       >
         <SwiperSlide className="sw-slide-all-page ">
           <Begin data={data.banner} />
@@ -137,19 +142,7 @@ const Index = ({ footer, data, ...props }) => {
         id="scrollToTop"
         onClick={scrollToTop}
       >
-        <img
-          src="./img/scroll-top.png"
-          style={{
-            height: 30,
-            width: "auto",
-            marginRight: 12,
-            outline: "none",
-            webkitUserSelect: "none",
-            mozUserSelect: "none",
-            msUserSelect: "none",
-            userSelect: "none",
-          }}
-        />
+        <img src="./img/scroll-top.png" className="scroll-top-img" />
       </div>
     </>
   );
