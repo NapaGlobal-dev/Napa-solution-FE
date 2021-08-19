@@ -1887,7 +1887,7 @@ button:focus {
 
 .dropdown-layer {
   display: none;
-  padding-top: 28px;
+  padding-top: 32px;
   min-width: 160px;
   width: 200px;
   z-index: 1;
