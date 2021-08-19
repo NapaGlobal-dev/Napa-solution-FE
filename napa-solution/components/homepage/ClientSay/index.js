@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Head from "next/head";
 const ClientSay = (props) => {
   const { data } = props;
+
   useEffect(() => {
     $("head").append(`<style>
     // .style_buttons__2FgUD > button.pause::before {
@@ -94,8 +95,12 @@ const ClientSay = (props) => {
       </Head>
       <div className="container-fluid">
         <div className={clsx(styles.cover)}>
-          <h3 id="main-title" id='down-up'>{data.title}</h3>
-          <p id="sub-title" id='down-up'>{data.subTitle}</p>
+          <h3 id="main-title" id="down-up">
+            {data.title}
+          </h3>
+          <p id="sub-title" id="down-up">
+            {data.subTitle}
+          </p>
           <video
             // autoplay="autoplay"
             controls="controls"
@@ -103,6 +108,7 @@ const ClientSay = (props) => {
             className={clsx(styles.video)}
             width="1500"
             height="700"
+            poster={data.poster.original}
           >
             <source src={data.video} type="video/mp4" autostart="false" />
           </video>

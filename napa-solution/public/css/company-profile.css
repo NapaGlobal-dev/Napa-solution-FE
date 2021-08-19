@@ -1,31 +1,33 @@
-.wrap-profile-icon{
+.wrap-profile-icon {
   width: 54px;
   height: 100%;
 }
 
-.line-1{
+.line-1 {
   transform: matrix(1.05, -1.5, 0.43, 0.17, -1, 37);
-  border: 4px solid #6A43D5;
+  border: 4px solid #6a43d5;
   opacity: 1;
 }
 
-.line-2{
-  border: 6px solid #6A43D5;
+.line-2 {
+  border: 6px solid #6a43d5;
   opacity: 1;
   margin-top: 13px;
   transform: matrix(1.01, -1.48, 0.47, 0.17, -1, 37);
 }
 
-.line-3{
-  border: 4px solid #6A43D5;
+.line-3 {
+  border: 4px solid #6a43d5;
   opacity: 1;
   margin-top: 12px;
   transform: matrix(1.05, -1.5, 0.43, 0.17, 1, 37);
 }
 
-.profile-big-title > h1{
-  font: normal normal bold 45px/59px Roboto;
-  color: #23496D;
+.profile-big-title > h1 {
+  font-size: 45px;
+  font-weight: bold;
+  line-height: 59px;
+  color: #23496d;
   text-transform: uppercase;
   opacity: 1;
 }
@@ -35,125 +37,139 @@
   padding: 0px 5%;
 }
 
-.wrap-title{
+.wrap-title {
   display: flex;
-    align-items: flex-end;
-    margin-top: 60px;
-    height: 150px;
-    margin-bottom: 40px;
+  align-items: flex-end;
+  margin-top: 60px;
+  height: 150px;
+  margin-bottom: 40px;
 }
 
-.profile-title{
+.profile-title {
   margin-left: 40px;
   width: 100%;
 }
 
-.profile-sub-title{
-font: normal normal normal 26px/40px Roboto;
-letter-spacing: 0.78px;
-color: #9E9E9E;
-opacity: 1;
+.profile-sub-title {
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 40px;
+  letter-spacing: 0.78px;
+  color: #9e9e9e;
+  opacity: 1;
 }
 
-.divided-line{
-  border: 1px solid #C8B8F4;
+.divided-line {
+  border: 1px solid #c8b8f4;
   opacity: 1;
   width: 100%;
   margin-top: 30px;
 }
 
-.wrap-container-content{
+.wrap-container-content {
   padding: 30px 19%;
 }
 
-.wrap-profile{
+.wrap-profile {
   display: flex;
   justify-content: space-between;
   padding: 0px 0px 0px 2%;
 }
 
-.profile-label{
-  font: normal normal bold 20px/29px Noto Sans JP;
-  color: #23496D;
+.profile-label {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 29px;
+  color: #23496d;
   margin-top: 10px;
 }
 
-.profile-content{
-  font: normal normal normal 16px/50px Noto Sans JP;
-  color: #23496D;
+.profile-content {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 50px;
+  color: #23496d;
   width: 40%;
 }
-.message-label{
-  font: normal normal bold 26px/30px Noto Sans JP;
-  color: #23496D;
+.message-label {
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 30px;
+  color: #23496d;
 }
 
-.message-content{
-  font: normal normal normal 20px/30px Noto Sans JP;
-  color: #23496D;
+.message-content {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 30px;
+  color: #23496d;
   padding-top: 25px;
   line-height: 40px;
 }
 
-.wrap-address-message{
+.wrap-address-message {
   padding-top: 77px;
   padding-right: 100px;
   padding-left: 90px;
 }
 
-.wrap-detail{
+.wrap-detail {
   display: flex;
   justify-content: space-between;
   padding-top: 50px;
   padding-right: 15px;
 }
 
-#google-map{
+#google-map {
   width: 100%;
   height: 562px;
 }
 
-.wrap-message-icon{
+.wrap-message-icon {
   width: 54px;
   height: 100%;
 }
 
 @media (max-width: 1000px) {
-  .wrap-profile{
+  .wrap-profile {
     padding: 0px 6% 0px 2%;
   }
-  .wrap-container-content{
+  .wrap-container-content {
     padding: 30px 10%;
   }
-  .profile-label{
-    font: normal normal bold 16px/29px Noto Sans JP;
+  .profile-label {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 29px;
     width: 25%;
   }
-  .profile-content{
-    font: normal normal normal 12px/50px Noto Sans JP;
+  .profile-content {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 50px;
     width: 50%;
   }
-  .wrap-title{
+  .wrap-title {
     align-items: flex-start;
   }
-  .wrap-profile-icon{
+  .wrap-profile-icon {
     width: 90px;
   }
-  .profile-title{
+  .profile-title {
     margin-left: 20px;
   }
-  .wrap-address-message{
+  .wrap-address-message {
     padding-right: 0px;
     padding-left: 0px;
   }
-  .wrap-detail{
+  .wrap-detail {
     flex-direction: column;
     text-align: center;
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
   }
-  .btn-message{
+  .btn-message {
     margin-left: 0px !important;
   }
   .wrap-message-icon {

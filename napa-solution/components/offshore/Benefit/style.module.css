@@ -6,7 +6,7 @@
   position: relative;
 }
 
-.cover>svg {
+.cover > svg {
   position: absolute;
   top: 0;
   left: 0;
@@ -14,20 +14,23 @@
   /* height: 54px;
       width: auto; */
 }
-
-.cover>h3 {
+.cover > h3 {
   text-align: left;
-  font: normal normal bold 45px/65px Noto Sans JP;
+  font-size: 45px;
+  font-weight: bold;
+  line-height: 65px;
   letter-spacing: 0px;
   color: #23496d;
   text-transform: uppercase;
   opacity: 1;
 }
 
-.cover>p {
+.cover > p {
   margin-bottom: 50px;
   text-align: left;
-  font: normal normal normal 26px/40px Noto Sans JP;
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 40px;
   letter-spacing: 0.78px;
   color: #9e9e9e;
   opacity: 1;
@@ -37,13 +40,13 @@
   display: flex;
   justify-content: space-around;
   margin-bottom: 80px;
-  border-top: 1px solid #c8b8f4;
-  padding-top: 40px;
+  /* border-top: 1px solid #c8b8f4; */
+  /* padding-top: 40px; */
   align-items: center;
   padding: 0px 400px 0px 70px;
 }
 
-.item>img {
+.item > img {
   width: 579px;
   height: 586px;
 }
@@ -63,13 +66,12 @@
   width: 308px;
   height: 293px;
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
   position: absolute;
   top: 4px;
   left: -15px;
 }
-
 .wraperContent {
   margin-bottom: 12px;
   display: flex;
@@ -82,7 +84,7 @@
   width: 50px;
   height: 50px;
   transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
-  background: #E0D5FF 0% 0% no-repeat padding-box;
+  background: #e0d5ff 0% 0% no-repeat padding-box;
   border-radius: 5px;
   opacity: 1;
   display: flex;
@@ -91,65 +93,63 @@
   left: -10px;
 }
 
-.benefitNumber>p {
-  font: normal normal normal 30px/30px Noto Sans JP;
+.benefitNumber > p {
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 30px;
   letter-spacing: 3px;
   transform: rotate(-45deg);
   margin: 0px 0px -35px -15px;
 }
 
 .benefitContent {
-  font: normal normal normal 16px/30px Noto Sans JP;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 30px;
 }
 
-@media (min-width:1400px) and (max-width:1650px) {
+@media (min-width: 1400px) and (max-width: 1650px) {
   .item {
     padding: 0px 200px 0px 70px;
   }
 }
 
-@media (min-width:1025px) and (max-width:1399px) {
+@media (min-width: 1025px) and (max-width: 1399px) {
   .item {
     padding: 0px;
     margin-bottom: 0;
   }
-
-  .item>img {
+  .item > img {
     width: 450px;
   }
 }
 
-
 @media (max-width: 1024px) {
-  .item>img {
+  .item > img {
     width: 430px;
   }
-
   .item {
     padding: 0;
     justify-content: space-between;
     margin-bottom: 30px;
   }
 }
-
-@media (min-width:768px) and (max-width:1023px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .wraperContent {
     align-items: center;
     margin-top: 31px;
     margin-left: 34px;
   }
-
   .item {
     margin: 0px;
     padding: 0px;
   }
-
-  .item>p {
+  .item > p {
     max-width: none;
     min-width: none;
   }
 
-  .cover>svg {
+  .cover > svg {
     display: none;
   }
 
@@ -157,34 +157,38 @@
     margin: 60px 24px;
   }
 
-  .cover>h3 {
+  .cover > h3 {
     text-align: left;
-    font: normal normal bold 20px/26px Roboto;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 26px;
     letter-spacing: 0px;
     color: #23496d;
     text-transform: uppercase;
     opacity: 1;
   }
-
-  .cover>p {
+  .cover > p {
     text-align: left;
-    font: normal normal normal 16px/40px Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 40px;
     letter-spacing: 0.48px;
     color: #9e9e9e;
     opacity: 1;
 
     margin-bottom: 24px;
   }
-
-  .item>p {
+  .item > p {
     text-align: left;
-    font: normal normal bold 16px/24px Noto Sans JP;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
     letter-spacing: 0px;
     color: #23496d;
     opacity: 1;
   }
 
-  .item>img {
+  .item > img {
     width: 380px;
     height: 400px;
     margin-top: 30px;
@@ -202,79 +206,91 @@
     height: 245px;
     left: -10px;
   }
-
   .benefitNumber {
     width: 35px;
     height: 35px;
     left: -7px;
   }
-
   .benefitContent {
-    font: normal normal normal 14px/30px Noto Sans JP;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 30px;
   }
 
-  .benefitNumber>p {
+  .benefitNumber > p {
     margin: 0px 0px -25px -10px;
-    font: normal normal normal 20px/30px Noto Sans JP;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 30px;
   }
 }
-
 @media (max-width: 767px) {
-  .benefitBorder{
+  .benefitBorder {
     margin-top: 10px;
   }
   .wraperContent {
     align-items: center;
+    margin-top: 30px;
     margin-left: 34px;
   }
-
   .item {
     flex-direction: column;
     margin: 0px;
     padding: 0px;
   }
-
-  .item>p {
+  .item > p {
     max-width: none;
     min-width: none;
   }
-
-  .cover>svg {
+  .cover > svg {
     display: none;
   }
-
   .cover {
     margin: 30px 24px;
   }
-
-  .cover>h3 {
+  .cover > h3 {
     text-align: left;
-    font: normal normal bold 20px/26px Roboto;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 26px;
     letter-spacing: 0px;
     color: #23496d;
     text-transform: uppercase;
     opacity: 1;
   }
-
-  .cover>p {
+  .cover > p {
     text-align: left;
-    font: normal normal normal 16px/40px Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 40px;
     letter-spacing: 0.48px;
     color: #9e9e9e;
     opacity: 1;
 
     margin-bottom: 24px;
   }
-
-  .item>p {
+  .item > p {
     text-align: left;
-    font: normal normal bold 16px/24px Noto Sans JP;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
     letter-spacing: 0px;
     color: #23496d;
     opacity: 1;
   }
 
-  .item>img {
+  .benefitNumber {
+    width: 35px;
+    height: 35px;
+    left: -7px;
+  }
+  .benefitContent {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 30px;
+  }
+
+  .item > img {
     width: 320px;
     height: 100%;
     margin-top: 30px;
@@ -284,7 +300,6 @@
     width: 260px;
     height: 280px;
     margin-bottom: 30px;
-    margin-left: 20px;
   }
 
   .benefitDetail {
@@ -293,20 +308,21 @@
     top: 6px;
     left: -10px;
   }
-
   .benefitNumber {
     width: 35px;
     height: 35px;
     left: -7px;
   }
-
   .benefitContent {
-    font: normal normal normal 14px/30px Noto Sans JP;
-    margin: 0 0 0 10px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 30px;
   }
 
-  .benefitNumber>p {
+  .benefitNumber > p {
     margin: 0px 0px -25px -10px;
-    font: normal normal normal 20px/30px Noto Sans JP;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 30px;
   }
 }

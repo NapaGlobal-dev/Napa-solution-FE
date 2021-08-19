@@ -24,7 +24,7 @@ const Banner = (props) => {
           <h1 className="main-title">
             {data["Offshore_Banner_Title"].value}
           </h1>
-          <div className='sub-title'>
+          <div className="sub-title">
             {data["Offshore_Banner_Subtitle"].value}
           </div>
           <div className="frame-tb"></div>

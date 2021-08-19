@@ -3,17 +3,20 @@
   height: 100%;
   position: absolute;
   background: #00589b40;
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .wrap-banner {
   position: absolute;
   top: 26%;
-  padding: 50px 120px;
+  padding: 70px 100px;
   text-align: center;
   color: white;
 }
-
+.sub-title{
+  font-size: 25px;
+  letter-spacing: 5px;  
+}
 .wrap-banner.open .frame-tb::before,
 .wrap-banner.open .frame-tb::after {
   height: 100%;
@@ -44,7 +47,7 @@
   position: absolute;
   background: #fff;
   height: 0;
-  transition: height .4s .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: height 0.4s 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   width: 2px;
   box-sizing: border-box;
 }
@@ -52,7 +55,7 @@
 .frame-lr::before,
 .frame-lr::after {
   width: 0;
-  transition: width .6s .8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: width 0.6s 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
   height: 2px;
   content: "";
   position: absolute;
@@ -127,6 +130,9 @@
 }
 
 @media (max-width:768px) {
+  .sub-title{
+    font-size: 20px;
+  }
   .textB {
     padding: 50px 24px 30px 24px;
   }
@@ -156,18 +162,20 @@
 
   .subtitleB {
     font-size: 10px;
-    font-family: Roboto;
     font-weight: bold;
+    line-height: 20px;
     letter-spacing: 0.48px;
   }
 }
 
-@media (max-width:1280px) {
+@media (max-width:1290px) {
   .imageA {
     min-width: auto;
   }
+  .wrap-banner{
+    padding: 80px 120px;
+  }
 }
-
 @media (max-width:414px) {
   .main-title {
     font-size: 30px;
