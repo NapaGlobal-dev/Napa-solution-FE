@@ -64,7 +64,7 @@
       display: none;
     }
     .cover {
-      margin: 30px 24px;
+      margin: 100px 24px 30px 24px;
     }
     .cover > h3 {
       text-align: left;
@@ -85,7 +85,7 @@
     }
     .item > p {
       text-align: left;
-      font: normal normal bold 16px/24px Noto Sans JP;
+      font-size: 14px;
       letter-spacing: 0px;
       color: #23496d;
       opacity: 1;
