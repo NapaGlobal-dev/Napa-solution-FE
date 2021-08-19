@@ -68,12 +68,17 @@
   text-decoration: underline;
   text-decoration-color: #6c3af5;
 }
-.containerD {
-  display: flex;
-  width: 60%;
-  flex-wrap: wrap;
-  justify-content: center;
-  background: #eeeeee 0% 0% no-repeat padding-box;
+.contact{
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+}
+.containerD{
+    display: flex;
+    width: 60%;
+    flex-wrap: wrap;
+    justify-content: center;
+    background:#EEEEEE 0% 0% no-repeat padding-box;
 }
 .tableD {
   display: grid;

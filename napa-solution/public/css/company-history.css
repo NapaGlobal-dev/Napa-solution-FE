@@ -17,115 +17,15 @@
   position: relative;
   height: 520px;
 }
-.circle1 {
-  width: 56px;
-  height: 56px;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-size: 30px;
-  font-weight: bold;
-  background-color: #412490;
-  color: #ffffff;
-  position: absolute;
-  top: 7px;
-  right: 12px;
-  z-index: 9;
-}
-.ring {
-  width: 70px;
-  height: 70px;
-  border: #412490 solid 3px;
-  border-radius: 100%;
-  background-color: #ffffff;
-  position: absolute;
-  top: 0px;
-  right: 5px;
-  z-index: 6;
-}
-.line {
-  width: 4px;
-  height: 0px;
-  background-color: #412490;
-  position: absolute;
-  top: 63px;
-  right: 38px;
-  z-index: 3;
-}
-.line1 {
-  width: 4px;
-  height: 394px;
-  background-color: #bdbdbd;
-  position: absolute;
-  top: 63px;
-  right: 38px;
-}
-.circle2 {
-  width: 56px;
-  height: 56px;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-size: 30px;
-  font-weight: bold;
-  background-color: #bdbdbd;
-  color: #ffffff;
-  position: absolute;
-  top: 157px;
-  right: 12px;
-  z-index: 9;
-}
-.circle3 {
-  width: 56px;
-  height: 56px;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-size: 30px;
-  font-weight: bold;
-  background-color: #bdbdbd;
-  color: #ffffff;
-  position: absolute;
-  top: 307px;
-  right: 12px;
-  z-index: 9;
-}
-.circle4 {
-  width: 56px;
-  height: 56px;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-size: 30px;
-  font-weight: bold;
-  background-color: #bdbdbd;
-  color: #ffffff;
-  position: absolute;
-  top: 457px;
-  right: 12px;
-  z-index: 9;
-}
-.slide {
+.slide{
   width: 100%;
   height: 100%;
-  /* overflow: hidden; */
-  /* position: relative; */
 }
 .stack {
   width: 100%;
   height: 100%;
   overflow: hidden;
   scroll-behavior: smooth;
-  /* position: absolute;
-  top: -400px; */
 }
 .contentC {
   width: 100%;
@@ -174,8 +74,7 @@
 .horizonMilestone {
   display: none;
 }
-.containerD {
-  /* margin-top: 100px; */
+.containerD{
   padding: 0 100px 0 180px;
   display: flex;
   align-items: center;
