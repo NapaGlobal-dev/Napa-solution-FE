@@ -13,7 +13,9 @@
 
 .h3text {
   text-align: center;
-  font: normal normal bold 25px/60px Roboto;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 60px;
   letter-spacing: 1.5px;
   color: #ffffff;
   opacity: 1;
@@ -23,7 +25,9 @@
 .ptext {
   color: var(--unnamed-color-ffffff);
   text-align: center;
-  font: normal normal bold 16px/30px Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 30px;
   letter-spacing: 0.48px;
   color: #ffffff;
   opacity: 1;
@@ -34,16 +38,21 @@
 .h2text {
   color: var(--unnamed-color-ffffff);
   text-align: left;
-  font: normal normal bold 28px/37px Roboto;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 37px;
+
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
 }
 
-.groupText>h4 {
+.groupText > h4 {
   color: var(--unnamed-color-ffffff);
   text-align: left;
-  font: bold 16px/30px Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 30px;
   letter-spacing: 0.42px;
   color: #ffffff;
   opacity: 1;
@@ -54,8 +63,6 @@
 .covergalery {
   display: flex;
   justify-content: center;
-  /* transform: translateY(-130px); */
-  /* background-image: url("/img/home/bild.galerie.jpg"); */
   margin: 0 70px;
   position: relative;
   top: -120px;
@@ -63,10 +70,20 @@
   background-position: center;
 }
 
+.txt-bottom-footer {
+  color: var(--unnamed-color-ffffff);
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 25px;
+  letter-spacing: 0.48;
+}
+
 .liText {
   color: var(--unnamed-color-ffffff);
   text-align: left;
-  font: normal normal normal 13px/30px Roboto;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 30px;
   letter-spacing: 0.42px;
   color: #ffffff !important;
   opacity: 1;
@@ -118,7 +135,6 @@
 .socials {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   line-height: 1;
   color: #fff;
@@ -146,10 +162,12 @@
   padding-right: 8px;
 }
 
-.socials>p {
+.socials > p {
   color: var(--unnamed-color-ffffff);
   text-align: left;
-  font: normal normal bold 16px/30px Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 30px;
   letter-spacing: 0.48px;
   color: #ffffff;
   text-transform: uppercase;
@@ -166,11 +184,11 @@
   display: none;
 }
 
-.groupText>ul {
+.groupText > ul {
   margin-left: 15px;
 }
 
-.groupText>ul>li::marker {
+.groupText > ul > li::marker {
   color: #fff;
 }
 
@@ -325,7 +343,9 @@
 
   .h3text {
     text-align: center;
-    font: normal normal bold 28px/40px Roboto;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 40px;
     letter-spacing: 1.05px;
     color: #ffffff;
     opacity: 1;
@@ -333,7 +353,9 @@
 
   .ptext {
     text-align: center;
-    font: normal normal bold 16px/20px Roboto;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
     letter-spacing: 0.48px;
     color: #ffffff;
     opacity: 1;
@@ -379,7 +401,9 @@
   .h3text {
     color: var(--unnamed-color-ffffff);
     text-align: center;
-    font: normal normal bold 16px/25px Roboto;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 25px;
     letter-spacing: 0px;
     color: #ffffff;
     opacity: 1;
@@ -389,7 +413,9 @@
     padding: 0 30px;
     color: var(--unnamed-color-ffffff);
     text-align: center;
-    font: normal normal bold 12px/25px Roboto;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 25px;
     letter-spacing: 0px;
     color: #ffffff;
     opacity: 1;
@@ -422,11 +448,11 @@
     justify-content: space-between;
   }
 
-  .groupText>h4 {
+  .groupText > h4 {
     position: relative;
   }
 
-  .groupText>h4>span>svg {
+  .groupText > h4 > span > svg {
     display: none;
   }
 
@@ -436,7 +462,7 @@
 }
 
 @media (max-width: 768px) {
-  .footer{
+  .footer {
     margin-top: 200px;
   }
   .liText {
@@ -459,7 +485,7 @@
 
   .txt-bottom-footer {
     font-size: 14px;
-    color: "#FFFFFF"
+    color: #ffffff;
   }
 
   .linksAndsocials {
@@ -467,7 +493,7 @@
     flex-direction: column;
   }
 
-  .groupText>h4 {
+  .groupText > h4 {
     position: relative;
   }
 
@@ -475,14 +501,14 @@
     padding: 15px 0;
   }
 
-  .groupText>ul {
+  .groupText > ul {
     transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s,
       z-index 0s linear 0.01s;
     margin-left: 45px;
     list-style-type: circle;
   }
 
-  .groupText>h4>span>svg {
+  .groupText > h4 > span > svg {
     display: block;
     height: 22px;
     position: absolute;
@@ -502,7 +528,7 @@
     margin: 20px 0 30px 0;
   }
 
-  .socialsIcon>svg {
+  .socialsIcon > svg {
     width: 25px;
     height: auto;
     color: #fff;
@@ -513,15 +539,15 @@
     border-bottom: 1px solid #fff;
   }
 
-  .groupText>ul>li::marker {
+  .groupText > ul > li::marker {
     transform: translateX(10px) !important;
   }
 
-  .groupText>h4 {
+  .groupText > h4 {
     margin-bottom: 0;
   }
 
-  .groupText>ul {
+  .groupText > ul {
     display: none;
   }
 
@@ -538,7 +564,7 @@
 @media (max-width: 570px) {
   .txt-bottom-footer {
     font-size: 14px;
-    color: "#FFFFFF"
+    color: "#FFFFFF";
   }
 
   .covergalery {
@@ -546,7 +572,7 @@
   }
 
   .scaleText {
-    margin: 0px 12px 10px 12px;
+    margin: 0px 12px 30px 12px;
   }
 
   .containX {

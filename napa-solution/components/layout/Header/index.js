@@ -55,10 +55,13 @@ const Header = (props) => {
   const navRef = useRef(null);
 
   // console.log("navbarsss", navbarMenu, data);
-  const darkmode = useDarkMode(true);
+  const darkmode = useDarkMode()
   useEffect(() => {
-    const hour = new Date().getHours();
-    if (hour < 5 || hour >= 19) darkmode.enable();
+    const hour = new Date().getHours()
+    if (hour < 5 || hour >= 19)
+      darkmode.enable()
+    else
+      darkmode.disable()
   }, []);
 
   // const [changeNav, setChangeNav] = useState(true);
@@ -261,7 +264,7 @@ const Header = (props) => {
           <i className="menu-background middle3"></i>
           <i className="menu-background bottom3"></i>
           <div className="menu content-backdrop">
-            <div className="menu logo-backdrop">
+            <div className="menu logo-backdrop topOfMenu">
               <a className="logo" href={navbarLogo?.url}>
                 <img
                   alt="LOGO"
@@ -270,7 +273,7 @@ const Header = (props) => {
                 />
               </a>
             </div>
-            <div className="menu boxcover">
+            <div className="menu boxcover topOfMenu">
               {navbarMobile.length > 0 &&
                 navbarMobile.map((item, index) => (
                   <div

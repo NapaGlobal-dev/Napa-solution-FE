@@ -58,7 +58,7 @@ const Message = (props) => {
                         <div className="line-2" />
                         <div className="line-3" />
                     </div>
-                    <div className="profile-title">
+                    <div className="profile-title" id='down-up'>
                         <div className="profile-big-title">
                             <h1>{data["CompanyProfile_Message_Label"].value}</h1>
                         </div>
@@ -79,7 +79,7 @@ const Message = (props) => {
                     </iframe>
                     </div>
                     <div className="wrap-detail">
-                        <div className="wrap-message">
+                        <div className="wrap-message" id='down-up'>
                             <div className="message-label">
                             {data["CompanyProfile_Message_Title"].value}
                             </div>

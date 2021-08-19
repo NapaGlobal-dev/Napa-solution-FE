@@ -1,136 +1,183 @@
 .overlay-headerA {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: #00589b40;
-    opacity: .6;
-  }
-  .wrap-banner{
-    position: absolute;
-    top: 26%;
-    padding: 50px 120px;
-    text-align: center;
-    color: white;
-  }
-  .wrap-banner.open .frame-tb::before, .wrap-banner.open .frame-tb::after{
-    height: 100%;
-  }
-  .wrap-banner.open .frame-lr::before, .wrap-banner.open .frame-lr::after{
-    width: 100%;
-  }
-.frame-tb::before{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #00589b40;
+  opacity: 0.6;
+}
+
+.wrap-banner {
+  position: absolute;
+  top: 26%;
+  padding: 70px 100px;
+  text-align: center;
+  color: white;
+}
+.sub-title{
+  font-size: 25px;
+  letter-spacing: 5px;  
+}
+.wrap-banner.open .frame-tb::before,
+.wrap-banner.open .frame-tb::after {
+  height: 100%;
+}
+
+.wrap-banner.open .frame-lr::before,
+.wrap-banner.open .frame-lr::after {
+  width: 100%;
+}
+
+.frame-tb::before {
   top: 0;
   left: 0;
   -webkit-transform-origin: 0 50%;
   transform-origin: 0 50%;
 }
-.frame-tb::after{
+
+.frame-tb::after {
   bottom: 0;
   right: 0;
   -webkit-transform-origin: 100% 50%;
   transform-origin: 100% 50%;
 }
-.frame-tb::before, .frame-tb::after {
+
+.frame-tb::before,
+.frame-tb::after {
   content: "";
   position: absolute;
   background: #fff;
   height: 0;
-  transition: height .4s .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: height 0.4s 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   width: 2px;
   box-sizing: border-box;
 }
-.frame-lr::before, .frame-lr::after {
+
+.frame-lr::before,
+.frame-lr::after {
   width: 0;
-  transition: width .6s .8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: width 0.6s 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
   height: 2px;
   content: "";
   position: absolute;
   background: #fff;
 }
-.frame-lr::before{
+
+.frame-lr::before {
   bottom: 0;
   left: 0;
   -webkit-transform-origin: 50% 100%;
   transform-origin: 50% 100%;
 }
-.frame-lr::after{
+
+.frame-lr::after {
   top: 0;
   right: 0;
   -webkit-transform-origin: 50% 0;
   transform-origin: 50% 0;
 }
-.main-title{
-    font-weight: lighter;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 75px;
+
+.main-title {
+  font-weight: lighter;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 75px;
 }
-  .banner{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    min-width: 100%;
-    position: relative;
-    overflow: hidden;
+
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageA {
+  /* height: auto; */
+  min-width: 100%;
+}
+
+.textB {
+  padding: 50px 100px 30px 100px;
+  background: #412490 0% 0% no-repeat padding-box;
+  color: #fff;
+  width: 100%;
+  height: max-content;
+  position: absolute;
+  bottom: 0;
+  opacity: 1;
+}
+
+.titleB {
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 0.72px;
+  margin-bottom: 10px;
+}
+
+.subtitleB {
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 0.48px;
+}
+
+@media (max-width:768px) {
+  .sub-title{
+    font-size: 20px;
   }
-  .imageA{
-    /* height: auto; */
-    min-width: 100%;
+  .textB {
+    padding: 50px 24px 30px 24px;
   }
-  .textB{
-    padding: 50px 100px 30px 100px;
-    background: #412490 0% 0% no-repeat padding-box;
-    color:#fff;
-    width:100%;
-    height: max-content;
-    position: absolute;
-    bottom: 0;
-    opacity: 1;
+
+  .wrap-banner {
+    padding: 40px;
   }
-  .titleB{
-    font-weight: bold;
-    font-size: 22px;
+
+  .main-title {
+    font-size: 50px;
+  }
+
+  .border-titleA {
+    padding: 5px 40px 4px;
+  }
+
+  .textB {
+    padding: 30px 30px 20px 30px;
+    font-size: 14px;
+  }
+
+  .titleB {
+    font-size: 16px;
     letter-spacing: 0.72px;
     margin-bottom: 10px;
   }
-  .subtitleB{
+
+  .subtitleB {
+    font-size: 10px;
     font-weight: bold;
-    font-size: 13px;
+    line-height: 20px;
     letter-spacing: 0.48px;
   }
-
-  @media (max-width:768px) {
-    .textB{
-      padding: 50px 24px 30px 24px;
-    }
-    .wrap-banner{
-      padding: 20px 40px;
-    }
-    .main-title{
-      font-size: 50px;
-    }
-    .border-titleA{
-        padding: 5px 40px 4px;
-    }
-    .textB{
-        padding: 30px 30px 20px 30px;
-        font-size: 14px;
-    }
-    .titleB{
-        font-size: 16px;
-        letter-spacing: 0.72px;
-        margin-bottom: 10px;
-    }
-    .subtitleB{
-        font: normal normal bold 10px/20px Roboto;
-        letter-spacing: 0.48px;
-    }
 }
-@media (max-width:1280px) {
-    .imageA{
-        min-width: auto;
-    }
+
+@media (max-width:1290px) {
+  .imageA {
+    min-width: auto;
+  }
+  .wrap-banner{
+    padding: 80px 120px;
+  }
+}
+@media (max-width:414px) {
+  .main-title {
+    font-size: 30px;
+  }
+
+  .wrap-banner {
+    margin: 0 12px;
+    padding: 40px 20px;
+  }
 }

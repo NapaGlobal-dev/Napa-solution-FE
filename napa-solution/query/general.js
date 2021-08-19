@@ -553,22 +553,22 @@ export const PROJECTS = gql`
 `;
 
 export const GET_SERVICES_PAGE_DATA = gql`
-  query getServicesPageData {
-    page: allPages(where: { nameEN_contains: "Services" }) {
+query getServicesPageData($id:ID!) {
+  page: allPages(where: { id: $id}) {
+    name
+    nameEN
+    url
+    layouts {
       name
-      nameEN
-      url
-      layouts {
+      property {
         name
-        property {
-          name
-          value
-          image {
-            original: publicUrl
-            thumbnail: publicUrlTransformed(transformation: { width: "64" })
-          }
+        value
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
         }
       }
     }
   }
+}
 `;

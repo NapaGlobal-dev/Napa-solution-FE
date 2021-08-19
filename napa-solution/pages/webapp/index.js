@@ -1,15 +1,14 @@
 import React from "react";
 import Head from "next/head";
-import { client } from "../../apolo-client";
-import { GET_SERVICES_PAGE_DATA, PROJECTS } from "../../query/general";
 import Banner from "../../components/services/banner";
 import Project from "../../components/homepage/Project";
-import BlockChain from "../../components/services/blockchain";
+import WebApp from "../../components/services/webapp";
 import { convertArrToObject } from "../../util/converArrayToObject";
+import { client } from "../../apolo-client";
+import { GET_SERVICES_PAGE_DATA, PROJECTS } from "../../query/general";
 
 const Services = ({ projects, ...props }) => {
   const data = convertArrToObject(props.data.page[0].layouts);
-
   return (
     <>
       <Head>
@@ -34,7 +33,7 @@ const Services = ({ projects, ...props }) => {
         />
       </Head>
       <Banner data={data.Services_Banner} />
-      <BlockChain data={data.Services_BlockChain} />
+      <WebApp data={data.WebApp} />
       <Project data={projects} />
     </>
   );
@@ -42,7 +41,7 @@ const Services = ({ projects, ...props }) => {
 
 export async function getStaticProps() {
   const [pageData, projectData] = await Promise.allSettled([
-    client.query({ query: GET_SERVICES_PAGE_DATA }),
+    client.query({ query: GET_SERVICES_PAGE_DATA, variables: { id: "611d03901a5f420538983f31" } }),
     client.query({ query: PROJECTS }),
   ]);
 

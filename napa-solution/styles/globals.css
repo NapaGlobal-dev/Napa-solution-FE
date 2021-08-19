@@ -51,15 +51,17 @@ body.dark-mode div {
 
 #main-title {
   text-align: left;
-  font: normal normal bold 45px/59px Roboto;
+  font-size: 45px;
+  font-weight: bold;
+  line-height: 59px;
   letter-spacing: 0px;
   color: #412490;
   opacity: 1;
 }
-a:hover{
+a:hover {
   text-decoration: none;
 }
-#detail-btn-company:hover svg{
+#detail-btn-company:hover svg {
   stroke-dashoffset: -207px;
 }
 #stroke-arr-btn {
@@ -90,7 +92,9 @@ a:hover{
 
 #sub-title {
   text-align: left;
-  font: normal normal bold 26px/30px Roboto;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 30px;
   letter-spacing: 0.78px;
   color: #9e9e9e;
   opacity: 1;
@@ -101,7 +105,9 @@ a:hover{
 #detail-btn-company-content {
   color: var(--unnamed-color-ffffff);
   text-align: left;
-  font: normal normal bold 16px/30px Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 30px;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
@@ -132,19 +138,23 @@ a:hover{
   width: 100%;
 }
 @media (max-width: 768px) {
-  #detail-btn-company{
+  #detail-btn-company {
     width: auto;
     height: auto;
-    padding: 15px 50px;
+    padding: 15px 0;
   }
 }
 @media (max-width: 414px) {
   #main-title {
-    font: normal normal bold 20px/26px Roboto;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 26px;
   }
 
   #sub-title {
-    font: normal normal bold 14px/30px Roboto;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px;
   }
 
   #detail-btn-company {
@@ -154,6 +164,8 @@ a:hover{
   }
 
   #detail-btn-company-content {
-    font: normal normal bold 14px/30px Roboto;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 30px;
   }
 }

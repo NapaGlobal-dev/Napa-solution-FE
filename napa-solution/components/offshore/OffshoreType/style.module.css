@@ -1,65 +1,75 @@
 .cover {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    margin: 50px 50px 0px 100px;
-    position: relative;
-  }
-  
-  .cover > svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-90px, -20%);
-    /* height: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 50px 50px 0px 100px;
+  position: relative;
+}
+
+.cover > svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-90px, -20%);
+  /* height: 54px;
       width: auto; */
-  }
-  .cover > h3 {
-    text-align: left;
-    font: normal normal bold 45px/65px Noto Sans JP;
-    letter-spacing: 0px;
-    color: #23496d;
-    text-transform: uppercase;
-    opacity: 1;
-  }
-  
-  .cover > p {
-    margin-bottom: 50px;
-    text-align: left;
-    font: normal normal normal 26px/40px Noto Sans JP;
-    letter-spacing: 0.78px;
-    color: #9e9e9e;
-    opacity: 1;
-  }
-
-  .item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 80px;
-    border-top: 1px solid #c8b8f4;
-    padding-top: 40px;
-    flex-direction: column;
-  }
-  .introduce {
-    margin-bottom: 40px;
+}
+.cover > h3 {
+  text-align: left;
+  font-size: 45px;
+  font-weight: bold;
+  line-height: 65px;
+  letter-spacing: 0px;
+  color: #23496d;
+  text-transform: uppercase;
+  opacity: 1;
 }
 
-.title{
-    font: normal normal bold 18px/30px Noto Sans JP;
-letter-spacing: 0px;
-color: #23496D;
+.cover > p {
+  margin-bottom: 50px;
+  text-align: left;
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 40px;
+  letter-spacing: 0.78px;
+  color: #9e9e9e;
+  opacity: 1;
 }
 
-.subtitle{
-    font: normal normal normal 16px/30px Noto Sans JP;
-letter-spacing: 0px;
-color: #6C3AF5;
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  border-top: 1px solid #c8b8f4;
+  padding-top: 40px;
+  flex-direction: column;
+}
+.introduce {
+  margin-bottom: 40px;
 }
 
-.content{
-    font: normal normal normal 16px/30px Noto Sans JP;
-letter-spacing: 0px;
-color: #172052;
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 30px;
+  letter-spacing: 0px;
+  color: #23496d;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 30px;
+  letter-spacing: 0px;
+  color: #6c3af5;
+}
+
+.content {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 30px;
+  letter-spacing: 0px;
+  color: #172052;
 }
 
 @media (max-width: 1023px) {
@@ -67,44 +77,69 @@ color: #172052;
     flex-direction: column;
     margin: 0px;
   }
+
   .item > p {
     max-width: none;
     min-width: none;
   }
+
   .cover > svg {
     display: none;
   }
+
   .cover {
-    margin: 30px 24px;
+    margin: 100px 24px 30px 24px;
   }
+
   .cover > h3 {
     text-align: left;
-    font: normal normal bold 20px/26px Roboto;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 26px;
     letter-spacing: 0px;
     color: #23496d;
     text-transform: uppercase;
     opacity: 1;
   }
+
   .cover > p {
     text-align: left;
-    font: normal normal normal 16px/40px Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 40px;
     letter-spacing: 0.48px;
     color: #9e9e9e;
     opacity: 1;
 
     margin-bottom: 24px;
   }
+
   .item > p {
     text-align: left;
-    font: normal normal bold 16px/24px Noto Sans JP;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
     letter-spacing: 0px;
     color: #23496d;
     opacity: 1;
   }
+
   .groupReason > p {
     text-align: left;
-    font: normal normal normal 14px/30px Noto Sans JP;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 30px;
     letter-spacing: 0px;
     opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .subtitle,
+  .content {
+    font-size: 14px;
+  }
+  .title {
+    font-size: 16px;
   }
 }
