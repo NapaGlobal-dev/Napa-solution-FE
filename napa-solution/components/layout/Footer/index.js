@@ -66,7 +66,7 @@ const Footer = (props) => {
                     <br />
                   )}
                 </p>
-                <a href="company.html">
+                <a href={data.Footer_ContactButton.url}>
                   <div
                     className="col-xs-12 order-3 order-xl-4 no-default-spacing"
                     id="detail-btn-company"
