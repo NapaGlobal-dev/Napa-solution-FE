@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Head from "next/head";
 const ClientSay = (props) => {
   const { data } = props;
-  console.log("data", data);
+
   useEffect(() => {
     $("head").append(`<style>
     // .style_buttons__2FgUD > button.pause::before {
