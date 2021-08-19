@@ -26,7 +26,7 @@ const Banner = (props) => {
                 <img src={data["CompanyProfile_Banner_Img"].image.original} className="imageA" alt="" />
                 <div className="wrap-banner" id="banner">
                     <h1 className="main-title">{data["CompanyProfile_Banner_Title"].value}</h1>
-                    <div style={{ marginTop: 20, fontSize: "1.2rem" }}>
+                    <div className="sub-title">
                         {data["CompanyProfile_Banner_SubTitle"].value}
                     </div>
                     <div className="frame-tb"></div>
