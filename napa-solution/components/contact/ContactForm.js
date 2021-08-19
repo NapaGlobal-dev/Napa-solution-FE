@@ -11,13 +11,7 @@ const ContactForm = (props) => {
           {data["Contact_ContactForm_SubTitle"]?.value}
         </div>
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: 45,
-        }}
-      >
+      <div className='contact'>
         <div className="containerD">
           <div className="tableD">
             <div className="titleD" id='down-up'>

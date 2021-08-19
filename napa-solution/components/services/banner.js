@@ -18,7 +18,7 @@ const Banner = (props) => {
         />
         <div className="wrap-banner" id="banner">
           <h1 className="main-title">{data["Services_Banner_NameEN"].value}</h1>
-          <div style={{ marginTop: 20, fontSize: "1.2rem" }}>
+          <div className='sub-title'>
             {data["Services_Banner_NameJP"].value}
           </div>
           <div className="frame-tb"></div>
