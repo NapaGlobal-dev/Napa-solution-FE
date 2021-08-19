@@ -66,7 +66,7 @@ const Message = (props) => {
         <link key="css/carousel.css" rel="stylesheet" href="css/carousel.css" />
       </Head>
       <div className="container-fluid">
-        <div className={clsx(styles.cover)}>
+        <div className="cover">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="58.948"
@@ -107,8 +107,8 @@ const Message = (props) => {
               />
             </g>
           </svg>
-          <h3 id='down-up'>{title.value}</h3>
-          <p id='down-up'>{subTitle.value}</p>
+          <h3 id="down-up">{title.value}</h3>
+          <p id="down-up">{subTitle.value}</p>
           <div className={clsx(styles.slider)}>
             <div
               id="carouselExampleControls"

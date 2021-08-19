@@ -52,7 +52,7 @@ const WhyNapa = (props) => {
 
   return (
     <div className="container-fluid">
-      <div className={clsx(styles.cover)}>
+      <div className="cover">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="58.948"
@@ -93,11 +93,11 @@ const WhyNapa = (props) => {
             />
           </g>
         </svg>
-        <h3 id='down-up'>{title.value}</h3>
-        <p id='down-up'>{subTitle.value}</p>
+        <h3 id="down-up">{title.value}</h3>
+        <p id="down-up">{subTitle.value}</p>
         <div className={clsx(styles.table)}>
           {tableWhy?.map((item, index) => (
-            <div className={clsx(styles.item)} key={index} id='down-up'>
+            <div className={clsx(styles.item)} key={index} id="down-up">
               <p>{item.value}</p>
               <div className={clsx(styles.groupReason)}>
                 {tableReason[index].content?.map((reason, index) => (
