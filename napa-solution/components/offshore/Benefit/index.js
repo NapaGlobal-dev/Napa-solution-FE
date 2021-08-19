@@ -60,7 +60,7 @@ const Benefit = (props) => {
           <div className={styles.item}>
             <img src={benefit.OffShore_Benefit_Img.image.original} />
             <div className={styles.benefitBorder}>
-              <div className={clsx(styles.benefitDetail, darkmode.value ? styles.benefitDetailDarkMode : "" )} id="down-up">
+              <div className={clsx(styles.benefitDetail, darkmode?.value && styles.benefitDetailDarkMode  )} id="down-up">
                 {contentBenefit.map((item, index) => (
                   <div className={styles.wraperContent} key={index}>
                     <div className={styles.benefitNumber}>

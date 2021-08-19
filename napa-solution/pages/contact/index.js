@@ -5,7 +5,7 @@ import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import ContactForm from "../../components/contact/ContactForm";
 import Project from "../../components/homepage/Project/index";
-import Banner from "../../components/Contact/banner";
+import Banner from "../../components/contact/banner";
 import { getData } from "../../util/converArrayToObject";
 
 const ContactPage = (props) => {
