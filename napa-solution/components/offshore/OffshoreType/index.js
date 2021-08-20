@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { convertArrToObject, getData } from "../../../util/converArrayToObject";
 import styles from "./style.module.css";
 
@@ -18,7 +19,7 @@ const OffshoreType = (props) => {
   return (
     <>
       <div className="container-fluid">
-        <div className="cover">
+        <div className={clsx("cover", styles.wrapContainer)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="58.948"

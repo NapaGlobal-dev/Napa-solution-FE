@@ -26,6 +26,7 @@
   .item > p {
     max-width: none;
     min-width: none;
+    margin-right: 0px;
   }
 
   .item > p {
@@ -37,30 +38,13 @@
     color: #23496d;
     opacity: 1;
   }
+  .wrapContainer{
+    margin: 100px 50px 0px 50px
+  }
 
-  @media (max-width: 1023px) {
-    .item {
-      flex-direction: column;
-      margin: 0px;
-    }
-    .item > p {
-      max-width: none;
-      min-width: none;
-    }
-    .item > p {
-      text-align: left;
-      font-size: 14px;
-      letter-spacing: 0px;
-      color: #23496d;
-      opacity: 1;
-    }
-    .groupReason > p {
-      text-align: left;
-      font-size: 14px;
-      font-weight: normal;
-      line-height: 30px;
-      letter-spacing: 0px;
-      opacity: 1;
-    }
+}
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .wrapContainer{
+    margin: 100px 50px 0px 100px
   }
 }

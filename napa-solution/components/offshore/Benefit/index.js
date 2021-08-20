@@ -2,6 +2,7 @@ import clsx from "clsx";
 import useDarkMode from "use-dark-mode";
 import { convertArrToObject, getData } from "../../../util/converArrayToObject";
 import styles from "./style.module.css";
+import { useEffect, useState } from "react";
 const Benefit = (props) => {
   // console.log(props.data)
   const benefit = convertArrToObject(props.data.property);
@@ -10,10 +11,15 @@ const Benefit = (props) => {
     /OffShore_Benefit_Content/
   );
   const darkmode = useDarkMode();
-
+  useEffect(() => {
+    if(darkmode?.value){
+      document.getElementsByClassName(styles.benefitDetail)[0].classList.add(styles.benefitDetailDarkMode)
+      console.log(document.getElementsByClassName(styles.benefitDetail))
+    }
+  },[])
   return (
     <div className="container-fluid">
-      <div className={"cover"}>
+      <div className={clsx("cover", styles.wrapContainer)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="58.948"
@@ -60,7 +66,7 @@ const Benefit = (props) => {
           <div className={styles.item}>
             <img src={benefit.OffShore_Benefit_Img.image.original} />
             <div className={styles.benefitBorder}>
-              <div className={clsx(styles.benefitDetail, darkmode?.value && styles.benefitDetailDarkMode  )} id="down-up">
+              <div className={clsx(styles.benefitDetail)} id="down-up" >
                 {contentBenefit.map((item, index) => (
                   <div className={styles.wraperContent} key={index}>
                     <div className={styles.benefitNumber}>
