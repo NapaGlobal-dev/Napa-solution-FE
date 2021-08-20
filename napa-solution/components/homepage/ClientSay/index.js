@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Head from "next/head";
 const ClientSay = (props) => {
   const { data } = props;
-  console.log("data", data);
+
   useEffect(() => {
     $("head").append(`<style>
     // .style_buttons__2FgUD > button.pause::before {
@@ -62,9 +62,9 @@ const ClientSay = (props) => {
     bigbtn.onclick = function () {
       togglePlayPause();
     };
-    video.onclick = function () {
-      togglePlayPause();
-    };
+    // video.onclick = function () {
+    //   togglePlayPause();
+    // };
 
     if (video.currentTime == 0) {
       $("#video").removeAttr("controls");
