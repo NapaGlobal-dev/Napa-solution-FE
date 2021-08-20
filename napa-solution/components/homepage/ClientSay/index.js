@@ -62,9 +62,9 @@ const ClientSay = (props) => {
     bigbtn.onclick = function () {
       togglePlayPause();
     };
-    video.onclick = function () {
-      togglePlayPause();
-    };
+    // video.onclick = function () {
+    //   togglePlayPause();
+    // };
 
     if (video.currentTime == 0) {
       $("#video").removeAttr("controls");
