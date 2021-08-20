@@ -195,7 +195,7 @@ export default function HorizonMilestone({
       "m" +
       (unitDistance1 * 2 + (unitDistance1 * 2 + between) * (n - 1)) +
       ",50l" +
-      between +
+      (between + 2 )+
       ",0"
     );
   }
