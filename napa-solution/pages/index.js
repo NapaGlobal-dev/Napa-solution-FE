@@ -148,12 +148,11 @@ const Index = ({ footer, data, ...props }) => {
         onClick={scrollToTop}
       >
         <svg
-          className="scroll-top-img"
           aria-hidden="true"
           focusable="false"
           data-prefix="fas"
           data-icon="arrow-up"
-          class="scroll-top-img svg-inline--fa fa-arrow-up fa-w-14"
+          className="scroll-top-img svg-inline--fa fa-arrow-up fa-w-14"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
