@@ -15,7 +15,6 @@ const CompanyAbout = ({ projects, ...props }) => {
   return (
     <>
       <Head>
-        <link key="css/contact.css" rel="stylesheet" href="css/contact.css" />{" "}
         <link
           key="css/home-page-slide.css"
           rel="stylesheet"

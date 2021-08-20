@@ -90,6 +90,119 @@ font-size: 14px;
 .next {
   color: #21293029;
 }
+
+.container-about{
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+}
+.left-about{
+  width: 50%;
+  padding-left: 30px;
+  padding-right: 50px;
+  display: flex;
+  align-items: center;
+}
+.right-about{
+  width: 50%;
+  padding-right: 30px;
+  padding-left: 50px;
+  display: flex;
+  align-items: center;
+}
+.wrap1-about{
+  width: 100%;
+}
+.wrap2-about{
+  padding: 20px;
+  background: #FAFAFA 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+}
+.content-about{
+  padding: 40px;
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 3px solid #6A43D5;
+}
+.content-about >h4{
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0.6px;
+  color: #23496D;
+}
+.content-about p{
+  font-size: 16px;
+  letter-spacing: 0.48px;
+  color: #23496D;
+}
+.foot-line{
+  display: flex;
+}
+.foot-line >p{
+  font-weight: bold;
+}
+.foot-space{
+  margin-left: 20px;
+}
+.decorate{
+  display: flex;
+  margin-bottom: 35px;
+}
+.decorate div{
+  width: 50px;
+  height: 20px;
+}
+.decorate1{
+  background-color: #6A43D5;
+}
+.decorate2{
+  background-color: #6A43D5E6;
+  margin-left: 10px;
+}
+.decorate3{
+  background-color: #6A43D5CC;
+  margin-left: 10px;
+}
+.decorate4{
+  background-color: #6A43D5B3;
+  margin-left: 10px;
+}
+.decorate5{
+  background-color: #6A43D599;
+  margin-left: 10px;
+}
+
+@media (max-width: 1280px) {
+  .container-about{
+    flex-direction: column;
+    padding: 0px;
+  }
+  .left-about{
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .right-about{
+    margin-top: 35px;
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .content-about{
+    padding: 0px;
+    border: unset;
+  }
+  .wrap2-about{
+    padding: 0px;
+    box-shadow: unset;
+    background: unset;
+  }
+  .decorate div{
+    width: 40px;
+    height: 10px;
+  }
+}
+
 @media (max-width: 1810px) {
   .slider > div > ol {
     transform: translateX(60px);
