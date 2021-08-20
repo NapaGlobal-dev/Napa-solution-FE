@@ -111,9 +111,7 @@ const Footer = (props) => {
                   <div key={index} className={clsx(styles.groupText)}>
                     <h4>
                       {!!page.url ? (
-                        <Link href={page.url}>
-                          <a className={styles.colorWhite}>{page.name}</a>
-                        </Link>
+                          <a href={page.url} className={styles.colorWhite}>{page.name}</a>
                       ) : (
                         page.name
                       )}
@@ -158,11 +156,9 @@ const Footer = (props) => {
                     <ul id={`ul-item-${index + 1}`}>
                       {page.childrenPage.map((childPage, key) => (
                         <li key={key}>
-                          <Link href={childPage.url}>
-                            <a className={clsx(styles.liText)} key={key}>
+                            <a href={childPage.url} className={clsx(styles.liText)} key={key}>
                               {childPage.name}
                             </a>
-                          </Link>
                         </li>
                       ))}
                     </ul>
