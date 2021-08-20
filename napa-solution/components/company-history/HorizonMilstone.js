@@ -254,8 +254,8 @@ export default function HorizonMilestone({
                 onClick={() => history(i)}
               />
               <text
-                x={1 + (i - 1) * (unitDistance1 * 2 + between) + gap + 19 + ""}
-                y="57"
+                x={(i - 1) * (unitDistance1 * 2 + between) + gap + 19 + ""}
+                y="59"
                 fontSize="1.5em"
                 fontWeight="bold"
                 fill="#FFFFFF"

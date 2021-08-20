@@ -61,7 +61,7 @@ export default function Timeline({data}){
                 <h3 id='down-up'>{title?.key}</h3>
                 <p id='down-up'>{title?.value}</p>
             </div>
-            <div className='containerC'>
+            <div className='container-timeline'>
                 <div className='timeline'>
                     <Milestone scrollE={scrollE} setTime={setTime} nextR={nextR} time={time} number={timelines.length}/>
                     <div className='slide'>
