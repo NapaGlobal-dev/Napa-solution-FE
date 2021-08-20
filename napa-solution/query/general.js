@@ -233,7 +233,7 @@ export const GET_HEADER = gql`
   query getHeader {
     navbar: allLayouts(where: { name: "Navbar" }) {
       name
-      property(sortBy: name_ASC) {
+      property {
         name
         value
         content {

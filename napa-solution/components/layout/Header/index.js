@@ -50,8 +50,7 @@ function Language() {
 const Header = (props) => {
   const { data } = useQuery(GET_HEADER);
   const navbarLogo = getData(data, /Navbar_Logo/)[0];
-  const navbarHome = getData(data, /Navbar_Menu1/)[0];
-  const navbarMenu = getData(data, /Navbar_Menu([2-9]|1[0-9])/);
+  const navbarMenu = getData(data, /Navbar_Menu/);
   const navbarMobile = getData(data, /Navbar_Menu/);
   const navRef = useRef(null);
   // console.log("navbarsss", navbarMenu, data);
@@ -198,38 +197,9 @@ const Header = (props) => {
         </a>
         <div className="collapse navbar-collapse navbar-menu" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item item-navbar-menu active item-home">
-              <div className="dropdown">
-                <div className="hover-o">
-                  <div className="hover-t">
-                    <a href={navbarHome?.url} className="text-navbar-menu">
-                      {navbarHome?.value}
-                    </a>
-                    <a href={navbarHome?.url} className="text-navbar-menu">
-                      {navbarHome?.value}
-                    </a>
-                  </div>
-                </div>
-                {(navbarHome && navbarHome.content.length !== 0) && (
-                  <div className="dropdown-layer">
-                    <div className="dropdown-body">
-                      <ul>
-                        {navbarHome.content.map((item, index) => (
-                          <li key={index}>
-                            <div>
-                              <a href={item.url}>{item.value}</a>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </li>
             {navbarMenu.map((menu, key) => (
               <li className="nav-item item-navbar-menu" key={key}>
-                <div className="slice-navbar-item" />
+                {!!key? <div className="slice-navbar-item" /> : <></>}
                 <div className="dropdown">
                   <div className="hover-o">
                     <div className="hover-t">
