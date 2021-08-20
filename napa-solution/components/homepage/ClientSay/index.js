@@ -62,17 +62,17 @@ const ClientSay = (props) => {
     bigbtn.onclick = function () {
       togglePlayPause();
     };
-    video.onclick = function () {
-      togglePlayPause();
-    };
+    // video.onclick = function () {
+    //   togglePlayPause();
+    // };
 
     if (video.currentTime == 0) {
       $("#video").removeAttr("controls");
     }
 
-    if (video.currentTime > 0) {
-      $("#video").attr("controls", "enabled");
-    }
+    // if (video.currentTime > 0) {
+    //   $("#video").attr("controls", "enabled");
+    // }
     video.addEventListener("timeupdate", function () {
       // var juicePos = video.currentTime / video.duration;
       // juice.style.width = juicePos * 100 + "%";
@@ -108,7 +108,7 @@ const ClientSay = (props) => {
             className={clsx(styles.video)}
             width="1500"
             height="700"
-            poster={data.poster.original}
+            poster={data.poster?.original}
           >
             <source src={data.video} type="video/mp4" autostart="false" />
           </video>
