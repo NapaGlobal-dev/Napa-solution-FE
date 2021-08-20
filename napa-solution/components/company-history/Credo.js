@@ -49,9 +49,9 @@ export default function Credo({data}){
                 <h3 id='down-up'>{title?.key}</h3>
                 <p id='down-up'>{title?.value}</p>
             </div>
-            <div className='containerD'  id='down-up'>
+            <div className='container-credo'  id='down-up'>
                 {credos.map((credo,index)=>(
-                    <div className={credos.length!=index+1?'rowD':'rowD-end'} key={index}>
+                    <div className={credos.length!=index+1?'row-credo':'row-credo-end'} key={index}>
                         <div className='leftColumn'>{index+1+'. '}{credo?.key}</div>
                         <div className='rightColumn'>{credo?.value}</div>
                     </div>
