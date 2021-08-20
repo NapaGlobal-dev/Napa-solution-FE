@@ -16,7 +16,7 @@ const Footer = (props) => {
   // const page_urls = props.data.pages;
   useEffect(() => {
     window.convertArrToObject = convertArrToObject;
-    Array.from({ length: 4 }, (num, index) => {
+    Array.from({ length: props.data.groups.length }, (num, index) => {
       $(`#btn-up-${index + 1}`).click(() => {
         $(`#ul-item-${index + 1}`).css({
           display: "none",
@@ -98,7 +98,7 @@ const Footer = (props) => {
                   className={clsx(styles.imgNapa)}
                 />
               </div>
-              <div className="container pl-0">
+              <div className="container pl-0 d-flex justify-content-center">
                 <img
                   src={data.Footer_LocatedImg.image.original}
                   className={clsx(styles.imgMap)}
@@ -228,17 +228,7 @@ const Footer = (props) => {
                 </div>
               </div>
               <div className={clsx(styles.coverform)}>
-                <div
-                  // style={{
-                  //   width: 419,
-                  //   height: 160,
-                  //   color: "#FFF",
-                  //   border: "2px solid #412490",
-                  //   padding: 30,
-                  //   transform: "translateX(-20px)",
-                  // }}
-                  className={clsx(styles.formstyle1)}
-                >
+                <div className={clsx(styles.formstyle1)}>
                   <div className="d-flex">
                     <div className={clsx(styles.iconcover)}>
                       <svg

@@ -95,8 +95,9 @@
   transition: all 0.5s ease-in-out;
 }
 
-.ot-container-visible {
-  bottom: 50px !important;
+.ot-container-nonvisible {
+  /* bottom: 50px !important; */
+  display: none;
 }
 
 .ot-image {

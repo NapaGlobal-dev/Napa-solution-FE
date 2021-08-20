@@ -16,10 +16,11 @@ function Language() {
   const [openDropdown, setOpenDropndown] = useState(false);
   const [language, setLanguage] = useState({});
   const dataLang = useContext(StoreContext)?.language;
+
   useEffect(() => {
     setLanguage(dataLang);
   }, []);
-  
+
   return (
     <div className="langWrapper">
       <div className="langBtn" onClick={() => setOpenDropndown(!openDropdown)}>
@@ -39,7 +40,9 @@ function Language() {
             }}
             className={index === (language && language[0]) ? "lang-active" : ""}
           >
-            <a href = {lang !== "JP" ? "http://www.napaglobal.com" : "#"} >{lang}</a>
+            <a href={lang !== "JP" ? "http://www.napaglobal.com" : "#"}>
+              {lang}
+            </a>
           </div>
         ))}
       </div>
@@ -54,13 +57,11 @@ const Header = (props) => {
   const navbarMobile = getData(data, /Navbar_Menu/);
   const navRef = useRef(null);
   // console.log("navbarsss", navbarMenu, data);
-  const darkmode = useDarkMode()
+  const darkmode = useDarkMode();
   useEffect(() => {
-    const hour = new Date().getHours()
-    if (hour < 5 || hour >= 19)
-      darkmode.enable()
-    else
-      darkmode.disable()
+    const hour = new Date().getHours();
+    if (hour < 5 || hour >= 19) darkmode.enable();
+    else darkmode.disable();
   }, []);
 
   // const [changeNav, setChangeNav] = useState(true);
@@ -199,7 +200,7 @@ const Header = (props) => {
           <ul className="navbar-nav">
             {navbarMenu.map((menu, key) => (
               <li className="nav-item item-navbar-menu" key={key}>
-                {!!key? <div className="slice-navbar-item" /> : <></>}
+                {!!key ? <div className="slice-navbar-item" /> : <></>}
                 <div className="dropdown">
                   <div className="hover-o">
                     <div className="hover-t">
