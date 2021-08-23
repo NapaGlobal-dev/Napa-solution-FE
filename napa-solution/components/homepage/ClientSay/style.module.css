@@ -9,7 +9,9 @@
 .video {
   background: gray;
   width: 100%;
-  max-width: 1555px;
+  /* max-width: 1555px; */
+  max-width: 70%;
+  border-radius: 10px;
   height: 100%;
   /* min-height: 300px; */
   margin-top: 50px;
