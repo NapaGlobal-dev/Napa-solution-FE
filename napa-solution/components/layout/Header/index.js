@@ -59,10 +59,27 @@ const Header = (props) => {
   // console.log("navbarsss", navbarMenu, data);
   const darkmode = useDarkMode();
   useEffect(() => {
-    const hour = new Date().getHours();
-    if (hour < 5 || hour >= 19) darkmode.enable();
-    else darkmode.disable();
+    if(!localStorage.getItem('darkmode')){
+      const hour = new Date().getHours();
+      if (hour < 5 || hour >= 19) darkmode.enable();
+      else darkmode.disable();
+    }else{
+      const isDarkmode = localStorage.getItem('darkmode')
+      if(isDarkmode=='on')
+        darkmode.enable()
+      else
+        darkmode.disable()
+    }
+
   }, []);
+
+  function wrapToggle(){
+    if(darkmode.value)
+      localStorage.setItem('darkmode', 'off')
+    else
+      localStorage.setItem('darkmode', 'on')
+    darkmode.toggle()
+  }
 
   // const [changeNav, setChangeNav] = useState(true);
   // const [navColor, setNavColor] = useState("light");
@@ -104,16 +121,6 @@ const Header = (props) => {
     };
   }, [navRef]);
 
-  useEffect(() => {
-    const hour = new Date().getHours();
-    if (hour < 5 || hour >= 19) darkmode.enable();
-
-    // if (window.location.pathname === "/") {
-    //   setNavColor("light");
-    // } else {
-    //   setNavColor("dark");
-    // }
-  }, []);
 
   useEffect(() => {
     Array.from({ length: navbarMobile.length }, (num, index) => {
@@ -163,8 +170,8 @@ const Header = (props) => {
       });
     });
     if (darkmode.value) {
-      $("#checkbox-dark-mode").attr("checked", false);
-    } else $("#checkbox-dark-mode").attr("checked", true);
+      $("#checkbox-dark-mode").attr("checked", true);
+    } else $("#checkbox-dark-mode").attr("checked", false);
     // $(".popcover").addClass("toggle");
   });
 
@@ -337,10 +344,10 @@ const Header = (props) => {
                 ))}
               </div>
               <div className="menu darkmode-checkbox">
-                {!darkmode.value ? <p>Dark</p> : <p>Light</p>}
+                {!!darkmode.value ? <p>Dark</p> : <p>Light</p>}
                 <label>
                   <input
-                    onClick={darkmode.toggle}
+                    onClick={wrapToggle}
                     type="checkbox"
                     id="checkbox-dark-mode"
                   />
@@ -354,7 +361,7 @@ const Header = (props) => {
           style={{ margin: "0 12px" }}
           className="nav-darkmode-icon hide-on-mobile"
           checked={!!darkmode.value}
-          onChange={darkmode.toggle}
+          onChange={wrapToggle}
           size={40}
         />
         <Language />
