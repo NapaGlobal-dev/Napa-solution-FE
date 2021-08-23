@@ -153,7 +153,8 @@ const Header = (props) => {
         $(`#ul-subitem-${index + 1}`).css({
           display: "block",
           transition: "all 0.5s ease",
-          maxHeight: "200px",
+          maxHeight: "210px",
+          overflow: "scroll"
         });
         $(`#btn-item-down-${index + 1}`).css("display", "none");
         $(`#btn-item-up-${index + 1}`).css("display", "block");
