@@ -25,11 +25,15 @@ body.dark-mode h2,
 body.dark-mode h3,
 body.dark-mode h4,
 body.dark-mode h5,
-body.dark-mode div {
+body.dark-mode div,
+body.dark-mode td,
+body.dark-mode th {
   color: #ffffff !important;
 }
-body.dark-mode #message, body.dark-mode #covermessage, body.dark-mode #wrap-contact{
-  background-color: #231846 ; 
+body.dark-mode #message,
+body.dark-mode #covermessage,
+body.dark-mode #wrap-contact {
+  background-color: #231846;
 }
 .btn-dark-mode {
   position: fixed;
@@ -136,6 +140,13 @@ a:hover {
   margin-top: -12px;
   height: 100%;
   width: 100%;
+}
+.table-style {
+  border: 2px solid gray;
+}
+.table-style > tbody > tr:first-child > th {
+  background-color: #442493;
+  color: #fff;
 }
 @media (max-width: 768px) {
   #detail-btn-company {
