@@ -14,9 +14,10 @@ const Benefit = (props) => {
   useEffect(() => {
     if(darkmode?.value){
       document.getElementsByClassName(styles.benefitDetail)[0].classList.add(styles.benefitDetailDarkMode)
-      console.log(document.getElementsByClassName(styles.benefitDetail))
+    }else{
+      document.getElementsByClassName(styles.benefitDetail)[0].classList.remove(styles.benefitDetailDarkMode)
     }
-  },[])
+  })
   return (
     <div className="container-fluid">
       <div className={clsx("cover", styles.wrapContainer)}>
@@ -66,7 +67,7 @@ const Benefit = (props) => {
           <div className={styles.item}>
             <img src={benefit.OffShore_Benefit_Img.image.original} />
             <div className={styles.benefitBorder}>
-              <div className={clsx(styles.benefitDetail)} id="down-up" >
+              <div className={clsx(styles.benefitDetail, darkmode?.value && styles.benefitDetailDarkMode)} id="down-up" >
                 {contentBenefit.map((item, index) => (
                   <div className={styles.wraperContent} key={index}>
                     <div className={styles.benefitNumber}>
