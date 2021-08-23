@@ -233,6 +233,7 @@ body {
   opacity: 1;
   text-decoration: none;
   cursor: pointer;
+  margin-right: 100px;
 }
 
 .navbar-menu {
@@ -1185,6 +1186,13 @@ body {
     margin: 0;
   }
 }
+
+@media (max-width: 1450px) {
+  .text-navbar-menu{
+    margin-right: 50px;
+  }
+}
+
 
 @media (max-width: 1366px) {
   .service-image {
