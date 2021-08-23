@@ -55,6 +55,7 @@ const Header = (props) => {
   const navbarLogo = getData(data, /Navbar_Logo/)[0];
   const navbarMenu = getData(data, /Navbar_Menu/);
   const navbarMobile = getData(data, /Navbar_Menu/);
+  const contact = navbarMenu.slice(-1)[0]
   const navRef = useRef(null);
   // console.log("navbarsss", navbarMenu, data);
   const darkmode = useDarkMode();
@@ -199,7 +200,7 @@ const Header = (props) => {
         </a>
         <div className="collapse navbar-collapse navbar-menu" id="navbarNav">
           <ul className="navbar-nav">
-            {navbarMenu.map((menu, key) => (
+            {navbarMenu.slice(0,-1).map((menu, key) => (
               <li className="nav-item item-navbar-menu" key={key}>
                 <div className="dropdown">
                   <div className="hover-o">
@@ -232,6 +233,11 @@ const Header = (props) => {
             ))}
           </ul>
         </div>
+
+        <a className='skewed-button' href={contact?.url}>
+          {/* <img className='contact-icon-button' src='./img/email.svg'></img> */}
+          {contact?.value}
+        </a>
 
         <a className="wrap-menu menu-icon-toggle">
           <div className="bar1" />

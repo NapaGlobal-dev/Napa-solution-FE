@@ -1746,6 +1746,9 @@ body {
 }
 
 @media (max-width: 1200px) {
+  .skewed-button{
+    display: none !important;
+  }
   #navbarNav {
     display: none !important;
   }
@@ -2274,4 +2277,44 @@ button:focus {
 
     margin-bottom: 24px;
   }
+}
+.skewed-button{
+  display: flex;
+
+  align-items: center;
+  margin-right: 20px;
+  overflow: hidden;
+  background: none;
+  text-decoration: none;
+  border: 2px solid #FFF;
+  color: #FFF !important;
+  display: block;
+  padding: 10px 30px;
+  position: relative;
+  transform: skew(-25deg);
+}
+.skewed-button::after{
+  height: 100%;
+  right: 0;
+  top: 0;
+  text-decoration: none;
+  transform: skew(47deg);
+  transition-duration: 0.25s;
+  transform-origin: top left;
+  width: 7%;
+  background: linear-gradient(271deg, #412490, #FFF);
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+.skewed-button:hover:after{
+  width: 200%;
+}
+.skewed-button:hover{
+  color: #412490 !important;
+  font-weight: bold;
+}
+.contact-icon-button {
+  transform: skew(25deg);
+  height: 1rem;
 }
