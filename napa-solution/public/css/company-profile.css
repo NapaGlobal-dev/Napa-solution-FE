@@ -35,7 +35,7 @@
 .wrapper-head {
   padding-bottom: 80px;
   padding: 0px 5%;
-  margin: 100px 40px 40px 40px;
+  margin: 100px 40px 0 40px;
 }
 
 .wrap-title {
@@ -65,8 +65,13 @@
   margin-top: 30px;
 }
 
+.wraper-content {
+  padding: 0 19%;
+}
+
 .wrap-container-content {
-  padding: 30px 19%;
+  padding: 30px 0;
+  border-bottom: 2px solid #c8b8f4;
 }
 
 .wrap-profile {
@@ -78,15 +83,14 @@
 .profile-label {
   font-size: 20px;
   font-weight: bold;
-  line-height: 29px;
   color: #23496d;
-  margin-top: 10px;
+
+  width: 50%;
 }
 
 .profile-content {
   font-size: 16px;
   font-weight: normal;
-  line-height: 50px;
   color: #23496d;
   width: 40%;
 }
@@ -128,26 +132,28 @@
   width: 54px;
   height: 100%;
 }
-.wrap-message{
+.wrap-message {
   /* max-width: 75%; */
 }
 @media (max-width: 1000px) {
   .wrap-profile {
     padding: 0px 6% 0px 2%;
   }
+
+  .wraper-content {
+    padding: 0 10%;
+  }
+
   .wrap-container-content {
-    padding: 30px 10%;
+    padding: 30px 0;
   }
   .profile-label {
     font-size: 16px;
     font-weight: bold;
-    line-height: 29px;
-    width: 25%;
   }
   .profile-content {
     font-size: 12px;
     font-weight: normal;
-    line-height: 50px;
     width: 50%;
   }
   .wrap-title {
