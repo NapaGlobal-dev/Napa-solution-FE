@@ -64,7 +64,7 @@ const Message = (props) => {
           <h3 id="down-up">{title.value}</h3>
           <p id="down-up">{subTitle.value}</p>
           <div className={clsx(styles["container-about"])}>
-            <div className={clsx(styles["left-about"])}>
+            {/* <div className={clsx(styles['left-about'])}>
               <LazyLoadImage
                 effectb="lur"
                 src={image.image?.original}
@@ -73,7 +73,7 @@ const Message = (props) => {
                 width="100%"
                 // className={clsx(styles.img)}
               />
-            </div>
+            </div> */}
             <div className={clsx(styles["right-about"])}>
               <div className={clsx(styles["wrap1-about"])}>
                 <div className={clsx(styles.decorate)}>
@@ -89,10 +89,18 @@ const Message = (props) => {
                       <h4>{message.key}</h4>
                       <p>{message.value}</p>
                       <div className={clsx(styles["foot-line"])}>
-                        <p>{role.key}</p>
-                        <p className={clsx(styles["foot-space"])}>
-                          {role.value}
-                        </p>
+                        <LazyLoadImage
+                          effectb="lur"
+                          src={image.image?.original}
+                          placeholderSrc={image.image?.thumbnail}
+                          threshold={100}
+                          // width="100%"
+                          className={clsx(styles.imgPresentative)}
+                        />
+                        <div className={clsx(styles.coverInfo)}>
+                          <h5>{role.value}</h5>
+                          <p>{role.key}</p>
+                        </div>
                       </div>
                     </div>
                   </div>

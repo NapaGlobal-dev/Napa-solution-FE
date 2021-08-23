@@ -153,7 +153,8 @@ const Header = (props) => {
         $(`#ul-subitem-${index + 1}`).css({
           display: "block",
           transition: "all 0.5s ease",
-          maxHeight: "200px",
+          maxHeight: "210px",
+          overflow: "scroll"
         });
         $(`#btn-item-down-${index + 1}`).css("display", "none");
         $(`#btn-item-up-${index + 1}`).css("display", "block");
@@ -200,7 +201,6 @@ const Header = (props) => {
           <ul className="navbar-nav">
             {navbarMenu.map((menu, key) => (
               <li className="nav-item item-navbar-menu" key={key}>
-                {!!key ? <div className="slice-navbar-item" /> : <></>}
                 <div className="dropdown">
                   <div className="hover-o">
                     <div className="hover-t">
@@ -213,7 +213,7 @@ const Header = (props) => {
                     </div>
                   </div>
                   {menu.content.length !== 0 && (
-                    <div className="dropdown-layer">
+                    <div className={menu.content.length>3? "dropdown-layer long-width":'dropdown-layer'}>
                       <div className="dropdown-body">
                         <ul>
                           {menu.content.map((item, index) => (

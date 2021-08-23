@@ -135,7 +135,7 @@
 .socials {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   line-height: 1;
   color: #fff;
   text-decoration: underline;
