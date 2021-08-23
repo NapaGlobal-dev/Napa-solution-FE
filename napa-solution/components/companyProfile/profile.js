@@ -49,7 +49,7 @@ const Profile = (props) => {
                     <div className="divided-line" />
                 </div>
             ))} */}
-      <div className="wrap-container-content">
+      <div className="wrap-table-content">
         <table className="table table-style">
           <tbody>
             <tr>

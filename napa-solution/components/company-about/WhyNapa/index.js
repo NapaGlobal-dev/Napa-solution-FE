@@ -52,7 +52,7 @@ const WhyNapa = (props) => {
 
   return (
     <div className="container-fluid">
-      <div className="cover">
+      <div className={clsx("cover", styles.cover)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="58.948"

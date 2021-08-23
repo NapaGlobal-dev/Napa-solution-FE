@@ -111,7 +111,9 @@ const Footer = (props) => {
                   <div key={index} className={clsx(styles.groupText)}>
                     <h4>
                       {!!page.url ? (
-                          <a href={page.url} className={styles.colorWhite}>{page.name}</a>
+                        <a href={page.url} className={styles.colorWhite}>
+                          {page.name}
+                        </a>
                       ) : (
                         page.name
                       )}
@@ -156,9 +158,13 @@ const Footer = (props) => {
                     <ul id={`ul-item-${index + 1}`}>
                       {page.childrenPage.map((childPage, key) => (
                         <li key={key}>
-                            <a href={childPage.url} className={clsx(styles.liText)} key={key}>
-                              {childPage.name}
-                            </a>
+                          <a
+                            href={childPage.url}
+                            className={clsx(styles.liText)}
+                            key={key}
+                          >
+                            {childPage.name}
+                          </a>
                         </li>
                       ))}
                     </ul>
@@ -389,18 +395,11 @@ const Footer = (props) => {
                         {data.Footer_Email.value}
                       </p>
                     </div>
-                    {/* <div> */}
                     <button className={clsx(styles.inputform)}>
                       <a href={data.Footer_MapBtn_JP.url} target="_blank">
                         {data.Footer_MapBtn_JP.value}
                       </a>
                     </button>
-                    {/* <input
-                      type="button"
-                      value={data.Footer_MapBtn.value}
-                      className={clsx(styles.inputform)}
-                    /> */}
-                    {/* </div> */}
                   </div>
                 </div>
                 <div className={clsx(styles.formstyle2)}>
@@ -568,18 +567,11 @@ const Footer = (props) => {
                         </p>
                       </div>
                     </div>
-                    {/* <div> */}
-                    {/* <input
-                      type="button"
-                      value={data.Footer_MapBtn.value}
-                      className={clsx(styles.inputform)}
-                    /> */}
                     <button className={clsx(styles.inputform)}>
                       <a href={data.Footer_MapBtn_EN.url} target="_blank">
                         {data.Footer_MapBtn_EN.value}
                       </a>
                     </button>
-                    {/* </div> */}
                   </div>
                 </div>
               </div>
