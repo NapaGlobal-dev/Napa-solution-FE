@@ -200,7 +200,6 @@ const Header = (props) => {
           <ul className="navbar-nav">
             {navbarMenu.map((menu, key) => (
               <li className="nav-item item-navbar-menu" key={key}>
-                {!!key ? <div className="slice-navbar-item" /> : <></>}
                 <div className="dropdown">
                   <div className="hover-o">
                     <div className="hover-t">
@@ -213,7 +212,7 @@ const Header = (props) => {
                     </div>
                   </div>
                   {menu.content.length !== 0 && (
-                    <div className="dropdown-layer">
+                    <div className={menu.content.length>3? "dropdown-layer long-width":'dropdown-layer'}>
                       <div className="dropdown-body">
                         <ul>
                           {menu.content.map((item, index) => (

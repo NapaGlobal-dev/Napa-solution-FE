@@ -1927,7 +1927,7 @@ button:focus {
 
 .dropdown-layer {
   display: none;
-  padding-top: 28px;
+  padding-top: 32px;
   min-width: 160px;
   width: 200px;
   z-index: 1;
@@ -1937,6 +1937,10 @@ button:focus {
   animation-fill-mode: forwards;
   left: 51%;
   right: auto;
+}
+
+.long-width {
+  width: 260px;
 }
 
 .dropdown-body {
@@ -1953,13 +1957,13 @@ button:focus {
 .dropdown-body ul {
   list-style: none;
 }
-
+/* 
 .dropdown-body a:before {
   content: "/";
   position: absolute;
   left: 5px;
   transform: rotate(15deg);
-}
+} */
 
 .dropdown-body a {
   transition: margin-left 0.5s;
@@ -1969,7 +1973,7 @@ button:focus {
 .dropdown-body div {
   position: relative;
   border-bottom: 2px solid #fff;
-  padding: 10px 0 4px 25px;
+  padding: 10px 0 4px 0px;
 }
 
 .dropdown-body li:hover a {
