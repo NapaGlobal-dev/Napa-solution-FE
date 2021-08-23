@@ -521,6 +521,7 @@ export const companyAbout = gql`
           }
           content {
             name
+            key
             value
             image {
               original: publicUrl
