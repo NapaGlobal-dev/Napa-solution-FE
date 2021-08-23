@@ -395,3 +395,10 @@
     bottom: -12px;
   }
 }
+
+@media (max-width: 1024px) {
+  .cover {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+}
