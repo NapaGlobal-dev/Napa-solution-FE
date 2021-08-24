@@ -48,45 +48,51 @@ const Footer = (props) => {
   return (
     <>
       <footer id="sticky-s-footer" className={clsx(styles.footer)}>
-        <div className="container-fluid d-flex justify-content-center flex-column ">
-          <div className="container-fluid">
-            <div
-              className={clsx(styles.covergalery)}
-              style={{
-                backgroundImage: `url(${data.Footer_ContactImage.image.original})`,
-              }}
-            >
-              <div className={clsx(styles.scaleText)} id="down-up">
-                <h3 className={clsx(styles.h3text)}>
-                  {joinJsx(data.Footer_ContactTitle.value.split("\\n"), <br />)}
-                </h3>
-                <p className={clsx(styles.ptext)}>
-                  {joinJsx(
-                    data.Footer_ContactContent.value.split("\\n"),
-                    <br />
-                  )}
-                </p>
-                <a href={data.Footer_ContactButton.url}>
-                  <div
-                    className="col-xs-12 order-3 order-xl-4 no-default-spacing"
-                    id="detail-btn-company"
-                  >
-                    <span id="detail-btn-company-content">
-                      {data.Footer_ContactButton.value}
-                    </span>
-                    <svg id="stroke-arr-btn" viewBox="0 0 64 7">
-                      <path d="M0 6h61.5l-5.2-5.2"></path>
-                    </svg>
-                  </div>
-                </a>
-              </div>
+        <div className={styles.coverContainer}>
+          <div
+            className={clsx(styles.covergalery)}
+            style={{
+              backgroundImage: `url(${data.Footer_ContactImage.image.original})`,
+            }}
+          >
+            <div className={clsx(styles.scaleText)} id="down-up">
+              <h3 className={clsx(styles.h3text)}>
+                {joinJsx(data.Footer_ContactTitle.value.split("\\n"), <br />)}
+              </h3>
+              <p className={clsx(styles.ptext)}>
+                {joinJsx(data.Footer_ContactContent.value.split("\\n"), <br />)}
+              </p>
+              <a href={data.Footer_ContactButton.url}>
+                <div
+                  className="col-xs-12 order-3 order-xl-4 no-default-spacing"
+                  id="detail-btn-company"
+                >
+                  <span id="detail-btn-company-content">
+                    {data.Footer_ContactButton.value}
+                  </span>
+                  <svg id="stroke-arr-btn" viewBox="0 0 64 7">
+                    <path d="M0 6h61.5l-5.2-5.2"></path>
+                  </svg>
+                </div>
+              </a>
             </div>
           </div>
+          <div
+            className={clsx(styles.coverBackground, styles.footerBackground)}
+          ></div>
+        </div>
+
+        <div
+          className={clsx(
+            "container-fluid d-flex justify-content-center flex-column",
+            styles.footerBackground
+          )}
+        >
           <div className={clsx("container-fluid", styles.containX)}>
             <div className={clsx(styles.groupMapIcon)}>
               <div
                 className={clsx(
-                  "d-flex justify-content-between",
+                  "d-flex  justify-content-between",
                   styles.groupNapaIcon
                 )}
               >
@@ -98,7 +104,7 @@ const Footer = (props) => {
                   className={clsx(styles.imgNapa)}
                 />
               </div>
-              <div className="container pl-0 d-flex justify-content-center">
+              <div className="pl-0 d-flex justify-content-end">
                 <img
                   src={data.Footer_LocatedImg.image.original}
                   className={clsx(styles.imgMap)}
@@ -579,8 +585,10 @@ const Footer = (props) => {
           </div>
 
           <div
-            className="d-flex justify-content-center"
-            style={{ height: 40, paddingBottom: 64 }}
+            className={clsx(
+              "d-flex justify-content-center",
+              styles.footerPublish
+            )}
           >
             <p className="txt-bottom-footer">{data.Footer_Publish.value}</p>
           </div>
