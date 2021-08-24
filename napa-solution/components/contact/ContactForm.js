@@ -1,5 +1,6 @@
 import React from "react";
 import { convertArrToObject } from "../../util/converArrayToObject";
+import joinJsx from "../../util/joinJsx";
 
 const ContactForm = (props) => {
   const data = convertArrToObject(props.data.property);
@@ -8,7 +9,7 @@ const ContactForm = (props) => {
       <div className="textC" id='down-up'>
         <div className="titleC">{data["Contact_ContactForm_Title"]?.value}</div>
         <div className="subtitleC">
-          {data["Contact_ContactForm_SubTitle"]?.value}
+           {joinJsx(data["Contact_ContactForm_SubTitle"]?.value.split("\\n"), <br />)}
         </div>
       </div>
       <div className='contact'>
