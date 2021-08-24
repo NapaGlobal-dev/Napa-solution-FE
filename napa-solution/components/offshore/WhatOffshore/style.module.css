@@ -1,21 +1,27 @@
 .item {
   display: flex;
   justify-content: space-between;
+  width: 100%;
   margin-bottom: 80px;
-  /* border-top: 1px solid #c8b8f4; */
-  /* padding-top: 40px; */
+  margin-top: 40px;
 }
 .item > p {
   width: 100%;
-  margin-right: 100px;
   letter-spacing: 1px;
-  text-align: left;
+  text-align: center;
   font-size: 16px;
   font-weight: normal;
   line-height: 30px;
   letter-spacing: 0px;
   color: #23496d;
   opacity: 1;
+}
+.wrap-image{
+  width: 100%;
+}
+.wrap-image img{
+  max-height: 350px;
+  object-fit: cover;
 }
 
 @media (max-width: 1023px) {

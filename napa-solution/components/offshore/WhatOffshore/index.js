@@ -49,8 +49,11 @@ const WhatOffshore = (props) => {
         </svg>
         <h3 id="down-up">{whatOffshore.Offshore_WhatOfshore_Title.value}</h3>
         <p id="down-up">{whatOffshore.Offshore_WhatOfshore_Subtitle.value}</p>
-        <div className={styles.item} id="down-up">
-          <p>{whatOffshore.Offshore_WhatOfshore_Content.value}</p>
+        <div className={styles['wrap-image']}>
+          <img loading="lazy" width="100%" src={whatOffshore.Offshore_WhatOfshore_Content?.image.original} />
+          <div className={styles.item} id="down-up">
+            <p>{whatOffshore.Offshore_WhatOfshore_Content.value}</p>
+          </div>
         </div>
       </div>
     </div>
