@@ -21,6 +21,11 @@ const CompanyAbout = ({ projects, ...props }) => {
           href="css/home-page-slide.css"
         />
         <link
+          key="css/company-about.css"
+          rel="stylesheet"
+          href="css/company-about.css"
+        />
+        <link
           rel="stylesheet"
           type="text/css"
           charset="UTF-8"

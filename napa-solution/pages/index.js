@@ -43,9 +43,10 @@ const Index = ({ footer, data, ...props }) => {
     }
   };
 
-  const toggleScrollTopBtn = (sw) => {
+  const handleSlideChange = (sw) => {
     // console.log(sw.activeIndex, headerRef.current);
 
+    // toogle visible on top button
     if (onTopBtnRef.current) {
       if (sw.activeIndex > 0) {
         onTopBtnRef.current.classList.remove("ot-container-nonvisible");
@@ -53,11 +54,20 @@ const Index = ({ footer, data, ...props }) => {
         onTopBtnRef.current.classList.add("ot-container-nonvisible");
       }
     }
+
     if (headerRef.current) {
+      // toogle color tranparent
       if (sw.activeIndex <= 0) {
         headerRef.current.classList.remove("dark-nav");
       } else {
         headerRef.current.classList.add("dark-nav");
+      }
+
+      // toogle visible nav bar
+      if (sw.activeIndex == 1) {
+        headerRef.current.classList.add("navbar-hidden-force");
+      } else {
+        headerRef.current.classList.remove("navbar-hidden-force");
       }
     }
   };
@@ -100,7 +110,7 @@ const Index = ({ footer, data, ...props }) => {
       <Swiper
         className="sw-container "
         onSwiper={setSwiperRef}
-        onSlideChange={toggleScrollTopBtn}
+        onSlideChange={handleSlideChange}
         direction={"vertical"}
         slidesPerView={1}
         mousewheel
