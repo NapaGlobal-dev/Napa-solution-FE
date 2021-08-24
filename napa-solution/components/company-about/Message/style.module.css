@@ -40,7 +40,7 @@
 
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
   background: #ffffff 0% 0% no-repeat padding-box;
-  border: 3px solid #23496d;
+  border: 3px solid #2f3f4e;
   opacity: 1;
   /* transform: translate(100px, 150px); */
 }
@@ -64,7 +64,7 @@
   margin-left: 14px;
 }
 .coverInfo > h5 {
-  color: #23496d;
+  color: #2f3f4e;
 }
 .foot-line > span > img {
   border-radius: 50%;
@@ -140,12 +140,12 @@
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 0.6px;
-  color: #23496d;
+  color: #2f3f4e;
 }
 .content-about p {
   font-size: 16px;
   letter-spacing: 0.48px;
-  color: #23496d;
+  color: #2f3f4e;
 }
 .foot-line {
   display: flex;

@@ -4,6 +4,7 @@
   margin: 0px;
   padding: 0px;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -17,8 +18,9 @@ body.light-mode {
 }
 
 body.dark-mode {
-  background: #0f0922;
+  background: #230b4c;
 }
+
 body.dark-mode p,
 body.dark-mode h1,
 body.dark-mode h2,
@@ -30,11 +32,13 @@ body.dark-mode td,
 body.dark-mode th {
   color: #ffffff !important;
 }
+
 body.dark-mode #message,
 body.dark-mode #covermessage,
 body.dark-mode #wrap-contact {
   background-color: #231846;
 }
+
 .btn-dark-mode {
   position: fixed;
   z-index: 20px;
@@ -42,12 +46,15 @@ body.dark-mode #wrap-contact {
   right: 150px;
   height: 30px;
 }
+
 .wrap-table-content {
   padding: 100px 10% 0px;
 }
-.wrap-table-content > table:first-child {
+
+.wrap-table-content>table:first-child {
   margin-bottom: 28px;
 }
+
 .white-border {
   position: absolute;
   right: -100%;
@@ -67,12 +74,15 @@ body.dark-mode #wrap-contact {
   color: #412490;
   opacity: 1;
 }
+
 a:hover {
   text-decoration: none;
 }
+
 #detail-btn-company:hover svg {
   stroke-dashoffset: -207px;
 }
+
 #stroke-arr-btn {
   display: block;
   right: -25px;
@@ -87,7 +97,8 @@ a:hover {
 }
 
 #detail-btn-company {
-  background: #412490 0% 0% no-repeat padding-box;
+  background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%);
+  border-radius: 5px;
   opacity: 1;
   width: 200px;
   height: 70px;
@@ -137,6 +148,7 @@ a:hover {
   border-radius: 60px;
   z-index: 100;
 }
+
 #scroll img {
   position: absolute;
   top: 50%;
@@ -146,13 +158,16 @@ a:hover {
   height: 100%;
   width: 100%;
 }
+
 .table-style {
   border: 2px solid #442493;
 }
-.table-style > tbody > tr:first-child > th {
+
+.table-style>tbody>tr:first-child>th {
   background-color: #442493;
   color: #fff;
 }
+
 @media (max-width: 768px) {
   #detail-btn-company {
     width: 98%;
@@ -161,6 +176,7 @@ a:hover {
     min-width: 180px;
   }
 }
+
 @media (max-width: 414px) {
   #main-title {
     font-size: 20px;
