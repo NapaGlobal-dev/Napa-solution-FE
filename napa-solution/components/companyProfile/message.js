@@ -70,19 +70,19 @@ const Message = (props) => {
                 </div>
 
                 <div className="wrap-address-message">
-                    <div id = "google-map">
+                    {/* <div id = "google-map">
                     <iframe src={data["CompanyProfile_Message_Location"].value}
                         style={{ border: 0, width: "100%", height: "100%" }}
                         loading="lazy"
                         allowFullScreen = ""
                         >
                     </iframe>
-                    </div>
+                    </div> */}
                     <div className="wrap-detail">
                         <div className="wrap-message" id='down-up'>
-                            <div className="message-label">
+                            {/* <div className="message-label">
                             {data["CompanyProfile_Message_Title"].value}
-                            </div>
+                            </div> */}
                             <div className="message-content">
                                 {data["CompanyProfile_Message_Title"].content.map((content, index) => (
                                     <React.Fragment key={index}>

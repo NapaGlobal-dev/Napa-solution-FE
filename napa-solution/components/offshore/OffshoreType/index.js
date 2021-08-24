@@ -7,15 +7,17 @@ const OffshoreType = (props) => {
   const content = Object.values(typeOffshore).filter((item) =>
     item.name.includes("Offshore_OffshoreType_Introduce")
   );
+  console.log(content.map(item => convertArrToObject(item.content)))
   let offshoreIntro = [];
   content.map((item) => {
     offshoreIntro.push({
       title: item.content[0].value,
       subtitle: item.content[1].value,
-      content: item.content.slice(2),
+      img: item.content[2].image,
+      content: item.content.slice(3),
     });
   });
-
+  console.log(offshoreIntro)
   return (
     <>
       <div className="container-fluid">
@@ -67,13 +69,18 @@ const OffshoreType = (props) => {
           <div className={styles.item}>
             {offshoreIntro.map((item, key) => (
               <div className={styles.introduce} key={key} id="down-up">
-                <p className={styles.title}> {item.title} </p>
-                <p className={styles.subtitle}> {item.subtitle}</p>
-                {item.content.map((content, key) => (
-                  <p className={styles.content} key={key}>
-                    {content.value}{" "}
-                  </p>
-                ))}
+                <div className= {styles.wrapDetail}>
+                  <p className={styles.title}> {item.title} </p>
+                  <p className={styles.subtitle}> {item.subtitle}</p>
+                  {item.content.map((content, key) => (
+                    <p className={styles.content} key={key}>
+                      {content.value}{" "}
+                    </p>
+                  ))}
+                </div>
+                <div className = {styles.introImg}>
+                  <img src = {item.img.original}/>
+                </div>
               </div>
             ))}
           </div>

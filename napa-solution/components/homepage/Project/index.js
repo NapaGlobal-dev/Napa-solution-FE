@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SlideSection from "../SlideSection";
 import Slider from "react-slick";
 import { convertArrToObject } from "../../../util/converArrayToObject";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useRef } from "react";
+import { useRouter } from "next/router";
+import { GET_SERVICE_URL } from "../../../query/general";
+import { useQuery } from "@apollo/client";
 
 const settings = {
   infinite: true,
@@ -33,12 +36,16 @@ const settings = {
 
 const Project = (props) => {
   const slickRef = useRef(null);
+  const router = useRouter();
+  const {loading, error, data:serviceData} = useQuery(GET_SERVICE_URL);
+  const service = !loading && !error && convertArrToObject(serviceData.page, "nameEN");
+  const serviceUrl = !loading && service.Services.childrenPage.map(item => item.url)
   const data = convertArrToObject(props.data?.property);
-  let slides = Object.values(data).filter((item) => item.name.includes("Img"));
-
+  let slides = !loading && serviceUrl.includes(router.route) ? Object.values(data).filter((item) => item.name.includes("Img") && router.route.includes(item.value)): Object.values(data).filter((item) => item.name.includes("Img"));
   if (slides.length <= 6) slides = [...slides, ...slides];
 
   return (
+    !loading && (
     <div className="sl-container">
       <div className="sl-pos-relative">
         <div className="sl-container-ratio"></div>
@@ -98,6 +105,7 @@ const Project = (props) => {
         </div>
       </div>
     </div>
+    )
   );
 };
 

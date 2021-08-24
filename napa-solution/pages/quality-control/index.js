@@ -43,7 +43,7 @@ export async function getStaticProps() {
   const [pageData, projectData] = await Promise.allSettled([
     client.query({
       query: GET_SERVICES_PAGE_DATA,
-      variables: { id: "611d1eb81a5f420538984526" },
+      variables: { name: "Quality Control" },
     }),
     client.query({ query: PROJECTS }),
   ]);
