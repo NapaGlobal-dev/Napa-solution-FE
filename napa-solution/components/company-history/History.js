@@ -17,7 +17,7 @@ export default function Hisory({ next, timeline }) {
                 </div>
             </div>
             <div className='right-timeline'>
-                <img src='/img/img-history.svg'></img>
+                <img src={timeline?.image.original}></img>
             </div>
         </div>
     )
