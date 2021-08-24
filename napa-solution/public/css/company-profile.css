@@ -27,7 +27,7 @@
   font-size: 45px;
   font-weight: bold;
   line-height: 59px;
-  color: #23496d;
+  color: #2f3f4e;
   text-transform: uppercase;
   opacity: 1;
 }
@@ -83,7 +83,7 @@
 .profile-label {
   font-size: 20px;
   font-weight: bold;
-  color: #23496d;
+  color: #2f3f4e;
 
   width: 50%;
 }
@@ -91,21 +91,21 @@
 .profile-content {
   font-size: 16px;
   font-weight: normal;
-  color: #23496d;
+  color: #2f3f4e;
   width: 40%;
 }
 .message-label {
   font-size: 26px;
   font-weight: bold;
   line-height: 30px;
-  color: #23496d;
+  color: #2f3f4e;
 }
 
 .message-content {
   font-size: 15px;
   font-weight: normal;
   line-height: 30px;
-  color: #23496d;
+  color: #2f3f4e;
   padding-top: 25px;
   line-height: 40px;
 }

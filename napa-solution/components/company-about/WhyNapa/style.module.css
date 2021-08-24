@@ -18,9 +18,9 @@
   font-weight: bold;
   line-height: 2;
   letter-spacing: 0px;
-  color: #23496d;
+  color: #2f3f4e;
   opacity: 1;
-  color: #23496d;
+  color: #2f3f4e;
 }
 .table {
   /* margin-right: 100px; */
@@ -36,7 +36,7 @@
   font-weight: normal;
   letter-spacing: 0px;
   opacity: 1;
-  color: #23496d;
+  color: #2f3f4e;
   padding: 4px 0;
   margin: 0;
 }
@@ -80,7 +80,7 @@
     font-weight: bold;
     line-height: 24px;
     letter-spacing: 0px;
-    color: #23496d;
+    color: #2f3f4e;
     opacity: 1;
   }
   .groupReason > p {

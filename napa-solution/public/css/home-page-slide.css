@@ -170,7 +170,7 @@
   }
 
   .sw-slide-services:nth-child(even) .sw-box-bounding {
-    align-items: flex-start;
+    align-items: flex-start !important;
   }
 
   .sw-box-bounding .sw-box-content {

@@ -12,6 +12,7 @@ html {
 body {
   font-family: "Noto Sans JP", sans-serif;
 }
+
 .cover {
   display: flex;
   flex-direction: column;
@@ -20,33 +21,32 @@ body {
   position: relative;
 }
 
-.cover > svg {
+.cover>svg {
   position: absolute;
   top: 0;
   left: 0;
   transform: translate(-90px, -20%);
 }
-.cover > h3 {
-  text-align: left;
-  font-size: 45px;
+
+.cover>h3 {
+  font-size: 35px;
   font-weight: bold;
   line-height: 65px;
-  letter-spacing: 0px;
-  color: #23496d;
+  color: #6a43d5;
   text-transform: uppercase;
-  opacity: 1;
+  line-height: 1;
 }
 
-.cover > p {
+.cover>p {
   margin-bottom: 50px;
   text-align: left;
-  font-size: 26px;
+  font-size: 25px;
   font-weight: normal;
   line-height: 40px;
   letter-spacing: 0.78px;
   color: #9e9e9e;
-  opacity: 1;
 }
+
 .white-border {
   position: absolute;
   right: -100%;
@@ -129,7 +129,7 @@ body {
 }
 
 .dark-nav {
-  background-color: #442493;
+  background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%);
   box-shadow: 0 3px 6px rgb(0 0 0 / 8%);
 }
 
@@ -189,7 +189,7 @@ body {
   top: 46px;
 }
 
-.lang-list > * {
+.lang-list>* {
   color: #fff;
   padding: 6px 0;
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.18);
@@ -243,8 +243,7 @@ body {
 }
 
 .img-navbar-brand {
-  width: 120%;
-  height: 120%;
+  width: 100%;
 }
 
 .icon-navbar-menu {
@@ -713,8 +712,7 @@ body {
 }
 
 .recruit {
-  background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat
-    padding-box;
+  background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat padding-box;
   opacity: 0.9;
   height: 445px;
   margin-top: 85px;
@@ -1033,8 +1031,7 @@ body {
   }
 
   .recruit {
-    background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat
-      padding-box;
+    background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat padding-box;
     opacity: 0.9;
     height: 445px;
     margin-top: 85px;
@@ -1236,6 +1233,7 @@ body {
 }
 
 @media (max-width: 1000px) {
+
   /* .detail-btn,
   .detail-btn-icon,
   .detail-btn-text {
@@ -1244,9 +1242,11 @@ body {
   .service {
     width: 100%;
   }
+
   .company-content-wrapper {
     margin-bottom: 50px;
   }
+
   .section-content {
     font-size: 14px;
     font-weight: normal;
@@ -1746,9 +1746,10 @@ body {
 }
 
 @media (max-width: 1200px) {
-  .skewed-button{
+  .skewed-button {
     display: none !important;
   }
+
   #navbarNav {
     display: none !important;
   }
@@ -1865,7 +1866,7 @@ body {
     color: #fff !important;
   }
 
-  .wrap-link-mobile > span {
+  .wrap-link-mobile>span {
     padding-right: 20px;
   }
 
@@ -1884,7 +1885,7 @@ body {
     box-shadow: 0 0 4px rgb(0 0 0 / 14%), 0 4px 8px rgb(0 0 0 / 28%);
   }
 
-  .wrap-link-mobile > .active {
+  .wrap-link-mobile>.active {
     background-color: #e40a5d;
   }
 
@@ -1914,7 +1915,7 @@ button:focus {
   outline: none;
 }
 
-.nav-darkmode-icon > circle {
+.nav-darkmode-icon>circle {
   fill: white;
 }
 
@@ -1924,7 +1925,7 @@ button:focus {
   align-items: center;
 }
 
-.nav-darkmode-icon-mobile > .nav-darkmode-icon {
+.nav-darkmode-icon-mobile>.nav-darkmode-icon {
   margin: 8px !important;
 }
 
@@ -1968,6 +1969,7 @@ button:focus {
 .dropdown-body ul {
   list-style: none;
 }
+
 /* 
 .dropdown-body a:before {
   content: "/";
@@ -2009,7 +2011,7 @@ button:focus {
   position: relative;
 }
 
-.cover > svg {
+.cover>svg {
   position: absolute;
   top: 0;
   left: 20px;
@@ -2017,18 +2019,18 @@ button:focus {
   width: 50px;
 }
 
-.cover > h3 {
+.cover>h3 {
   text-align: left;
   font-size: 45px;
   font-weight: bold;
   line-height: 65px;
   letter-spacing: 0px;
-  color: #23496d;
+  color: #2f3f4e;
   text-transform: uppercase;
   opacity: 1;
 }
 
-.cover > p {
+.cover>p {
   text-align: left;
   font-size: 26px;
   letter-spacing: 0.78px;
@@ -2042,11 +2044,12 @@ button:focus {
   .cover {
     margin: 60px 12px 30px 12px !important;
   }
+
   .devider {
     margin: 20px 0 40px 0 !important;
   }
 
-  .cover > svg {
+  .cover>svg {
     display: none;
   }
 
@@ -2059,18 +2062,18 @@ button:focus {
     margin: 100px 24px 30px;
   }
 
-  .cover > h3 {
+  .cover>h3 {
     text-align: left;
     font-size: 20px;
     font-weight: bold;
     line-height: 26px;
     letter-spacing: 0px;
-    color: #23496d;
+    color: #2f3f4e;
     text-transform: uppercase;
     opacity: 1;
   }
 
-  .cover > p {
+  .cover>p {
     font-size: 16px;
     margin-bottom: 24px;
     padding-bottom: 20px;
@@ -2105,6 +2108,7 @@ button:focus {
     opacity: 0;
     transform: translateY(150px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0px);
@@ -2116,6 +2120,7 @@ button:focus {
     opacity: 0;
     transform: translateY(150px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0px);
@@ -2127,6 +2132,7 @@ button:focus {
     opacity: 0;
     transform: translateY(150px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0px);
@@ -2138,6 +2144,7 @@ button:focus {
     opacity: 0;
     transform: translateY(150px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0px);
@@ -2149,6 +2156,7 @@ button:focus {
     opacity: 0;
     transform: translateY(150px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0px);
@@ -2167,18 +2175,22 @@ button:focus {
     opacity: 0;
     transform: translateX(-100%);
   }
+
   1% {
     opacity: 0.01;
     transform: translateX(-100%);
   }
+
   35% {
     opacity: 0.6;
     transform: translateX(4%);
   }
+
   50% {
     opacity: 1;
     transform: translateX(0);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -2222,24 +2234,25 @@ button:focus {
   position: relative;
 }
 
-.cover > svg {
+.cover>svg {
   position: absolute;
   top: 0;
   left: 0;
   transform: translate(-90px, -20%);
 }
-.cover > h3 {
+
+.cover>h3 {
   text-align: left;
   font-size: 45px;
   font-weight: bold;
   line-height: 65px;
   letter-spacing: 0px;
-  color: #23496d;
+  color: #2f3f4e;
   text-transform: uppercase;
   opacity: 1;
 }
 
-.cover > p {
+.cover>p {
   margin-bottom: 50px;
   text-align: left;
   font-size: 26px;
@@ -2251,22 +2264,22 @@ button:focus {
 }
 
 @media (max-width: 1023px) {
-  .cover > svg {
+  .cover>svg {
     display: none;
   }
 
-  .cover > h3 {
+  .cover>h3 {
     text-align: left;
     font-size: 20px;
     font-weight: bold;
     line-height: 26px;
     letter-spacing: 0px;
-    color: #23496d;
+    color: #2f3f4e;
     text-transform: uppercase;
     opacity: 1;
   }
 
-  .cover > p {
+  .cover>p {
     text-align: left;
     font-size: 16px;
     font-weight: normal;
@@ -2278,7 +2291,8 @@ button:focus {
     margin-bottom: 24px;
   }
 }
-.skewed-button{
+
+.skewed-button {
   display: flex;
   align-items: center;
   /* margin-right: 20px; */
@@ -2292,7 +2306,8 @@ button:focus {
   position: relative;
   transform: skew(-20deg);
 }
-.skewed-button::after{
+
+.skewed-button::after {
   height: 100%;
   right: 0;
   top: 0;
@@ -2306,9 +2321,11 @@ button:focus {
   position: absolute;
   z-index: -1;
 }
-.skewed-button:hover:after{
+
+.skewed-button:hover:after {
   width: 200%;
 }
+
 /* .skewed-button:hover{
   color: #412490 !important;
   font-weight: bold;
