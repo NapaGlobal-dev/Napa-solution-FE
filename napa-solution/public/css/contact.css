@@ -1,11 +1,11 @@
-.textC {
+.wrap-title {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   margin-top: 100px;
 }
-.titleC {
+.title-contact {
   font-size: 45px;
   font-weight: bold;
   letter-spacing: 0px;
@@ -17,7 +17,7 @@
   margin:0 !important;
   color: #23496d !important;
 }
-.subtitleC {
+.subtitle-contact {
   margin-top: 12px;
   font-size: 26px;
   font-weight: bold;
@@ -25,13 +25,13 @@
   color: #9e9e9e;
   width: 620px;
 }
-.titleD {
+.title-row {
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0px;
   color: #23496d ;
 }
-.textBoxD {
+.textBox-contact {
   width: 100%;
   height: 55px;
   padding: 0px 20px;
@@ -41,12 +41,12 @@
   border-radius: 5px;
 }
 
-.textBoxD:focus,.textareaD:focus{
+.textBox-contact:focus,.textarea-contact:focus{
   outline: none;
   border: 2px solid #5433ad;
 }
 
-.textareaD {
+.textarea-contact {
   width: 100%;
   height: 200px;
   padding: 20px;
@@ -56,7 +56,7 @@
   border: 1px solid #21293029;
   border-radius: 5px;
 }
-.buttonE {
+.button-contact {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,7 +74,7 @@
   letter-spacing: 0px;
   color: #ffffff;
 }
-.buttonE:hover {
+.button-contact:hover {
   text-decoration: underline;
   text-decoration-color: #6c3af5;
 }
@@ -83,14 +83,14 @@
     justify-content: center;
     margin-top: 45px;
 }
-.containerD{
+.container-contact{
     display: flex;
     width: 60%;
     flex-wrap: wrap;
     justify-content: center;
     background:#EEEEEE 0% 0% no-repeat padding-box;
 }
-.tableD {
+.table-contact {
   display: grid;
   grid-template-columns: 45% 55%;
   grid-row-gap: 40px;
@@ -99,47 +99,47 @@
 }
 
 @media (max-width: 1280px) {
-  .containerD {
+  .container-contact {
     width: 80%;
   }
-  .tableD {
+  .table-contact {
     padding: 50px 50px;
   }
 }
 @media (max-width: 768px) {
-  .containerD {
+  .container-contact {
     width: 100%;
   }
-  .tableD {
+  .table-contact {
     padding: 40px 20px;
     grid-row-gap: 30px;
   }
-  .textC {
+  .wrap-title {
     margin-top: 50px;
   }
-  .titleC {
+  .title-contact {
     font-size: 20px;
     line-height: 1;
     margin-bottom: 10px;
   }
-  .subtitleC {
+  .subtitle-contact {
     letter-spacing: 0.78px;
     padding: 0px 20px;
     width: auto;
     font-size: 14px;
     line-height: 1.5;
   }
-  .textBoxD {
+  .textBox-contact {
     height: 50px;
     padding: 0px 10px;
   }
-  .textareaD {
+  .textarea-contact {
     height: 100px;
     padding: 10px 10px;
     max-height: 100px;
     overflow: scroll;
   }
-  .buttonE {
+  .button-contact {
     width: 60%;
   }
   .phoneNum{
