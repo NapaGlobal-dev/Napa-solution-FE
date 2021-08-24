@@ -6,56 +6,56 @@ const ContactForm = (props) => {
   const data = convertArrToObject(props.data.property);
   return (
     <>
-      <div className="textC" id='down-up'>
-        <div className="titleC">{data["Contact_ContactForm_Title"]?.value}</div>
-        <div className="subtitleC">
+      <div className="wrap-title" id='down-up'>
+        <div className="title-contact">{data["Contact_ContactForm_Title"]?.value}</div>
+        <div className="subtitle-contact">
            {data["Contact_ContactForm_SubTitle"]?.value}
         </div>
-        <div className="subtitleC phoneNum">
+        <div className="subtitle-contact phoneNum">
            {data["Contact_ContactForm_PhoneNum"]?.value}
         </div>
       </div>
       <div className='contact'>
-        <div className="containerD" id="wrap-contact">
-          <div className="tableD">
-            <div className="titleD" id='down-up'>
+        <div className="container-contact" id="wrap-contact">
+          <div className="table-contact">
+            <div className="title-row" id='down-up'>
               {" "}
               {data["Contact_ContactForm_Content1"]?.value}
             </div>
             <div>
-              <input type="text" className="textBoxD" />
+              <input type="text" className="textBox-contact" />
             </div>
-            <div className="titleD" id='down-up'>
+            <div className="title-row" id='down-up'>
               {" "}
               {data["Contact_ContactForm_Content2"]?.value}
             </div>
             <div>
-              <input type="text" className="textBoxD" />
+              <input type="text" className="textBox-contact" />
             </div>
-            <div className="titleD" id='down-up'>
+            <div className="title-row" id='down-up'>
               {data["Contact_ContactForm_Content3"]?.value}
             </div>
             <div>
-              <input type="text" className="textBoxD" />
+              <input type="text" className="textBox-contact" />
             </div>
-            <div className="titleD" id='down-up'>
+            <div className="title-row" id='down-up'>
               {data["Contact_ContactForm_Content4"]?.value}
             </div>
             <div>
-              <input type="text" className="textBoxD" />
+              <input type="text" className="textBox-contact" />
             </div>
-            <div className="titleD" id='down-up'>
+            <div className="title-row" id='down-up'>
               {data["Contact_ContactForm_Content5"]?.value}
             </div>
             <div>
-              <textarea type="text" className="textareaD" />
+              <textarea type="text" className="textarea-contact" />
             </div>
-            {/* <div className="titleD">*お問い合わせ内容</div>
+            {/* <div className="title-row">*お問い合わせ内容</div>
             <div>
-              <textarea name="お問い合わせ内容" className="textareaD" />
+              <textarea name="お問い合わせ内容" className="textarea-contact" />
             </div> */}
           </div>
-          <div className="buttonE">
+          <div className="button-contact">
             {data["Contact_ContactForm_Button"]?.value}
             <svg
               height="7px"

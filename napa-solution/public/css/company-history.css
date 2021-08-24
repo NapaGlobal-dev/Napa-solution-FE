@@ -127,7 +127,7 @@
   }
   .horizonMilestone {
     display: flex;
-    padding: 0px 2vh;
+    padding: 0px 12px;
     width: 100%;
     height: 100%;
     margin-top: 10px;
@@ -152,12 +152,12 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 0px 1vh;
+    padding: 0px 12px;
     margin-top: 20px;
   }
   .right-timeline {
     width: 100vw;
-    padding: 0px 20px;
+    padding: 0px 12px;
     display: flex;
     justify-content: center;
   }
@@ -187,7 +187,7 @@
   }
   .container-credo {
     /* margin-top: 100px; */
-    padding: 0px 20px;
+    padding: 0px 12px;
     margin-right: 0;
   }
   .left-timeline #detail-btn-company {
