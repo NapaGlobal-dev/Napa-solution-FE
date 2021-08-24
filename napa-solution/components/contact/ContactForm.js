@@ -9,7 +9,10 @@ const ContactForm = (props) => {
       <div className="textC" id='down-up'>
         <div className="titleC">{data["Contact_ContactForm_Title"]?.value}</div>
         <div className="subtitleC">
-           {joinJsx(data["Contact_ContactForm_SubTitle"]?.value.split("\\n"), <br />)}
+           {data["Contact_ContactForm_SubTitle"]?.value}
+        </div>
+        <div className="subtitleC phoneNum">
+           {data["Contact_ContactForm_PhoneNum"]?.value}
         </div>
       </div>
       <div className='contact'>
@@ -45,7 +48,7 @@ const ContactForm = (props) => {
               {data["Contact_ContactForm_Content5"]?.value}
             </div>
             <div>
-              <input type="text" className="textBoxD" />
+              <textarea type="text" className="textareaD" />
             </div>
             {/* <div className="titleD">*お問い合わせ内容</div>
             <div>

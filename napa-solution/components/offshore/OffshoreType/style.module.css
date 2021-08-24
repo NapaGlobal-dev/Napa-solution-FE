@@ -8,6 +8,7 @@
 }
 .introduce {
   margin-bottom: 40px;
+  display: flex;
 }
 
 .title {
@@ -26,6 +27,11 @@
   color: #6c3af5;
 }
 
+.wrapDetail{
+  width: 50%;
+  padding-right: 28px;
+}
+
 .content {
   font-size: 16px;
   font-weight: normal;
@@ -33,6 +39,17 @@
   letter-spacing: 0px;
   color: #172052;
 }
+
+.introImg{
+  width: 50%;
+}
+.introImg > img{
+  width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
 
 @media ( min-width: 1024px) and (max-width:1399px){
   .wrapContainer{
@@ -81,5 +98,14 @@
   }
   .title {
     font-size: 16px;
+  }
+  .introduce{
+    flex-direction: column;
+  }
+  .wrapDetail{
+    width: 100%;
+  }
+  .introImg{
+    width: 100%;
   }
 }

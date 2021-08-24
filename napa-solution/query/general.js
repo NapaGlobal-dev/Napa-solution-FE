@@ -312,6 +312,10 @@ export const OffshoreQuery = gql`
           content {
             name
             value
+            image {
+              original: publicUrl
+              thumbnail: publicUrlTransformed(transformation: { width: "64" })
+            }
           }
           value
           image {

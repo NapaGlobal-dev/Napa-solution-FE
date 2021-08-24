@@ -9,12 +9,16 @@
   font-size: 45px;
   font-weight: bold;
   letter-spacing: 0px;
-  color: #212121;
   text-transform: uppercase;
+  color: #23496d;
+}
+.phoneNum{
+  font-weight: 800 !important;
+  margin:0 !important;
+  color: #23496d !important;
 }
 .subtitleC {
   margin-top: 12px;
-
   font-size: 26px;
   font-weight: bold;
   letter-spacing: 0.78px;
@@ -25,7 +29,7 @@
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0px;
-  color: #212121;
+  color: #23496d ;
 }
 .textBoxD {
   width: 100%;
@@ -36,9 +40,15 @@
   border: 1px solid #21293029;
   border-radius: 5px;
 }
+
+.textBoxD:focus,.textareaD:focus{
+  outline: none;
+  border: 2px solid #5433ad;
+}
+
 .textareaD {
   width: 100%;
-  height: 150px;
+  height: 200px;
   padding: 20px;
   overflow: hidden;
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
@@ -125,9 +135,14 @@
   }
   .textareaD {
     height: 100px;
-    padding: 20px 10px;
+    padding: 10px 10px;
+    max-height: 100px;
+    overflow: scroll;
   }
   .buttonE {
     width: 60%;
+  }
+  .phoneNum{
+    font-size: 16px;
   }
 }
