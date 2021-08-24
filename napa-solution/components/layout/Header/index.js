@@ -55,14 +55,32 @@ const Header = (props) => {
   const navbarLogo = getData(data, /Navbar_Logo/)[0];
   const navbarMenu = getData(data, /Navbar_Menu/);
   const navbarMobile = getData(data, /Navbar_Menu/);
+  const contact = navbarMenu.slice(-1)[0]
   const navRef = useRef(null);
   // console.log("navbarsss", navbarMenu, data);
   const darkmode = useDarkMode();
   useEffect(() => {
-    const hour = new Date().getHours();
-    if (hour < 5 || hour >= 19) darkmode.enable();
-    else darkmode.disable();
+    if(!localStorage.getItem('darkmode')){
+      const hour = new Date().getHours();
+      if (hour < 5 || hour >= 19) darkmode.enable();
+      else darkmode.disable();
+    }else{
+      const isDarkmode = localStorage.getItem('darkmode')
+      if(isDarkmode=='on')
+        darkmode.enable()
+      else
+        darkmode.disable()
+    }
+
   }, []);
+
+  function wrapToggle(){
+    if(darkmode.value)
+      localStorage.setItem('darkmode', 'off')
+    else
+      localStorage.setItem('darkmode', 'on')
+    darkmode.toggle()
+  }
 
   // const [changeNav, setChangeNav] = useState(true);
   // const [navColor, setNavColor] = useState("light");
@@ -104,16 +122,6 @@ const Header = (props) => {
     };
   }, [navRef]);
 
-  useEffect(() => {
-    const hour = new Date().getHours();
-    if (hour < 5 || hour >= 19) darkmode.enable();
-
-    // if (window.location.pathname === "/") {
-    //   setNavColor("light");
-    // } else {
-    //   setNavColor("dark");
-    // }
-  }, []);
 
   useEffect(() => {
     Array.from({ length: navbarMobile.length }, (num, index) => {
@@ -163,8 +171,8 @@ const Header = (props) => {
       });
     });
     if (darkmode.value) {
-      $("#checkbox-dark-mode").attr("checked", false);
-    } else $("#checkbox-dark-mode").attr("checked", true);
+      $("#checkbox-dark-mode").attr("checked", true);
+    } else $("#checkbox-dark-mode").attr("checked", false);
     // $(".popcover").addClass("toggle");
   });
 
@@ -199,7 +207,7 @@ const Header = (props) => {
         </a>
         <div className="collapse navbar-collapse navbar-menu" id="navbarNav">
           <ul className="navbar-nav">
-            {navbarMenu.map((menu, key) => (
+            {navbarMenu.slice(0,-1).map((menu, key) => (
               <li className="nav-item item-navbar-menu" key={key}>
                 <div className="dropdown">
                   <div className="hover-o">
@@ -232,6 +240,18 @@ const Header = (props) => {
             ))}
           </ul>
         </div>
+
+        <a className='skewed-button' href={contact?.url}>
+          <svg className='contact-icon-button' viewBox="0 0 230.17 230.17" >
+              <path fill="currentColor" d="M230,49.585c0-0.263,0.181-0.519,0.169-0.779l-70.24,67.68l70.156,65.518c0.041-0.468-0.085-0.94-0.085-1.418V49.585z"/>
+              <path fill="currentColor" d="M149.207,126.901l-28.674,27.588c-1.451,1.396-3.325,2.096-5.2,2.096c-1.836,0-3.672-0.67-5.113-2.013l-28.596-26.647
+                L11.01,195.989c1.717,0.617,3.56,1.096,5.49,1.096h197.667c2.866,0,5.554-0.873,7.891-2.175L149.207,126.901z"/>
+              <path fill="currentColor" d="M115.251,138.757L222.447,35.496c-2.427-1.443-5.252-2.411-8.28-2.411H16.5c-3.943,0-7.556,1.531-10.37,3.866
+                L115.251,138.757z"/>
+              <path fill="currentColor" d="M0,52.1v128.484c0,1.475,0.339,2.897,0.707,4.256l69.738-67.156L0,52.1z"/>
+          </svg>
+          {contact?.value}
+        </a>
 
         <a className="wrap-menu menu-icon-toggle">
           <div className="bar1" />
@@ -337,10 +357,10 @@ const Header = (props) => {
                 ))}
               </div>
               <div className="menu darkmode-checkbox">
-                {!darkmode.value ? <p>Dark</p> : <p>Light</p>}
+                {!!darkmode.value ? <p>Dark</p> : <p>Light</p>}
                 <label>
                   <input
-                    onClick={darkmode.toggle}
+                    onClick={wrapToggle}
                     type="checkbox"
                     id="checkbox-dark-mode"
                   />
@@ -354,7 +374,7 @@ const Header = (props) => {
           style={{ margin: "0 12px" }}
           className="nav-darkmode-icon hide-on-mobile"
           checked={!!darkmode.value}
-          onChange={darkmode.toggle}
+          onChange={wrapToggle}
           size={40}
         />
         <Language />

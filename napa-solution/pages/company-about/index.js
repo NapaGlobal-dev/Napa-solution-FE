@@ -21,6 +21,11 @@ const CompanyAbout = ({ projects, ...props }) => {
           href="css/home-page-slide.css"
         />
         <link
+          key="css/company-about.css"
+          rel="stylesheet"
+          href="css/company-about.css"
+        />
+        <link
           rel="stylesheet"
           type="text/css"
           charset="UTF-8"
@@ -38,16 +43,19 @@ export async function getStaticProps() {
   // const { data } = await client.query({ query: contactQuery });
   // const { data: adata } = await client.query({ query: companyAbout });
 
-  const [pageData, aboutData, projectData] = await Promise.allSettled([
-    client.query({ query: contactQuery }),
-    client.query({ query: companyAbout }),
-    client.query({ query: PROJECTS }),
-  ]);
+  // const [pageData, aboutData, projectData] = await Promise.allSettled([
+  //   client.query({ query: contactQuery }),
+  //   client.query({ query: companyAbout }),
+  //   client.query({ query: PROJECTS }),
+  // ]);
+  const pageData = await client.query({ query: contactQuery });
+  const aboutData = await client.query({ query: companyAbout });
+  const projectData = await client.query({ query: PROJECTS });
 
   return {
     props: {
-      data: { ...pageData.value.data, adata: aboutData.value.data },
-      projects: projectData.value.data.projects[0],
+      data: { ...pageData.data, adata: aboutData.data },
+      projects: projectData.data.projects[0],
     },
   };
 }

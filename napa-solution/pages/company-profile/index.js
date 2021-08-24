@@ -47,15 +47,16 @@ export async function getStaticProps() {
   // const { data } = await client.query({ query: GET_COMPANYPROFILE });
   // const projectData = await client.query({ query: PROJECTS });
 
-  const [pageData, projectData] = await Promise.allSettled([
-    client.query({ query: GET_COMPANYPROFILE }),
-    client.query({ query: PROJECTS }),
-  ]);
-
+  // const [pageData, projectData] = await Promise.allSettled([
+  //   client.query({ query: GET_COMPANYPROFILE }),
+  //   client.query({ query: PROJECTS }),
+  // ]);
+  const pageData = await client.query({ query: GET_COMPANYPROFILE });
+  const projectData = await client.query({ query: PROJECTS });
   return {
     props: {
-      data: pageData.value.data,
-      projects: projectData.value.data.projects[0],
+      data: pageData.data,
+      projects: projectData.data.projects[0],
     },
   };
 }

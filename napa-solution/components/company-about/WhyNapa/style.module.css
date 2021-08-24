@@ -2,9 +2,10 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #c8b8f4;
-  padding-top: 40px;
+  padding: 30px 0;
+  margin-right: 100px;
 }
-.item:last-child{
+.item:last-child {
   border-bottom: none;
 }
 .item > p {
@@ -21,23 +22,23 @@
   opacity: 1;
   color: #23496d;
 }
-.table{
-  margin-right: 100px;
+.table {
+  /* margin-right: 100px; */
 }
 .groupReason {
   flex: 1;
   max-width: 990px;
-  margin-right: 90px;
 }
 
 .groupReason > p {
   text-align: left;
   font-size: 16px;
   font-weight: normal;
-  line-height: 50px;
   letter-spacing: 0px;
   opacity: 1;
   color: #23496d;
+  padding: 4px 0;
+  margin: 0;
 }
 @media (max-width: 1366px) {
   .item > p {
@@ -56,9 +57,13 @@
   .groupReason {
     margin: 0px;
   }
+  .cover {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
 }
 @media (max-width: 768px) {
-  .table{
+  .table {
     margin-right: 0;
   }
   .item {
@@ -82,7 +87,6 @@
     text-align: left;
     font-size: 14px;
     font-weight: normal;
-    line-height: 30px;
     letter-spacing: 0px;
     opacity: 1;
   }
