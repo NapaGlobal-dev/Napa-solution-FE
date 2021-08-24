@@ -1,11 +1,10 @@
-  
 export const ENVIRONMENT = "dev";
 //export const ENVIRONMENT = "production";
-const HOST = process.env.NEXT_PUBLIC_API || "localhost"; 
+const HOST = process.env.NEXT_PUBLIC_API || "192.168.1.4";
 const PORT = "3001";
 
 const apiEnv = {
-//   production: `https://api.napa-solutions.com/admin/api`,
+  //   production: `https://api.napa-solutions.com/admin/api`,
   dev: `http://${HOST}:${PORT}/admin/api`,
 };
 
