@@ -6,9 +6,13 @@ const Profile = (props) => {
     props.data.property,
     /CompanyProfile_Corporate_Title/
   );
-  const profileContent = getData(
+  const profileContentNPS = getData(
     props.data.property,
-    /CompanyProfile_Corporate_Content/
+    /CompanyProfile_Corporate_ContentNPS/
+  );
+  const profileContentNPG = getData(
+    props.data.property,
+    /CompanyProfile_Corporate_ContentNPG/
   );
   const data = convertArrToObject(props.data.property);
 
@@ -32,23 +36,52 @@ const Profile = (props) => {
           </div>
         </div>
       </div>
-      <div className="wraper-content">
-        {profileTitle.map((item, key) => (
-          <div className="wrap-container-content" key={key}>
-            <div className="wrap-profile" id="down-up">
-              <div className="profile-label">{item.value}</div>
-              <div className="profile-content">
-                {profileContent[key].value.split("/n").map((text, index) => (
-                  <React.Fragment key={index}>
-                    {text}
-                    <br />
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
-            {/* <div className="divided-line" /> */}
-          </div>
-        ))}
+      <div className="wrap-table-content">
+        <table className="table table-style">
+          <tbody>
+            <tr>
+              <th> {data["CompanyProfile_Corporate_NPS"].value}</th>
+            </tr>
+            {profileTitle.map((item, index) => (
+              <tr key={index}>
+                <th>{item.value}</th>
+                <td>
+                  {profileContentNPS[index].value
+                    .split("/n")
+                    .map((text, index) => (
+                      <React.Fragment key={index}>
+                        {text}
+                        <br />
+                      </React.Fragment>
+                    ))}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <table className="table table-style">
+          <tbody>
+            <tr>
+              <th> {data["CompanyProfile_Corporate_NPG"].value}</th>
+            </tr>
+            {profileTitle.map((item, index) => (
+              <tr key={index}>
+                <th>{item.value}</th>
+                <td>
+                  {profileContentNPG[index].value
+                    .split("/n")
+                    .map((text, index) => (
+                      <React.Fragment key={index}>
+                        {text}
+                        <br />
+                      </React.Fragment>
+                    ))}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
