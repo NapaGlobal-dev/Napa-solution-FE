@@ -2281,7 +2281,7 @@ button:focus {
 .skewed-button{
   display: flex;
   align-items: center;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   overflow: hidden;
   background: none;
   text-decoration: none;
@@ -2309,13 +2309,13 @@ button:focus {
 .skewed-button:hover:after{
   width: 200%;
 }
-.skewed-button:hover{
+/* .skewed-button:hover{
   color: #412490 !important;
   font-weight: bold;
 }
 .skewed-button:hover svg{
   color: #412490 !important;
-}
+} */
 .contact-icon-button {
   transform: skew(20deg);
   height: 1.4rem !important;

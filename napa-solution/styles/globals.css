@@ -9,7 +9,7 @@ html {
 }
 
 body.light-mode {
-  font-family: "Noto Sans JP", Arial, sans-serif;
+  font-family: "Meiryo";
   /* body: "#FFF"; */
   color: #363537;
   /* toggleBorder: "#FFF"; */
