@@ -40,7 +40,7 @@
   font-weight: bold;
   line-height: 60px;
   letter-spacing: 1.5px;
-  color: #2f3f4e;
+  color: #2f3f4e !important;
   opacity: 1;
   line-height: 1.8;
 }
@@ -52,7 +52,7 @@
   font-weight: bold;
   line-height: 30px;
   letter-spacing: 0.48px;
-  color: #2f3f4e;
+  color: #2f3f4e !important;
   opacity: 1;
 }
 

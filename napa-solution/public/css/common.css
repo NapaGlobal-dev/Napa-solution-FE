@@ -21,14 +21,14 @@ body {
   position: relative;
 }
 
-.cover>svg {
+.cover > svg {
   position: absolute;
   top: 0;
   left: 0;
   transform: translate(-90px, -20%);
 }
 
-.cover>h3 {
+.cover > h3 {
   font-size: 35px;
   font-weight: bold;
   line-height: 65px;
@@ -37,7 +37,7 @@ body {
   line-height: 1;
 }
 
-.cover>p {
+.cover > p {
   margin-bottom: 50px;
   text-align: left;
   font-size: 25px;
@@ -189,7 +189,7 @@ body {
   top: 46px;
 }
 
-.lang-list>* {
+.lang-list > * {
   color: #fff;
   padding: 6px 0;
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.18);
@@ -712,7 +712,8 @@ body {
 }
 
 .recruit {
-  background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat padding-box;
+  background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat
+    padding-box;
   opacity: 0.9;
   height: 445px;
   margin-top: 85px;
@@ -1031,7 +1032,8 @@ body {
   }
 
   .recruit {
-    background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat padding-box;
+    background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat
+      padding-box;
     opacity: 0.9;
     height: 445px;
     margin-top: 85px;
@@ -1233,7 +1235,6 @@ body {
 }
 
 @media (max-width: 1000px) {
-
   /* .detail-btn,
   .detail-btn-icon,
   .detail-btn-text {
@@ -1866,7 +1867,7 @@ body {
     color: #fff !important;
   }
 
-  .wrap-link-mobile>span {
+  .wrap-link-mobile > span {
     padding-right: 20px;
   }
 
@@ -1885,7 +1886,7 @@ body {
     box-shadow: 0 0 4px rgb(0 0 0 / 14%), 0 4px 8px rgb(0 0 0 / 28%);
   }
 
-  .wrap-link-mobile>.active {
+  .wrap-link-mobile > .active {
     background-color: #e40a5d;
   }
 
@@ -1915,7 +1916,7 @@ button:focus {
   outline: none;
 }
 
-.nav-darkmode-icon>circle {
+.nav-darkmode-icon > circle {
   fill: white;
 }
 
@@ -1925,7 +1926,7 @@ button:focus {
   align-items: center;
 }
 
-.nav-darkmode-icon-mobile>.nav-darkmode-icon {
+.nav-darkmode-icon-mobile > .nav-darkmode-icon {
   margin: 8px !important;
 }
 
@@ -2011,7 +2012,7 @@ button:focus {
   position: relative;
 }
 
-.cover>svg {
+.cover > svg {
   position: absolute;
   top: 0;
   left: 20px;
@@ -2019,7 +2020,7 @@ button:focus {
   width: 50px;
 }
 
-.cover>h3 {
+.cover > h3 {
   text-align: left;
   font-size: 45px;
   font-weight: bold;
@@ -2030,7 +2031,7 @@ button:focus {
   opacity: 1;
 }
 
-.cover>p {
+.cover > p {
   text-align: left;
   font-size: 26px;
   letter-spacing: 0.78px;
@@ -2049,7 +2050,7 @@ button:focus {
     margin: 20px 0 40px 0 !important;
   }
 
-  .cover>svg {
+  .cover > svg {
     display: none;
   }
 
@@ -2062,7 +2063,7 @@ button:focus {
     margin: 100px 24px 30px;
   }
 
-  .cover>h3 {
+  .cover > h3 {
     text-align: left;
     font-size: 20px;
     font-weight: bold;
@@ -2073,11 +2074,22 @@ button:focus {
     opacity: 1;
   }
 
-  .cover>p {
+  .cover > p {
     font-size: 16px;
     margin-bottom: 24px;
     padding-bottom: 20px;
   }
+
+  .cover .decor-head-line {
+    display: none;
+  }
+}
+
+.cover .decor-head-line {
+  width: 54px;
+  position: absolute;
+  left: -80px;
+  top: -20px;
 }
 
 .animate-down-up {
@@ -2234,14 +2246,14 @@ button:focus {
   position: relative;
 }
 
-.cover>svg {
+.cover > svg {
   position: absolute;
   top: 0;
   left: 0;
   transform: translate(-90px, -20%);
 }
 
-.cover>h3 {
+.cover > h3 {
   text-align: left;
   font-size: 45px;
   font-weight: bold;
@@ -2252,7 +2264,7 @@ button:focus {
   opacity: 1;
 }
 
-.cover>p {
+.cover > p {
   margin-bottom: 50px;
   text-align: left;
   font-size: 26px;
@@ -2264,11 +2276,11 @@ button:focus {
 }
 
 @media (max-width: 1023px) {
-  .cover>svg {
+  .cover > svg {
     display: none;
   }
 
-  .cover>h3 {
+  .cover > h3 {
     text-align: left;
     font-size: 20px;
     font-weight: bold;
@@ -2279,7 +2291,7 @@ button:focus {
     opacity: 1;
   }
 
-  .cover>p {
+  .cover > p {
     text-align: left;
     font-size: 16px;
     font-weight: normal;
@@ -2299,8 +2311,8 @@ button:focus {
   overflow: hidden;
   background: none;
   text-decoration: none;
-  border: 2px solid #FFF;
-  color: #FFF !important;
+  border: 2px solid #fff;
+  color: #fff !important;
   display: block;
   padding: 8px 20px;
   position: relative;
@@ -2316,8 +2328,8 @@ button:focus {
   transition-duration: 0.25s;
   transform-origin: top left;
   width: 7%;
-  background: linear-gradient(271deg, #412490, #FFF);
-  content: '';
+  background: linear-gradient(271deg, #412490, #fff);
+  content: "";
   position: absolute;
   z-index: -1;
 }
@@ -2337,6 +2349,6 @@ button:focus {
   transform: skew(20deg);
   height: 1.4rem !important;
   margin-right: 6px;
-  color: #FFF !important;
+  color: #fff !important;
   margin-bottom: 3px;
 }

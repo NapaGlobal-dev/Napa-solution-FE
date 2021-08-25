@@ -56,12 +56,12 @@ const Footer = (props) => {
             }}
           >
             <div className={clsx(styles.scaleText)} id="down-up">
-              <h3 className={clsx(styles.h3text)}>
+              <span className={clsx(styles.h3text)}>
                 {joinJsx(data.Footer_ContactTitle.value.split("\\n"), <br />)}
-              </h3>
-              <p className={clsx(styles.ptext)}>
+              </span>
+              <span className={clsx(styles.ptext)}>
                 {joinJsx(data.Footer_ContactContent.value.split("\\n"), <br />)}
-              </p>
+              </span>
               <a href={data.Footer_ContactButton.url}>
                 <div
                   className="col-xs-12 order-3 order-xl-4 no-default-spacing"
