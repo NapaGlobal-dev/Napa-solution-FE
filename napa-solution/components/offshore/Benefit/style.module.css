@@ -34,7 +34,7 @@
   left: -15px;
 }
 
-.benefitDetailDarkMode{
+.benefitDetailDarkMode {
   background: #0f0922 !important;
   opacity: 1 !important;
 }
@@ -166,8 +166,8 @@
     font-weight: normal;
     line-height: 30px;
   }
-  .wrapContainer{
-    margin: 100px 50px 0px 50px
+  .wrapContainer {
+    margin: 100px 50px 0px 100px;
   }
 }
 @media (max-width: 768px) {
