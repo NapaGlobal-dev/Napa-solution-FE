@@ -20,23 +20,17 @@ const Message = (props) => {
         <div className="ab-row ab-row-reverse">
           <div className="ab-col">
             <div className="ab-box-image">
-              <img loading="lazy" width="100%" src={content1?.image.original} />
+              <img className="imgCEO" src="./img/aHung.svg" />
+              <img className="bgMessage" src="./img/bg-message.svg" />
+              <div className="info-ceo">
+                <div className="position-ceo">代表取締役 Napa Global</div>
+                <div className="name-ceo">アゼル・レー</div>
+              </div>
+              {/* <img loading="lazy" width="100%" src={content1?.image.original} /> */}
             </div>
           </div>
-          <div className="spacing"></div>
           <div className="ab-col">
             <div className="ab-box-text">{content1?.value}</div>
-          </div>
-        </div>
-        <div className="ab-row">
-          <div className="ab-col">
-            <div className="ab-box-image">
-              <img loading="lazy" width="100%" src={content2?.image.original} />
-            </div>
-          </div>
-          <div className="spacing"></div>
-          <div className="ab-col">
-            <div className="ab-box-text">{content2?.value}</div>
           </div>
         </div>
       </div>
