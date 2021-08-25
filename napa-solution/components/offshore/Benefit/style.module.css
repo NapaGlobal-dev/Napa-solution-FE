@@ -34,8 +34,9 @@
   left: -15px;
 }
 
-.benefitDetailDarkMode{
-  background: #0f0922 !important;
+.benefitDetailDarkMode {
+  /* background: #0f0922 !important; */
+  background: transparent !important;
   opacity: 1 !important;
 }
 
@@ -44,7 +45,7 @@
   display: flex;
   align-items: flex-end;
   margin-top: 45px;
-  margin-left: 50px;
+  margin-left: 57px;
 }
 
 .benefitNumber {
@@ -65,8 +66,10 @@
   font-weight: normal;
   line-height: 30px;
   letter-spacing: 3px;
-  transform: rotate(-45deg);
+  /* transform: rotate(-45deg); */
+  transform: rotate(-45deg) translate(28px, 1px);
   margin: 0px 0px -35px -15px;
+  color: #363537 !important;
 }
 
 .benefitContent {
@@ -75,6 +78,9 @@
   line-height: 30px;
 }
 
+.benefitContent {
+  margin-bottom: 10px;
+}
 @media (min-width: 1400px) and (max-width: 1650px) {
   .item {
     padding: 0px;
@@ -111,7 +117,7 @@
   .wraperContent {
     align-items: center;
     margin-top: 31px;
-    margin-left: 34px;
+    margin-left: 41px;
   }
   .item {
     margin: 0px;
@@ -158,16 +164,18 @@
     font-size: 14px;
     font-weight: normal;
     line-height: 30px;
+
+    margin-bottom: 4px;
   }
 
   .benefitNumber > p {
-    margin: 0px 0px -25px -10px;
+    margin: 0px 0px -37px -17px;
     font-size: 20px;
     font-weight: normal;
     line-height: 30px;
   }
-  .wrapContainer{
-    margin: 100px 50px 0px 50px
+  .wrapContainer {
+    margin: 100px 50px 0px 50px;
   }
 }
 @media (max-width: 768px) {
@@ -178,7 +186,7 @@
   .wraperContent {
     align-items: center;
     margin-top: 30px;
-    margin-left: 34px;
+    margin-left: 41px;
   }
   .item {
     flex-direction: column;
@@ -237,10 +245,11 @@
     font-size: 14px;
     font-weight: normal;
     line-height: 30px;
+    margin-bottom: 0px;
   }
 
   .benefitNumber > p {
-    margin: 0px 0px -25px -10px;
+    margin: 0px 0px -37px -17px;
     font-size: 20px;
     font-weight: normal;
     line-height: 30px;
