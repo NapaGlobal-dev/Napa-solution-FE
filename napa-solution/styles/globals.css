@@ -168,11 +168,11 @@ a:hover {
 .table-style > tbody > tr:first-child > th {
   background-color: #442493;
   color: #fff;
-  /* width: 100%; */
+  width: 100%;
   max-width: 30%;
   text-align: center;
 }
-@media (max-width: 1366px) {
+@media (max-width: 1365px) {
   .wrap-table-content {
     flex-direction: column;
   }
