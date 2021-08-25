@@ -9,7 +9,14 @@ const ContactForm = (props) => {
       <div className="wrap-title" id='down-up'>
         <div className="title-contact">{data["Contact_ContactForm_Title"]?.value}</div>
         <div className="subtitle-contact">
-           {data["Contact_ContactForm_SubTitle"]?.value}
+           {data["Contact_ContactForm_SubTitle"]?.value.split("\\n")
+                    .map((text, index) => (
+                      <React.Fragment key={index}>
+                        <strong className= {`subtitle${index}`}>
+                        {text}
+                        </strong>
+                      </React.Fragment>
+                    ))}
         </div>
         <div className="subtitle-contact phoneNum">
            {data["Contact_ContactForm_PhoneNum"]?.value}

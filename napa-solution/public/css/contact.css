@@ -12,6 +12,9 @@
   text-transform: uppercase;
   color: #2f3f4e;
 }
+.subtitle1{
+  color: #7c57e2
+}
 .phoneNum{
   font-weight: 800 !important;
   margin:0 !important;
