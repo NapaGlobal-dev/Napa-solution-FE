@@ -154,6 +154,10 @@
   .cover > p {
     font-size: 14px;
   }
+  .video {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 414px) {
