@@ -42,7 +42,9 @@ const Benefit = (props) => {
                 {contentBenefit.map((item, index) => (
                   <div className={styles.wraperContent} key={index}>
                     <div className={styles.benefitNumber}>
-                      <p>{`0${index + 1}`}</p>
+                      <p style={{ color: "#363537 !important" }}>{`0${
+                        index + 1
+                      }`}</p>
                     </div>
                     <p className={styles.benefitContent}>{item.value}</p>
                   </div>
