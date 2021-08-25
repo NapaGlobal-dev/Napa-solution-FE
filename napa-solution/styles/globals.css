@@ -49,10 +49,12 @@ body.dark-mode #wrap-contact {
 
 .wrap-table-content {
   padding: 100px 10% 0px;
+  display: flex;
 }
 
-.wrap-table-content>table:first-child {
-  margin-bottom: 28px;
+.wrap-table-content > table:first-child {
+  /* margin-bottom: 28px; */
+  margin-right: 20px;
 }
 
 .white-border {
@@ -163,9 +165,21 @@ a:hover {
   border: 2px solid #442493;
 }
 
-.table-style>tbody>tr:first-child>th {
+.table-style > tbody > tr:first-child > th {
   background-color: #442493;
   color: #fff;
+  width: 100%;
+  max-width: 30%;
+  text-align: center;
+}
+@media (max-width: 1366px) {
+  .wrap-table-content {
+    flex-direction: column;
+  }
+  .wrap-table-content > table:first-child {
+    margin-bottom: 28px;
+    margin-right: 0px;
+  }
 }
 
 @media (max-width: 768px) {
