@@ -2,7 +2,7 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  background: #00589b40;
+  background: #8a8e90ad;
   opacity: 0.6;
 }
 
@@ -95,7 +95,7 @@
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   min-height: 100vh;
   min-width: 100%;
   position: relative;

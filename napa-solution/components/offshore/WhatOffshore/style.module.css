@@ -18,6 +18,7 @@
 .wrap-image {
   width: 100%;
   display: flex;
+  margin-top: 30px;
 }
 
 .imgOffshore img {
@@ -87,6 +88,7 @@
   .wrap-image {
     flex-direction: column;
     margin-right: 0;
+    margin-top: 0;
   }
 
   .item {
