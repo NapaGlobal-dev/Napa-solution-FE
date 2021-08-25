@@ -37,11 +37,9 @@
 }
 .left-timeline {
   width: 40%;
-  float: left;
 }
 .right-timeline {
   width: 60%;
-  float: left;
 }
 .year-timeline {
   font-size: 50px;
@@ -136,14 +134,11 @@
     height: auto;
   }
   .stack {
-    width: 100%;
-    height: 100%;
-    display: -webkit-box;
+    display: flex;
   }
   .content-timeline {
     height: fit-content;
     padding-left: 0px;
-    text-align: left;
     flex-direction: column-reverse;
   }
   .left-timeline {
@@ -156,10 +151,16 @@
     margin-top: 20px;
   }
   .right-timeline {
-    width: 100vw;
+    width: 100%;
     padding: 0px 12px;
     display: flex;
     justify-content: center;
+  }
+  .right-timeline img{
+    width: 11111px;
+  }
+  .btn-res{
+    display: none !important;
   }
   .milestone {
     display: none;
@@ -190,9 +191,9 @@
     padding: 0px 12px;
     margin-right: 0;
   }
-  .left-timeline #detail-btn-company {
+  /* .left-timeline #detail-btn-company {
     display: none;
-  }
+  } */
   .row-credo {
     margin: unset;
     padding: 10px 0px;
@@ -206,13 +207,11 @@
     font-size: 13px;
     font-weight: bold;
     line-height: 30px;
-    letter-spacing: 0.78px;
   }
   .rightColumn {
     width: 65%;
     font-size: 13px;
     font-weight: normal;
     line-height: 30px;
-    letter-spacing: 0.78px;
   }
 }

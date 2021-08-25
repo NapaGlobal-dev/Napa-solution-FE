@@ -9,7 +9,7 @@ export default function Hisory({ next, timeline }) {
                 <div className='year-timeline'>{timeline?.key}</div>
                 <div className='title-timeline'>{subcontent?.key}</div>
                 <div className='subtitle-timeline'>{subcontent?.value}</div>
-                <div id='detail-btn-company' onClick={next}>
+                <div id='detail-btn-company' className='btn-res' onClick={next}>
                     <span id="detail-btn-company-content">次の一歩</span>
                     <svg id="stroke-arr-btn" viewBox="0 0 64 7">
                         <path d="M0 6h61.5l-5.2-5.2"></path>
