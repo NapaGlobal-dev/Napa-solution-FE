@@ -1,4 +1,4 @@
-.overlay-headerA {
+.overlay-header-banner {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -107,7 +107,7 @@
   min-width: 100%;
 }
 
-.textB {
+.wrap-content-banner {
   padding: 50px 100px 30px 100px;
   background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%);
   color: #fff;
@@ -118,14 +118,14 @@
   opacity: 1;
 }
 
-.titleB {
+.content-banner {
   font-weight: bold;
   font-size: 22px;
   letter-spacing: 0.72px;
   margin-bottom: 10px;
 }
 
-.subtitleB {
+.subcontent-banner {
   font-weight: bold;
   font-size: 13px;
   letter-spacing: 0.48px;
@@ -136,7 +136,7 @@
     font-size: 20px;
   }
 
-  .textB {
+  .wrap-content-banner {
     padding: 50px 24px 30px 24px;
   }
 
@@ -152,18 +152,18 @@
     padding: 5px 40px 4px;
   }
 
-  .textB {
+  .wrap-content-banner {
     padding: 30px 30px 20px 30px;
     font-size: 14px;
   }
 
-  .titleB {
+  .content-banner {
     font-size: 16px;
     letter-spacing: 0.72px;
     margin-bottom: 10px;
   }
 
-  .subtitleB {
+  .subcontent-banner {
     font-size: 10px;
     font-weight: bold;
     line-height: 20px;
