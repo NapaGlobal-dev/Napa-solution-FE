@@ -166,13 +166,16 @@ a:hover {
   border: 2px solid #442493;
 }
 
-.table-style > tbody > tr:first-child > th {
+.table-style > thead > th:first-child {
   background-color: #7b4bd2;
   color: #fff;
-  width: 200px;
+  /* width: 200px; */
   text-align: center;
 }
-@media (max-width: 1300px) {
+.table-style > tbody > th {
+  width: 199px;
+}
+@media (max-width: 1023px) {
   .wrap-table-content {
     flex-direction: column;
   }
@@ -189,7 +192,7 @@ a:hover {
     padding: 15px 0;
     min-width: 180px;
   }
-  .wrap-table-content{
+  .wrap-table-content {
     padding: 0 12px;
   }
 }
