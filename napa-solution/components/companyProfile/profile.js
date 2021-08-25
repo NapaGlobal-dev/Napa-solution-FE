@@ -18,23 +18,10 @@ const Profile = (props) => {
 
   return (
     <div className="profile-company">
-      <div className="wrapper-head">
-        <div className="wrap-title">
-          <div className="wrap-profile-icon">
-            <div className="line-1" />
-            <div className="line-2" />
-            <div className="line-3" />
-          </div>
-          <div className="profile-title" id="down-up">
-            <div className="profile-big-title">
-              <h1>{data["CompanyProfile_Corporate_Label"].value}</h1>
-            </div>
-            <div className="profile-sub-title">
-              {data["CompanyProfile_Corporate_Description"].value}
-            </div>
-            <div className="divided-line" />
-          </div>
-        </div>
+      <div id="down-up" className="cover">
+        <img className="decor-head-line" src="/img/line-style.svg" />
+        <h3>{data["CompanyProfile_Corporate_Label"].value}</h3>
+        <p>{data["CompanyProfile_Corporate_Description"].value}</p>
       </div>
       <div className="wrap-table-content">
         <table className="table table-style">
