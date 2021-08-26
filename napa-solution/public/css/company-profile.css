@@ -136,6 +136,16 @@
 .wrap-message {
   /* max-width: 75%; */
 }
+
+.wrapped-image{
+  width: 50%;
+}
+.image-detail{
+  width: 100%;
+  height: 240px;
+  border-radius: 5px;
+}
+
 @media (max-width: 1000px) {
   .wrap-profile {
     padding: 0px 6% 0px 2%;
@@ -184,4 +194,9 @@
     width: 40px;
     height: 100%;
   }
+  .wrapped-image{
+    width: 100%;
+    margin-top: 20px;
+  }
+  
 }
