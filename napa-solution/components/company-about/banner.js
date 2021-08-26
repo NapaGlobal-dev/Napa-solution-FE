@@ -22,7 +22,7 @@ const Banner = (props) => {
           className="imageA"
           alt=""
         />
-        {/* <div className="wrap-banner" id="banner">
+        {/* {/* <div className="wrap-banner" id="banner">
           <h1 className="main-title">
             {data["CompanyAbout_Banner_Title"].value}
           </h1>
@@ -39,7 +39,7 @@ const Banner = (props) => {
           <div className="subcontent-banner">
             {data["CompanyAbout_Banner_SubContent"].value}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

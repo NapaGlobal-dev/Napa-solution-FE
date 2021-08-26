@@ -10,7 +10,7 @@ const Banner = (props) => {
   //       document.getElementById("banner").className = "wrap-banner open";
   //     };
   //   }, []);
-
+  
     return (
         <>
             <Head>
