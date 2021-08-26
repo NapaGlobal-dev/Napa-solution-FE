@@ -82,12 +82,12 @@
   font-weight: lighter;
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 75px;
+  font-size: 50px;
 }
 
-.sub-title {
+.sub-menu {
   margin-top: 20px;
-  font-size: 1.2rem;
+  font-size: 20px;
 }
 
 .banner {
@@ -104,7 +104,9 @@
 
 .imageA {
   /* height: auto; */
-  min-width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
 .wrap-content-banner {
@@ -172,10 +174,6 @@
 }
 
 @media (max-width:1290px) {
-  .imageA {
-    min-width: auto;
-  }
-
   .wrap-banner {
     padding: 80px 120px;
   }
