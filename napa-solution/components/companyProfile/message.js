@@ -34,6 +34,9 @@ const Message = (props) => {
             </div>
           </div>
         </div>
+        <div className = "wrapped-image" id= "down-up">
+            <img className = "image-detail" src = {data["CompanyProfile_Message_Img"].image.original}/>
+        </div>
       </div>
     </div>
   );

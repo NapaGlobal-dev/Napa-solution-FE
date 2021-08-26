@@ -85,13 +85,18 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #442493;
+    background: url("/img/banner-1.png");
+    background-size: cover;
+    /* filter: blur(0.6px);
+    -webkit-filter: blur(0.6px); */
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .loader{
     position: relative;
-    width: 20rem;
-    height: 20rem;
+    width: 31rem;
+    height: 31rem;
 }
 
 .loader::before{
@@ -101,16 +106,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 8.6956521739rem;
-    height: 8.6956521739rem;
+    width: 13.3913043478rem;
+    height: 13.3913043478rem;
     background: #000;
     border-radius: 50%;
 }
 
 .loader .box{
     position: absolute;
-    width: 10rem;
-    height: 10rem;
+    width: 15.5rem;
+    height: 15.5rem;
     overflow: hidden
 }
 
@@ -179,21 +184,82 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     overflow: hidden;
 }
 
 .loader .text {
     position: relative;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+    width: 60px;
+    height: 60px;
+    line-height: 30px;
     -webkit-animation: slider 4s ease-in infinite;
     animation: slider 4s ease-in infinite;
 }
 
 .text span {
+    display: block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 3em;
+    color: #fff;
+}
+
+.loader-text{
+  color: #fff;
+  transform: translateY(-2rem);
+  letter-spacing: 6px;
+  opacity: 1;
+  /* -webkit-animation: blink 1s ease-out infinite alternate;
+  animation: blink 1s ease-out infinite alternate; */
+  font-size: 35px;
+  text-align: center;
+  padding: 0px 73px;
+}
+
+@media (max-width:768px) {
+  .wrap-loader{
+    background: url("/img/banner-1-mobile.png");
+    background-position: center;
+}
+  .loader{
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+  }
+  .loader::before{
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8.3913043478rem;
+    height: 8.3913043478rem;
+    background: #000;
+    border-radius: 50%;
+}
+.loader .box{
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden
+}
+.wrap-text{
+  width: 40px;
+  height: 40px;
+}
+
+  .loader .text{
+    width: 40px;
+    height: 40px;
+    -webkit-animation: slider-mobile 4s ease-in infinite;
+    animation: slider-mobile 4s ease-in infinite;
+  }
+  .text span {
     display: block;
     width: 40px;
     height: 40px;
@@ -202,17 +268,9 @@
     font-size: 2em;
     color: #fff;
 }
-
 .loader-text{
-  color: #fff;
-  transform: translateY(-2rem);
-  letter-spacing: 6px;
-  opacity: 0.2;
-  -webkit-animation: blink 1s ease-out infinite alternate;
-  animation: blink 1s ease-out infinite alternate;
   font-size: 20px;
-  text-align: center;
-  padding: 0px 73px;
+  }
 }
 
 @keyframes lightMe1{
@@ -274,36 +332,74 @@
           transform: translateY(0);
         }
         20%{
-          transform: translateY(-40px);
+          transform: translateY(-60px);
         }
         30%{
-          transform: translateY(-40px);
+          transform: translateY(-60px);
         }
         40%{
-          transform: translateY(-80px);
+          transform: translateY(-120px);
         }
         50%{
-          transform: translateY(-80px);
-        }
-        60%{
           transform: translateY(-120px);
         }
         60%{
-          transform: translateY(-120px);
+          transform: translateY(-180px);
+        }
+        60%{
+          transform: translateY(-180px);
         }
         70%{
-          transform: translateY(-120px);
+          transform: translateY(-180px);
         }
         80%{
-          transform: translateY(-160px);
+          transform: translateY(-240px);
         }
         90%{
-          transform: translateY(-160px);
+          transform: translateY(-240px);
         }
         100%{
-          transform: translateY(-200px);
+          transform: translateY(-300px);
         }
     }
+    @keyframes slider-mobile{
+      0%{
+        transform: translateY(0);
+      }
+      10%{
+        transform: translateY(0);
+      }
+      20%{
+        transform: translateY(-40px);
+      }
+      30%{
+        transform: translateY(-40px);
+      }
+      40%{
+        transform: translateY(-80px);
+      }
+      50%{
+        transform: translateY(-80px);
+      }
+      60%{
+        transform: translateY(-120px);
+      }
+      60%{
+        transform: translateY(-120px);
+      }
+      70%{
+        transform: translateY(-120px);
+      }
+      80%{
+        transform: translateY(-160px);
+      }
+      90%{
+        transform: translateY(-160px);
+      }
+      100%{
+        transform: translateY(-200px);
+      }
+  }
   
   @keyframes blink{
     from{
