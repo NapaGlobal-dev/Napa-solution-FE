@@ -18,7 +18,7 @@ const Message = (props) => {
         <h3 id="down-up">{title.value}</h3>
         <p id="down-up">{subTitle.value}</p>
         <div className="ab-row ab-row-reverse">
-          <div className="ab-col">
+          <div className="wrap-img">
             <div className="ab-box-image">
               <img className="imgCEO" src="./img/aHung.svg" />
               <img className="bgMessage" src="./img/bg-message.svg" />

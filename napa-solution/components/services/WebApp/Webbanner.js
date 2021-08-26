@@ -28,7 +28,7 @@ export default function Banner({ data }) {
                     width='100%'
                     className="image-header"
                 /> */}
-        <div className="overlay-headerA"></div>
+        <div className="overlay-header-banner"></div>
         <img src={banner?.image?.original} className="imageA" alt="" />
         <div className="wrap-banner" id="banner">
           <h1 className="main-title">
@@ -42,12 +42,12 @@ export default function Banner({ data }) {
           <div className="frame-tb"></div>
           <div className="frame-lr"></div>
         </div>
-        <div className="textB">
-          <div className="titleB">
+        <div className="wrap-content-banner">
+          <div className="content-banner">
             {content?.key}
             {content?.value}
           </div>
-          <div className="subtitleB">
+          <div className="subcontent-banner">
             {subcontent?.key}
             {subcontent?.value}
           </div>

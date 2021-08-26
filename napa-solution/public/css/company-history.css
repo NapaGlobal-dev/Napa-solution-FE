@@ -72,6 +72,9 @@
 .horizonMilestone {
   display: none;
 }
+.horizonMilestone svg{
+  width: 100%;
+}
 .container-credo {
   padding: 0 200px 0 200px;
   display: flex;
@@ -157,7 +160,8 @@
     justify-content: center;
   }
   .right-timeline img{
-    width: 11111px;
+    width: 100vw;
+    height: 100%;
   }
   .btn-res{
     display: none !important;
