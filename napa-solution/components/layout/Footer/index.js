@@ -505,7 +505,7 @@ const Footer = (props) => {
                       </svg>
                     </div>
                     <p className={clsx(styles.contentp)}>
-                      {data.Footer_Phone.value}
+                      {data.Footer_Phone_ENG.value}
                     </p>
                   </div>
                   <div className={clsx(styles.coverInput)}>
