@@ -162,6 +162,7 @@ a:hover {
 
 .table-style {
   border: 2px solid #442493;
+  height: 500px;
 }
 
 .table-style > thead > th:first-child {

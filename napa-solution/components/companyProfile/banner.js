@@ -31,14 +31,14 @@ const Banner = (props) => {
                     <div className="frame-tb"></div>
                     <div className="frame-lr"></div>
                 </div> */}
-                <div className="wrap-content-banner">
+                {/* <div className="wrap-content-banner">
                     <div className='content-banner'>
                         {data["CompanyProfile_Banner_Content"].value}
                     </div>
                     <div className='subcontent-banner'>
                         {data["CompanyProfile_Banner_SubContent"].value}
                     </div>
-                </div> */}
+                </div>  */}
       </div>
     </>
   );
