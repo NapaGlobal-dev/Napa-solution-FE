@@ -16,7 +16,7 @@ const Banner = (props) => {
         <link key="css/banner.css" rel="stylesheet" href="css/banner.css" />
       </Head>
       <div className="banner">
-        {/* <div className="overlay-headerA"></div> */}
+        <div className="overlay-header-banner"></div>
         <img
           src={data["CompanyAbout_Banner_Img"].image.original}
           className="imageA"
@@ -31,12 +31,12 @@ const Banner = (props) => {
           </div>
           <div className="frame-tb"></div>
           <div className="frame-lr"></div>
-        </div> */}
-        <div className="textB">
-          <div className="titleB">
+        </div>
+        <div className="wrap-content-banner">
+          <div className="content-banner">
             {data["CompanyAbout_Banner_Content"].value}
           </div>
-          <div className="subtitleB">
+          <div className="subcontent-banner">
             {data["CompanyAbout_Banner_SubContent"].value}
           </div>
         </div>
