@@ -9,9 +9,10 @@
 .wrap-banner {
   position: absolute;
   top: 26%;
-  padding: 70px 100px;
+  padding: 100px;
   text-align: center;
   color: white;
+  min-width: 650px;
 }
 
 .sub-title {
@@ -144,6 +145,7 @@
 
   .wrap-banner {
     padding: 40px;
+    min-width: 300px;
   }
 
   .main-title {

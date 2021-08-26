@@ -17,7 +17,7 @@ const WebApp = (props) => {
             <div className="content-service">
               <div className="item-service">
                 <div className="logo-napa">
-                  <img src="./img/home/logo_napa_white.svg" />
+                  <img src="./img/home/logo_napa_green.svg" />
                 </div>
               </div>
               <div className="item-services">
