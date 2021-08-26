@@ -19,29 +19,8 @@ export default function Banner({ data }) {
         <link key="css/banner.css" rel="stylesheet" href="css/banner.css" />
       </Head>
       <div className="banner">
-        {/* <LazyLoadImage
-                    effect='blur'
-                    src={banner?.image?.original}
-                    placeholderSrc={banner?.image?.thumbnail}
-                    threshold={100}
-                    height='100%'
-                    width='100%'
-                    className="image-header"
-                /> */}
         <div className="overlay-header-banner"></div>
         <img src={banner?.image?.original} className="imageA" alt="" />
-        {/* <div className="wrap-banner" id="banner">
-          <h1 className="main-title">
-            {title?.key}
-            {title?.value}
-          </h1>
-          <div className="sub-title">
-            {subtitle?.key}
-            {subtitle?.value}
-          </div>
-          <div className="frame-tb"></div>
-          <div className="frame-lr"></div>
-        </div>
         <div className="wrap-content-banner">
           <div className="content-banner">
             {content?.key}

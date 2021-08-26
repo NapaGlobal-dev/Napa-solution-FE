@@ -35,7 +35,7 @@ export default function Banner({ data }) {
             {title?.key}
             {title?.value}
           </h1>
-          <div>
+          <div className="sub-menu">
             {subtitle?.key}
             {subtitle?.value}
           </div>

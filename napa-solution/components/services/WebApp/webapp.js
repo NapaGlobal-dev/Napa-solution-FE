@@ -7,27 +7,30 @@ const WebApp = (props) => {
 
   return (
     <div className="container-fluid">
-      <div className="sv-cover-padding">
-        <div className={clsx("sv-cover")}>
-          <img className="sv-decor-head-line" src="/img/line-style.svg" />
+      <div>
+        <div className="cover">
+          <img className="decor-head-line" src="/img/line-style.svg" />
           <h3 id="down-up">{data.WebApp_TitleEN.value}</h3>
           <p id="down-up">{data.WebApp_TitleJP.value}</p>
-          
-          <div className="sv-img-bouding">
-            <picture>
-              <source
-                srcSet={data.WebApp_ImageMobile.image.original}
-                media="(max-width: 768px)"
-              />
+
+          <div className="wrap-service">
+            <div className="content-service">
+              <div className="item-service">
+                <div className="logo-napa">
+                  <img src="./img/home/logo_napa_white.svg" />
+                </div>
+              </div>
+              <div className="item-services">
+                <div className="intro-service">
+                  {data.WebApp_Content.value}
+                </div>
+              </div>
+            </div>
+            <div className="img-service">
               <img
                 className="sv-img-cover"
                 src={data.WebApp_ImageDesktop.image.original}
               />
-            </picture>
-            <div className="sv-box">
-              <div className="sv-content" id="down-up">
-                {joinJsx(data.WebApp_Content.value.split("\\n"), <br />)}
-              </div>
             </div>
           </div>
         </div>
