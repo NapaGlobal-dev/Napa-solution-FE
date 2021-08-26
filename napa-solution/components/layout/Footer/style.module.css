@@ -27,7 +27,7 @@
 
 .footerPublish {
   padding-top: 60px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .footerPublish p {
@@ -100,7 +100,7 @@
 .liText {
   color: var(--unnamed-color-ffffff);
   text-align: left;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: normal;
   line-height: 30px;
   letter-spacing: 0.42px;
@@ -133,7 +133,7 @@
 .imgMap {
   width: 100%;
   height: auto;
-  margin-top: 50px;
+  margin-top: 30px;
   max-width: 550px;
 }
 
@@ -175,6 +175,23 @@
   padding-right: 8px;
 }
 
+.socialsIconDeskTop {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.socialsIconDeskTop svg {
+  margin-right: 20px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.socialsIconDeskTop svg:hover {
+  opacity: 1;
+}
+
 .socials>p {
   color: var(--unnamed-color-ffffff);
   text-align: left;
@@ -199,6 +216,7 @@
 
 .groupText>ul {
   margin-left: 15px;
+  width: 100%;
 }
 
 .groupText>ul>li::marker {
@@ -222,7 +240,7 @@
 
 .imgNapa {
   width: 100%;
-  max-width: 459px;
+  max-width: 400px;
   height: auto;
 }
 
@@ -279,7 +297,10 @@
   padding-bottom: 2.6%;
   padding-top: calc(5.2vw + 40px);
 }
-
+.wrapIconLogo{
+  display: flex;
+  flex-direction: column;
+}
 @media (min-width: 1600px) {
   .imgMap {
     width: 100%;
@@ -313,10 +334,38 @@
 }
 
 @media (min-width: 1300px) {
+  
   .groupMapIcon {
-    width: 45%;
-    padding-right: 35px;
+    width: 35%;
     max-width: 550px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .half {
+    width: 55%;
+  }
+
+  .formstyle1 {
+    margin-right: 20px;
+  }
+
+  .formstyle1,
+  .formstyle2 {
+    width: 50% !important;
+    margin-bottom: 0 !important;
+    padding: 20px;
+  }
+
+  .coverform {
+    flex-direction: row;
+  }
+  .imgMap{
+    position: absolute;
+    left: 0;
+    width: 120%;
   }
 }
 

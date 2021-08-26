@@ -25,7 +25,7 @@ html {
 }
 
 .cover>h3 {
-  font-size: 35px;
+  font-size: 30px;
   font-weight: bold;
   color: #2c3e50;
   text-transform: uppercase;
@@ -36,7 +36,7 @@ html {
 .cover>p {
   margin-bottom: 50px;
   text-align: left;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: normal;
   line-height: 40px;
   letter-spacing: 0.78px;
@@ -1942,7 +1942,7 @@ button:focus {
 .dropdown-body {
   padding: 0 20px;
   border: 3px solid #fff;
-  background: white;
+  background: hsl(250deg 50% 57% / 68%);
   border-radius: 10px;
   box-shadow: 0px 10px 30px 0px rgb(137 91 242 / 5%);
   display: flex;
@@ -1961,22 +1961,22 @@ button:focus {
 }
 .dropdown-body a {
   transition: margin-left 0.5s;
-  color: #2c3e50;
+  color: #FFFFFF;
 }
 
-.dropdown-body a:hover {
+/* .dropdown-body a:hover {
   color: #895bf2;
   position: relative;
-}
+} */
 
-.dropdown-body a:hover::after {
+/* .dropdown-body a:hover::after {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
   -webkit-transform-origin: left;
   transform-origin: left;
-}
+} */
 
-.dropdown-body a::after {
+/* .dropdown-body a::after {
   content: "";
   display: block;
   position: absolute;
@@ -1993,8 +1993,7 @@ button:focus {
   background: #895bf2;
   -webkit-transform-origin: right;
   transform-origin: right;
-}
-}
+} */
 
 .dropdown-body div {
   position: relative;
@@ -2039,7 +2038,7 @@ button:focus {
   color: #9e9e9e;
   opacity: 1;
   border-bottom: 1px solid #c8b8f4;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
   font-weight: normal;
 }
 
@@ -2088,7 +2087,7 @@ button:focus {
 }
 
 .cover .decor-head-line {
-  width: 54px;
+  width: 45px;
   position: absolute;
   left: -80px;
   top: -20px;

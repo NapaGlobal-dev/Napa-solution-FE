@@ -42,7 +42,7 @@ export default function Banner({ data }) {
           <div className="frame-tb"></div>
           <div className="frame-lr"></div>
         </div>
-        <div className="wrap-content-banner">
+        {/* <div className="wrap-content-banner">
           <div className="content-banner">
             {content?.key}
             {content?.value}
@@ -51,7 +51,7 @@ export default function Banner({ data }) {
             {subcontent?.key}
             {subcontent?.value}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
