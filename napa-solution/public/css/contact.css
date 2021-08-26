@@ -27,52 +27,111 @@
   color: #9e9e9e;
   width: 620px;
 }
-.title-row {
-  font-size: 16px;
-  font-weight: bold;
+
+.container-contact{
+  display: flex;
+  width: 100%;
+  padding: 40px 200px;
+}
+.left-contact{
+  width: 40%;
+  font-size: 14px;
   letter-spacing: 0px;
-  color: #2f3f4e ;
+  padding-right: 10%;
+  margin-top: 40px;
+}
+.left-contact >div{
+  color: #6C3AF5;
+  font-weight: lighter;
+  margin-top: 60px;
+  margin-bottom: 25px;
   display: flex;
   align-items: center;
 }
-.textBox-contact {
-  width: 100%;
-  height: 55px;
-  padding: 0px 20px;
-  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  border: 1px solid #21293029;
-  border-radius: 5px;
+.left-contact >div >a{
+  display: none;
 }
-
-.textBox-contact:focus,.textarea-contact:focus{
+.left-contact svg{
+  width: 20px;
+  transform: rotate(-45deg);
+}
+.right-contact{
+  width: 70%;
+  font-size: 16px;
+  letter-spacing: 0px;
+}
+.right-contact p{
+  margin: 0px;
+  margin-top: 40px;
+}
+.right-contact >form >input{
+  border: none;
+  border-bottom: solid 1px #DEDEE2;
+  padding: 10px;
+  width: 100%;
+}
+.right-contact textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  overflow: auto;
+  border: none;
+  border-bottom: solid 1px #DEDEE2;
+}
+.right-contact label{
+  color: #F13A3A !important;
+  font-size: 10px;
+}
+.right-contact input:focus,textarea:focus{
   outline: none;
-  border: 2px solid #5433ad;
+  border-bottom: 1px solid #5433ad;
 }
-
-.textarea-contact {
-  width: 100%;
-  height: 200px;
-  padding: 20px;
-  overflow: hidden;
-  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  border: 1px solid #21293029;
-  border-radius: 5px;
+.phone-contact{
+  display: flex;
+  align-items: center;
+}
+.phone-contact >input{
+  border: none;
+  border-bottom: solid 1px #DEDEE2;
+  padding: 10px;
+  width: 70px;
+}
+.footer-form {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  justify-content: space-between;
+}
+.checkbox-form {
+  display: flex;
+  align-items: center;
+}
+.checkbox-form >input {
+  margin-bottom: 0px;
+  margin-right: 10px;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.checkbox-form >a {
+  color: inherit;
+  text-decoration: underline;
+}
+.checkbox-form >a:hover {
+  text-decoration: underline;
 }
 .button-contact {
+  margin-right: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   width: 40%;
   height: 70px;
-  margin-bottom: 70px;
-  border-radius: 1px;
-  cursor: pointer;
+  border-radius: 5px;
+  border: none;
   background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%);
   color: var(--unnamed-color-ffffff);
-
+  float: right;
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0px;
@@ -82,42 +141,13 @@
   text-decoration: underline;
   text-decoration-color: #6c3af5;
 }
-.contact{
-    display: flex;
-    justify-content: center;
-    margin-top: 45px;
-}
-.container-contact{
-    display: flex;
-    width: 60%;
-    flex-wrap: wrap;
-    justify-content: center;
-    background:#EEEEEE 0% 0% no-repeat padding-box;
-}
-.table-contact {
-  display: grid;
-  grid-template-columns: 45% 55%;
-  grid-row-gap: 40px;
-  width: 100%;
-  padding: 70px 145px;
+
+.error{
+  color: #F13A3A;
+  border-bottom-color: #F13A3A !important;
 }
 
-@media (max-width: 1280px) {
-  .container-contact {
-    width: 80%;
-  }
-  .table-contact {
-    padding: 50px 50px;
-  }
-}
-@media (max-width: 768px) {
-  .container-contact {
-    width: 100%;
-  }
-  .table-contact {
-    padding: 40px 20px;
-    grid-row-gap: 30px;
-  }
+@media (max-width: 960px) {
   .wrap-title {
     margin-top: 50px;
   }
@@ -128,25 +158,46 @@
   }
   .subtitle-contact {
     letter-spacing: 0.78px;
-    padding: 0px 20px;
+    padding: 0px 12px;
     width: auto;
     font-size: 14px;
     line-height: 1.5;
   }
-  .textBox-contact {
-    height: 50px;
-    padding: 0px 10px;
+  .phoneNum{
+    font-size: 16px;
   }
-  .textarea-contact {
-    height: 100px;
-    padding: 10px 10px;
-    max-height: 100px;
-    overflow: scroll;
+  .container-contact{
+    flex-direction: column-reverse;
+    padding: 0px 12px;
+  }
+  .right-contact{
+    width: 100%;
+    margin-top: 40px;
+    font-size: 14px;
+  }
+  .left-contact{
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .left-contact >a{
+    display: none;
+  }
+  .left-contact >div >a{
+    display: block;
+    margin-left: 5px;
+  }
+  .footer-form{
+    flex-direction: column;
+    justify-content: center;
+  }
+  .footer-form >div{
+    margin-bottom: 40px;
   }
   .button-contact {
     width: 60%;
-  }
-  .phoneNum{
-    font-size: 16px;
   }
 }

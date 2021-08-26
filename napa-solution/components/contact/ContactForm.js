@@ -1,9 +1,103 @@
-import React from "react";
+import {useState, Fragment} from "react";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import joinJsx from "../../util/joinJsx";
 
 const ContactForm = (props) => {
+  const [fullName, setFullName] = useState('')
+  const [fullNameError, setFullNameError] = useState(false)
+  const [companyName, setCompanyName] = useState('')
+  const [companyNameError, setCompanyNameError] = useState(false)
+  const [companyAddress, setCompanyAddress] = useState('')
+  const [companyAddressError, setCompanyAddressError] = useState(false)
+  const [phone1, setPhone1] = useState('')
+  const [phone2, setPhone2] = useState('')
+  const [phone3, setPhone3] = useState('')
+  const [phoneError, setPhoneError] = useState(false)
+  const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState(false)
+  const [message, setMessage] = useState('')
+  const [messageError, setMessageError] = useState(false)
+  const [checked, setChecked] = useState(false)
   const data = convertArrToObject(props.data.property);
+
+  function submit(e){
+    const phone = (phone1+phone2+phone3).length===11
+    !fullName? setFullNameError(true) : 'none'
+    !companyName? setCompanyNameError(true) : 'none'
+    !companyAddress? setCompanyAddressError(true) : 'none'
+    !phone? setPhoneError(true) : 'none'
+    !email? setEmailError(true) : 'none'
+    !message? setMessageError(true) : 'none'
+
+    if(
+      !fullName ||
+      !companyAddress ||
+      !companyName ||
+      !phone ||
+      !message ||
+      !email ||
+      !checked
+    ){
+      e.preventDefault()
+      return
+    }
+    e.preventDefault()
+  }
+
+  function onChange(e){
+    switch(e.target.name){
+      case 'fullName': {
+        setFullName(e.target.value)
+        setFullNameError(false)
+        break
+      }
+      case 'companyName': {
+        setCompanyName(e.target.value)
+        setCompanyNameError(false)
+        break
+      }
+      case 'companyAddress': {
+        setCompanyAddress(e.target.value)
+        setCompanyAddressError(false)
+        break
+      }
+      case 'phone1': {
+        if( /[^0-9]/.test(e.target.value) || e.target.value.length>3){
+          break
+        }
+        setPhone1(e.target.value)
+        setPhoneError(false)
+        break
+      }
+      case 'phone2': {
+        if( /[^0-9]/.test(e.target.value) || e.target.value.length>4){
+          break
+        }
+        setPhone2(e.target.value)
+        setPhoneError(false)
+        break
+      }
+      case 'phone3': {
+        if( /[^0-9]/.test(e.target.value) || e.target.value.length>4){
+          break
+        }
+        setPhone3(e.target.value)
+        setPhoneError(false)
+        break
+      }
+      case 'email': {
+        setEmail(e.target.value)
+        setEmailError(false)
+        break
+      }
+      case 'message': {
+        setMessage(e.target.value)
+        setMessageError(false)
+        break
+      }
+    }
+  }
+
   return (
     <>
       <div className="wrap-title" id='down-up'>
@@ -11,71 +105,170 @@ const ContactForm = (props) => {
         <div className="subtitle-contact">
            {data["Contact_ContactForm_SubTitle"]?.value.split("\\n")
                     .map((text, index) => (
-                      <React.Fragment key={index}>
+                      <Fragment key={index}>
                         <strong className= {`subtitle${index}`}>
                         {text}
                         </strong>
-                      </React.Fragment>
+                      </Fragment>
                     ))}
         </div>
         <div className="subtitle-contact phoneNum">
            {data["Contact_ContactForm_PhoneNum"]?.value}
         </div>
       </div>
-      <div className='contact'>
-        <div className="container-contact" id="wrap-contact">
-          <div className="table-contact">
-            <div className="title-row" id='down-up'>
-              {" "}
-              {data["Contact_ContactForm_Content1"]?.value}
-            </div>
-            <div>
-              <input type="text" className="textBox-contact" />
-            </div>
-            <div className="title-row" id='down-up'>
-              {" "}
-              {data["Contact_ContactForm_Content2"]?.value}
-            </div>
-            <div>
-              <input type="text" className="textBox-contact" />
-            </div>
-            <div className="title-row" id='down-up'>
-              {data["Contact_ContactForm_Content3"]?.value}
-            </div>
-            <div>
-              <input type="text" className="textBox-contact" />
-            </div>
-            <div className="title-row" id='down-up'>
-              {data["Contact_ContactForm_Content4"]?.value}
-            </div>
-            <div>
-              <input type="text" className="textBox-contact" />
-            </div>
-            <div className="title-row" id='down-up'>
-              {data["Contact_ContactForm_Content5"]?.value}
-            </div>
-            <div>
-              <textarea type="text" className="textarea-contact" />
-            </div>
-            {/* <div className="title-row">*お問い合わせ内容</div>
-            <div>
-              <textarea name="お問い合わせ内容" className="textarea-contact" />
-            </div> */}
+      <div className="container-contact">
+        <div className='left-contact'>
+          Our locations
+          <div id='down-up'>
+            Vietnamese
+            <a href={data?.Footer_MapBtn_EN?.url} target="_blank">
+              <svg version="1.1" x="0px" y="0px" viewBox="0 0 512 512" >
+                <path fill='currentColor' d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068
+                  c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557
+                  l-70.162,69.824c-7.829,7.792-7.859,20.455-0.067,28.284c7.793,7.831,20.457,7.858,28.285,0.068l104.504-104
+                  c0.006-0.006,0.011-0.013,0.018-0.019C513.968,262.339,513.943,249.635,506.134,241.843z"/>
+              </svg>
+            </a>
           </div>
-          <div className="button-contact">
-            {data["Contact_ContactForm_Button"]?.value}
-            <svg
-              height="7px"
-              fill="none"
-              strokeWidth="2"
-              stroke="#6C3AF5"
-              strokeDasharray="69px 138px"
-              viewBox="0 0 64 7"
-              style={{ position: "absolute", right: -16 }}
-            >
-              <path d="M0 6h61.5l-5.2-5.2"></path>
+          <p id='down-up'>{data?.Footer_Address_EN?.value}</p>
+          <a href={data?.Footer_MapBtn_EN?.url} target="_blank" id='down-up'>
+            <svg version="1.1" x="0px" y="0px" viewBox="0 0 512 512" >
+              <path fill='currentColor' d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068
+                c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557
+                l-70.162,69.824c-7.829,7.792-7.859,20.455-0.067,28.284c7.793,7.831,20.457,7.858,28.285,0.068l104.504-104
+                c0.006-0.006,0.011-0.013,0.018-0.019C513.968,262.339,513.943,249.635,506.134,241.843z"/>
             </svg>
+          </a>
+          <div id='down-up'>
+            Japan
+            <a href={data?.Footer_MapBtn_JP?.url} target="_blank">
+              <svg version="1.1" x="0px" y="0px" viewBox="0 0 512 512" >
+                <path fill='currentColor' d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068
+                  c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557
+                  l-70.162,69.824c-7.829,7.792-7.859,20.455-0.067,28.284c7.793,7.831,20.457,7.858,28.285,0.068l104.504-104
+                  c0.006-0.006,0.011-0.013,0.018-0.019C513.968,262.339,513.943,249.635,506.134,241.843z"/>
+              </svg>
+            </a>
           </div>
+          <p id='down-up'>{data?.Footer_Address_JP?.value}</p>
+          <a href={data?.Footer_MapBtn_JP?.url} target="_blank" id='down-up'>
+            <svg version="1.1" x="0px" y="0px" viewBox="0 0 512 512" >
+              <path fill='currentColor' d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068
+                c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557
+                l-70.162,69.824c-7.829,7.792-7.859,20.455-0.067,28.284c7.793,7.831,20.457,7.858,28.285,0.068l104.504-104
+                c0.006-0.006,0.011-0.013,0.018-0.019C513.968,262.339,513.943,249.635,506.134,241.843z"/>
+            </svg>
+          </a>
+        </div>
+        <div className='right-contact'>
+          <form onSubmit={submit}>
+            <p className={fullNameError? 'error':''}>
+              {data?.Contact_ContactForm_Content1?.value}
+            </p>
+            <input
+              type='input'
+              name='fullName'
+              className={fullNameError? 'error':''}
+              onChange={onChange}
+              value={fullName}
+            />
+            {fullNameError? <label>Enter Your {data?.Contact_ContactForm_Content1?.value}</label> : <></>}
+
+            <p className={companyNameError? 'error':''}>{data?.Contact_ContactForm_Content2?.value}</p>
+            <input
+              type='input'
+              name='companyName'
+              className={companyNameError? 'error':''}
+              onChange={onChange}
+              value={companyName}
+            />
+            {companyNameError? <label>Enter Your {data?.Contact_ContactForm_Content2?.value}</label> : <></>}
+
+            <p className={companyAddressError? 'error':''}>{data?.Contact_ContactForm_Content3?.value}</p>
+            <input
+              type='input'
+              name='companyAddress'
+              className={companyAddressError? 'error':''}
+              onChange={onChange}
+              value={companyAddress}
+            />
+            {companyAddressError? <label>Enter Your {data?.Contact_ContactForm_Content3?.value}</label> : <></>}
+
+            <p className={phoneError? 'error':''}>{data?.Contact_ContactForm_Content4?.value}</p>
+            <div className='phone-contact'>
+              <input
+                type='input'
+                name='phone1'
+                className={phoneError? 'error':''}
+                placeholder='090'
+                onChange={onChange}
+                value={phone1}
+              />
+              -
+              <input
+                type='input'
+                name='phone2'
+                className={phoneError? 'error':''}
+                placeholder='0000'
+                onChange={onChange}
+                value={phone2}
+              />
+              -
+              <input
+                type='input'
+                name='phone3'
+                className={phoneError? 'error':''}
+                placeholder='0000'
+                onChange={onChange}
+                value={phone3}
+              />
+            </div>
+            {phoneError? <label>Enter Your {data?.Contact_ContactForm_Content4?.value}</label> : <></>}
+
+            <p className={emailError? 'error':''}>{data?.Contact_ContactForm_Content5?.value}</p>
+            <input
+              type='input'
+              name='email'
+              className={emailError? 'error':''}
+              onChange={onChange}
+              value={email}
+            />
+            {emailError? <label>Enter Your {data?.Contact_ContactForm_Content5?.value}</label> : <></>}
+
+            <p className={messageError? 'error':''}>{data?.Contact_ContactForm_Content6?.value}</p>
+            <textarea
+              type='input'
+              name='message'
+              className={messageError? 'error':''}
+              onChange={onChange}
+              value={message}
+            ></textarea>
+            {messageError? <label>Enter Your {data?.Contact_ContactForm_Content6?.value}</label> : <></>}
+            
+            <div className='footer-form'>
+              <div className='checkbox-form'>
+                <input type='checkbox' checked={checked} onClick={()=>setChecked(!checked)}/>
+                <a href={data?.Contact_ContactForm_CheckBox?.url} target="_blank">
+                  {data?.Contact_ContactForm_CheckBox?.key}
+                </a>
+                {data?.Contact_ContactForm_CheckBox?.value}
+              </div>
+              <button className="button-contact">
+                {data["Contact_ContactForm_Button"]?.value}
+                <svg
+                  height="7px"
+                  fill="none"
+                  strokeWidth="2"
+                  stroke="#6C3AF5"
+                  strokeDasharray="69px 138px"
+                  viewBox="0 0 64 7"
+                  style={{ position: "absolute", right: -16 }}
+                >
+                  <path d="M0 6h61.5l-5.2-5.2"></path>
+                </svg>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </>
