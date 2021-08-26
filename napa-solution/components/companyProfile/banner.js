@@ -38,10 +38,10 @@ const Banner = (props) => {
                     <div className='subcontent-banner'>
                         {data["CompanyProfile_Banner_SubContent"].value}
                     </div>
-                </div>
-            </div>
-        </>
-    );
-}
+                </div> */}
+      </div>
+    </>
+  );
+};
 
-export default Banner
+export default Banner;
