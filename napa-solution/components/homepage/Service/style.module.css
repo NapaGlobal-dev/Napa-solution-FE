@@ -16,7 +16,7 @@
 }
 .h2Text {
   text-align: left;
-  font-size: 45px;
+  font-size: 30px;
   font-weight: bold;
   line-height: 25px;
   letter-spacing: 4.5px;
@@ -145,7 +145,6 @@
 }
 
 .boxContent h3 {
-  color: #412490;
   font-size: 30px;
   margin: 0;
   padding-bottom: 28px;
@@ -218,7 +217,6 @@
 
 @media (max-width: 1400px) {
   .h2Text {
-    font-size: 35px;
     transform: rotate(90deg) translate(43%, 170px);
   }
 

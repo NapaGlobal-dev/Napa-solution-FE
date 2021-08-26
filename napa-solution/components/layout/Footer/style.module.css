@@ -8,7 +8,7 @@
 }
 
 .footerBackground {
-  background: #5433ad;
+  background: #121b4a;
 }
 
 .coverContainer {
@@ -38,10 +38,6 @@
   text-align: center;
   font-size: 1.9vw;
   font-weight: bold;
-  line-height: 60px;
-  letter-spacing: 1.5px;
-  color: #2f3f4e !important;
-  opacity: 1;
   line-height: 1.8;
 }
 
@@ -344,13 +340,8 @@
   }
 
   .h3text {
-    text-align: center;
     font-size: 28px;
-    font-weight: bold;
     line-height: 40px;
-    letter-spacing: 1.05px;
-    color: #ffffff;
-    opacity: 1;
   }
 
   .ptext {
@@ -408,13 +399,8 @@
   }
 
   .h3text {
-    text-align: center;
     font-size: 28px;
-    font-weight: bold;
-    line-height: 40px;
     letter-spacing: 1.05px;
-    color: #ffffff;
-    opacity: 1;
   }
 
   .ptext {
@@ -451,14 +437,7 @@
   }
 
   .h3text {
-    color: var(--unnamed-color-ffffff);
-    text-align: center;
     font-size: 16px;
-    font-weight: bold;
-    line-height: 25px;
-    letter-spacing: 0px;
-    color: #ffffff;
-    opacity: 1;
   }
 
   .ptext {
