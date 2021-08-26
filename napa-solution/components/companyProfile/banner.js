@@ -10,27 +10,27 @@ const Banner = (props) => {
   //       document.getElementById("banner").className = "wrap-banner open";
   //     };
   //   }, []);
-
-  return (
-    <>
-      <Head>
-        <link key="css/banner.css" rel="stylesheet" href="css/banner.css" />
-      </Head>
-      <div className="banner">
-        <div className="overlay-header-banner"></div>
-        <img
-          src={data["CompanyProfile_Banner_Img"].image.original}
-          className="imageA"
-          alt=""
-        />
-        {/* <div className="wrap-banner" id="banner">
+  
+    return (
+        <>
+            <Head>
+                <link
+                    key="css/banner.css"
+                    rel="stylesheet"
+                    href="css/banner.css"
+                />
+            </Head>
+            <div className="banner">
+                <div className="overlay-header-banner"></div>
+                <img src={data["CompanyProfile_Banner_Img"].image.original} className="imageA" alt="" />
+                {/* <div className="wrap-banner" id="banner">
                     <h1 className="main-title">{data["CompanyProfile_Banner_Title"].value}</h1>
                     <div className="sub-title">
                         {data["CompanyProfile_Banner_SubTitle"].value}
                     </div>
                     <div className="frame-tb"></div>
                     <div className="frame-lr"></div>
-                </div>
+                </div> */}
                 <div className="wrap-content-banner">
                     <div className='content-banner'>
                         {data["CompanyProfile_Banner_Content"].value}

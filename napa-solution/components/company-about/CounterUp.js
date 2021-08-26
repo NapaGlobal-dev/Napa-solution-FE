@@ -17,11 +17,15 @@ const CounterUp = (props) => {
       <div className="ab-container-child">
         <div className="ab-container-layout-over">
           <div className="ab-postition-relative">
-            <div className="ab-background">
-              <img
+            <div className="ab-background"
+            style={{
+              backgroundImage: `url(${data.CompanyAbout_Counter_Background?.image.original})`,
+            }}
+            >
+              {/* <img
                 className="ab-background-img"
                 src={data.CompanyAbout_Counter_Background?.image.original}
-              />
+              /> */}
               <img className="ab-background-over" src="/img/wave-shape.svg" />
             </div>
           </div>

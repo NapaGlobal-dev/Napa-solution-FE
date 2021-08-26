@@ -51,6 +51,8 @@ body.dark-mode #wrap-contact {
 .wrap-table-content {
   padding: 0 100px 0px 200px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .wrap-table-content > table:first-child {
@@ -167,6 +169,8 @@ a:hover {
   color: #fff;
   /* width: 200px; */
   text-align: center;
+  border: 2px solid #442493;
+
 }
 .table-style > tbody > th {
   width: 199px;
@@ -182,6 +186,9 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+  .table td, .table th {
+    font-size: 14px;
+  }
   #detail-btn-company {
     width: 98%;
     height: auto;
