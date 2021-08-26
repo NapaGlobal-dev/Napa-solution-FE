@@ -8,11 +8,11 @@ export default function Banner({ data }) {
   const subtitle = getData(data, /CompanyHistory_Banner_SubTitle/)[0];
   const content = getData(data, /CompanyHistory_Banner_Content/)[0];
   const subcontent = getData(data, /CompanyHistory_Banner_SubContent/)[0];
-  useEffect(() => {
-    window.onload = function () {
-      document.getElementById("banner").className = "wrap-banner open";
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.onload = function () {
+  //     document.getElementById("banner").className = "wrap-banner open";
+  //   };
+  // }, []);
   return (
     <>
       <Head>
@@ -30,12 +30,12 @@ export default function Banner({ data }) {
                 /> */}
         <div className="overlay-header-banner"></div>
         <img src={banner?.image?.original} className="imageA" alt="" />
-        <div className="wrap-banner" id="banner">
+        {/* <div className="wrap-banner" id="banner">
           <h1 className="main-title">
             {title?.key}
             {title?.value}
           </h1>
-          <div className='sub-title'>
+          <div className="sub-title">
             {subtitle?.key}
             {subtitle?.value}
           </div>

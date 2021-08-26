@@ -25,14 +25,14 @@ const Profile = (props) => {
       </div>
       <div className="wrap-table-content">
         <table className="table table-style">
+          <thead>
+            <th colSpan="2">{data["CompanyProfile_Corporate_NPS"].value}</th>
+          </thead>
           <tbody>
-            <tr>
-              <th> {data["CompanyProfile_Corporate_NPS"].value}</th>
-            </tr>
             {profileTitle.map((item, index) => (
               <tr key={index}>
                 <th>{item.value}</th>
-                <td>
+                <td width="70%">
                   {profileContentNPS[index].value
                     .split("/n")
                     .map((text, index) => (
@@ -48,14 +48,14 @@ const Profile = (props) => {
         </table>
 
         <table className="table table-style">
+          <thead>
+            <th colSpan="2">{data["CompanyProfile_Corporate_NPG"].value}</th>
+          </thead>
           <tbody>
-            <tr>
-              <th> {data["CompanyProfile_Corporate_NPG"].value}</th>
-            </tr>
             {profileTitle.map((item, index) => (
               <tr key={index}>
                 <th>{item.value}</th>
-                <td>
+                <td width="70%">
                   {profileContentNPG[index].value
                     .split("/n")
                     .map((text, index) => (

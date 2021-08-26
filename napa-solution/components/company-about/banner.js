@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 
 const Banner = (props) => {
   const data = convertArrToObject(props.data.property);
-  useEffect(() => {
-    window.onload = function () {
-      document.getElementById("banner").className = "wrap-banner open";
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.onload = function () {
+  //     document.getElementById("banner").className = "wrap-banner open";
+  //   };
+  // }, []);
   return (
     <>
       <Head>
@@ -22,7 +22,7 @@ const Banner = (props) => {
           className="imageA"
           alt=""
         />
-        <div className="wrap-banner" id="banner">
+        {/* <div className="wrap-banner" id="banner">
           <h1 className="main-title">
             {data["CompanyAbout_Banner_Title"].value}
           </h1>
