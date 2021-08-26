@@ -6,6 +6,7 @@
   position: relative;
   overflow: hidden;
 }
+
 .video {
   background: gray;
   width: 100%;
@@ -16,34 +17,34 @@
   /* min-height: 300px; */
   margin-top: 50px;
 }
-.cover > h3 {
-  text-align: center;
-  font-size: 45px;
-  font-weight: bold;
-  line-height: 59px;
-  letter-spacing: 0px;
-  /* color: #212121; */
-  opacity: 1;
-}
-.cover > p {
-  text-align: center;
 
-  font-size: 26px;
+.cover>h3 {
+  letter-spacing: 0px;
+  line-height: 1;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 30px;
   font-weight: bold;
+}
+
+.cover>p {
+  text-align: center;
+  font-size: 18px;
   line-height: 30px;
   letter-spacing: 0.78px;
   color: #9e9e9e;
-  opacity: 1;
 }
 
 .cover:hover .controls {
   transform: translateY(0px);
   transition: all 0.2s;
 }
+
 .cover:not(:focus) .controls {
   /* transform: translateY(0px); */
   transition: all 0.3s;
 }
+
 .controls {
   max-width: 1555px;
   display: flex;
@@ -54,16 +55,19 @@
   background: rgba(0, 0, 0, 0.7);
   transform: translateY(100%) translateY(-5px);
 }
+
 .buttons {
   padding: 10px;
 }
-.buttons > button {
+
+.buttons>button {
   background: none;
   border: 0px;
   outline: 0px;
   cursor: pointer;
 }
-.buttons > button::before {
+
+.buttons>button::before {
   content: "\f144";
   font-family: "Font Awesome 5 Free";
   width: 30px;
@@ -88,6 +92,7 @@
   width: 100%;
   background: #000;
 }
+
 .orangeJuice {
   height: 10px;
   width: 100px;
@@ -101,14 +106,50 @@
 
   transform: translate(-50%, 50%); */
 }
-.bigplaypause > button {
+
+.bigplaypause>button {
   /* height: 71px;
   width: 210px; */
   background: transparent;
   border: none;
   outline: none;
+  height: 70px;
+  width: 70px;
+  line-height: 70px;
+  text-align: center;
+  margin: auto;
+  border-radius: 50%;
+  display: block;
+  /* -webkit-animation: ripple-white 1s linear infinite; */
+  animation: ripple-white 1s linear infinite;
+  -webkit-transition: .5s linear;
 }
-.bigplaypause > button::before {
+
+@-webkit-keyframes ripple-white {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1)
+  }
+
+  100% {
+    -webkit-box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0)
+  }
+}
+
+@keyframes ripple-white {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1)
+  }
+
+  100% {
+    -webkit-box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0)
+  }
+}
+
+.bigplaypause>button::before {
   content: "\f144";
   font-family: "Font Awesome 5 Free";
   width: 203px;
@@ -121,11 +162,13 @@
   border: none;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 40px;
+  -webkit-transform: translate(-50%, 0%);
   transform: translate(-50%, 0%);
 }
+
 @media (max-width: 1024px) {
-  .bigplaypause > button::before {
+  .bigplaypause>button::before {
     content: "\f144";
     font-family: "Font Awesome 5 Free";
     width: 203px;
@@ -142,18 +185,22 @@
     transform: translate(-50%, 0%);
   }
 }
+
 @media (max-width: 768px) {
   .cover {
     margin: 0px;
   }
-  .cover > h3 {
+
+  .cover>h3 {
     font-size: 20px;
     font-weight: bold;
     line-height: 26px;
   }
-  .cover > p {
+
+  .cover>p {
     font-size: 14px;
   }
+
   .video {
     width: 100%;
     max-width: 100%;
@@ -161,7 +208,7 @@
 }
 
 @media (max-width: 414px) {
-  .bigplaypause > button::before {
+  .bigplaypause>button::before {
     content: "\f144";
     font-family: "Font Awesome 5 Free";
     width: 137px;

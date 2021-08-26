@@ -82,7 +82,7 @@
 }
 
 .title {
-  font-size: 50px;
+  font-size: 40px;
   margin-top: 0;
   margin-bottom: 30px;
   font-weight: normal;
@@ -96,7 +96,7 @@
 }
 
 .text {
-  font-size: 26px;
+  font-size: 20px;
   /* text-align: center; */
   line-height: 1.8;
   margin: 0;
