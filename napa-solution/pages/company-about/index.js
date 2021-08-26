@@ -8,6 +8,7 @@ import Banner from "../../components/company-about/banner";
 import WhyNapa from "../../components/company-about/WhyNapa";
 import Message from "../../components/company-about/Message";
 import Project from "../../components/homepage/Project";
+import CounterUp from "../../components/company-about/CounterUp";
 const CompanyAbout = ({ projects, ...props }) => {
   const data = convertArrToObject(props.data.page.layouts);
   const adata = convertArrToObject(props.data.adata.page.layouts);
@@ -31,9 +32,20 @@ const CompanyAbout = ({ projects, ...props }) => {
           charset="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
+
+        <script
+          key="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"
+          src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"
+        ></script>
+
+        <script
+          key="https://cdn.jsdelivr.net/npm/jquery.counterup@2.1.0/jquery.counterup.min.js"
+          src="https://cdn.jsdelivr.net/npm/jquery.counterup@2.1.0/jquery.counterup.min.js"
+        ></script>
       </Head>
       <Banner data={adata.CompanyAbout_Banner} />
       <WhyNapa data={adata["WhyNapa"]} />
+      <CounterUp data={adata.CompanyAbout_Counter} />
       <Message data={adata["Message"]} />
       <Project data={projects} />
     </>

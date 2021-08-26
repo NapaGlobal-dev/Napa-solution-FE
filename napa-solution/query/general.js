@@ -194,33 +194,19 @@ export const footerDataQuery = gql`
       }
     }
 
-    pages: allPages(
-      where: { url_in: ["/business-summary", "/company"] }
-      sortBy: footerOrder_ASC
-    ) {
-      name
-      url
-      subpages: childrenPage(sortBy: footerOrder_ASC) {
-        name
-        url
-        footerOrder
-      }
-      footerOrder
-    }
-
     groups: allPages(
       where: {
         OR: [
-          { nameEN_contains: "Information" }
-          { nameEN_contains: "Services" }
-          { nameEN_contains: "Company" }
+          { nameEN: "Information" }
+          { nameEN: "Services" }
+          { nameEN: "Company" }
         ]
       }
     ) {
       name
       nameEN
       url
-      childrenPage {
+      childrenPage(sortBy: footerOrder_ASC) {
         name
         nameEN
         url
@@ -562,34 +548,35 @@ export const PROJECTS = gql`
 `;
 
 export const GET_SERVICES_PAGE_DATA = gql`
-query getServicesPageData($name: String!) {
-  page: allPages(where: { nameEN_contains: $name }) {
-    name
-    nameEN
-    url
-    layouts {
+  query getServicesPageData($name: String!) {
+    page: allPages(where: { nameEN_contains: $name }) {
       name
-      property {
+      nameEN
+      url
+      layouts {
         name
-        value
-        image {
-          original: publicUrl
-          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        property {
+          name
+          value
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
         }
       }
     }
   }
-}
 `;
 
 export const GET_SERVICE_URL = gql`
-query getServicesPageData{
-  page: allPages(where:{nameEN_contains:"Services"}){
-    name
-    nameEN
-    url
-  childrenPage{
-    url
+  query getServicesPageData {
+    page: allPages(where: { nameEN_contains: "Services" }) {
+      name
+      nameEN
+      url
+      childrenPage {
+        url
+      }
+    }
   }
-  }
-}`;
+`;
