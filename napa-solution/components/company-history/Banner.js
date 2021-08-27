@@ -30,7 +30,7 @@ export default function Banner({ data }) {
             {subcontent?.key}
             {subcontent?.value}
           </div>
-        </div> */} */}
+        </div> */}
       </div>
     </>
   );

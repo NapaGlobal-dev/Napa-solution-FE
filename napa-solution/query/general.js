@@ -213,16 +213,16 @@ export const footerDataQuery = gql`
     groups: allPages(
       where: {
         OR: [
-          { nameEN_contains: "Information" }
-          { nameEN_contains: "Services" }
-          { nameEN_contains: "Company" }
+          { nameEN: "Information" }
+          { nameEN: "Services" }
+          { nameEN: "Company" }
         ]
       }
     ) {
       name
       nameEN
       url
-      childrenPage {
+      childrenPage(sortBy: footerOrder_ASC) {
         name
         nameEN
         url
