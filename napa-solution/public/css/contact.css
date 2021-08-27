@@ -5,6 +5,7 @@
   text-align: center;
   margin-top: 100px;
 }
+
 .title-contact {
   font-size: 30px;
   font-weight: bold;
@@ -12,14 +13,17 @@
   text-transform: uppercase;
   color: #2f3f4e;
 }
-.subtitle1{
+
+.subtitle1 {
   color: #7c57e2
 }
-.phoneNum{
+
+.phoneNum {
   font-weight: 800 !important;
-  margin:0 !important;
+  margin: 0 !important;
   color: #2f3f4e !important;
 }
+
 .subtitle-contact {
   margin-top: 12px;
   font-size: 18px;
@@ -27,16 +31,18 @@
   color: #9e9e9e;
   max-width: 43%;
 }
-.subtitle-contact strong{
+
+.subtitle-contact strong {
   font-weight: normal;
 }
 
-.container-contact{
+.container-contact {
   display: flex;
   width: 100%;
   padding: 40px 200px;
 }
-.left-contact{
+
+.left-contact {
   width: 40%;
   font-size: 16px;
   letter-spacing: 0px;
@@ -55,23 +61,28 @@
   padding: 0px 5px;
   border-radius: 4px;
 }
-.left-contact >div >a{
+
+.left-contact>div>a {
   display: none;
 }
-.left-contact svg{
+
+.left-contact svg {
   width: 20px;
   transform: rotate(-45deg);
 }
-.right-contact{
+
+.right-contact {
   width: 70%;
   font-size: 16px;
   letter-spacing: 0px;
 }
-.right-contact p{
+
+.right-contact p {
   margin: 0px;
   margin-top: 40px;
 }
-.right-contact >form >input{
+
+.right-contact>form>input {
   border: none;
   border-bottom: solid 1px #12144a;
   padding: 10px;
@@ -79,6 +90,7 @@
   background: transparent;
   color: inherit;
 }
+
 .right-contact textarea {
   width: 100%;
   height: 100px;
@@ -89,19 +101,24 @@
   background: transparent;
   color: inherit;
 }
-.right-contact label{
+
+.right-contact label {
   color: #F13A3A !important;
   font-size: 10px;
 }
-.right-contact input:focus,textarea:focus{
+
+.right-contact input:focus,
+textarea:focus {
   outline: none;
   border-bottom: 2px solid #12144a;
 }
-.phone-contact{
+
+.phone-contact {
   display: flex;
   align-items: center;
 }
-.phone-contact >input{
+
+.phone-contact>input {
   border: none;
   border-bottom: solid 1px #12144a;
   padding: 10px;
@@ -109,28 +126,40 @@
   background: transparent;
   color: inherit;
 }
+
 .footer-form {
   display: flex;
   align-items: center;
   margin-top: 40px;
   justify-content: space-between;
 }
+
 .checkbox-form {
   display: flex;
   align-items: center;
 }
-.checkbox-form >input {
+
+.checkbox-form>input {
   margin-bottom: 0px;
   margin-right: 10px;
   width: 1.4rem;
   height: 1.4rem;
 }
-.checkbox-form >a {
-  text-decoration: underline;
+
+.checkbox-form>a {
+  display: flex;
+  position: relative;
 }
-.checkbox-form >a:hover {
-  text-decoration: underline;
+
+.checkbox-form>a::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #007bff;
+  position: absolute;
+  bottom: 0;
 }
+
 .button-contact {
   margin-right: 16px;
   display: flex;
@@ -149,28 +178,32 @@
   letter-spacing: 0px;
   color: #ffffff;
 }
+
 .button-contact:hover {
   text-decoration: underline;
   text-decoration-color: #6c3af5;
 }
 
-.error{
+.error {
   color: #F13A3A;
   border-bottom-color: #F13A3A !important;
 }
 
 @media (max-width: 960px) {
-  .subtitle-contact{
+  .subtitle-contact {
     max-width: 100%;
   }
+
   .wrap-title {
     margin-top: 50px;
   }
+
   .title-contact {
     font-size: 20px;
     line-height: 1;
     margin-bottom: 10px;
   }
+
   .subtitle-contact {
     letter-spacing: 0.78px;
     padding: 0px 12px;
@@ -178,19 +211,23 @@
     font-size: 14px;
     line-height: 1.5;
   }
-  .phoneNum{
+
+  .phoneNum {
     font-size: 16px;
   }
-  .container-contact{
+
+  .container-contact {
     flex-direction: column-reverse;
     padding: 0px 12px;
   }
-  .right-contact{
+
+  .right-contact {
     width: 100%;
     margin-top: 40px;
     font-size: 14px;
   }
-  .left-contact{
+
+  .left-contact {
     width: 100%;
     margin-top: 80px;
     padding-right: 0;
@@ -199,10 +236,12 @@
     align-items: center;
     text-align: center;
   }
-  .left-contact >a{
+
+  .left-contact>a {
     display: none;
   }
-  .left-contact >div >a{
+
+  .left-contact>div>a {
     display: block;
     margin-left: 5px;
   }
@@ -213,9 +252,11 @@
     flex-direction: column;
     justify-content: center;
   }
-  .footer-form >div{
+
+  .footer-form>div {
     margin-bottom: 40px;
   }
+
   .button-contact {
     width: 60%;
   }
