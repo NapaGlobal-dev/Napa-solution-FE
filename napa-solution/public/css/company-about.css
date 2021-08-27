@@ -139,6 +139,7 @@
   aspect-ratio: 1;
   width: 100%;
   transform: rotate(45deg) scale(0.7);
+  -webkit-transform: rotate(45deg) scale(0.7);
   content: "";
   position: absolute;
 }
@@ -170,6 +171,8 @@
   z-index: -1;
   /* background-attachment: fixed; */
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .ab-background .ab-background-img {
@@ -203,6 +206,9 @@
 }
 
 @media (max-width: 768px) {
+  .ab-box-image{
+    width: 100%;
+  }
   .ab-row {
     flex-direction: column;
   }
