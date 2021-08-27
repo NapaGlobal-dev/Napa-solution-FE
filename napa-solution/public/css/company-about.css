@@ -206,6 +206,10 @@
 }
 
 @media (max-width: 768px) {
+  .ab-background-rhombus::after{
+    width: 150px;
+    height: 150px;
+  }
   .ab-box-image{
     width: 100%;
   }
