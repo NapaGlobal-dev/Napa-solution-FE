@@ -40,6 +40,14 @@ body.dark-mode #wrap-contact {
   background-color: #231846;
 }
 
+body.dark-mode #right-contact input:focus,textarea:focus{
+  border-bottom: 2px solid #DEDEE2;
+}
+body.dark-mode #right-contact input,textarea{
+  border-bottom: 1px solid #DEDEE2;
+}
+
+
 .btn-dark-mode {
   position: fixed;
   z-index: 20px;

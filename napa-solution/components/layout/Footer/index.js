@@ -55,11 +55,11 @@ const Footer = (props) => {
               backgroundImage: `url(${data.Footer_ContactImage.image.original})`,
             }}
           >
-            <div className={clsx(styles.scaleText)} id="down-up">
-              <span className={clsx(styles.h3text)}>
+            <div className={clsx(styles.scaleText)}>
+              <span className={clsx(styles.h3text)} id="down-up">
                 {joinJsx(data.Footer_ContactTitle.value.split("\\n"), <br />)}
               </span>
-              <span className={clsx(styles.ptext)}>
+              <span className={clsx(styles.ptext)} id="down-up">
                 {joinJsx(data.Footer_ContactContent.value.split("\\n"), <br />)}
               </span>
               <a href={data.Footer_ContactButton.url}>
