@@ -2,7 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, create config file:
+
+-Copy keep.config.js file and rename to config.js
+
+Second, run the development server:
 
 ```bash
 npm run dev
