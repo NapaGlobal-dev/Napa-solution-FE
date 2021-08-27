@@ -160,7 +160,7 @@ const ContactForm = (props) => {
             </svg>
           </a>
         </div>
-        <div className='right-contact'>
+        <div className='right-contact' id='right-contact'>
           <form onSubmit={submit}>
             <p className={fullNameError? 'error':''}>
               {data?.Contact_ContactForm_Content1?.value}

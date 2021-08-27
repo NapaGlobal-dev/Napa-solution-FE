@@ -73,7 +73,7 @@
 }
 .right-contact >form >input{
   border: none;
-  border-bottom: solid 1px #DEDEE2;
+  border-bottom: solid 1px #12144a;
   padding: 10px;
   width: 100%;
   background: transparent;
@@ -85,7 +85,7 @@
   padding: 10px;
   overflow: auto;
   border: none;
-  border-bottom: solid 1px #DEDEE2;
+  border-bottom: solid 1px #12144a;
   background: transparent;
   color: inherit;
 }
@@ -103,7 +103,7 @@
 }
 .phone-contact >input{
   border: none;
-  border-bottom: solid 1px #DEDEE2;
+  border-bottom: solid 1px #12144a;
   padding: 10px;
   width: 70px;
   background: transparent;

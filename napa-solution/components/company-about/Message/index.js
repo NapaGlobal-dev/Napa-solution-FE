@@ -22,7 +22,7 @@ const Message = (props) => {
             <div className="ab-box-image">
               <img className="imgCEO" src="./img/aHung.svg" />
               <img className="bgMessage" src="./img/bg-message.svg" />
-              <div className="info-ceo">
+              <div className="info-ceo" id="down-up">
                 <div className="position-ceo">代表取締役 Napa Global</div>
                 <div className="name-ceo">アゼル・レー</div>
               </div>
@@ -30,7 +30,7 @@ const Message = (props) => {
             </div>
           </div>
           <div className="ab-col">
-            <div className="ab-box-text">{content1?.value}</div>
+            <div className="ab-box-text" id="down-up">{content1?.value}</div>
           </div>
         </div>
       </div>
