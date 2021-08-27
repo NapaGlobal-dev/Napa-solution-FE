@@ -67,7 +67,7 @@
   padding-right: 16px;
 }
 
-.groupText>h4 {
+.groupText > h4 {
   color: var(--unnamed-color-ffffff);
   text-align: left;
   font-size: 16px;
@@ -193,7 +193,7 @@
   opacity: 1;
 }
 
-.socials>p {
+.socials > p {
   color: var(--unnamed-color-ffffff);
   text-align: left;
   font-size: 16px;
@@ -215,12 +215,12 @@
   display: none;
 }
 
-.groupText>ul {
+.groupText > ul {
   margin-left: 15px;
   width: 100%;
 }
 
-.groupText>ul>li::marker {
+.groupText > ul > li::marker {
   color: #fff;
 }
 
@@ -298,7 +298,7 @@
   padding-bottom: 2.6%;
   padding-top: calc(5.2vw + 40px);
 }
-.wrapIconLogo{
+.wrapIconLogo {
   display: flex;
   flex-direction: column;
 }
@@ -335,9 +335,8 @@
 }
 
 @media (min-width: 1300px) {
-  
   .groupMapIcon {
-    width: 35%;
+    width: 40%;
     max-width: 550px;
     position: relative;
     display: flex;
@@ -363,10 +362,10 @@
   .coverform {
     flex-direction: row;
   }
-  .imgMap{
-    position: absolute;
-    left: 0;
-    width: 110%;
+  .imgMap {
+    /* position: absolute;
+    left: 0; */
+    width: 100%;
   }
 }
 
@@ -521,11 +520,11 @@
     justify-content: space-between;
   }
 
-  .groupText>h4 {
+  .groupText > h4 {
     position: relative;
   }
 
-  .groupText>h4>span>svg {
+  .groupText > h4 > span > svg {
     display: none;
   }
 
@@ -535,7 +534,6 @@
 }
 
 @media (max-width: 768px) {
-
   /* .footer {
     margin-top: 200px;
   } */
@@ -567,7 +565,7 @@
     flex-direction: column;
   }
 
-  .groupText>h4 {
+  .groupText > h4 {
     position: relative;
   }
 
@@ -575,14 +573,14 @@
     padding: 15px 0;
   }
 
-  .groupText>ul {
+  .groupText > ul {
     transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s,
       z-index 0s linear 0.01s;
     margin-left: 45px;
     list-style-type: circle;
   }
 
-  .groupText>h4>span>svg {
+  .groupText > h4 > span > svg {
     display: block;
     height: 22px;
     position: absolute;
@@ -602,7 +600,7 @@
     margin: 20px 0 30px 0;
   }
 
-  .socialsIcon>svg {
+  .socialsIcon > svg {
     width: 25px;
     height: auto;
     color: #fff;
@@ -613,15 +611,15 @@
     border-bottom: 1px solid #fff;
   }
 
-  .groupText>ul>li::marker {
+  .groupText > ul > li::marker {
     transform: translateX(10px) !important;
   }
 
-  .groupText>h4 {
+  .groupText > h4 {
     margin-bottom: 0;
   }
 
-  .groupText>ul {
+  .groupText > ul {
     display: none;
   }
 

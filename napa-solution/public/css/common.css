@@ -17,14 +17,14 @@ html {
   position: relative;
 }
 
-.cover>svg {
+.cover > svg {
   position: absolute;
   top: 0;
   left: 0;
   transform: translate(-90px, -20%);
 }
 
-.cover>h3 {
+.cover > h3 {
   font-size: 30px;
   font-weight: bold;
   color: #2c3e50;
@@ -33,7 +33,7 @@ html {
   margin-bottom: 10px;
 }
 
-.cover>p {
+.cover > p {
   margin-bottom: 50px;
   text-align: left;
   font-size: 18px;
@@ -185,7 +185,7 @@ html {
   top: 46px;
 }
 
-.lang-list>* {
+.lang-list > * {
   color: #fff;
   padding: 6px 0;
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.18);
@@ -697,7 +697,8 @@ html {
 }
 
 .recruit {
-  background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat padding-box;
+  background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat
+    padding-box;
   opacity: 0.9;
   height: 445px;
   margin-top: 85px;
@@ -1016,7 +1017,8 @@ html {
   }
 
   .recruit {
-    background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat padding-box;
+    background: transparent url("../img/recruit/recruit.png") 0% 0% no-repeat
+      padding-box;
     opacity: 0.9;
     height: 445px;
     margin-top: 85px;
@@ -1218,7 +1220,6 @@ html {
 }
 
 @media (max-width: 1000px) {
-
   /* .detail-btn,
   .detail-btn-icon,
   .detail-btn-text {
@@ -1851,7 +1852,7 @@ html {
     color: #fff !important;
   }
 
-  .wrap-link-mobile>span {
+  .wrap-link-mobile > span {
     padding-right: 20px;
   }
 
@@ -1870,7 +1871,7 @@ html {
     box-shadow: 0 0 4px rgb(0 0 0 / 14%), 0 4px 8px rgb(0 0 0 / 28%);
   }
 
-  .wrap-link-mobile>.active {
+  .wrap-link-mobile > .active {
     background-color: #e40a5d;
   }
 
@@ -1900,7 +1901,7 @@ button:focus {
   outline: none;
 }
 
-.nav-darkmode-icon>circle {
+.nav-darkmode-icon > circle {
   fill: white;
 }
 
@@ -1910,7 +1911,7 @@ button:focus {
   align-items: center;
 }
 
-.nav-darkmode-icon-mobile>.nav-darkmode-icon {
+.nav-darkmode-icon-mobile > .nav-darkmode-icon {
   margin: 8px !important;
 }
 
@@ -1956,12 +1957,14 @@ button:focus {
 .dropdown-body ul {
   list-style: none;
 }
-.dropdown-body li{
+.dropdown-body li {
   margin: 10px 0;
 }
 .dropdown-body a {
-  transition: margin-left 0.5s;
-  color: #FFFFFF;
+  transition: margin 0.5s;
+  color: #ffffff;
+  margin-right: 10px;
+  margin-left: 0px;
 }
 
 /* .dropdown-body a:hover {
@@ -2003,6 +2006,7 @@ button:focus {
 
 .dropdown-body li:hover a {
   margin-left: 10px;
+  margin-right: 0;
 }
 
 @keyframes dropdown {
@@ -2023,7 +2027,7 @@ button:focus {
   position: relative;
 }
 
-.cover>svg {
+.cover > svg {
   position: absolute;
   top: 0;
   left: 20px;
@@ -2031,7 +2035,7 @@ button:focus {
   width: 50px;
 }
 
-.cover>p {
+.cover > p {
   text-align: left;
   font-size: 25px;
   letter-spacing: 0.78px;
@@ -2051,7 +2055,7 @@ button:focus {
     margin: 20px 0 40px 0 !important;
   }
 
-  .cover>svg {
+  .cover > svg {
     display: none;
   }
 
@@ -2064,7 +2068,7 @@ button:focus {
     margin: 100px 24px 30px;
   }
 
-  .cover>h3 {
+  .cover > h3 {
     text-align: left;
     font-size: 20px;
     font-weight: bold;
@@ -2075,7 +2079,7 @@ button:focus {
     opacity: 1;
   }
 
-  .cover>p {
+  .cover > p {
     font-size: 16px;
     margin-bottom: 24px;
     padding-bottom: 20px;
@@ -2247,14 +2251,14 @@ button:focus {
   position: relative;
 }
 
-.cover>svg {
+.cover > svg {
   position: absolute;
   top: 0;
   left: 0;
   transform: translate(-90px, -20%);
 }
 
-.cover>p {
+.cover > p {
   margin-bottom: 50px;
   text-align: left;
   font-size: 26px;
@@ -2266,11 +2270,11 @@ button:focus {
 }
 
 @media (max-width: 1023px) {
-  .cover>svg {
+  .cover > svg {
     display: none;
   }
 
-  .cover>h3 {
+  .cover > h3 {
     text-align: left;
     font-size: 20px;
     font-weight: bold;
@@ -2281,7 +2285,7 @@ button:focus {
     opacity: 1;
   }
 
-  .cover>p {
+  .cover > p {
     text-align: left;
     font-size: 16px;
     font-weight: normal;
