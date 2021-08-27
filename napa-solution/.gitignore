@@ -36,4 +36,3 @@ yarn.lock
 package-lock.json
 
 .env*
-config.js
