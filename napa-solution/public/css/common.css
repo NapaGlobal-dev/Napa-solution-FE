@@ -1941,7 +1941,7 @@ button:focus {
 }
 
 .dropdown-body {
-  padding: 0 20px;
+  padding: 0 10px;
   border: 3px solid #fff;
   background: hsl(250deg 50% 57% / 68%);
   border-radius: 10px;
@@ -1958,7 +1958,7 @@ button:focus {
   list-style: none;
 }
 .dropdown-body li {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 .dropdown-body a {
   transition: margin 0.5s;
@@ -2001,7 +2001,7 @@ button:focus {
 .dropdown-body div {
   position: relative;
   border-bottom: 2px solid #fff;
-  padding: 10px 0 4px 0px;
+  padding: 10px 0 10px 0px;
 }
 
 .dropdown-body li:hover a {
