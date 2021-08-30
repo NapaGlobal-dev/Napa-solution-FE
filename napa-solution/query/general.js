@@ -565,7 +565,7 @@ export const PROJECTS = gql`
 
 export const GET_SERVICES_PAGE_DATA = gql`
 query getServicesPageData($name: String!) {
-  page: allPages(where: { nameEN_contains: $name }) {
+  page: allPages(where: { slug_contains: $name }) {
     name
     nameEN
     url
@@ -592,6 +592,34 @@ query getServicesPageData{
     url
   childrenPage{
     url
+    slug
+    childrenPage{
+      slug
+    }
   }
   }
 }`;
+
+export const GET_CASESTUDY_PAGE = gql`
+query getCaseStudyPageData($slug:String!, $pid: String!){
+  page: allPages(where:{slug_contains:$slug}){
+    url
+    slug
+    childrenPage(where:{slug_contains:$pid}){
+      slug
+      layouts{
+        name
+        property{
+          name
+          value
+          image{
+            original: publicUrl
+          }
+        }
+      }
+    }
+  }
+  }`
+
+
+

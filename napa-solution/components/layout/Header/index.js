@@ -179,11 +179,11 @@ const Header = (props) => {
   return (
     <>
       <Head>
-        <link key="css/common.css" rel="stylesheet" href="css/common.css" />
+        <link key="/css/common.css" rel="stylesheet" href="/css/common.css" />
         <link
-          key="css/header.module.css"
+          key="/css/header.module.css"
           rel="stylesheet"
-          href="css/header.module.css"
+          href="/css/header.module.css"
         />
       </Head>
 

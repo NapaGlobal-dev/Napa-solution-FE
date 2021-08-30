@@ -1,4 +1,6 @@
+import { useMutation } from "@apollo/client";
 import {useState, Fragment} from "react";
+import { ADD_CUSTOMER } from "../../query/general";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import joinJsx from "../../util/joinJsx";
 
@@ -15,10 +17,12 @@ const ContactForm = (props) => {
   const [phoneError, setPhoneError] = useState(false)
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState(false)
+  const [emailValid, setEmailValid] = useState(true)
   const [message, setMessage] = useState('')
   const [messageError, setMessageError] = useState(false)
   const [checked, setChecked] = useState(false)
   const data = convertArrToObject(props.data.property);
+
 
   function submit(e){
     const phone = (phone1+phone2+phone3).length===11
@@ -28,7 +32,11 @@ const ContactForm = (props) => {
     !phone? setPhoneError(true) : 'none'
     !email? setEmailError(true) : 'none'
     !message? setMessageError(true) : 'none'
-
+    if((/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(email)){
+      setEmailValid(true);
+    }else{
+      setEmailValid(false)
+    }
     if(
       !fullName ||
       !companyAddress ||
@@ -36,6 +44,7 @@ const ContactForm = (props) => {
       !phone ||
       !message ||
       !email ||
+      !emailValid ||
       !checked
     ){
       e.preventDefault()
@@ -87,6 +96,7 @@ const ContactForm = (props) => {
       }
       case 'email': {
         setEmail(e.target.value)
+        setEmailValid(true)
         setEmailError(false)
         break
       }
@@ -225,15 +235,16 @@ const ContactForm = (props) => {
             </div>
             {phoneError? <label>Enter Your {data?.Contact_ContactForm_Content4?.value}</label> : <></>}
 
-            <p className={emailError? 'error':''}>{data?.Contact_ContactForm_Content5?.value}</p>
+            <p className={(emailError || !emailValid)? 'error':''}>{data?.Contact_ContactForm_Content5?.value}</p>
             <input
               type='input'
               name='email'
-              className={emailError? 'error':''}
+              className={(emailError || !emailValid)? 'error':''}
               onChange={onChange}
               value={email}
             />
-            {emailError? <label>Enter Your {data?.Contact_ContactForm_Content5?.value}</label> : <></>}
+            {(emailError)? <label>Enter Your {data?.Contact_ContactForm_Content5?.value}</label> : <></>}
+            {(!emailValid)? <label>Email Address must be include @ after {email}</label> : <></>}
 
             <p className={messageError? 'error':''}>{data?.Contact_ContactForm_Content6?.value}</p>
             <textarea
