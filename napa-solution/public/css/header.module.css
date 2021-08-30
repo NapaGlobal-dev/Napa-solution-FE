@@ -732,7 +732,7 @@
   left: 0;
   width: 100%;
   padding: 20px 24px 14px 24px;
-  z-index: 9;
+  z-index: 999;
 }
 
 .po-box-logo {
@@ -762,6 +762,7 @@
 .po-list-container {
   padding: 0 24px;
   flex-basis: 100%;
+  z-index: 99;
 }
 
 .po-list-container li {
@@ -847,7 +848,7 @@
   padding: 20px 24px 40px 39px;
   color: white;
   background-color: #7f6fe2;
-  z-index: 9;
+  z-index: 999;
   position: sticky;
   bottom: 0;
   left: 0;
@@ -863,6 +864,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  z-index: 99999
 }
 
 .po-box-darkmode {
@@ -876,3 +878,7 @@
   margin: 0;
   padding-left: 15px;
 }
+
+
+.po-box-darkmode > p {
+  z-index: 999;
