@@ -24,8 +24,8 @@ export default function Banner(props) {
         <div className="overlay-header-banner"></div>
         <LazyLoadImage
           effect='blur'
-          src={banner?.Img.image?.original}
-          placeholderSrc={banner?.Img.image?.thumbnail}
+          src={banner?.Img?.image?.original}
+          placeholderSrc={banner?.Img?.image?.thumbnail}
           threshold={100}
           height='100%'
           width='100%'

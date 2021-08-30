@@ -4,15 +4,15 @@
 
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const WebApp = (props) => {
+const Service = (props) => {
   const data = props.service
   return (
     <div className="container-fluid">
       <div>
         <div className="cover">
           <img className="decor-head-line" src="/img/line-style.svg" />
-          <h3 id="down-up">{data.TitleEN.value}</h3>
-          <p id="down-up">{data.TitleJP.value}</p>
+          <h3 id="down-up">{data?.TitleEN?.value}</h3>
+          <p id="down-up">{data?.TitleJP?.value}</p>
 
           <div className="wrap-service">
             <div className="content-service">
@@ -23,15 +23,15 @@ const WebApp = (props) => {
               </div>
               <div className="item-services">
                 <div className="intro-service">
-                  {data.Content.value}
+                  {data?.Content?.value}
                 </div>
               </div>
             </div>
             <div className="img-service">
               <LazyLoadImage
                 effect='blur'
-                src={data.ImageDesktop?.image?.original}
-                placeholderSrc={data.ImageDesktop?.image?.thumbnail}
+                src={data?.ImageDesktop?.image?.original}
+                placeholderSrc={data?.ImageDesktop?.image?.thumbnail}
                 threshold={100}
                 height='100%'
                 width='100%'
@@ -45,4 +45,4 @@ const WebApp = (props) => {
   );
 };
 
-export default WebApp;
+export default Service;

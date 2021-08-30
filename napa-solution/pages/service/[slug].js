@@ -3,14 +3,14 @@ import Head from "next/head";
 import ServiceBanner from "../../components/services/serviceBanner";
 import Project from "../../components/homepage/Project";
 import Service from "../../components/services/service";
-import { convertArrToObject, convertArrToObjectBySpecialName } from "../../util/converArrayToObject";
+import { convertArrToObjectBySpecialName } from "../../util/converArrayToObject";
 import { client } from "../../apolo-client";
 import { GET_SERVICES_PAGE_DATA, GET_SERVICE_URL, PROJECTS } from "../../query/general";
 
 
 const Services = ({ projects, ...props }) => {
-  let banner = convertArrToObjectBySpecialName(props.data.page[0].layouts[2].property);
-  let service = convertArrToObjectBySpecialName(props.data.page[0].layouts[1].property);
+  let banner = convertArrToObjectBySpecialName(props.data?.page[0].layouts[2].property);
+  let service = convertArrToObjectBySpecialName(props.data?.page[0].layouts[1].property);
   return (
     <>
       <Head>
@@ -62,7 +62,7 @@ export async function getStaticPaths() {
   const data = await Promise.allSettled([
     client.query({ query: GET_SERVICE_URL }),
   ]);
-  const paths = data[0].value.data.page[0].childrenPage.map(page =>({ 
+  const paths = data[0].value.data?.page[0].childrenPage.map(page =>({ 
     params: { slug: page.slug } 
   }))
   return {

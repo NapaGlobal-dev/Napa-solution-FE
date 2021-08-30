@@ -3,12 +3,12 @@ import Head from "next/head";
 import Banner from "../../../components/case-study/banner";
 import Project from "../../../components/homepage/Project";
 import Service from "../../../components/services/service";
-import { convertArrToObject, convertArrToObjectBySpecialName } from "../../../util/converArrayToObject";
+import { convertArrToObjectBySpecialName } from "../../../util/converArrayToObject";
 import { client } from "../../../apolo-client";
 import { GET_CASESTUDY_PAGE, GET_SERVICES_PAGE_DATA, GET_SERVICE_URL, PROJECTS } from "../../../query/general";
 
 const Services = ({ projects, ...props }) => {
-  let banner = convertArrToObjectBySpecialName(props.data.page[0].childrenPage[0].layouts[0].property);
+  let banner = convertArrToObjectBySpecialName(props.data?.page[0].childrenPage[0].layouts[0].property);
   // let service = convertArrToObjectBySpecialName(props.data.page[0].layouts[1].property);
   return (
     <>
@@ -62,12 +62,12 @@ export async function getStaticPaths() {
     client.query({ query: GET_SERVICE_URL }),
   ]);
   let paths = [];
-  for(let i= 0; i< data[0].value.data.page[0].childrenPage.length; i++){
-    if(data[0].value.data.page[0].childrenPage[i].length === 0){
-      paths.push({params:{slug: data[0].value.data.page[0].childrenPage[i].slug, pid: ""}})
+  for(let i= 0; i< data[0].value.data?.page[0].childrenPage.length; i++){
+    if(data[0].value.data?.page[0].childrenPage[i].length === 0){
+      paths.push({params:{slug: data[0].value.data?.page[0].childrenPage[i].slug, pid: ""}})
     }else{
-      for(let k = 0; k< data[0].value.data.page[0].childrenPage[i].childrenPage.length; k++){
-        paths.push({params:{slug:data[0].value.data.page[0].childrenPage[i].slug, pid:data[0].value.data.page[0].childrenPage[i].childrenPage[k].slug}})
+      for(let k = 0; k< data[0].value.data?.page[0].childrenPage[i].childrenPage.length; k++){
+        paths.push({params:{slug:data[0].value.data?.page[0].childrenPage[i].slug, pid:data[0].value.data?.page[0].childrenPage[i].childrenPage[k].slug}})
       }
     }
   }
