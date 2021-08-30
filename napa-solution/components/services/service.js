@@ -2,6 +2,8 @@
 // import { convertArrToObject } from "../../util/converArrayToObject";
 // import joinJsx from "../../util/joinJsx";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 const WebApp = (props) => {
   const data = props.service
   return (
@@ -26,9 +28,14 @@ const WebApp = (props) => {
               </div>
             </div>
             <div className="img-service">
-              <img
+              <LazyLoadImage
+                effect='blur'
+                src={data.ImageDesktop?.image?.original}
+                placeholderSrc={data.ImageDesktop?.image?.thumbnail}
+                threshold={100}
+                height='100%'
+                width='100%'
                 className="sv-img-cover"
-                src={data.ImageDesktop.image.original}
               />
             </div>
           </div>

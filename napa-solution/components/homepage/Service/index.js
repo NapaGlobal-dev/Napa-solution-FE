@@ -2,6 +2,7 @@ import styles from "./style.module.css";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const convertData = (data) => {
   const newdata = {};
@@ -18,6 +19,7 @@ const convertData = (data) => {
 
   const b = a.map((item) => ({
     img: item?.Image?.image?.original,
+    imgThumbnail: item?.Image?.image?.thumbnail,
     title: item?.Title?.value,
     subTitle: item?.Content?.value,
     url: item?.Button?.url,
@@ -82,8 +84,11 @@ const Service = (props) => {
                   <div className={clsx(styles.blockContent)}>
                     <div className={styles.blockImageBounding}>
                       <div className={clsx(styles.blockImage)}>
-                        <img
+                        <LazyLoadImage
+                          effect="blur"
                           src={item.img}
+                          placeholderSrc={item.imgThumbnail}
+                          threshold={100}
                           className={clsx(styles.mainImage)}
                         />
                         <img

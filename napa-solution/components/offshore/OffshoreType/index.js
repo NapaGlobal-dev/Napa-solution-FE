@@ -1,6 +1,7 @@
 import clsx from "clsx";
-import { convertArrToObject, getData } from "../../../util/converArrayToObject";
+import { convertArrToObject } from "../../../util/converArrayToObject";
 import styles from "./style.module.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const OffshoreType = (props) => {
   const typeOffshore = convertArrToObject(props.data.property);
@@ -40,7 +41,14 @@ const OffshoreType = (props) => {
                   ))}
                 </div>
                 <div className={styles.introImg}>
-                  <img src={item.img.original} />
+                  <LazyLoadImage
+                    effect="blur"
+                    src={item.img?.original}
+                    placeholderSrc={item.img?.thumbnail}
+                    threshold={100}
+                    width="100%"
+                    height='100%'
+                  />
                 </div>
               </div>
             ))}

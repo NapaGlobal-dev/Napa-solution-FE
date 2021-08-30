@@ -613,7 +613,8 @@ query getCaseStudyPageData($slug:String!, $pid: String!){
           name
           value
           image{
-            original: publicUrl
+            original: publicUrl,
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
           }
         }
       }

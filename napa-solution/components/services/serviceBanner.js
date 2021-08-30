@@ -1,6 +1,7 @@
 import { getData } from "../../util/converArrayToObject";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Banner(props) {
   // const banner = getData(data, /ServicesWeb_Banner_Img/)[0];
@@ -20,17 +21,16 @@ export default function Banner(props) {
         <link key="/css/banner.css" rel="stylesheet" href="/css/banner.css" />
       </Head>
       <div className="banner">
-        {/* <LazyLoadImage
-                    effect='blur'
-                    src={banner?.image?.original}
-                    placeholderSrc={banner?.image?.thumbnail}
-                    threshold={100}
-                    height='100%'
-                    width='100%'
-                    className="image-header"
-                /> */}
         <div className="overlay-header-banner"></div>
-        <img src={banner?.Img.image?.original} className="imageA" alt="" />
+        <LazyLoadImage
+          effect='blur'
+          src={banner?.Img.image?.original}
+          placeholderSrc={banner?.Img.image?.thumbnail}
+          threshold={100}
+          height='100%'
+          width='100%'
+          className="image-banner"
+        />
         <div className="wrap-banner" id="banner">
           <h1 className="main-title">
             {banner?.Title?.key}
