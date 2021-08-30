@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { convertArrToObject } from "../../../util/converArrayToObject";
 import joinJsx from "../../../util/joinJsx";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const AI = (props) => {
   const data = convertArrToObject(props.data.property);
@@ -25,9 +26,14 @@ const AI = (props) => {
               </div>
             </div>
             <div className="img-service">
-              <img
+              <LazyLoadImage
+                effect='blur'
+                src={data.AI_ImageDesktop?.image?.original}
+                placeholderSrc={data.AI_ImageDesktop?.image?.thumbnail}
+                threshold={100}
+                height='100%'
+                width='100%'
                 className="sv-img-cover"
-                src={data.AI_ImageDesktop.image.original}
               />
             </div>
           </div>

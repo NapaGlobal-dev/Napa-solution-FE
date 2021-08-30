@@ -1,4 +1,5 @@
 import { getData } from "../../util/converArrayToObject"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 
 export default function Hisory({ next, timeline }) {
     const subcontent = getData(timeline, /Subcontent/)[0]
@@ -17,7 +18,15 @@ export default function Hisory({ next, timeline }) {
                 </div>
             </div>
             <div className='right-timeline'>
-                <img src={timeline?.image.original}></img>
+                <LazyLoadImage
+                    effect="blur"
+                    src={timeline?.image?.original}
+                    placeholderSrc={timeline?.image?.thumbnail}
+                    threshold={100}
+                    width="100%"
+                    height='100%'
+                    className='img-timeline'
+                />
             </div>
         </div>
     )

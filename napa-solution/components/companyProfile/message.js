@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { convertArrToObject } from "../../util/converArrayToObject";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Message = (props) => {
   const data = convertArrToObject(props.data.property);
@@ -35,7 +36,15 @@ const Message = (props) => {
           </div>
         </div>
         <div className = "wrapped-image" id= "down-up">
-            <img className = "image-detail" src = {data["CompanyProfile_Message_Img"].image.original}/>
+            <LazyLoadImage
+              effect="blur"
+              src={data["CompanyProfile_Message_Img"]?.image?.original}
+              placeholderSrc={data["CompanyProfile_Message_Img"]?.image?.thumbnail}
+              threshold={100}
+              width="100%"
+              height='100%'
+              className = "image-detail"
+            />
         </div>
       </div>
     </div>
