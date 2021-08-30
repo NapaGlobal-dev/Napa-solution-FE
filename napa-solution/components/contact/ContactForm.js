@@ -46,15 +46,15 @@ const ContactForm = (props) => {
       !email ||
       !emailValid ||
       !checked
-    ){
+    ) {
       e.preventDefault()
       return
     }
     e.preventDefault()
   }
 
-  function onChange(e){
-    switch(e.target.name){
+  function onChange(e) {
+    switch (e.target.name) {
       case 'fullName': {
         setFullName(e.target.value)
         setFullNameError(false)
@@ -71,7 +71,7 @@ const ContactForm = (props) => {
         break
       }
       case 'phone1': {
-        if( /[^0-9]/.test(e.target.value) || e.target.value.length>3){
+        if (/[^0-9]/.test(e.target.value) || e.target.value.length > 3) {
           break
         }
         setPhone1(e.target.value)
@@ -79,7 +79,7 @@ const ContactForm = (props) => {
         break
       }
       case 'phone2': {
-        if( /[^0-9]/.test(e.target.value) || e.target.value.length>4){
+        if (/[^0-9]/.test(e.target.value) || e.target.value.length > 4) {
           break
         }
         setPhone2(e.target.value)
@@ -87,7 +87,7 @@ const ContactForm = (props) => {
         break
       }
       case 'phone3': {
-        if( /[^0-9]/.test(e.target.value) || e.target.value.length>4){
+        if (/[^0-9]/.test(e.target.value) || e.target.value.length > 4) {
           break
         }
         setPhone3(e.target.value)
@@ -113,17 +113,17 @@ const ContactForm = (props) => {
       <div className="wrap-title" id='down-up'>
         <div className="title-contact">{data["Contact_ContactForm_Title"]?.value}</div>
         <div className="subtitle-contact">
-           {data["Contact_ContactForm_SubTitle"]?.value.split("\\n")
-                    .map((text, index) => (
-                      <Fragment key={index}>
-                        <strong className= {`subtitle${index}`}>
-                        {text}
-                        </strong>
-                      </Fragment>
-                    ))}
+          {data["Contact_ContactForm_SubTitle"]?.value.split("\\n")
+            .map((text, index) => (
+              <Fragment key={index}>
+                <strong className={`subtitle${index}`}>
+                  {text}
+                </strong>
+              </Fragment>
+            ))}
         </div>
         <div className="subtitle-contact phoneNum">
-           {data["Contact_ContactForm_PhoneNum"]?.value}
+          {data["Contact_ContactForm_PhoneNum"]?.value}
         </div>
       </div>
       <div className="container-contact">
@@ -131,7 +131,7 @@ const ContactForm = (props) => {
           Our locations
           <div id='down-up'>
             Vietnamese
-            <a href={data?.Footer_MapBtn_EN?.url} target="_blank">
+            <a className="link-map" href={data?.Footer_MapBtn_EN?.url} target="_blank">
               <svg version="1.1" x="0px" y="0px" viewBox="0 0 512 512" >
                 <path fill='currentColor' d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068
                   c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557
@@ -141,7 +141,8 @@ const ContactForm = (props) => {
             </a>
           </div>
           <p id='down-up'>{data?.Footer_Address_EN?.value}</p>
-          <a href={data?.Footer_MapBtn_EN?.url} target="_blank" id='down-up'>
+          <a className="link-map" href={data?.Footer_MapBtn_EN?.url} target="_blank" id='down-up'>
+            View Map
             <svg version="1.1" x="0px" y="0px" viewBox="0 0 512 512" >
               <path fill='currentColor' d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068
                 c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557
@@ -151,7 +152,7 @@ const ContactForm = (props) => {
           </a>
           <div id='down-up'>
             Japan
-            <a href={data?.Footer_MapBtn_JP?.url} target="_blank">
+            <a href={data?.Footer_MapBtn_EN?.url} target="_blank">
               <svg version="1.1" x="0px" y="0px" viewBox="0 0 512 512" >
                 <path fill='currentColor' d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068
                   c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557
@@ -161,7 +162,8 @@ const ContactForm = (props) => {
             </a>
           </div>
           <p id='down-up'>{data?.Footer_Address_JP?.value}</p>
-          <a href={data?.Footer_MapBtn_JP?.url} target="_blank" id='down-up'>
+          <a className="link-map" href={data?.Footer_MapBtn_JP?.url} target="_blank" id='down-up'>
+            View Map
             <svg version="1.1" x="0px" y="0px" viewBox="0 0 512 512" >
               <path fill='currentColor' d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068
                 c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557
@@ -170,46 +172,46 @@ const ContactForm = (props) => {
             </svg>
           </a>
         </div>
-        <div className='right-contact'>
+        <div className='right-contact' id='right-contact'>
           <form onSubmit={submit}>
-            <p className={fullNameError? 'error':''}>
+            <p className={fullNameError ? 'error' : ''}>
               {data?.Contact_ContactForm_Content1?.value}
             </p>
             <input
               type='input'
               name='fullName'
-              className={fullNameError? 'error':''}
+              className={fullNameError ? 'error' : ''}
               onChange={onChange}
               value={fullName}
             />
-            {fullNameError? <label>Enter Your {data?.Contact_ContactForm_Content1?.value}</label> : <></>}
+            {fullNameError ? <label>Enter Your {data?.Contact_ContactForm_Content1?.value}</label> : <></>}
 
-            <p className={companyNameError? 'error':''}>{data?.Contact_ContactForm_Content2?.value}</p>
+            <p className={companyNameError ? 'error' : ''}>{data?.Contact_ContactForm_Content2?.value}</p>
             <input
               type='input'
               name='companyName'
-              className={companyNameError? 'error':''}
+              className={companyNameError ? 'error' : ''}
               onChange={onChange}
               value={companyName}
             />
-            {companyNameError? <label>Enter Your {data?.Contact_ContactForm_Content2?.value}</label> : <></>}
+            {companyNameError ? <label>Enter Your {data?.Contact_ContactForm_Content2?.value}</label> : <></>}
 
-            <p className={companyAddressError? 'error':''}>{data?.Contact_ContactForm_Content3?.value}</p>
+            <p className={companyAddressError ? 'error' : ''}>{data?.Contact_ContactForm_Content3?.value}</p>
             <input
               type='input'
               name='companyAddress'
-              className={companyAddressError? 'error':''}
+              className={companyAddressError ? 'error' : ''}
               onChange={onChange}
               value={companyAddress}
             />
-            {companyAddressError? <label>Enter Your {data?.Contact_ContactForm_Content3?.value}</label> : <></>}
+            {companyAddressError ? <label>Enter Your {data?.Contact_ContactForm_Content3?.value}</label> : <></>}
 
-            <p className={phoneError? 'error':''}>{data?.Contact_ContactForm_Content4?.value}</p>
+            <p className={phoneError ? 'error' : ''}>{data?.Contact_ContactForm_Content4?.value}</p>
             <div className='phone-contact'>
               <input
                 type='input'
                 name='phone1'
-                className={phoneError? 'error':''}
+                className={phoneError ? 'error' : ''}
                 placeholder='090'
                 onChange={onChange}
                 value={phone1}
@@ -218,7 +220,7 @@ const ContactForm = (props) => {
               <input
                 type='input'
                 name='phone2'
-                className={phoneError? 'error':''}
+                className={phoneError ? 'error' : ''}
                 placeholder='0000'
                 onChange={onChange}
                 value={phone2}
@@ -227,13 +229,13 @@ const ContactForm = (props) => {
               <input
                 type='input'
                 name='phone3'
-                className={phoneError? 'error':''}
+                className={phoneError ? 'error' : ''}
                 placeholder='0000'
                 onChange={onChange}
                 value={phone3}
               />
             </div>
-            {phoneError? <label>Enter Your {data?.Contact_ContactForm_Content4?.value}</label> : <></>}
+            {phoneError ? <label>Enter Your {data?.Contact_ContactForm_Content4?.value}</label> : <></>}
 
             <p className={(emailError || !emailValid)? 'error':''}>{data?.Contact_ContactForm_Content5?.value}</p>
             <input
@@ -246,19 +248,19 @@ const ContactForm = (props) => {
             {(emailError)? <label>Enter Your {data?.Contact_ContactForm_Content5?.value}</label> : <></>}
             {(!emailValid)? <label>Email Address must be include @ after {email}</label> : <></>}
 
-            <p className={messageError? 'error':''}>{data?.Contact_ContactForm_Content6?.value}</p>
+            <p className={messageError ? 'error' : ''}>{data?.Contact_ContactForm_Content6?.value}</p>
             <textarea
               type='input'
               name='message'
-              className={messageError? 'error':''}
+              className={messageError ? 'error' : ''}
               onChange={onChange}
               value={message}
             ></textarea>
-            {messageError? <label>Enter Your {data?.Contact_ContactForm_Content6?.value}</label> : <></>}
-            
+            {messageError ? <label>Enter Your {data?.Contact_ContactForm_Content6?.value}</label> : <></>}
+
             <div className='footer-form'>
               <div className='checkbox-form'>
-                <input type='checkbox' checked={checked} onClick={()=>setChecked(!checked)}/>
+                <input type='checkbox' checked={checked} onClick={() => setChecked(!checked)} />
                 <a href={data?.Contact_ContactForm_CheckBox?.url} target="_blank">
                   {data?.Contact_ContactForm_CheckBox?.key}
                 </a>
@@ -273,7 +275,7 @@ const ContactForm = (props) => {
                   stroke="#6C3AF5"
                   strokeDasharray="69px 138px"
                   viewBox="0 0 64 7"
-                  style={{ position: "absolute", right: -16 }}
+                  style={{ position: "absolute", right: -25 }}
                 >
                   <path d="M0 6h61.5l-5.2-5.2"></path>
                 </svg>

@@ -17,15 +17,12 @@ const CounterUp = (props) => {
       <div className="ab-container-child">
         <div className="ab-container-layout-over">
           <div className="ab-postition-relative">
-            <div className="ab-background"
-            style={{
-              backgroundImage: `url(${data.CompanyAbout_Counter_Background?.image.original})`,
-            }}
+            <div
+              className="ab-background"
+              style={{
+                backgroundImage: `url(${data.CompanyAbout_Counter_Background?.image.original})`,
+              }}
             >
-              {/* <img
-                className="ab-background-img"
-                src={data.CompanyAbout_Counter_Background?.image.original}
-              /> */}
               <img className="ab-background-over" src="/img/wave-shape.svg" />
             </div>
           </div>
@@ -34,9 +31,12 @@ const CounterUp = (props) => {
         <div className="ab-container-flex">
           <div className="ab-flex-child">
             <div className="ab-box-rhombus">
-              <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
-                <div className="ab-box-counter">
-                  <span className="ab-counter">5</span>
+              <div className="ab-box-ratio-1"></div>
+              <div className="ab-container-layout-over ">
+                <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
+                  <div className="ab-box-counter">
+                    <span className="ab-counter">5</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -46,9 +46,12 @@ const CounterUp = (props) => {
           </div>
           <div className="ab-flex-child">
             <div className="ab-box-rhombus">
-              <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
-                <div className="ab-box-counter">
-                  <span className="ab-counter">100</span>+
+              <div className="ab-box-ratio-1"></div>
+              <div className="ab-container-layout-over ">
+                <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
+                  <div className="ab-box-counter">
+                    <span className="ab-counter">100</span>+
+                  </div>
                 </div>
               </div>
             </div>
@@ -58,9 +61,12 @@ const CounterUp = (props) => {
           </div>
           <div className="ab-flex-child">
             <div className="ab-box-rhombus">
-              <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
-                <div className="ab-box-counter">
-                  <span className="ab-counter">200</span>+
+              <div className="ab-box-ratio-1"></div>
+              <div className="ab-container-layout-over ">
+                <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
+                  <div className="ab-box-counter">
+                    <span className="ab-counter">200</span>+
+                  </div>
                 </div>
               </div>
             </div>
@@ -70,9 +76,12 @@ const CounterUp = (props) => {
           </div>
           <div className="ab-flex-child">
             <div className="ab-box-rhombus">
-              <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
-                <div className="ab-box-counter">
-                  <span className="ab-counter">50</span>%+
+              <div className="ab-box-ratio-1"></div>
+              <div className="ab-container-layout-over ">
+                <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
+                  <div className="ab-box-counter">
+                    <span className="ab-counter">40</span>+
+                  </div>
                 </div>
               </div>
             </div>
