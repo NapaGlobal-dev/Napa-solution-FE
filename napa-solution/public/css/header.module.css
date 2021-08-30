@@ -694,7 +694,7 @@
 
   clip-path: circle(0% at 100% 0);
 
-  transition: clip-path 0.5s ease-in;
+  transition: clip-path 0.3s ease-in;
 }
 
 .po-popcover a {
@@ -732,7 +732,7 @@
   left: 0;
   width: 100%;
   padding: 20px 24px 14px 24px;
-  z-index: 999;
+  z-index: 99999;
 }
 
 .po-box-logo {
@@ -762,7 +762,7 @@
 .po-list-container {
   padding: 0 24px;
   flex-basis: 100%;
-  z-index: 99;
+  z-index: 99999;
 }
 
 .po-list-container li {
@@ -864,7 +864,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  z-index: 99999
+  z-index: 99999;
 }
 
 .po-box-darkmode {
@@ -879,6 +879,6 @@
   padding-left: 15px;
 }
 
-
 .po-box-darkmode > p {
   z-index: 999;
+}
