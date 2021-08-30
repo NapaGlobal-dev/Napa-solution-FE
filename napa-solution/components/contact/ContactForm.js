@@ -94,18 +94,11 @@ const ContactForm = (props) => {
         setPhoneError(false);
         break;
       }
-<<<<<<< HEAD
       case 'email': {
         setEmail(e.target.value)
         setEmailValid(true)
         setEmailError(false)
         break
-=======
-      case "email": {
-        setEmail(e.target.value);
-        setEmailError(false);
-        break;
->>>>>>> caf8bbcf971c625d3ce212d162ceb918b04ad49a
       }
       case "message": {
         setMessage(e.target.value);
@@ -305,7 +298,6 @@ const ContactForm = (props) => {
               <></>
             )}
 
-<<<<<<< HEAD
             <p className={(emailError || !emailValid)? 'error':''}>{data?.Contact_ContactForm_Content5?.value}</p>
             <input
               type='input'
@@ -316,26 +308,6 @@ const ContactForm = (props) => {
             />
             {(emailError)? <label>Enter Your {data?.Contact_ContactForm_Content5?.value}</label> : <></>}
             {(!emailValid)? <label>Email Address must be include @ after {email}</label> : <></>}
-=======
-            <p className={emailError ? "error" : ""}>
-              {data?.Contact_ContactForm_Content5?.value}
-            </p>
-            <input
-              type="input"
-              name="email"
-              className={emailError ? "error" : ""}
-              onChange={onChange}
-              value={email}
-            />
-            {emailError ? (
-              <label>
-                {data?.Contact_ContactForm_Message?.value}{" "}
-                {data?.Contact_ContactForm_Content5?.value}
-              </label>
-            ) : (
-              <></>
-            )}
->>>>>>> caf8bbcf971c625d3ce212d162ceb918b04ad49a
 
             <p className={messageError ? "error" : ""}>
               {data?.Contact_ContactForm_Content6?.value}
