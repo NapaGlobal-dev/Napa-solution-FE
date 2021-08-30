@@ -13,7 +13,7 @@ const Banner = (props) => {
         <div className="overlay-header-banner"></div>
         <img
           src={data["Services_Banner_Image"].image.original}
-          className="imageA"
+          className="image-banner"
           alt=""
         />
         <div className="wrap-banner" id="banner">

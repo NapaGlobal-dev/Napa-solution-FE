@@ -90,6 +90,16 @@
   height: 100%;
 }
 
+.covergalery >span {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.covergalery >span> img {
+  object-fit: cover;
+}
+
 .txt-bottom-footer {
   color: var(--unnamed-color-ffffff);
   font-size: 16px;
@@ -297,6 +307,7 @@
   background: rgb(216 216 216 / 38%);
   padding-bottom: 2.6%;
   padding-top: calc(5.2vw + 40px);
+  z-index: 10;
 }
 .wrapIconLogo {
   display: flex;

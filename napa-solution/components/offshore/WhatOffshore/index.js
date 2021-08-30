@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { convertArrToObject } from "../../../util/converArrayToObject";
 import styles from "./style.module.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const WhatOffshore = (props) => {
   const whatOffshore = convertArrToObject(props.data.property);
@@ -9,7 +10,14 @@ const WhatOffshore = (props) => {
       <div className={clsx("cover", styles.wrapContainer)}>
         <div className={styles['wrap-image']}>
           <div className={styles.imgOffshore}>
-            <img loading="lazy" width="100%" src={whatOffshore.Offshore_WhatOfshore_Content?.image.original} />
+            <LazyLoadImage
+              effect="blur"
+              src={whatOffshore.Offshore_WhatOfshore_Content?.image?.original}
+              placeholderSrc={whatOffshore.Offshore_WhatOfshore_Content?.image?.thumbnail}
+              threshold={100}
+              width="100%"
+              height='100%'
+            />
           </div>
           <div className={styles.item} id="down-up">
             <div className={styles.mainTitle}>
