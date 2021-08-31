@@ -1,11 +1,12 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import React, { useEffect, useState } from "react";
-import Loading from "../../pages/loading";
-import { useQuery } from "@apollo/client";
-import { footerDataQuery } from "../../query/general";
+// import Loading from "../../pages/loading";
+// import { useQuery } from "@apollo/client";
+// import { footerDataQuery } from "../../query/general";
 import { useRouter } from "next/router";
 import ScrollToTop from "./ScrollToTop";
+import Loader from "./Loader";
 
 const Layout = ({ footerData, children, ...props }) => {
   // console.log("sssss", footerData);
@@ -34,7 +35,7 @@ const Layout = ({ footerData, children, ...props }) => {
     return (
       <>
         <Header isLoading={loading} />
-        <div
+        {/* <div
           id="wrapper-landing-loader"
           style={{
             position: "fixed",
@@ -47,7 +48,8 @@ const Layout = ({ footerData, children, ...props }) => {
           }}
         >
           <Loading />
-        </div>
+        </div> */}
+        <Loader />
         {React.cloneElement(children, {
           footer: <Footer data={footerData} isLoading={loading} />,
         })}
@@ -58,7 +60,7 @@ const Layout = ({ footerData, children, ...props }) => {
   return (
     <>
       <Header isLoading={loading} />
-      <div
+      {/* <div
         id="wrapper-landing-loader"
         style={{
           position: "fixed",
@@ -71,7 +73,9 @@ const Layout = ({ footerData, children, ...props }) => {
         }}
       >
         <Loading />
-      </div>
+      </div> */}
+
+      <Loader />
       <div>{children}</div>
       <ScrollToTop />
       <Footer data={footerData} isLoading={loading} />
