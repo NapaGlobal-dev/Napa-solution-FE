@@ -1,41 +1,50 @@
-import { useState, Fragment } from "react";
+import { useMutation } from "@apollo/client";
+import {useState, Fragment} from "react";
+import { ADD_CUSTOMER } from "../../query/general";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import joinJsx from "../../util/joinJsx";
 
 const ContactForm = (props) => {
-  const [fullName, setFullName] = useState("");
-  const [fullNameError, setFullNameError] = useState(false);
-  const [companyName, setCompanyName] = useState("");
-  const [companyNameError, setCompanyNameError] = useState(false);
-  const [companyAddress, setCompanyAddress] = useState("");
-  const [companyAddressError, setCompanyAddressError] = useState(false);
-  const [phone1, setPhone1] = useState("");
-  const [phone2, setPhone2] = useState("");
-  const [phone3, setPhone3] = useState("");
-  const [phoneError, setPhoneError] = useState(false);
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState(false);
-  const [message, setMessage] = useState("");
-  const [messageError, setMessageError] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const [fullName, setFullName] = useState('')
+  const [fullNameError, setFullNameError] = useState(false)
+  const [companyName, setCompanyName] = useState('')
+  const [companyNameError, setCompanyNameError] = useState(false)
+  const [companyAddress, setCompanyAddress] = useState('')
+  const [companyAddressError, setCompanyAddressError] = useState(false)
+  const [phone1, setPhone1] = useState('')
+  const [phone2, setPhone2] = useState('')
+  const [phone3, setPhone3] = useState('')
+  const [phoneError, setPhoneError] = useState(false)
+  const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState(false)
+  const [emailValid, setEmailValid] = useState(true)
+  const [message, setMessage] = useState('')
+  const [messageError, setMessageError] = useState(false)
+  const [checked, setChecked] = useState(false)
   const data = convertArrToObject(props.data.property);
 
-  function submit(e) {
-    const phone = (phone1 + phone2 + phone3).length === 11;
-    !fullName ? setFullNameError(true) : "none";
-    !companyName ? setCompanyNameError(true) : "none";
-    !companyAddress ? setCompanyAddressError(true) : "none";
-    !phone ? setPhoneError(true) : "none";
-    !email ? setEmailError(true) : "none";
-    !message ? setMessageError(true) : "none";
 
-    if (
+  function submit(e){
+    const phone = (phone1+phone2+phone3).length===11
+    !fullName? setFullNameError(true) : 'none'
+    !companyName? setCompanyNameError(true) : 'none'
+    !companyAddress? setCompanyAddressError(true) : 'none'
+    !phone? setPhoneError(true) : 'none'
+    !email? setEmailError(true) : 'none'
+    !message? setMessageError(true) : 'none'
+    if((/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).test(email)){
+      setEmailValid(true);
+    }else{
+      setEmailValid(false)
+    }
+    if(
       !fullName ||
       !companyAddress ||
       !companyName ||
       !phone ||
       !message ||
       !email ||
+      !emailValid ||
       !checked
     ) {
       e.preventDefault();
@@ -85,10 +94,11 @@ const ContactForm = (props) => {
         setPhoneError(false);
         break;
       }
-      case "email": {
-        setEmail(e.target.value);
-        setEmailError(false);
-        break;
+      case 'email': {
+        setEmail(e.target.value)
+        setEmailValid(true)
+        setEmailError(false)
+        break
       }
       case "message": {
         setMessage(e.target.value);
@@ -288,24 +298,16 @@ const ContactForm = (props) => {
               <></>
             )}
 
-            <p className={emailError ? "error" : ""}>
-              {data?.Contact_ContactForm_Content5?.value}
-            </p>
+            <p className={(emailError || !emailValid)? 'error':''}>{data?.Contact_ContactForm_Content5?.value}</p>
             <input
-              type="input"
-              name="email"
-              className={emailError ? "error" : ""}
+              type='input'
+              name='email'
+              className={(emailError || !emailValid)? 'error':''}
               onChange={onChange}
               value={email}
             />
-            {emailError ? (
-              <label>
-                {data?.Contact_ContactForm_Message?.value}{" "}
-                {data?.Contact_ContactForm_Content5?.value}
-              </label>
-            ) : (
-              <></>
-            )}
+            {(emailError)? <label>Enter Your {data?.Contact_ContactForm_Content5?.value}</label> : <></>}
+            {(!emailValid)? <label>Email Address must be include @ after {email}</label> : <></>}
 
             <p className={messageError ? "error" : ""}>
               {data?.Contact_ContactForm_Content6?.value}
