@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { convertArrToObject } from "../../util/converArrayToObject";
+
 export default function Service(props) {
   const { data } = props;
   const getValue = (content, name) => {
@@ -10,6 +10,7 @@ export default function Service(props) {
     return Object.values(content).filter((it) => it.name.includes(name))[0]
       .image.original;
   };
+
   return (
     <>
       <Head>
@@ -18,7 +19,7 @@ export default function Service(props) {
       <div className="wrap-case sl-container">
         {data.map((item, index) =>
           index % 2 == 0 ? (
-            <div className="case-layout">
+            <div className="case-layout" key={index}>
               <div
                 className="case-img"
                 style={{
@@ -48,7 +49,7 @@ export default function Service(props) {
               </div>
             </div>
           ) : (
-            <div className="case-layout left">
+            <div className="case-layout left" key={index}>
               <div className="case-item">
                 <div className="service-name">
                   {getValue(item.content, "RealEstate_Service_ServiceName")}
