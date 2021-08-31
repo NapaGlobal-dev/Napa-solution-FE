@@ -84,14 +84,14 @@
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 50px;
-  font-family: 'Prompt', sans-serif;
+  font-family: "Prompt", sans-serif;
 }
 
 .sub-menu {
   margin-top: 20px;
   font-size: 25px;
   letter-spacing: 3px;
-  font-family: 'Noto Serif JP', serif;
+  font-family: "Noto Serif JP", serif;
 }
 
 .banner {
@@ -168,11 +168,11 @@
   bottom: 0;
 }
 
-@media (max-width:768px) {
-  .img-banner img{
+@media (max-width: 768px) {
+  .img-banner img {
     max-width: 100%;
   }
-  .title{
+  .title {
     padding-top: 55%;
   }
   .sub-title {
@@ -215,13 +215,13 @@
   }
 }
 
-@media (max-width:1290px) {
+@media (max-width: 1290px) {
   .wrap-banner {
     padding: 80px 120px;
   }
 }
 
-@media (max-width:414px) {
+@media (max-width: 414px) {
   .main-title {
     font-size: 30px;
   }
@@ -229,5 +229,77 @@
   .wrap-banner {
     margin: 0 12px;
     padding: 40px 20px;
+  }
+}
+
+/* case study css */
+.case-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 120px;
+}
+.case-layout:last-child {
+  margin-bottom: 0;
+}
+.case-img {
+  max-width: 40%;
+  background: #8ec1ea;
+  max-height: 350px;
+}
+
+.case-img img {
+  max-width: 100%;
+  width: 100%;
+  padding: 30px 0;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out,
+    -webkit-transform 0.6s ease-out;
+  display: block;
+  position: relative;
+  left: 30px;
+  max-height: 350px;
+}
+
+.case-layout.left .case-img img {
+  left: -30px;
+}
+.case-layout.left .case-item {
+  margin-left: 0;
+}
+.case-layout.left .case-img {
+  margin-left: 80px;
+}
+.service-name,
+.case-content {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.case-name {
+  font-size: 27px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.case-item {
+  margin-left: 80px;
+  max-width: 40%;
+}
+
+.case-program img {
+  max-width: 40px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .case-item {
+    max-width: 80%;
+    margin: 24px;
+  }
+  .case-layout {
+    flex-direction: column;
+  }
+  .case-layout.left {
+    flex-direction: column-reverse;
   }
 }
