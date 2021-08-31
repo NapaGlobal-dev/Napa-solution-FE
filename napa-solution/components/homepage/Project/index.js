@@ -43,7 +43,7 @@ const Project = (props) => {
   const data = convertArrToObject(props.data?.property);
   // let slides = Object.values(data).filter((item) => item.name.includes("Img"));
   let slides = !loading && serviceUrl.includes(`/service/${router.query.slug}`) ? 
-  Object.values(data).filter((item) => item.name.includes("Img") && router.query.slug.includes(item.value)): Object.values(data).filter((item) => item.name.includes("Img"));
+  Object.values(data).filter((item) => item.name.includes("Img") && item?.value.split(",").includes(router.query.slug)): Object.values(data).filter((item) => item.name.includes("Img"));
   if (slides.length <= 6) slides = [...slides, ...slides];
 
   return (
