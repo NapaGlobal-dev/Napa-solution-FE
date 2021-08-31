@@ -30,7 +30,7 @@ export default function Banner({ data }) {
           height='100%'
           className="image-banner"
         />
-        <div className="wrap-banner" id="banner">
+        {/* <div className="wrap-banner" id="banner">
           <h1 className="main-title">
             {title?.key}
             {title?.value}
@@ -41,7 +41,7 @@ export default function Banner({ data }) {
           </div>
           <div className="frame-tb"></div>
           <div className="frame-lr"></div>
-        </div>
+        </div> */}
         {/* <div className="wrap-content-banner">
           <div className="content-banner">
             {content?.key}

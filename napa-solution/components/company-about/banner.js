@@ -27,7 +27,7 @@ const Banner = (props) => {
           height='100%'
           className="image-banner"
         />
-        <div className="wrap-banner" id="banner">
+        {/* <div className="wrap-banner" id="banner">
           <h1 className="main-title">
             {data["CompanyAbout_Banner_Title"].value}
           </h1>
@@ -36,7 +36,7 @@ const Banner = (props) => {
           </div>
           <div className="frame-tb"></div>
           <div className="frame-lr"></div>
-        </div>
+        </div> */}
         {/* <div className="wrap-content-banner">
           <div className="content-banner">
             {data["CompanyAbout_Banner_Content"].value}
