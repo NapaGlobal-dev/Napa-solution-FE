@@ -564,63 +564,70 @@ export const PROJECTS = gql`
 `;
 
 export const GET_SERVICES_PAGE_DATA = gql`
-query getServicesPageData($name: String!) {
-  page: allPages(where: { slug_contains: $name }) {
-    name
-    nameEN
-    url
-    layouts {
+  query getServicesPageData($name: String!) {
+    page: allPages(where: { slug_contains: $name }) {
       name
-      property {
+      nameEN
+      url
+      layouts {
         name
-        value
-        image {
-          original: publicUrl
-          thumbnail: publicUrlTransformed(transformation: { width: "64" })
-        }
-      }
-    }
-  }
-}
-`;
-
-export const GET_SERVICE_URL = gql`
-query getServicesPageData{
-  page: allPages(where:{nameEN_contains:"Services"}){
-    name
-    nameEN
-    url
-  childrenPage{
-    url
-    slug
-    childrenPage{
-      slug
-    }
-  }
-  }
-}`;
-
-export const GET_CASESTUDY_PAGE = gql`
-query getCaseStudyPageData($slug:String!, $pid: String!){
-  page: allPages(where:{slug_contains:$slug}){
-    url
-    slug
-    childrenPage(where:{slug_contains:$pid}){
-      slug
-      layouts{
-        name
-        property{
+        property {
           name
           value
-          image{
-            original: publicUrl,
+          image {
+            original: publicUrl
             thumbnail: publicUrlTransformed(transformation: { width: "64" })
           }
         }
       }
     }
   }
-  }`
+`;
 
+export const GET_SERVICE_URL = gql`
+  query getServicesPageData {
+    page: allPages(where: { nameEN_contains: "Services" }) {
+      name
+      nameEN
+      url
+      childrenPage {
+        url
+        slug
+        childrenPage {
+          slug
+        }
+      }
+    }
+  }
+`;
 
-
+export const GET_CASESTUDY_PAGE = gql`
+  query getCaseStudyPageData($slug: String!, $pid: String!) {
+    page: allPages(where: { slug_contains: $slug }) {
+      url
+      slug
+      childrenPage(where: { slug_contains: $pid }) {
+        slug
+        layouts {
+          name
+          property {
+            name
+            value
+            content {
+              name
+              value
+              image {
+                original: publicUrl
+                thumbnail: publicUrlTransformed(transformation: { width: "64" })
+              }
+            }
+            image {
+              original: publicUrl
+              thumbnail: publicUrlTransformed(transformation: { width: "64" })
+            }
+          }
+        }
+      }
+    }
+  }
+`;

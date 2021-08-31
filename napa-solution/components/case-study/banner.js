@@ -9,7 +9,7 @@ export default function Banner(props) {
   // const subtitle = getData(data, /ServicesWeb_Banner_SubTitle/)[0];
   // const content = getData(data, /ServicesWeb_Banner_Content/)[0];
   // const subcontent = getData(data, /ServicesWeb_Banner_SubContent/)[0];
-  const {banner} = props;
+  const { banner } = props;
   useEffect(() => {
     window.onload = function () {
       document.getElementById("banner").className = "wrap-banner open";
@@ -23,12 +23,12 @@ export default function Banner(props) {
       <div className="banner">
         <div className="overlay-header-banner"></div>
         <LazyLoadImage
-          effect='blur'
+          effect="blur"
           src={banner?.Img?.image?.original}
           placeholderSrc={banner?.Img?.image?.thumbnail}
           threshold={100}
-          height='100%'
-          width='100%'
+          height="100%"
+          width="100%"
           className="image-banner"
         />
         <div className="wrap-banner" id="banner">

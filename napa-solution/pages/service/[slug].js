@@ -5,12 +5,19 @@ import Project from "../../components/homepage/Project";
 import Service from "../../components/services/service";
 import { convertArrToObjectBySpecialName } from "../../util/converArrayToObject";
 import { client } from "../../apolo-client";
-import { GET_SERVICES_PAGE_DATA, GET_SERVICE_URL, PROJECTS } from "../../query/general";
-
+import {
+  GET_SERVICES_PAGE_DATA,
+  GET_SERVICE_URL,
+  PROJECTS,
+} from "../../query/general";
 
 const Services = ({ projects, ...props }) => {
-  let banner = convertArrToObjectBySpecialName(props.data?.page[0].layouts[2].property);
-  let service = convertArrToObjectBySpecialName(props.data?.page[0].layouts[1].property);
+  let banner = convertArrToObjectBySpecialName(
+    props.data?.page[0].layouts[2].property
+  );
+  let service = convertArrToObjectBySpecialName(
+    props.data?.page[0].layouts[1].property
+  );
   return (
     <>
       <Head>
@@ -41,34 +48,44 @@ const Services = ({ projects, ...props }) => {
   );
 };
 
-export async function getStaticProps({params}) {
-  const {slug} = params;
-  const [pageData, projectData] = await Promise.allSettled([
-    client.query({
-      query: GET_SERVICES_PAGE_DATA,
-      variables: { name: slug },
-    }),
-    client.query({ query: PROJECTS }),
-  ]);
+export async function getStaticProps({ params }) {
+  const { slug } = params;
+  // const [pageData, projectData] = await Promise.allSettled([
+  //   client.query({
+  //     query: GET_SERVICES_PAGE_DATA,
+  //     variables: { name: slug },
+  //   }),
+  //   client.query({ query: PROJECTS }),
+  // ]);
+  const pageData = await client.query({
+    query: GET_SERVICES_PAGE_DATA,
+    variables: { name: slug },
+  });
+  const projectData = await client.query({ query: PROJECTS });
   return {
     props: {
-      data: pageData.value.data,
-      projects: projectData.value.data.projects[0],
+      data: pageData.data,
+      projects: projectData.data.projects[0],
     },
   };
 }
 
 export async function getStaticPaths() {
-  const data = await Promise.allSettled([
-    client.query({ query: GET_SERVICE_URL }),
-  ]);
-  const paths = data[0].value.data?.page[0].childrenPage.map(page =>({ 
-    params: { slug: page.slug } 
-  }))
+  // const data = await Promise.allSettled([
+  //   client.query({ query: GET_SERVICE_URL }),
+  // ]);
+  const data = await client.query({ query: GET_SERVICE_URL });
+  console.log(!data.loading && data.data.page[0]);
+  const paths =
+    !data.loading &&
+    data?.data?.page[0]?.childrenPage.map((page) => ({
+      params: { slug: page.slug },
+    }));
+  // const paths = [{ params: { slug: "ai-solutions" } }];
   return {
     paths,
     fallback: true,
-  }
+  };
 }
 
 export default Services;
