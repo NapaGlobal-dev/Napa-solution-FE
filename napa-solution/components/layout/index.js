@@ -75,7 +75,7 @@ const Layout = ({ footerData, children, ...props }) => {
         <Loading />
       </div> */}
 
-      <Loader />
+      {/* <Loader /> */}
       <div>{children}</div>
       <ScrollToTop />
       <Footer data={footerData} isLoading={loading} />
