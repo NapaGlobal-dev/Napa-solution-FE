@@ -49,7 +49,8 @@
   padding-right: 10%;
   margin-top: 40px;
 }
-.left-contact >div{
+
+.left-contact>div {
   margin-top: 60px;
   margin-bottom: 25px;
   display: flex;
@@ -244,10 +245,12 @@ textarea:focus {
     display: block;
     margin-left: 5px;
   }
-  .left-contact >div{
+
+  .left-contact>div {
     padding: 5px 10px;
   }
-  .footer-form{
+
+  .footer-form {
     flex-direction: column;
     justify-content: center;
   }
