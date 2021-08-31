@@ -1,6 +1,8 @@
 import { getData } from "../../util/converArrayToObject";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 export default function Banner({ data }) {
   const banner = getData(data, /ContactBanner_Banner_Img/)[0];
   const title = getData(data, /ContactBanner_Banner_Title/)[0];

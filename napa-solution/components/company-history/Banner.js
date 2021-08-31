@@ -1,13 +1,14 @@
 import { getData } from "../../util/converArrayToObject";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Banner({ data }) {
   const banner = getData(data, /CompanyHistory_Banner_Img/)[0];
   const title = getData(data, /CompanyHistory_Banner_Title/)[0];
   const subtitle = getData(data, /CompanyHistory_Banner_SubTitle/)[0];
-  const content = getData(data, /CompanyHistory_Banner_Content/)[0];
-  const subcontent = getData(data, /CompanyHistory_Banner_SubContent/)[0];
+  // const content = getData(data, /CompanyHistory_Banner_Content/)[0];
+  // const subcontent = getData(data, /CompanyHistory_Banner_SubContent/)[0];
   useEffect(() => {
     window.onload = function () {
       document.getElementById("banner").className = "wrap-banner open";
@@ -20,7 +21,15 @@ export default function Banner({ data }) {
       </Head>
       <div className="banner">
         <div className="overlay-header-banner"></div>
-        <img src={banner?.image?.original} className="imageA" alt="" />
+        <LazyLoadImage
+          effect="blur"
+          src={banner?.image?.original}
+          placeholderSrc={banner?.image?.thumbnail}
+          threshold={100}
+          width="100%"
+          height='100%'
+          className="image-banner"
+        />
         <div className="wrap-banner" id="banner">
           <h1 className="main-title">
             {title?.key}

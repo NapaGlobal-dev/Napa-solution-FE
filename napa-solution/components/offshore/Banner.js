@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useEffect } from "react";
 import { convertArrToObject } from "../../util/converArrayToObject";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const Banner = (props) => {
   const data = convertArrToObject(props.data.property);
   useEffect(() => {
@@ -15,10 +16,14 @@ const Banner = (props) => {
       </Head>
       <div className="banner">
         <div className="overlay-header-banner"></div>
-        <img
-          src={data["Offshore_Banner_Img"].image.original}
-          className="imageA"
-          alt=""
+        <LazyLoadImage
+          effect="blur"
+          src={data["Offshore_Banner_Img"]?.image?.original}
+          placeholderSrc={data["Offshore_Banner_Img"]?.image?.thumbnail}
+          threshold={100}
+          width="100%"
+          height='100%'
+          className="image-banner"
         />
         <div className="wrap-banner" id="banner">
           <h1 className="main-title">

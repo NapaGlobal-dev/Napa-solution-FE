@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import joinJsx from "../../../util/joinJsx";
 import Link from "next/link";
 import animate from "../../../util/animation";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Footer = (props) => {
   const data = convertArrToObject(props.data.layout[0].property);
@@ -51,10 +52,18 @@ const Footer = (props) => {
         <div className={styles.coverContainer}>
           <div
             className={clsx(styles.covergalery)}
-            style={{
-              backgroundImage: `url(${data.Footer_ContactImage.image.original})`,
-            }}
+            // style={{
+            //   backgroundImage: `url(${data.Footer_ContactImage.image.original})`,
+            // }}
           >
+            <LazyLoadImage
+              effect="blur"
+              src={data.Footer_ContactImage?.image?.original}
+              placeholderSrc={data.Footer_ContactImage?.image?.thumbnail}
+              threshold={100}
+              width="100%"
+              height='100%'
+            />
             <div className={clsx(styles.scaleText)}>
               <span className={clsx(styles.h3text)} id="down-up">
                 {joinJsx(data.Footer_ContactTitle.value.split("\\n"), <br />)}

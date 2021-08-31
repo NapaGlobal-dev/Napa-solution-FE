@@ -155,13 +155,13 @@
   }
   .right-timeline {
     width: 100%;
-    padding: 0px 12px;
     display: flex;
     justify-content: center;
   }
-  .right-timeline img{
+  .img-timeline{
     width: 100vw;
     height: 100%;
+    padding: 0px 12px;
   }
   .btn-res{
     display: none !important;

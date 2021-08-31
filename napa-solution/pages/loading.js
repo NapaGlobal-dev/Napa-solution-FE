@@ -6,7 +6,7 @@ const Loading = (props) => {
     return (
         <>
             <Head>
-                <link key="css/loading.css" rel="stylesheet" href="css/loading.css" />
+                <link key="/css/loading.css" rel="stylesheet" href="/css/loading.css" />
             </Head>
             {/* <div className="content">
                 <div >

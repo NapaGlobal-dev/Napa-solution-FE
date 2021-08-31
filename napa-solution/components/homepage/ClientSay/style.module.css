@@ -6,19 +6,32 @@
   position: relative;
   overflow: hidden;
 }
-
+.covervideo {
+  height: 100%;
+  width: 100%;
+  background-color: gray;
+  max-width: 70% !important;
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+}
 .video {
   background: gray;
   width: 100%;
-  /* max-width: 1555px; */
-  max-width: 70%;
   border-radius: 10px;
   height: 100%;
-  /* min-height: 300px; */
-  margin-top: 50px;
+}
+.video[poster] {
+  height: 100%;
+  width: 100%;
+}
+.video:hover {
+  transform: scale(1.15);
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out,
+    -webkit-transform 0.6s ease-out;
 }
 
-.cover>h3 {
+.cover > h3 {
   letter-spacing: 0px;
   line-height: 1;
   margin-bottom: 15px;
@@ -27,7 +40,7 @@
   font-weight: bold;
 }
 
-.cover>p {
+.cover > p {
   text-align: center;
   font-size: 18px;
   line-height: 30px;
@@ -60,15 +73,15 @@
   padding: 10px;
 }
 
-.buttons>button {
+.buttons > button {
   background: none;
   border: 0px;
   outline: 0px;
   cursor: pointer;
 }
 
-.buttons>button::before {
-  content: "\f144";
+.buttons > button::before {
+  content: "\f04b";
   font-family: "Font Awesome 5 Free";
   width: 30px;
   height: 30px;
@@ -78,82 +91,79 @@
   /* -ms-font-smoothing:antial */
 }
 
-/* .buttons > button .play::before {
-  content: "\f144";
-}
-.buttons > button .pause::before {
-  content: "\f28b !important";
-} */
-
-.orangeBar {
-  height: 10px;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  background: #000;
-}
-
-.orangeJuice {
-  height: 10px;
-  width: 100px;
-  background-color: #442493;
-}
-
 .bigplaypause {
   position: absolute;
   top: 50%;
-  /* left: 50%;
-
-  transform: translate(-50%, 50%); */
+  left: calc(50% - 63px);
 }
 
-.bigplaypause>button {
-  /* height: 71px;
-  width: 210px; */
+.bigplaypause > button {
   background: transparent;
   border: none;
   outline: none;
-  height: 70px;
-  width: 70px;
-  line-height: 70px;
   text-align: center;
   margin: auto;
   border-radius: 50%;
   display: block;
-  /* -webkit-animation: ripple-white 1s linear infinite; */
-  animation: ripple-white 1s linear infinite;
-  -webkit-transition: .5s linear;
 }
 
 @-webkit-keyframes ripple-white {
   0% {
-    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1)
+    -webkit-box-shadow: 0 0 0 0 rgba(59, 231, 217, 0.1),
+      0 0 0 20px rgba(59, 231, 217, 0.1), 0 0 0 40px rgba(59, 231, 217, 0.1);
+    box-shadow: 0 0 0 0 rgba(59, 231, 217, 0.1),
+      0 0 0 20px rgba(59, 231, 217, 0.1), 0 0 0 40px rgba(59, 231, 217, 0.1);
   }
 
   100% {
-    -webkit-box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0);
-    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0)
+    -webkit-box-shadow: 0 0 0 20px rgba(59, 231, 217, 0.1),
+      0 0 0 40px rgba(59, 231, 217, 0.1), 0 0 0 60px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 20px rgba(59, 231, 217, 0.1),
+      0 0 0 40px rgba(59, 231, 217, 0.1), 0 0 0 60px rgba(255, 255, 255, 0);
   }
 }
 
 @keyframes ripple-white {
   0% {
-    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1)
+    -webkit-box-shadow: 0 0 0 0 rgba(59, 231, 217, 0.1),
+      0 0 0 20px rgba(59, 231, 217, 0.1), 0 0 0 40px rgba(59, 231, 217, 0.1);
+    box-shadow: 0 0 0 0 rgba(59, 231, 217, 0.1),
+      0 0 0 20px rgba(59, 231, 217, 0.1), 0 0 0 40px rgba(59, 231, 217, 0.1);
   }
 
   100% {
-    -webkit-box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0);
-    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0)
+    -webkit-box-shadow: 0 0 0 20px rgba(59, 231, 217, 0.1),
+      0 0 0 40px rgba(59, 231, 217, 0.1), 0 0 0 60px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 20px rgba(59, 231, 217, 0.1),
+      0 0 0 40px rgba(59, 231, 217, 0.1), 0 0 0 60px rgba(255, 255, 255, 0);
   }
 }
+.bigplaypause > button > img {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+}
+.bigplaypause > button > img:first-child {
+  animation: xoayvong 1.9s ease-out infinite;
+}
 
-.bigplaypause>button::before {
-  content: "\f144";
+@keyframes xoayvong {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+/* 
+.bigplaypause > button::before {
+  content: "\f04b";
   font-family: "Font Awesome 5 Free";
-  width: 203px;
-  height: 203px;
+  line-height: 74px;
   display: inline-block;
   font-size: 137px;
   color: #6c3af5;
@@ -161,28 +171,30 @@
   background: transparent;
   border: none;
   position: absolute;
-  top: 0;
-  left: 40px;
-  -webkit-transform: translate(-50%, 0%);
-  transform: translate(-50%, 0%);
-}
+  -webkit-transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%);
 
+  animation: ripple-white 1s linear infinite;
+  -webkit-transition: 0.5s linear;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 137px;
+  height: 137px;
+  text-shadow: 0 0 0 20px rgba(59, 231, 217, 0.1),
+    0 0 0 40px rgba(59, 231, 217, 0.1), 0 0 0 60px rgba(255, 255, 255, 0);
+  box-shadow: 0 0 0 20px rgba(59, 231, 217, 0.1),
+    0 0 0 40px rgba(59, 231, 217, 0.1), 0 0 0 60px rgba(255, 255, 255, 0);
+}
+.bigplaypause > button::before > svg {
+  border: 2px solid red;
+} */
 @media (max-width: 1024px) {
-  .bigplaypause>button::before {
-    content: "\f144";
-    font-family: "Font Awesome 5 Free";
-    width: 203px;
-    height: 203px;
-    display: inline-block;
-    font-size: 100px;
-    color: #6c3af5;
-    outline: none;
-    background: transparent;
-    border: none;
+  .bigplaypause > button > img {
     position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, 0%);
+    width: 120px;
+    height: 120px;
   }
 }
 
@@ -191,37 +203,30 @@
     margin: 0px;
   }
 
-  .cover>h3 {
+  .cover > h3 {
     font-size: 20px;
     font-weight: bold;
     line-height: 26px;
   }
 
-  .cover>p {
+  .cover > p {
     font-size: 14px;
   }
 
-  .video {
+  .covervideo {
     width: 100%;
-    max-width: 100%;
+    max-width: 100% !important;
   }
 }
 
 @media (max-width: 414px) {
-  .bigplaypause>button::before {
-    content: "\f144";
-    font-family: "Font Awesome 5 Free";
-    width: 137px;
-    height: 137px;
-    display: inline-block;
-    font-size: 80px;
-    color: #442493;
-    outline: none;
-    background: transparent;
-    border: none;
+  .bigplaypause > button > img {
     position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, 0%);
+    width: 60px;
+    height: 60px;
+  }
+  .bigplaypause {
+    top: calc(50% + 17px);
+    left: calc(50% - 34px);
   }
 }

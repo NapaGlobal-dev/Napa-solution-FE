@@ -37,12 +37,12 @@ const settings = {
 const Project = (props) => {
   const slickRef = useRef(null);
   const router = useRouter();
-  // const {loading, error, data:serviceData} = useQuery(GET_SERVICE_URL);
-  // const service = !loading && !error && convertArrToObject(serviceData.page, "nameEN");
-  // const serviceUrl = !loading && service.Services.childrenPage.map(item => item.url)
+  const {loading, error, data:serviceData} = useQuery(GET_SERVICE_URL);
+  const service = !loading && !error && convertArrToObject(serviceData.page, "nameEN");
+  const serviceUrl = !loading && service.Services.childrenPage.map(item => item.url)
   const data = convertArrToObject(props.data?.property);
-  let slides = Object.values(data).filter((item) => item.name.includes("Img"));
-  // let slides = !loading && serviceUrl.includes(router.route) ? Object.values(data).filter((item) => item.name.includes("Img") && router.route.includes(item.value)): Object.values(data).filter((item) => item.name.includes("Img"));
+  // let slides = Object.values(data).filter((item) => item.name.includes("Img"));
+  let slides = !loading && serviceUrl.includes(router.route) ? Object.values(data).filter((item) => item.name.includes("Img") && router.route.includes(item.value)): Object.values(data).filter((item) => item.name.includes("Img"));
   if (slides.length <= 6) slides = [...slides, ...slides];
 
   return (

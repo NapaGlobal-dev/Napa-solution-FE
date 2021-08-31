@@ -29,9 +29,9 @@ function MyApp({ Component, pageProps, footerData, ...props }) {
   return (
     <StoreProvier>
       <ApolloProvider client={client}>
-        <ThemeProvider theme={theme}>
-          <Layout footerData={footerData}>
-            {/* <DarkModeSwitch
+        {/* <ThemeProvider theme={theme}> */}
+        <Layout footerData={footerData}>
+          {/* <DarkModeSwitch
               style={{
                 position: "fixed",
                 zIndex: 20,
@@ -43,10 +43,10 @@ function MyApp({ Component, pageProps, footerData, ...props }) {
               onChange={darkmode.toggle}
               size={120}
             /> */}
-            {/* {isMounted && <Component {...pageProps} />} */}
-            <Component {...pageProps} />
-          </Layout>
-        </ThemeProvider>
+          {/* {isMounted && <Component {...pageProps} />} */}
+          <Component {...pageProps} />
+        </Layout>
+        {/* </ThemeProvider> */}
       </ApolloProvider>
     </StoreProvier>
   );
