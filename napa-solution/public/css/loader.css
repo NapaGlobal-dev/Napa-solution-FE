@@ -1,16 +1,16 @@
 :root {
-  --main-color: #aba1ff;
-  --main-color-dark: #675fb2;
-  --ray-color: #ffd6bb;
-  --spark-color: #70b268;
-  --back-color: #2f2e4e;
+  --loader-main-color: #aba1ff;
+  --loader-main-color-dark: #675fb2;
+  --loader-ray-color: #ffd6bb;
+  --loader-spark-color: #70b268;
+  --loader-back-color: #2f2e4e;
 }
 
 #loader-lastray {
   margin: auto;
   border-radius: 100%;
   border: 0px solid;
-  border-color: var(--ray-color);
+  border-color: var(--loader-ray-color);
   opacity: 1;
   width: 0px;
   height: 0px;
@@ -20,7 +20,7 @@
   z-index: 99;
 }
 #loader-loading-page {
-  background: var(--back-color);
+  background: var(--loader-back-color);
   border-radius: 100%;
   top: 50%;
   left: 50vw;
@@ -51,8 +51,8 @@
 .loader-sphere {
   background: radial-gradient(
     circle,
-    var(--main-color),
-    var(--main-color-dark)
+    var(--loader-main-color),
+    var(--loader-main-color-dark)
   );
   width: 50px;
   height: 50px;
@@ -67,7 +67,7 @@
   margin: auto;
   border-radius: 100%;
   border: 5px solid;
-  border-color: var(--ray-color);
+  border-color: var(--loader-ray-color);
   opacity: 1;
   width: 10px;
   height: 10px;
@@ -86,7 +86,7 @@
   transform: translate(-50%, -50%);
 }
 .loader-particle {
-  background-color: var(--spark-color);
+  background-color: var(--loader-spark-color);
   width: 5px;
   height: 5px;
   border-radius: 100%;

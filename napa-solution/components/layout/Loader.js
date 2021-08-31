@@ -5,10 +5,11 @@ const Loader = () => {
   useEffect(() => {
     setTimeout(function () {
       document.getElementById("loader-loading-page").className +=
-        "loader-loaded";
-      document.getElementById("loader-loader").className += "loader-opzero";
-      document.getElementById("loader-lastray").className += " loader-finalray";
-      document.body.className += "loader-whitebk";
+        " loader-loaded ";
+      document.getElementById("loader-loader").className += " loader-opzero ";
+      document.getElementById("loader-lastray").className +=
+        " loader-finalray ";
+      document.body.className += " loader-whitebk ";
     }, 3000);
   }, []);
   return (
