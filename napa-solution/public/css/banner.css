@@ -180,7 +180,6 @@
   width: 60%;
   align-items: flex-start;
   padding-top: 0;
-  color: #eaecf3;
 }
 
 .banner-page.new-version .img-banner {
@@ -200,7 +199,8 @@
   width: 100%;
   bottom: 0;
 }
-.banner-page.new-version .main-title{
+
+.banner-page.new-version .main-title {
   font-size: 40px;
   position: absolute;
   top: 40%;
@@ -212,26 +212,32 @@
     flex-direction: column;
     display: flex;
   }
-  .banner-page.new-version .title{
+
+  .banner-page.new-version .title {
     width: 100%;
     text-align: center;
   }
-  .banner-page.new-version .main-title{
+
+  .banner-page.new-version .main-title {
     position: static;
   }
-  .banner-page.new-version .sub-menu{
+
+  .banner-page.new-version .sub-menu {
     width: 100%;
     margin-top: 0;
   }
-  .banner-page.new-version .img-banner{
+
+  .banner-page.new-version .img-banner {
     width: 100%;
     height: auto;
     justify-content: center;
     margin-top: 50px;
   }
-  .banner-page.new-version .img-banner img{
+
+  .banner-page.new-version .img-banner img {
     max-height: 100%;
   }
+
   .img-banner img {
     max-width: 100%;
   }
@@ -303,6 +309,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 120px;
+  padding: 100px 0;
 }
 
 .case-layout:last-child {
@@ -313,8 +320,31 @@
   max-width: 40%;
   background: #8ec1ea;
   max-height: 350px;
+  position: relative;
 }
 
+.fire-small {
+  width: 100px !important;
+  position: absolute !important;
+  top: 5%;
+  left: -30% !important;
+}
+
+.fire-large {
+  width: 150px !important;
+  position: absolute !important;
+  left: 70% !important;
+  bottom: -42%;
+  z-index: 1 !important;
+}
+.case-layout.left .fire-large{
+  left: auto !important;
+    right: 70% !important;
+}
+.case-layout.left .fire-small{
+  left: auto !important;
+  right: -30% !important;
+}
 .case-img img {
   max-width: 100%;
   width: 100%;
@@ -336,13 +366,13 @@
 }
 
 .case-layout.left .case-img {
-  margin-left: 80px;
+  margin-left: 100px;
 }
 
 .service-name,
 .case-content {
-  font-size: 16px;
-  margin-bottom: 20px;
+  font-size: 18px;
+  margin-bottom: 30px;
 }
 
 .case-name {
@@ -352,7 +382,7 @@
 }
 
 .case-item {
-  margin-left: 80px;
+  margin-left: 100px;
   max-width: 40%;
 }
 
@@ -375,5 +405,29 @@
 
   .case-layout.left {
     flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: 768px) {
+  .case-layout {
+    padding: 180px 0 210px 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .case-layout {
+    padding: 159px 0 155px 0;
+  }
+}
+
+@media (min-width: 1000px) {
+  .case-layout {
+    padding: 170px 0 175px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .case-layout {
+    padding: 258px 0 162px 0;
   }
 }

@@ -53,8 +53,6 @@ export default function Banner(props) {
           <div className="sub-menu">
             {banner?.SubTitle?.value}
           </div>
-          <div className="frame-tb"></div>
-          <div className="frame-lr"></div>
         </div>
       </div> */}
     </>
