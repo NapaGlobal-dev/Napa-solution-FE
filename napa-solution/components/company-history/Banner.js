@@ -9,11 +9,11 @@ export default function Banner({ data }) {
   const subtitle = getData(data, /CompanyHistory_Banner_SubTitle/)[0];
   // const content = getData(data, /CompanyHistory_Banner_Content/)[0];
   // const subcontent = getData(data, /CompanyHistory_Banner_SubContent/)[0];
-  useEffect(() => {
-    window.onload = function () {
-      document.getElementById("banner").className = "wrap-banner open";
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.onload = function () {
+  //     document.getElementById("banner").className = "wrap-banner open";
+  //   };
+  // }, []);
   return (
     <>
       <Head>

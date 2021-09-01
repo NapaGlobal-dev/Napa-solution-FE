@@ -10,11 +10,11 @@ export default function Banner(props) {
   // const content = getData(data, /ServicesWeb_Banner_Content/)[0];
   // const subcontent = getData(data, /ServicesWeb_Banner_SubContent/)[0];
   const { banner } = props;
-  useEffect(() => {
-    window.onload = function () {
-      document.getElementById("banner").className = "wrap-banner open";
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.onload = function () {
+  //     document.getElementById("banner").className = "wrap-banner open";
+  //   };
+  // }, []);
   return (
     <>
       <Head>
