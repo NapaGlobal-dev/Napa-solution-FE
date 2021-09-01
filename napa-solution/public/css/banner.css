@@ -204,6 +204,7 @@
   font-size: 40px;
   position: absolute;
   top: 40%;
+  z-index: 99999;
 }
 
 @media (max-width: 768px) {
