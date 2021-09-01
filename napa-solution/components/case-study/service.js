@@ -10,41 +10,42 @@ export default function Service(props) {
     return Object.values(content).filter((it) => it.name.includes(name))[0]
       .image.original;
   };
-
+  const getList = (content, name) => {
+    return Object.values(content).filter((it) => it.name.includes(name));
+  };
   return (
     <>
       <Head>
         <link key="/css/banner.css" rel="stylesheet" href="/css/banner.css" />
       </Head>
       <div className="wrap-case sl-container">
-        {data.map((item, index) =>
+        {data?.map((item, index) =>
           index % 2 == 0 ? (
             <div className="case-layout" key={index}>
               <div
                 className="case-img"
                 style={{
-                  background: `${getValue(
-                    item.content,
-                    "RealEstate_Service_Background"
-                  )}`,
+                  background: `${
+                    item.content && getValue(item.content, "Background")
+                  }`,
                 }}
               >
-                <img src={getImg(item.content, "RealEstate_Service_ImgCase")} />
+                <img src={item.content && getImg(item.content, "ImgCase")} />
               </div>
               <div className="case-item">
                 <div className="service-name">
-                  {getValue(item.content, "RealEstate_Service_ServiceName")}
+                  {item.content && getValue(item.content, "ServiceName")}
                 </div>
                 <div className="case-name">
-                  {getValue(item.content, "RealEstate_Service_CaseName")}
+                  {item.content && getValue(item.content, "CaseName")}
                 </div>
                 <div className="case-content">
-                  {getValue(item.content, "RealEstate_Service_CaseContent")}
+                  {item.content && getValue(item.content, "CaseContent")}
                 </div>
                 <div className="case-program">
-                  <img
-                    src={getImg(item.content, "RealEstate_Service_ImgProgram")}
-                  />
+                  {getList(item.content, "ImgProgram")?.map((e, ind) => (
+                    <img src={e?.image.original} key={ind} />
+                  ))}
                 </div>
               </div>
             </div>
@@ -52,30 +53,29 @@ export default function Service(props) {
             <div className="case-layout left" key={index}>
               <div className="case-item">
                 <div className="service-name">
-                  {getValue(item.content, "RealEstate_Service_ServiceName")}
+                  {item.content && getValue(item.content, "ServiceName")}
                 </div>
                 <div className="case-name">
-                  {getValue(item.content, "RealEstate_Service_CaseName")}
+                  {item.content && getValue(item.content, "CaseName")}
                 </div>
                 <div className="case-content">
-                  {getValue(item.content, "RealEstate_Service_CaseContent")}
+                  {item.content && getValue(item.content, "CaseContent")}
                 </div>
                 <div className="case-program">
-                  <img
-                    src={getImg(item.content, "RealEstate_Service_ImgProgram")}
-                  />
+                  {getList(item.content, "ImgProgram")?.map((e, ind) => (
+                    <img src={e?.image.original} key={ind} />
+                  ))}
                 </div>
               </div>
               <div
                 className="case-img"
                 style={{
-                  background: `${getValue(
-                    item.content,
-                    "RealEstate_Service_Background"
-                  )}`,
+                  background: `${
+                    item.content && getValue(item.content, "Background")
+                  }`,
                 }}
               >
-                <img src={getImg(item.content, "RealEstate_Service_ImgCase")} />
+                <img src={item.content && getImg(item.content, "ImgCase")} />
               </div>
             </div>
           )
