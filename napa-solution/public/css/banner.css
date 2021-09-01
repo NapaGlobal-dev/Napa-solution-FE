@@ -290,6 +290,7 @@
   max-width: 40px;
   /* display: block;
   display: flex; */
+  margin-right: 10px;
 }
 
 @media (max-width: 768px) {
