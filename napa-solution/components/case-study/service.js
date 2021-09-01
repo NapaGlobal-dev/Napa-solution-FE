@@ -25,12 +25,13 @@ export default function Service(props) {
               <div
                 className="case-img"
                 style={{
-                  background: `${
-                    item.content && getValue(item.content, "Background")
-                  }`,
+                  background: `${item.content && getValue(item.content, "Background")
+                    }`,
                 }}
               >
                 <img src={item.content && getImg(item.content, "ImgCase")} />
+                <img className="fire-small animate-bottom-right" src="/img/icon-fire.png" />
+                <img className="fire-large animate-bottom-right" src="/img/icon-fire.png" />
               </div>
               <div className="case-item">
                 <div className="service-name">
@@ -40,42 +41,51 @@ export default function Service(props) {
                   {item.content && getValue(item.content, "CaseName")}
                 </div>
                 <div className="case-content">
-                  {item.content && getValue(item.content, "CaseContent")}
+                  {item.content &&
+                    getList(item.content, "CaseContent")?.map((e, ind) => (
+                      <p key={ind}>{e.value}</p>
+                    ))}
                 </div>
                 <div className="case-program">
-                  {getList(item.content, "ImgProgram")?.map((e, ind) => (
-                    <img src={e?.image.original} key={ind} />
-                  ))}
+                  {item.content &&
+                    getList(item.content, "ImgProgram")?.map((e, ind) => (
+                      <img src={e?.image.original} key={ind} />
+                    ))}
                 </div>
               </div>
             </div>
           ) : (
             <div className="case-layout left" key={index}>
               <div className="case-item">
-                <div className="service-name">
+                <div className="service-name animate-down-up">
                   {item.content && getValue(item.content, "ServiceName")}
                 </div>
-                <div className="case-name">
+                <div className="case-name animate-down-up">
                   {item.content && getValue(item.content, "CaseName")}
                 </div>
-                <div className="case-content">
-                  {item.content && getValue(item.content, "CaseContent")}
+                <div className="case-content animate-down-up">
+                  {item.content &&
+                    getList(item.content, "CaseContent")?.map((e, ind) => (
+                      <p key={ind}>{e.value}</p>
+                    ))}
                 </div>
-                <div className="case-program">
-                  {getList(item.content, "ImgProgram")?.map((e, ind) => (
-                    <img src={e?.image.original} key={ind} />
-                  ))}
+                <div className="case-program animate-down-up">
+                  {item.content &&
+                    getList(item.content, "ImgProgram")?.map((e, ind) => (
+                      <img src={e?.image.original} key={ind} />
+                    ))}
                 </div>
               </div>
               <div
                 className="case-img"
                 style={{
-                  background: `${
-                    item.content && getValue(item.content, "Background")
-                  }`,
+                  background: `${item.content && getValue(item.content, "Background")
+                    }`,
                 }}
               >
                 <img src={item.content && getImg(item.content, "ImgCase")} />
+                <img className="fire-small animate-bottom-right" src="/img/icon-fire.png" />
+                <img className="fire-large animate-bottom-right" src="/img/icon-fire.png" />
               </div>
             </div>
           )

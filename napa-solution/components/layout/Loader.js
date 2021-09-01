@@ -19,49 +19,49 @@ const Loader = () => {
       </Head>
       <div id="loader-loading-page">
         <div id="loader-loader">
-          <div class="loader-particles loader-element">
-            <div class="loader-spark1 loader-spark loader-element">
-              <div class="loader-particle1 loader-particle loader-element"></div>
+          <div className="loader-particles loader-element">
+            <div className="loader-spark1 loader-spark loader-element">
+              <div className="loader-particle1 loader-particle loader-element"></div>
             </div>
-            <div class="loader-spark2 loader-spark loader-element">
-              <div class="loader-particle2 loader-particle loader-element"></div>
+            <div className="loader-spark2 loader-spark loader-element">
+              <div className="loader-particle2 loader-particle loader-element"></div>
             </div>
-            <div class="loader-spark3 loader-spark loader-element">
-              <div class="loader-particle3 loader-particle loader-element"></div>
+            <div className="loader-spark3 loader-spark loader-element">
+              <div className="loader-particle3 loader-particle loader-element"></div>
             </div>
-            <div class="loader-spark4 loader-spark loader-element">
-              <div class="loader-particle4 loader-particle loader-element"></div>
+            <div className="loader-spark4 loader-spark loader-element">
+              <div className="loader-particle4 loader-particle loader-element"></div>
             </div>
-            <div class="loader-spark5 loader-spark loader-element">
-              <div class="loader-particle5 loader-particle loader-element"></div>
+            <div className="loader-spark5 loader-spark loader-element">
+              <div className="loader-particle5 loader-particle loader-element"></div>
             </div>
-            <div class="loader-spark6 loader-spark loader-element">
-              <div class="loader-particle6 loader-particle loader-element"></div>
+            <div className="loader-spark6 loader-spark loader-element">
+              <div className="loader-particle6 loader-particle loader-element"></div>
             </div>
-            <div class="loader-spark7 loader-spark loader-element">
-              <div class="loader-particle7 loader-particle loader-element"></div>
+            <div className="loader-spark7 loader-spark loader-element">
+              <div className="loader-particle7 loader-particle loader-element"></div>
             </div>
-            <div class="loader-spark8 loader-spark loader-element">
-              <div class="loader-particle8 loader-particle loader-element"></div>
+            <div className="loader-spark8 loader-spark loader-element">
+              <div className="loader-particle8 loader-particle loader-element"></div>
             </div>
-            <div class="loader-spark9 loader-spark loader-element">
-              <div class="loader-particle9 loader-particle loader-element"></div>
+            <div className="loader-spark9 loader-spark loader-element">
+              <div className="loader-particle9 loader-particle loader-element"></div>
             </div>
-            <div class="loader-spark10 loader-spark loader-element">
-              <div class="loader-particle10 loader-particle loader-element"></div>
+            <div className="loader-spark10 loader-spark loader-element">
+              <div className="loader-particle10 loader-particle loader-element"></div>
             </div>
-            <div class="loader-spark11 loader-spark loader-element">
-              <div class="loader-particle11 loader-particle loader-element"></div>
+            <div className="loader-spark11 loader-spark loader-element">
+              <div className="loader-particle11 loader-particle loader-element"></div>
             </div>
-            <div class="loader-spark12 loader-spark loader-element">
-              <div class="loader-particle12 loader-particle loader-element"></div>
+            <div className="loader-spark12 loader-spark loader-element">
+              <div className="loader-particle12 loader-particle loader-element"></div>
             </div>
           </div>
-          <div class="loader-ray loader-element"></div>
-          <div class="loader-sphere loader-element"></div>
+          <div className="loader-ray loader-element"></div>
+          <div className="loader-sphere loader-element"></div>
         </div>
       </div>
-      <div id="loader-lastray" class="loader-element"></div>
+      <div id="loader-lastray" className="loader-element"></div>
     </>
   );
 };

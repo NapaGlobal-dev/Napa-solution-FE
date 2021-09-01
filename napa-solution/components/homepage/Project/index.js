@@ -37,15 +37,23 @@ const settings = {
 const Project = (props) => {
   const slickRef = useRef(null);
   const router = useRouter();
-  const {loading, error, data:serviceData} = useQuery(GET_SERVICE_URL);
-  const service = !loading && !error && convertArrToObject(serviceData.page, "nameEN");
-  const serviceUrl = !loading && service.Services?.childrenPage.map(item => item.url)
+  const { loading, error, data: serviceData } = useQuery(GET_SERVICE_URL);
+  const service =
+    !loading && !error && convertArrToObject(serviceData.page, "nameEN");
+  const serviceUrl =
+    !loading && service.Services.childrenPage.map((item) => item.url);
   const data = convertArrToObject(props.data?.property);
   // let slides = Object.values(data).filter((item) => item.name.includes("Img"));
-  let slides = !loading && serviceUrl?.includes(`/service/${router.query.slug}`) ? 
-  Object.values(data).filter((item) => item.name.includes("Img") && item?.value.split(",").includes(router.query.slug)): Object.values(data).filter((item) => item.name.includes("Img"));
+  let slides =
+    !loading && serviceUrl.includes(`/service/${router.query.slug}`)
+      ? Object.values(data).filter(
+          (item) =>
+            item.name.includes("Img") &&
+            item?.value.split(",").includes(router.query.slug)
+        )
+      : Object.values(data).filter((item) => item.name.includes("Img"));
   if (slides.length <= 6) slides = [...slides, ...slides];
-
+  if (slides.length == 0) return <></>;
   return (
     // !loading && (
     <div className="sl-container">
@@ -53,8 +61,10 @@ const Project = (props) => {
         <div className="sl-container-ratio"></div>
         <div className="sl-box-color">
           <div className="sl-box-text">
-            <h4 className="sl-box-title" id='down-up'>{data["Slides_List_Title"]?.value}</h4>
-            <p className="sl-box-subtitle" id='down-up'>
+            <h4 className="sl-box-title" id="down-up">
+              {data["Slides_List_Title"]?.value}
+            </h4>
+            <p className="sl-box-subtitle" id="down-up">
               {data["Slides_List_Subtitle"]?.value}
             </p>
             <div className="sl-quarter-img">
