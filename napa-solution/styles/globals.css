@@ -169,7 +169,7 @@ a:hover {
 }
 
 .table-style {
-  border: 2px solid #442493;
+  border: 1px solid #442493;
   height: 500px;
 }
 
@@ -178,7 +178,7 @@ a:hover {
   color: #fff;
   /* width: 200px; */
   text-align: center;
-  border: 2px solid #442493;
+  border: 1px solid #442493;
 
 }
 .table-style > tbody > th {

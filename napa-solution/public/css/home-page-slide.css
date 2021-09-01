@@ -27,7 +27,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 93%;
+  width: 90%;
 }
 
 .sl-box-title {
@@ -49,8 +49,7 @@
   height: 50%;
 }
 
-.sl-control {
-}
+.sl-control {}
 
 .sl-control img {
   width: 100px;
@@ -82,7 +81,7 @@
 .sl-slick-container .slick-list,
 .sl-slick-container .slick-list .slick-track,
 .sl-slick-container .slick-list .slick-track .slick-slide,
-.sl-slick-container .slick-list .slick-track .slick-slide > div {
+.sl-slick-container .slick-list .slick-track .slick-slide>div {
   height: 100%;
 }
 
@@ -98,10 +97,14 @@
   height: 73%;
 }
 
+.sl-carousel-item_spacing a {
+  outline: none;
+}
+
 .sl-carousel-item_url {
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
   background: #ffffff 0% 0% no-repeat padding-box;
-  box-shadow: 0px 3px 6px #00000029;
+  box-shadow: 0px 3px 6px #5f72be;
   width: 100%;
   display: flex;
   align-items: center;

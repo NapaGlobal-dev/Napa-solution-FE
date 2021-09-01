@@ -9,18 +9,39 @@ export default function Banner(props) {
   // const subtitle = getData(data, /ServicesWeb_Banner_SubTitle/)[0];
   // const content = getData(data, /ServicesWeb_Banner_Content/)[0];
   // const subcontent = getData(data, /ServicesWeb_Banner_SubContent/)[0];
-  const {banner} = props;
-  useEffect(() => {
-    window.onload = function () {
-      document.getElementById("banner").className = "wrap-banner open";
-    };
-  }, []);
+  const { banner } = props;
+  // useEffect(() => {
+  //   window.onload = function () {
+  //     document.getElementById("banner").className = "wrap-banner open";
+  //   };
+  // }, []);
   return (
     <>
       <Head>
         <link key="/css/banner.css" rel="stylesheet" href="/css/banner.css" />
       </Head>
-      <div className="banner">
+      <div className="banner-page banner new-version">
+        <div className="title">
+          <h1 className="main-title animate-down-up">
+            {banner?.Title?.key}
+            {banner?.Title?.value}
+          </h1>
+          <div className="sub-menu animate-down-up">
+            {banner?.SubTitle?.key}
+            {banner?.SubTitle?.value}
+          </div>
+        </div>
+        <div className="img-banner animate-down-up">
+          <img
+            src={banner?.Img?.image?.original}
+            className="image-banner"
+            alt=""
+          />
+        </div>
+        <img className="shape-banner" src="/img/wave-shape.svg" />
+      </div>
+      
+      {/* <div className="banner">
         <div className="overlay-header-banner"></div>
         <LazyLoadImage
           effect='blur'
@@ -43,17 +64,7 @@ export default function Banner(props) {
           <div className="frame-tb"></div>
           <div className="frame-lr"></div>
         </div>
-        {/* <div className="wrap-content-banner">
-          <div className="content-banner">
-            {content?.key}
-            {content?.value}
-          </div>
-          <div className="subcontent-banner">
-            {subcontent?.key}
-            {subcontent?.value}
-          </div>
-        </div> */}
-      </div>
+      </div> */}
     </>
   );
 }
