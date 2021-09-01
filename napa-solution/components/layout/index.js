@@ -1,15 +1,11 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import React, { useEffect, useState } from "react";
-// import Loading from "../../pages/loading";
-// import { useQuery } from "@apollo/client";
-// import { footerDataQuery } from "../../query/general";
 import { useRouter } from "next/router";
 import ScrollToTop from "./ScrollToTop";
 import Loader from "./Loader";
 
 const Layout = ({ footerData, children, ...props }) => {
-  // console.log("sssss", footerData);
   const [loading, setLoading] = useState(true);
   function demoAsyncCall() {
     return new Promise((resolve) => setTimeout(() => resolve(), 4000));
@@ -35,21 +31,10 @@ const Layout = ({ footerData, children, ...props }) => {
     return (
       <>
         <Header isLoading={loading} />
-        {/* <div
-          id="wrapper-landing-loader"
-          style={{
-            position: "fixed",
-            left: 0,
-            right: 0,
-            marginLeft: "auto",
-            marginRight: "auto",
-            zIndex: 99,
-            visibility: loading ? "visible" : "hidden",
-          }}
-        >
-          <Loading />
-        </div> */}
+
+        <ScrollToTop />
         <Loader />
+
         {React.cloneElement(children, {
           footer: <Footer data={footerData} isLoading={loading} />,
         })}
@@ -60,22 +45,6 @@ const Layout = ({ footerData, children, ...props }) => {
   return (
     <>
       <Header isLoading={loading} />
-      {/* <div
-        id="wrapper-landing-loader"
-        style={{
-          position: "fixed",
-          left: 0,
-          right: 0,
-          marginLeft: "auto",
-          marginRight: "auto",
-          zIndex: 99,
-          visibility: loading ? "visible" : "hidden",
-        }}
-      >
-        <Loading />
-      </div> */}
-
-      {/* <Loader /> */}
       <div>{children}</div>
       <ScrollToTop />
       <Footer data={footerData} isLoading={loading} />

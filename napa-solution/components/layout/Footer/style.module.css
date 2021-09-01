@@ -90,13 +90,13 @@
   height: 100%;
 }
 
-.covergalery >span {
+.covergalery > span {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.covergalery >span> img {
+.covergalery > span > img {
   object-fit: cover;
 }
 
@@ -226,7 +226,7 @@
 }
 
 .groupText > ul {
-  margin-left: 15px;
+  padding-left: 15px;
   width: 100%;
 }
 
@@ -587,7 +587,7 @@
   .groupText > ul {
     transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s,
       z-index 0s linear 0.01s;
-    margin-left: 45px;
+    padding-left: 45px;
     list-style-type: circle;
   }
 
