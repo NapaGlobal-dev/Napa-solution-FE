@@ -2096,7 +2096,28 @@ button:focus {
   left: -80px;
   top: -20px;
 }
-
+.animate-bottom-right{
+  opacity: 0;
+  animation: slideInBottom 1s 1.5s ease-in-out alternate,
+    up 2s 2500ms ease infinite alternate;
+  animation-fill-mode: forwards;
+  z-index: 1;
+}
+@keyframes slideInBottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(70px);
+    transform: translateY(70px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .animate-down-up {
   -webkit-animation-name: animate-down-up;
   -webkit-animation-duration: 1.2s;

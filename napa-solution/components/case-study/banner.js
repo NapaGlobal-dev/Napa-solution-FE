@@ -20,40 +20,28 @@ export default function Banner(props) {
       <Head>
         <link key="/css/banner.css" rel="stylesheet" href="/css/banner.css" />
       </Head>
-      <div className="banner">
-        <div className="overlay-header-banner"></div>
-        <LazyLoadImage
-          effect="blur"
-          src={banner?.Img?.image?.original}
-          placeholderSrc={banner?.Img?.image?.thumbnail}
-          threshold={100}
-          height="100%"
-          width="100%"
-          className="image-banner"
-        />
-        <div className="wrap-banner" id="banner">
-          <h1 className="main-title">
-            {banner?.Title?.key}
+
+      <div className="banner-page banner new-version">
+        <div className="title">
+          <h1 className="main-title animate-down-up">
+          {banner?.Title?.key}
             {banner?.Title?.value}
           </h1>
-          <div className="sub-menu">
-            {banner?.SubTitle?.key}
+          <div className="sub-menu animate-down-up">
+          {banner?.SubTitle?.key}
             {banner?.SubTitle?.value}
           </div>
-          <div className="frame-tb"></div>
-          <div className="frame-lr"></div>
         </div>
-        {/* <div className="wrap-content-banner">
-          <div className="content-banner">
-            {content?.key}
-            {content?.value}
-          </div>
-          <div className="subcontent-banner">
-            {subcontent?.key}
-            {subcontent?.value}
-          </div>
-        </div> */}
+        <div className="img-banner animate-down-up">
+          <img
+            src={banner?.Img?.image?.original}
+            className="image-banner"
+            alt=""
+          />
+        </div>
+        <img className="shape-banner" src="/img/wave-shape.svg" />
       </div>
-    </>
+
+      </>
   );
 }

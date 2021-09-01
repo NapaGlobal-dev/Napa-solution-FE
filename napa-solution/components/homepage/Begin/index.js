@@ -119,7 +119,7 @@ const Begin = (props) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    autoplay: true,
+    autoplay: false,
     draggable: false,
     swipe: true,
     autoplaySpeed: 8000,
