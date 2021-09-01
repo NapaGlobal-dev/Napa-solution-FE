@@ -224,9 +224,10 @@
 
 .sw-box-bounding {
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 50px 0;
 }
 
 .sw-slide-services:nth-child(even) .sw-box-bounding,
@@ -237,6 +238,7 @@
 .sw-box-content {
   width: 100%;
   padding: 0 179px;
+  max-width: 1920px;
 }
 
 .swiper-container,
