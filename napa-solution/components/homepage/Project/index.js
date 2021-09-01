@@ -39,10 +39,10 @@ const Project = (props) => {
   const router = useRouter();
   const {loading, error, data:serviceData} = useQuery(GET_SERVICE_URL);
   const service = !loading && !error && convertArrToObject(serviceData.page, "nameEN");
-  const serviceUrl = !loading && service.Services.childrenPage.map(item => item.url)
+  const serviceUrl = !loading && service.Services?.childrenPage.map(item => item.url)
   const data = convertArrToObject(props.data?.property);
   // let slides = Object.values(data).filter((item) => item.name.includes("Img"));
-  let slides = !loading && serviceUrl.includes(`/service/${router.query.slug}`) ? 
+  let slides = !loading && serviceUrl?.includes(`/service/${router.query.slug}`) ? 
   Object.values(data).filter((item) => item.name.includes("Img") && item?.value.split(",").includes(router.query.slug)): Object.values(data).filter((item) => item.name.includes("Img"));
   if (slides.length <= 6) slides = [...slides, ...slides];
 

@@ -46,7 +46,7 @@ const CompanyAbout = ({ projects, ...props }) => {
       <Banner data={adata.CompanyAbout_Banner} />
       <WhyNapa data={adata["WhyNapa"]} />
       <CounterUp data={adata.CompanyAbout_Counter} />
-      <Message data={adata["Message"]} />
+      {/* <Message data={adata["Message"]} /> */}
       <Project data={projects} />
     </>
   );
