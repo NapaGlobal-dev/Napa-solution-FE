@@ -40,12 +40,16 @@ export default function Service(props) {
                   {item.content && getValue(item.content, "CaseName")}
                 </div>
                 <div className="case-content">
-                  {item.content && getValue(item.content, "CaseContent")}
+                  {item.content &&
+                    getList(item.content, "CaseContent")?.map((e, ind) => (
+                      <p key={ind}>{e.value}</p>
+                    ))}
                 </div>
                 <div className="case-program">
-                  {getList(item.content, "ImgProgram")?.map((e, ind) => (
-                    <img src={e?.image.original} key={ind} />
-                  ))}
+                  {item.content &&
+                    getList(item.content, "ImgProgram")?.map((e, ind) => (
+                      <img src={e?.image.original} key={ind} />
+                    ))}
                 </div>
               </div>
             </div>
@@ -59,12 +63,16 @@ export default function Service(props) {
                   {item.content && getValue(item.content, "CaseName")}
                 </div>
                 <div className="case-content">
-                  {item.content && getValue(item.content, "CaseContent")}
+                  {item.content &&
+                    getList(item.content, "CaseContent")?.map((e, ind) => (
+                      <p key={ind}>{e.value}</p>
+                    ))}
                 </div>
                 <div className="case-program">
-                  {getList(item.content, "ImgProgram")?.map((e, ind) => (
-                    <img src={e?.image.original} key={ind} />
-                  ))}
+                  {item.content &&
+                    getList(item.content, "ImgProgram")?.map((e, ind) => (
+                      <img src={e?.image.original} key={ind} />
+                    ))}
                 </div>
               </div>
               <div
