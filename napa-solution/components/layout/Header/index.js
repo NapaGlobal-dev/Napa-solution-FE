@@ -177,13 +177,13 @@ const Header = (props) => {
           <ul className="navbar-nav">
             {navbarMenu.slice(0, -1).map((menu, key) => (
               <li className="nav-item item-navbar-menu" key={key}>
-                <div className="dropdown">
+                <div className={clsx("dropdown")}>
                   <div className="hover-o">
                     <div className="hover-t">
-                      <a href={menu?.url} className="text-navbar-menu">
+                      <a href={menu?.url} className={clsx("text-navbar-menu", menu.content.length !== 0 ? "dropdown-chevron": "")}>
                         {menu?.value}
                       </a>
-                      <a href={menu?.url} className="text-navbar-menu">
+                      <a href={menu?.url} className={clsx("text-navbar-menu", "text-animation" ,menu.content.length !== 0 ? "dropdown-chevron-animation": "")}>
                         {menu?.value}
                       </a>
                     </div>
