@@ -241,7 +241,7 @@ const Header = (props) => {
                   {menu.content.length !== 0 && (
                     <div
                       className={
-                        menu.content.length > 3
+                        menu.content.length > 4
                           ? "dropdown-layer long-width"
                           : "dropdown-layer"
                       }

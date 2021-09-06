@@ -631,3 +631,24 @@ export const GET_CASESTUDY_PAGE = gql`
     }
   }
 `;
+
+export const GET_CEOMESSAGE = gql`
+query getCompanyProfile {
+  page: Page(where: {id:"612f339e8268913928f70259"}) {
+    name
+    url
+    layouts {
+      name
+      property {
+        name
+        value
+        url
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+    }
+  }
+}
+`
