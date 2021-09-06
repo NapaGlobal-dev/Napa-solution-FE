@@ -349,13 +349,14 @@ const Header = (props) => {
                 </div>
                 <div className="po-box-darkmode">
                   {!!darkmode.value ? <p>Dark</p> : <p>Light</p>}
-                  <label>
+                  <label className="po-box-darkmode-switch">
                     <input
                       onClick={wrapToggle}
                       type="checkbox"
                       id="checkbox-dark-mode"
                     />
                     <span className="check"></span>
+                    <div className="dark-mode-bubble"></div>
                   </label>
                 </div>
               </div>
