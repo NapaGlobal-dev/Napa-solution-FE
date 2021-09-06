@@ -183,7 +183,7 @@
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
-    width: 100%;
+    max-width: 100%;
   }
   .btn-message {
     margin-left: 0px !important;
