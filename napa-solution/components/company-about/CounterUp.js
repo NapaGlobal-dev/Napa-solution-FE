@@ -35,13 +35,17 @@ const CounterUp = (props) => {
               <div className="ab-container-layout-over ">
                 <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
                   <div className="ab-box-counter">
-                    <span className="ab-counter">5</span>
+                    <span className="ab-counter">
+                      {data.CompanyAbout_Counter_CountryNumber.value}
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
             <div className="ab-bounding-title">
-              <div className="ab-title ab-flex-center">プロジェクト</div>
+              <div className="ab-title ab-flex-center">
+                {data.CompanyAbout_Counter_CountryName.value}
+              </div>
             </div>
           </div>
           <div className="ab-flex-child">
@@ -50,13 +54,20 @@ const CounterUp = (props) => {
               <div className="ab-container-layout-over ">
                 <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
                   <div className="ab-box-counter">
-                    <span className="ab-counter">100</span>+
+                    <span className="ab-counter">
+                      {" "}
+                      {data.CompanyAbout_Counter_ProjectNumber.value}
+                    </span>
+                    +
                   </div>
                 </div>
               </div>
             </div>
             <div className="ab-bounding-title">
-              <div className="ab-title ab-flex-center">プロジェクト</div>
+              <div className="ab-title ab-flex-center">
+                {" "}
+                {data.CompanyAbout_Counter_ProjectName.value}
+              </div>
             </div>
           </div>
           <div className="ab-flex-child">
@@ -65,13 +76,18 @@ const CounterUp = (props) => {
               <div className="ab-container-layout-over ">
                 <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
                   <div className="ab-box-counter">
-                    <span className="ab-counter">200</span>+
+                    <span className="ab-counter">
+                      {data.CompanyAbout_Counter_EngineerNumber.value}
+                    </span>
+                    +
                   </div>
                 </div>
               </div>
             </div>
             <div className="ab-bounding-title">
-              <div className="ab-title ab-flex-center">プロジェクト</div>
+              <div className="ab-title ab-flex-center">
+                {data.CompanyAbout_Counter_EngineerName.value}
+              </div>
             </div>
           </div>
           <div className="ab-flex-child">
@@ -80,13 +96,18 @@ const CounterUp = (props) => {
               <div className="ab-container-layout-over ">
                 <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
                   <div className="ab-box-counter">
-                    <span className="ab-counter">40</span>+
+                    <span className="ab-counter">
+                      {data.CompanyAbout_Counter_JapaneseNumber.value}
+                    </span>
+                    %+
                   </div>
                 </div>
               </div>
             </div>
             <div className="ab-bounding-title">
-              <div className="ab-title ab-flex-center">プロジェクト</div>
+              <div className="ab-title ab-flex-center">
+                {data.CompanyAbout_Counter_JapaneseName.value}
+              </div>
             </div>
           </div>
         </div>

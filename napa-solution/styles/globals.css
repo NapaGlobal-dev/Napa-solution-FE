@@ -19,7 +19,7 @@ body.light-mode {
 }
 
 body.dark-mode {
-  background: #230b4c;
+  background: #230b4c !important;
 }
 
 body.dark-mode p,

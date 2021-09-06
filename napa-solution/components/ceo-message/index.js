@@ -1,18 +1,15 @@
-import { convertArrToObject, getData } from "../../../util/converArrayToObject";
+import { convertArrToObject, getData } from "../../util/converArrayToObject";
 
 const Message = (props) => {
   const datas = convertArrToObject(props.data.property);
   const title = Object.values(datas).filter((item) =>
-    item.name.includes("CompanyAbout_Message_Title")
+    item.name.includes("CEOMessage_Message_Title")
   )[0];
   const subTitle = Object.values(datas).filter((item) =>
-    item.name.includes("CompanyAbout_Message_SubTitle")
+    item.name.includes("CEOMessage_Message_SubTitle")
   )[0];
-  const content1 = getData(datas, /CompanyAbout_Message_Content1/)[0];
-  const content2 = getData(datas, /CompanyAbout_Message_Content2/)[0];
-  const content3 = getData(datas, /CompanyAbout_Message_Content3/)[0];
-  const content4 = getData(datas, /CompanyAbout_Message_Content4/)[0];
-  const content5 = getData(datas, /CompanyAbout_Message_Content5/)[0];
+  const content1 = getData(datas, /CEOMessage_Message_Content1/)[0];
+  // const content2 = getData(datas, /CompanyAbout_Message_Content2/)[0];
 
   return (
     <>
@@ -33,17 +30,7 @@ const Message = (props) => {
             </div>
           </div>
           <div className="ab-col">
-            <div className="ab-box-text" id="down-up">
-              {content1?.value}
-              <br />
-              {content2?.value}
-              <br />
-              {content3?.value}
-              <br />
-              {content4?.value}
-              <br />
-              {content5?.value}
-            </div>
+            <div className="ab-box-text" id="down-up">{content1?.value}</div>
           </div>
         </div>
       </div>

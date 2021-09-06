@@ -505,7 +505,6 @@
 
   #checkbox-dark-mode:checked ~ .check {
     background-color: #092c3e;
-    box-shadow: 0 0 0 2200px #7c57e2;
   }
 
   .check::before {
@@ -522,6 +521,26 @@
 
   #checkbox-dark-mode:checked ~ .check::before {
     transform: translateX(-50px);
+  }
+
+  .dark-mode-bubble {
+    width: calc(0vw + 0vh);
+    height: calc(0vw + 0vh);
+    background: rgb(0 0 0 / 51%);
+    transition: 0.5s;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    z-index: 999;
+    transform: translate(calc(50% - 50px), calc(50% - 50px));
+  }
+
+  #checkbox-dark-mode:checked ~ .dark-mode-bubble {
+    width: calc(300vw + 100vh);
+    height: calc(300vw + 100vh);
+    opacity: 0;
+    visibility: hidden;
   }
 
   .check::after {
@@ -675,7 +694,7 @@
 .po-open {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .po-popcover {
@@ -690,11 +709,13 @@
   /* visibility: hidden; */
 
   background-color: #7c57e2;
-  z-index: 999999;
+  z-index: -1;
 
   clip-path: circle(0% at 100% 0);
+  -webkit-clip-path: circle(0% at 100% 0);
 
-  transition: clip-path 0.3s ease-in;
+  transition: clip-path 0.3s ease-in, -webkit-clip-path 0.3s ease-in,
+    z-index 0.9s;
 }
 
 .po-popcover a {
@@ -705,6 +726,8 @@
   /* visibility: visible; */
   opacity: 1;
   clip-path: circle(160% at 100% 0);
+  -webkit-clip-path: circle(160% at 100% 0);
+  z-index: 999999;
 }
 
 .po-postition-relative {
@@ -732,7 +755,7 @@
   left: 0;
   width: 100%;
   padding: 20px 24px 14px 24px;
-  z-index: 99999;
+  z-index: 99;
 }
 
 .po-box-logo {
@@ -762,7 +785,6 @@
 .po-list-container {
   padding: 0 24px;
   flex-basis: 100%;
-  z-index: 99999;
 }
 
 .po-list-container li {
@@ -872,6 +894,10 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.po-box-darkmode-switch {
+  position: relative;
 }
 
 .po-box-darkmode > * {

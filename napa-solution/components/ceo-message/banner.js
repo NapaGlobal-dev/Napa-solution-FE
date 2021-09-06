@@ -1,14 +1,11 @@
-import { getData } from "../../util/converArrayToObject";
 import Head from "next/head";
+import React from "react";
+import { convertArrToObject } from "../../util/converArrayToObject";
 import { useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-export default function Banner({ data }) {
-  const banner = getData(data, /PrivacyPolicy_Banner_Img/)[0];
-  const title = getData(data, /PrivacyPolicy_Banner_Title/)[0];
-  const subtitle = getData(data, /PrivacyPolicy_Banner_SubTitle/)[0];
-  const content = getData(data, /PrivacyPolicy_Banner_Content/)[0];
-  const subcontent = getData(data, /PrivacyPolicy_Banner_SubContent/)[0];
+const Banner = (props) => {
+  const data = convertArrToObject(props.data.property);
   // useEffect(() => {
   //   window.onload = function () {
   //     document.getElementById("banner").className = "wrap-banner open";
@@ -22,37 +19,35 @@ export default function Banner({ data }) {
       <div className="banner">
         <div className="overlay-header-banner"></div>
         <LazyLoadImage
-          effect='blur'
-          src={banner?.image?.original}
-          placeholderSrc={banner?.image?.thumbnail}
+          effect="blur"
+          src={data["CEOMessage_Banner_Img"]?.image?.original}
+          placeholderSrc={data["CEOMessage_Banner_Img"]?.image?.thumbnail}
           threshold={100}
+          width="100%"
           height='100%'
-          width='100%'
           className="image-banner"
         />
-        <div className="wrap-banner" id="banner">
+        {/* <div className="wrap-banner" id="banner">
           <h1 className="main-title">
-            {title?.key}
-            {title?.value}
+            {data["CompanyAbout_Banner_Title"].value}
           </h1>
-          <div className="sub-menu">
-            {subtitle?.key}
-            {subtitle?.value}
+          <div className="sub-title">
+            {data["CompanyAbout_Banner_SubTitle"].value}
           </div>
           <div className="frame-tb"></div>
           <div className="frame-lr"></div>
-        </div>
+        </div> */}
         {/* <div className="wrap-content-banner">
           <div className="content-banner">
-            {content?.key}
-            {content?.value}
+            {data["CompanyAbout_Banner_Content"].value}
           </div>
           <div className="subcontent-banner">
-            {subcontent?.key}
-            {subcontent?.value}
+            {data["CompanyAbout_Banner_SubContent"].value}
           </div>
         </div> */}
       </div>
     </>
   );
-}
+};
+
+export default Banner;
