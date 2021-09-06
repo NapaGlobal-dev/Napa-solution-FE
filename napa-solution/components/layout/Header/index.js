@@ -11,6 +11,7 @@ import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { useSwipeDirection } from "../../../util/windowEvents";
 import ScrollToTop from "../ScrollToTop";
 import { registerSwipeEvent } from "../../../util/windowEvents";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Language() {
   const [openDropdown, setOpenDropndown] = useState(false);
@@ -227,13 +228,13 @@ const Header = (props) => {
           <ul className="navbar-nav">
             {navbarMenu.slice(0, -1).map((menu, key) => (
               <li className="nav-item item-navbar-menu" key={key}>
-                <div className="dropdown">
+                <div className={clsx("dropdown")}>
                   <div className="hover-o">
                     <div className="hover-t">
-                      <a href={menu?.url} className="text-navbar-menu">
+                      <a href={menu?.url} className={clsx("text-navbar-menu", menu.content.length !== 0 ? "dropdown-chevron": "")}>
                         {menu?.value}
                       </a>
-                      <a href={menu?.url} className="text-navbar-menu">
+                      <a href={menu?.url} className={clsx("text-navbar-menu", "text-animation" ,menu.content.length !== 0 ? "dropdown-chevron-animation": "")}>
                         {menu?.value}
                       </a>
                     </div>
