@@ -6,11 +6,11 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Banner = (props) => {
   const data = convertArrToObject(props.data.property);
-  useEffect(() => {
-    window.onload = function () {
-      document.getElementById("banner").className = "wrap-banner open";
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.onload = function () {
+  //     document.getElementById("banner").className = "wrap-banner open";
+  //   };
+  // }, []);
   return (
     <>
       <Head>
@@ -24,7 +24,7 @@ const Banner = (props) => {
           placeholderSrc={data["CompanyAbout_Banner_Img"]?.image?.thumbnail}
           threshold={100}
           width="100%"
-          height='100%'
+          height="100%"
           className="image-banner"
         />
         {/* <div className="wrap-banner" id="banner">
