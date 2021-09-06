@@ -8,9 +8,9 @@ import clsx from "clsx";
 import { StoreContext } from "../../../util/language/store";
 import useDarkMode from "use-dark-mode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
-import { useSwipeDirection } from "../../../util/windowEvents";
 import ScrollToTop from "../ScrollToTop";
 import { registerSwipeEvent } from "../../../util/windowEvents";
+import { useRouter } from "next/router";
 
 function Language() {
   const [openDropdown, setOpenDropndown] = useState(false);
@@ -57,7 +57,9 @@ const Header = (props) => {
   const navbarMobile = getData(data, /Navbar_Menu/);
   const contact = navbarMenu.slice(-1)[0];
   const navRef = useRef(null);
-  // console.log("navbarsss", navbarMenu, data);
+
+  const router = useRouter();
+
   const darkmode = useDarkMode();
   useEffect(() => {
     if (!localStorage.getItem("darkmode")) {
@@ -76,9 +78,6 @@ const Header = (props) => {
     else localStorage.setItem("darkmode", "on");
     darkmode.toggle();
   }
-
-  // const [changeNav, setChangeNav] = useState(true);
-  // const [navColor, setNavColor] = useState("light");
 
   const languagesdata = languages.map((lang, index) => ({
     url: lang !== "JP" ? "http://www.napaglobal.com" : "#",
@@ -99,9 +98,10 @@ const Header = (props) => {
   };
 
   useEffect(() => {
-    // if (window.location.pathname !== "/") {
     window.addEventListener("scroll", scrollEvent, true);
-    // }
+
+    if (router.pathname.includes("company"))
+      document.getElementById("navbar")?.classList.add("dark-nav-force");
 
     const cleanupSwipeEvent = registerSwipeEvent(({ direction }) => {
       // console.log("direction", direction);
@@ -116,63 +116,6 @@ const Header = (props) => {
       cleanupSwipeEvent();
     };
   }, [navRef]);
-
-  // useEffect(() => {
-  //   Array.from({ length: navbarMobile.length }, (num, index) => {
-  //     $(`#btn-item-up-${index + 1}`).css("display", "none");
-  //     $(`#ul-subitem-${index + 1}`).css({
-  //       display: "none",
-  //       transition: "all 0.5s ease",
-  //     });
-  //   });
-
-  //   if ($("#navbar").hasClass("dark-nav")) {
-  //     $(".menu-icon-toggle").on("click", function (e) {
-  //       $("body").toggleClass("po-open");
-  //       $(".po-popcover").toggleClass("po-popcover-open");
-  //     });
-  //   } else if ($("#navbar").hasClass("home")) {
-  //     $(".menu-icon-toggle").on("click", function (e) {
-  //       $("body").toggleClass("po-open");
-  //       $(".po-popcover").toggleClass("po-popcover-open");
-  //     });
-  //   }
-
-  //   // $(".po-popcover").on("click", function (e) {
-  //   //   $(this).toggleClass(".po-popcover-open");
-  //   // });
-  // }, []);
-
-  // useEffect(() => {
-  //   Array.from({ length: navbarMobile.length }, (num, index) => {
-  //     $(`#btn-item-up-${index + 1}`).click(() => {
-  //       $(`#ul-subitem-${index + 1}`).css({
-  //         display: "none",
-  //         transition: "all 0.5s ease",
-  //       });
-  //       $(`#btn-item-down-${index + 1}`).css("display", "block");
-  //       $(`#btn-item-up-${index + 1}`).css("display", "none");
-
-  //       $(`#item-link-${index + 1}`).css("border-bottom", "0.5px solid #fff");
-  //     });
-  //     $(`#btn-item-down-${index + 1}`).click(() => {
-  //       $(`#ul-subitem-${index + 1}`).css({
-  //         display: "block",
-  //         transition: "all 0.5s ease",
-  //         maxHeight: "210px",
-  //         overflow: "scroll",
-  //       });
-  //       $(`#btn-item-down-${index + 1}`).css("display", "none");
-  //       $(`#btn-item-up-${index + 1}`).css("display", "block");
-
-  //       $(`#item-link-${index + 1}`).css("border", "none");
-  //     });
-  //   });
-  //   if (darkmode.value) {
-  //     $("#checkbox-dark-mode").attr("checked", true);
-  //   } else $("#checkbox-dark-mode").attr("checked", false);
-  //   // $(".popcover").addClass("toggle");
-  // });
 
   useEffect(() => {
     function toggleDropdown(e) {
@@ -211,9 +154,6 @@ const Header = (props) => {
         style={{ borderBottom: !props.isLoading && "none" }}
         className={clsx(
           "navbar navbar-expand-lg navbar-light no-default-spacing home"
-          // changeNav ? "dark-nav" : "",
-          // navColor === "dark" ? "dark-nav" : "",
-          // direction && !props.isLoading && "navbar-hidden"
         )}
       >
         <a className="navbar-brand no-default-spacing" href={navbarLogo?.url}>
