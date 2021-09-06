@@ -8,7 +8,6 @@ import clsx from "clsx";
 import { StoreContext } from "../../../util/language/store";
 import useDarkMode from "use-dark-mode";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
-import { useSwipeDirection } from "../../../util/windowEvents";
 import ScrollToTop from "../ScrollToTop";
 import { registerSwipeEvent } from "../../../util/windowEvents";
 
@@ -77,9 +76,6 @@ const Header = (props) => {
     darkmode.toggle();
   }
 
-  // const [changeNav, setChangeNav] = useState(true);
-  // const [navColor, setNavColor] = useState("light");
-
   const languagesdata = languages.map((lang, index) => ({
     url: lang !== "JP" ? "http://www.napaglobal.com" : "#",
     languageId: index,
@@ -99,12 +95,10 @@ const Header = (props) => {
   };
 
   useEffect(() => {
-    // if (window.location.pathname !== "/") {
     window.addEventListener("scroll", scrollEvent, true);
     // }
 
     const cleanupSwipeEvent = registerSwipeEvent(({ direction }) => {
-      // console.log("direction", direction);
       if (navRef.current) {
         if (direction) navRef.current.classList.add("navbar-hidden");
         else navRef.current.classList.remove("navbar-hidden");
@@ -117,63 +111,6 @@ const Header = (props) => {
     };
   }, [navRef]);
 
-  // useEffect(() => {
-  //   Array.from({ length: navbarMobile.length }, (num, index) => {
-  //     $(`#btn-item-up-${index + 1}`).css("display", "none");
-  //     $(`#ul-subitem-${index + 1}`).css({
-  //       display: "none",
-  //       transition: "all 0.5s ease",
-  //     });
-  //   });
-
-  //   if ($("#navbar").hasClass("dark-nav")) {
-  //     $(".menu-icon-toggle").on("click", function (e) {
-  //       $("body").toggleClass("po-open");
-  //       $(".po-popcover").toggleClass("po-popcover-open");
-  //     });
-  //   } else if ($("#navbar").hasClass("home")) {
-  //     $(".menu-icon-toggle").on("click", function (e) {
-  //       $("body").toggleClass("po-open");
-  //       $(".po-popcover").toggleClass("po-popcover-open");
-  //     });
-  //   }
-
-  //   // $(".po-popcover").on("click", function (e) {
-  //   //   $(this).toggleClass(".po-popcover-open");
-  //   // });
-  // }, []);
-
-  // useEffect(() => {
-  //   Array.from({ length: navbarMobile.length }, (num, index) => {
-  //     $(`#btn-item-up-${index + 1}`).click(() => {
-  //       $(`#ul-subitem-${index + 1}`).css({
-  //         display: "none",
-  //         transition: "all 0.5s ease",
-  //       });
-  //       $(`#btn-item-down-${index + 1}`).css("display", "block");
-  //       $(`#btn-item-up-${index + 1}`).css("display", "none");
-
-  //       $(`#item-link-${index + 1}`).css("border-bottom", "0.5px solid #fff");
-  //     });
-  //     $(`#btn-item-down-${index + 1}`).click(() => {
-  //       $(`#ul-subitem-${index + 1}`).css({
-  //         display: "block",
-  //         transition: "all 0.5s ease",
-  //         maxHeight: "210px",
-  //         overflow: "scroll",
-  //       });
-  //       $(`#btn-item-down-${index + 1}`).css("display", "none");
-  //       $(`#btn-item-up-${index + 1}`).css("display", "block");
-
-  //       $(`#item-link-${index + 1}`).css("border", "none");
-  //     });
-  //   });
-  //   if (darkmode.value) {
-  //     $("#checkbox-dark-mode").attr("checked", true);
-  //   } else $("#checkbox-dark-mode").attr("checked", false);
-  //   // $(".popcover").addClass("toggle");
-  // });
-
   useEffect(() => {
     function toggleDropdown(e) {
       $(this).toggleClass("po-dropdown-open");
@@ -181,16 +118,27 @@ const Header = (props) => {
 
     function toggleOpenPopcover(e) {
       $("body").toggleClass("po-open");
-      $(".po-popcover").toggleClass("po-popcover-open");
+      // $(".po-popcover").toggleClass("po-popcover-open");
+      [...document.getElementsByClassName("po-popcover")].map((e) =>
+        e.classList.toggle("po-popcover-open")
+      );
     }
 
     $(".po-list-dropdown").on("click", toggleDropdown);
 
-    $(".toggle-open-popcover-button").on("click", toggleOpenPopcover);
+    // $(".toggle-open-popcover-button").on("click", toggleOpenPopcover);
+    let buttons = [
+      ...document.getElementsByClassName("toggle-open-popcover-button"),
+    ];
+
+    buttons.map((btn) => btn.addEventListener("click", toggleOpenPopcover));
 
     return () => {
       $(".po-list-dropdown").off("click", toggleDropdown);
-      $(".toggle-open-popcover-button").off("click", toggleOpenPopcover);
+      // $(".toggle-open-popcover-button").off("click", toggleOpenPopcover);
+      buttons.map((btn) =>
+        btn.removeEventListener("click", toggleOpenPopcover)
+      );
     };
   });
 
@@ -211,9 +159,6 @@ const Header = (props) => {
         style={{ borderBottom: !props.isLoading && "none" }}
         className={clsx(
           "navbar navbar-expand-lg navbar-light no-default-spacing home"
-          // changeNav ? "dark-nav" : "",
-          // navColor === "dark" ? "dark-nav" : "",
-          // direction && !props.isLoading && "navbar-hidden"
         )}
       >
         <a className="navbar-brand no-default-spacing" href={navbarLogo?.url}>
