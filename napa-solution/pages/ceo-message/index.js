@@ -1,18 +1,16 @@
 import React from "react";
 import Head from "next/head";
-import { contactQuery, companyAbout, PROJECTS } from "../../query/general";
+import { contactQuery, companyAbout, PROJECTS, GET_CEOMESSAGE } from "../../query/general";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
 // import ContactBanner from "../../components/company-history/Banner";
-import Banner from "../../components/company-about/banner";
-import WhyNapa from "../../components/company-about/WhyNapa";
-import Message from "../../components/company-about/Message";
-import Project from "../../components/homepage/Project";
-import CounterUp from "../../components/company-about/CounterUp";
+import Banner from "../../components/ceo-message/banner";
+import Message from "../../components/ceo-message";
+
 const CompanyAbout = ({ projects, ...props }) => {
   const data = convertArrToObject(props.data.page.layouts);
   const adata = convertArrToObject(props.data.adata.page.layouts);
-
+    
   return (
     <>
       <Head>
@@ -22,9 +20,9 @@ const CompanyAbout = ({ projects, ...props }) => {
           href="css/home-page-slide.css"
         />
         <link
-          key="css/company-about.css"
+          key="css/ceo-message.css"
           rel="stylesheet"
-          href="css/company-about.css"
+          href="css/ceo-message.css"
         />
         <link
           rel="stylesheet"
@@ -43,11 +41,9 @@ const CompanyAbout = ({ projects, ...props }) => {
           src="https://cdn.jsdelivr.net/npm/jquery.counterup@2.1.0/jquery.counterup.min.js"
         ></script>
       </Head>
-      <Banner data={adata.CompanyAbout_Banner} />
-      <WhyNapa data={adata["WhyNapa"]} />
-      <CounterUp data={adata.CompanyAbout_Counter} />
-      {/* <Message data={adata["Message"]} /> */}
-      <Project data={projects} />
+      <Banner data={adata["CEOMessage_Banner"]} />
+      <Message data={adata["CEOMessage_Message"]} />
+      {/* <Project data={projects} /> */}
     </>
   );
 };
@@ -61,7 +57,7 @@ export async function getStaticProps() {
   //   client.query({ query: PROJECTS }),
   // ]);
   const pageData = await client.query({ query: contactQuery });
-  const aboutData = await client.query({ query: companyAbout });
+  const aboutData = await client.query({ query: GET_CEOMESSAGE });
   const projectData = await client.query({ query: PROJECTS });
 
   return {
