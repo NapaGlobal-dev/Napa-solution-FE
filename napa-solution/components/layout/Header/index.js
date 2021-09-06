@@ -104,7 +104,6 @@ const Header = (props) => {
       document.getElementById("navbar")?.classList.add("dark-nav-force");
 
     const cleanupSwipeEvent = registerSwipeEvent(({ direction }) => {
-      // console.log("direction", direction);
       if (navRef.current) {
         if (direction) navRef.current.classList.add("navbar-hidden");
         else navRef.current.classList.remove("navbar-hidden");
@@ -124,16 +123,27 @@ const Header = (props) => {
 
     function toggleOpenPopcover(e) {
       $("body").toggleClass("po-open");
-      $(".po-popcover").toggleClass("po-popcover-open");
+      // $(".po-popcover").toggleClass("po-popcover-open");
+      [...document.getElementsByClassName("po-popcover")].map((e) =>
+        e.classList.toggle("po-popcover-open")
+      );
     }
 
     $(".po-list-dropdown").on("click", toggleDropdown);
 
-    $(".toggle-open-popcover-button").on("click", toggleOpenPopcover);
+    // $(".toggle-open-popcover-button").on("click", toggleOpenPopcover);
+    let buttons = [
+      ...document.getElementsByClassName("toggle-open-popcover-button"),
+    ];
+
+    buttons.map((btn) => btn.addEventListener("click", toggleOpenPopcover));
 
     return () => {
       $(".po-list-dropdown").off("click", toggleDropdown);
-      $(".toggle-open-popcover-button").off("click", toggleOpenPopcover);
+      // $(".toggle-open-popcover-button").off("click", toggleOpenPopcover);
+      buttons.map((btn) =>
+        btn.removeEventListener("click", toggleOpenPopcover)
+      );
     };
   });
 

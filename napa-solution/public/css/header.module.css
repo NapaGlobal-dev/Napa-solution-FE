@@ -709,11 +709,13 @@
   /* visibility: hidden; */
 
   background-color: #7c57e2;
-  z-index: 999999;
+  z-index: -1;
 
   clip-path: circle(0% at 100% 0);
+  -webkit-clip-path: circle(0% at 100% 0);
 
-  transition: clip-path 0.3s ease-in;
+  transition: clip-path 0.3s ease-in, -webkit-clip-path 0.3s ease-in,
+    z-index 0.9s;
 }
 
 .po-popcover a {
@@ -724,6 +726,8 @@
   /* visibility: visible; */
   opacity: 1;
   clip-path: circle(160% at 100% 0);
+  -webkit-clip-path: circle(160% at 100% 0);
+  z-index: 999999;
 }
 
 .po-postition-relative {
