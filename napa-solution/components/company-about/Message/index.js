@@ -10,6 +10,9 @@ const Message = (props) => {
   )[0];
   const content1 = getData(datas, /CompanyAbout_Message_Content1/)[0];
   const content2 = getData(datas, /CompanyAbout_Message_Content2/)[0];
+  const content3 = getData(datas, /CompanyAbout_Message_Content3/)[0];
+  const content4 = getData(datas, /CompanyAbout_Message_Content4/)[0];
+  const content5 = getData(datas, /CompanyAbout_Message_Content5/)[0];
 
   return (
     <>
@@ -30,7 +33,17 @@ const Message = (props) => {
             </div>
           </div>
           <div className="ab-col">
-            <div className="ab-box-text" id="down-up">{content1?.value}</div>
+            <div className="ab-box-text" id="down-up">
+              {content1?.value}
+              <br />
+              {content2?.value}
+              <br />
+              {content3?.value}
+              <br />
+              {content4?.value}
+              <br />
+              {content5?.value}
+            </div>
           </div>
         </div>
       </div>

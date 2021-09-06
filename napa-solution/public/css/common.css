@@ -124,6 +124,7 @@ html {
   z-index: 23;
 }
 
+.dark-nav-force,
 .dark-nav {
   background: linear-gradient(315deg, #9921e8 0%, #5f72be 74%) !important;
   box-shadow: 0 3px 6px rgb(0 0 0 / 8%);
