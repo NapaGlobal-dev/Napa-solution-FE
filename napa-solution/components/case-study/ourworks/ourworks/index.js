@@ -15,12 +15,20 @@ function filterProjectByType(type, index, projects) {
 
 function OurWork(props) {
   const [activeTech, setActiveTech] = useState(0);
+  const [loadmore, setLoadmore] = useState(false);
   // const history = useHistory();
   console.log(
     "data ourworks",
     props.data,
     filterProjectByType(props.data?.Type, activeTech, props.data?.Projects)
   );
+  const handleActive = (index) => {
+    setActiveTech(index);
+    setLoadmore(false);
+  };
+  const handleLoadMoreToggle = () => {
+    setLoadmore(!loadmore);
+  };
   return (
     <>
       <div className="container-fluid">
@@ -50,14 +58,30 @@ function OurWork(props) {
                       "wow slideInDown"
                     )}
                     data-wow-delay="0.25s"
-                    onClick={() => setActiveTech(index)}
+                    onClick={() => handleActive(index)}
                   >
                     <span>{entry.value}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className={styles.wrapProjectRow}>
+            <div
+              className={
+                filterProjectByType(
+                  props.data?.Type,
+                  activeTech,
+                  props.data?.Projects
+                ).length > 6
+                  ? loadmore
+                    ? clsx(
+                        styles.wrapProjectRow,
+                        styles.fixheight,
+                        styles.loadmore
+                      )
+                    : clsx(styles.wrapProjectRow, styles.fixheight)
+                  : clsx(styles.wrapProjectRow)
+              }
+            >
               {filterProjectByType(
                 props.data?.Type,
                 activeTech,
@@ -71,6 +95,39 @@ function OurWork(props) {
                 />
               ))}
             </div>
+            {filterProjectByType(
+              props.data?.Type,
+              activeTech,
+              props.data?.Projects
+            ).length > 6 && (
+              <div className="d-flex justify-content-center align-items-center">
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  data-prefix="far"
+                  data-icon="dot-circle"
+                  className={clsx(
+                    "svg-inline--fa fa-dot-circle fa-w-16",
+                    styles.svgicon
+                  )}
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M256 56c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m0-48C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 168c-44.183 0-80 35.817-80 80s35.817 80 80 80 80-35.817 80-80-35.817-80-80-80z"
+                  ></path>
+                </svg>
+                <h4
+                  onClick={handleLoadMoreToggle}
+                  className={clsx(styles.h4text)}
+                >
+                  {loadmore ? "COLLAPSE" : "LOAD MORE"}
+                </h4>
+              </div>
+            )}
+            x
           </div>
         </div>
       </div>

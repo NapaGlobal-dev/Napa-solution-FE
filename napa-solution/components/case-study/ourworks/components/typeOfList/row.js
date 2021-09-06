@@ -17,7 +17,7 @@ function Header(props) {
       </div>
       <div className={styles.wrapTitle}>
         <h4 className={styles.projectName}>{entry?.key}</h4>
-        <span className={styles.description}>{entry?.value}</span>
+        {/* <span className={styles.description}>{entry?.value}</span> */}
       </div>
     </div>
   );

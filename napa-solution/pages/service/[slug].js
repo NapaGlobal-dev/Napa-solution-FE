@@ -64,13 +64,14 @@ export async function getStaticProps({ params }) {
   //   }),
   //   client.query({ query: PROJECTS }),
   // ]);
+  const OurWorkData = await client.query({
+    query: GET_OURWORKS_DATA,
+  });
   const pageData = await client.query({
     query: GET_SERVICES_PAGE_DATA,
     variables: { name: slug },
   });
-  const OurWorkData = await client.query({
-    query: GET_OURWORKS_DATA,
-  });
+
   const projectData = await client.query({ query: PROJECTS });
   return {
     props: {

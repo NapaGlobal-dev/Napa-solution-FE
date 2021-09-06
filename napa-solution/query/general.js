@@ -633,7 +633,7 @@ export const GET_CASESTUDY_PAGE = gql`
 `;
 
 export const GET_OURWORKS_DATA = gql`
-  query {
+  query getCaseStudy {
     layout: allLayouts(where: { name: "OurWorks" }) {
       name
       property {
