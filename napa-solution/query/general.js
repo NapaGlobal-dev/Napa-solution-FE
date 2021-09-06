@@ -631,3 +631,32 @@ export const GET_CASESTUDY_PAGE = gql`
     }
   }
 `;
+
+export const GET_OURWORKS_DATA = gql`
+  query {
+    layout: allLayouts(where: { name: "OurWorks" }) {
+      name
+      property {
+        name
+        value
+        content {
+          name
+          key
+          value
+          content {
+            name
+            value
+            content {
+              value
+            }
+          }
+          url
+          image {
+            original: publicUrl
+            thumbnail: publicUrlTransformed(transformation: { width: "64" })
+          }
+        }
+      }
+    }
+  }
+`;
