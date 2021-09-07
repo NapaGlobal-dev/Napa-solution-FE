@@ -57,12 +57,13 @@ const Header = (props) => {
   const navbarMobile = getData(data, /Navbar_Menu/);
   const contact = navbarMenu.slice(-1)[0];
   const navRef = useRef(null);
-
   const router = useRouter();
 
   const darkmode = useDarkMode();
+  const [isDark, setIsDark] = useState(false)
+
   useEffect(() => {
-    if (!localStorage.getItem("darkmode")) {
+    if (!localStorage?.getItem("darkmode")) {
       const hour = new Date().getHours();
       if (hour < 5 || hour >= 19) darkmode.enable();
       else darkmode.disable();
@@ -71,12 +72,20 @@ const Header = (props) => {
       if (isDarkmode == "on") darkmode.enable();
       else darkmode.disable();
     }
+
+    if(darkmode.value)
+      setIsDark(true)
+    
   }, []);
 
   function wrapToggle() {
-    if (darkmode.value) localStorage.setItem("darkmode", "off");
-    else localStorage.setItem("darkmode", "on");
-    darkmode.toggle();
+    if (darkmode.value){
+      localStorage?.setItem("darkmode", "off");
+      darkmode.disable();
+    }else{
+      localStorage?.setItem("darkmode", "on");
+      darkmode.enable();
+    }
   }
 
   const languagesdata = languages.map((lang, index) => ({
@@ -298,14 +307,14 @@ const Header = (props) => {
                   ))}
                 </div>
                 <div className="po-box-darkmode">
-                  {!!darkmode.value ? <p>Dark</p> : <p>Light</p>}
+                  {darkmode.value ? <p>Dark</p> : <p>Light</p>}
                   <label className="po-box-darkmode-switch">
                     <input
                       onClick={wrapToggle}
                       type="checkbox"
                       id="checkbox-dark-mode"
                     />
-                    <span className="check"></span>
+                    <span className={isDark? "check-dark-on" : "check"}></span>
                     <div className="dark-mode-bubble"></div>
                   </label>
                 </div>

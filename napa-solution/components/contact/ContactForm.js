@@ -306,8 +306,8 @@ const ContactForm = (props) => {
               onChange={onChange}
               value={email}
             />
-            {(emailError)? <label>Enter Your {data?.Contact_ContactForm_Content5?.value}</label> : <></>}
-            {(!emailValid)? <label>Email Address must be include @ after {email}</label> : <></>}
+            {emailError? <label>Enter Your {data?.Contact_ContactForm_Content5?.value}</label>
+             : !emailValid? <label>Email Address must be include @ after {email}</label> : <></>}
 
             <p className={messageError ? "error" : ""}>
               {data?.Contact_ContactForm_Content6?.value}
