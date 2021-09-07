@@ -412,6 +412,11 @@
   margin-right: 60px;
 }
 
+.boxButton {
+  width: 200px !important;
+  height: 50px !important;
+}
+
 @media (max-width: 768px) {
   .case-item {
     max-width: 80%;
@@ -425,6 +430,15 @@
   .case-layout.left {
     flex-direction: column-reverse;
   }
+  .tech-name{
+    justify-content: initial ;
+    margin-right: 0px;
+  }
+  .case-program img {
+    width: 60px;
+    margin-right: 50px;
+    max-height: 45px;
+}
 }
 
 @media (min-width: 768px) {
