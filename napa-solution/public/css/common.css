@@ -1976,7 +1976,7 @@ button:focus {
 
 .dropdown-layer {
   display: none;
-  padding-top: 32px;
+  padding-top: 22px;
   min-width: 160px;
   z-index: 1;
   position: absolute;
