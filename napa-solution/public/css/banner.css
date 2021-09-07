@@ -194,6 +194,14 @@
   position: initial;
 }
 
+.banner-page.new-version .img-banner >span {
+  position: initial;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+
 .shape-banner {
   position: absolute;
   width: 100%;
@@ -215,6 +223,7 @@
   .banner-page.new-version .title {
     width: 100%;
     text-align: center;
+    align-items: unset;
   }
 
   .banner-page.new-version .main-title {

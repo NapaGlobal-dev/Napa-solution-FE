@@ -25,8 +25,12 @@ const Banner = (props) => {
           </div>
         </div>
         <div className="img-banner animate-down-up">
-          <img
+          <LazyLoadImage
+            effect='blur'
             src={data["Offshore_Banner_Img"]?.image?.original}
+            placeholderSrc={data["Offshore_Banner_Img"]?.image?.thumbnail}
+            threshold={100}
+            width='100%'
           />
         </div>
         <img className="shape-banner" src="/img/wave-shape.svg" />

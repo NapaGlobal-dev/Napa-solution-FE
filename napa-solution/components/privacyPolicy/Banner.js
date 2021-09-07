@@ -1,14 +1,11 @@
 import { getData } from "../../util/converArrayToObject";
 import Head from "next/head";
-import { useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Banner({ data }) {
   const banner = getData(data, /PrivacyPolicy_Banner_Img/)[0];
   const title = getData(data, /PrivacyPolicy_Banner_Title/)[0];
   const subtitle = getData(data, /PrivacyPolicy_Banner_SubTitle/)[0];
-  const content = getData(data, /PrivacyPolicy_Banner_Content/)[0];
-  const subcontent = getData(data, /PrivacyPolicy_Banner_SubContent/)[0];
   // useEffect(() => {
   //   window.onload = function () {
   //     document.getElementById("banner").className = "wrap-banner open";
@@ -19,7 +16,29 @@ export default function Banner({ data }) {
       <Head>
         <link key="css/banner.css" rel="stylesheet" href="css/banner.css" />
       </Head>
-      <div className="banner">
+
+      <div className="banner-page banner new-version">
+        <div className="title">
+          <h1 className="main-title animate-down-up">
+            {title?.value}
+          </h1>
+          <div className="sub-menu animate-down-up">
+            {subtitle?.value}
+          </div>
+        </div>
+        <div className="img-banner animate-down-up">
+          <LazyLoadImage
+            effect='blur'
+            src={banner?.image?.original}
+            placeholderSrc={banner?.image?.thumbnail}
+            threshold={100}
+            width='100%'
+          />
+        </div>
+        <img className="shape-banner" src="/img/wave-shape.svg" />
+      </div>
+
+      {/* <div className="banner">
         <div className="overlay-header-banner"></div>
         <LazyLoadImage
           effect='blur'
@@ -52,7 +71,7 @@ export default function Banner({ data }) {
             {subcontent?.value}
           </div>
         </div> */}
-      </div>
+      {/* </div> */}
     </>
   );
 }
