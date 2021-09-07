@@ -1,14 +1,16 @@
 import React from "react";
 import Head from "next/head";
 import ServiceBanner from "../../components/services/serviceBanner";
-import Project from "../../components/homepage/Project";
+// import Project from "../../components/homepage/Project";
 import Service from "../../components/services/service";
+import { OurWorksCpn } from "../../components/case-study/ourworks/index.js";
 import { convertArrToObjectBySpecialName } from "../../util/converArrayToObject";
 import { client } from "../../apolo-client";
 import {
   GET_SERVICES_PAGE_DATA,
   GET_SERVICE_URL,
   PROJECTS,
+  GET_OURWORKS_DATA,
 } from "../../query/general";
 
 const Services = ({ projects, ...props }) => {
@@ -18,6 +20,10 @@ const Services = ({ projects, ...props }) => {
   let service = convertArrToObjectBySpecialName(
     props.data?.page[0].layouts[1].property
   );
+  let ourworkdata = convertArrToObjectBySpecialName(
+    props.ourworks?.layout[0]?.property
+  );
+  // console.log("props.ourworks", props.ourworks);
   return (
     <>
       <Head>
@@ -43,7 +49,8 @@ const Services = ({ projects, ...props }) => {
       </Head>
       <ServiceBanner banner={banner} />
       <Service service={service} />
-      <Project data={projects} />
+      {/* <Project data={projects} /> */}
+      <OurWorksCpn center isRow={true} data={ourworkdata} />
     </>
   );
 };
@@ -57,15 +64,20 @@ export async function getStaticProps({ params }) {
   //   }),
   //   client.query({ query: PROJECTS }),
   // ]);
+  const OurWorkData = await client.query({
+    query: GET_OURWORKS_DATA,
+  });
   const pageData = await client.query({
     query: GET_SERVICES_PAGE_DATA,
     variables: { name: slug },
   });
+
   const projectData = await client.query({ query: PROJECTS });
   return {
     props: {
       data: pageData.data,
       projects: projectData.data.projects[0],
+      ourworks: OurWorkData.data,
     },
   };
 }

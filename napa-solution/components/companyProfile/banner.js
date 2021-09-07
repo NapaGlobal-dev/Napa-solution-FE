@@ -1,11 +1,12 @@
 import Head from "next/head";
 import React from "react";
-import { convertArrToObject} from "../../util/converArrayToObject";
+import { convertArrToObject } from "../../util/converArrayToObject";
 import { useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Banner = (props) => {
   const data = convertArrToObject(props.data.property);
+
     // useEffect(() => {
     //   window.onload = function () {
     //     document.getElementById("banner").className = "wrap-banner open";
@@ -40,7 +41,7 @@ const Banner = (props) => {
                     <div className="frame-tb"></div>
                     <div className="frame-lr"></div>
                 </div> */}
-                {/* <div className="wrap-content-banner">
+        {/* <div className="wrap-content-banner">
                     <div className='content-banner'>
                         {data["CompanyProfile_Banner_Content"].value}
                     </div>

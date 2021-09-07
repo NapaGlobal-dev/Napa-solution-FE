@@ -27,7 +27,7 @@ export default function Banner({ data }) {
           placeholderSrc={banner?.image?.thumbnail}
           threshold={100}
           width="100%"
-          height='100%'
+          height="100%"
           className="image-banner"
         />
         {/* <div className="wrap-banner" id="banner">

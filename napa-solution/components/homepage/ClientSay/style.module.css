@@ -30,6 +30,11 @@
   transition: transform 0.6s ease-out, opacity 0.6s ease-out,
     -webkit-transform 0.6s ease-out;
 }
+.video:not(:hover) {
+  transform: scale(1);
+  transition: transform 0.6s ease-in, opacity 0.6s ease-in,
+    -webkit-transform 0.6s ease-in;
+}
 
 .cover > h3 {
   letter-spacing: 0px;
