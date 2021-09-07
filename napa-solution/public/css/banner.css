@@ -310,7 +310,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 120px;
-  padding: 100px 0;
+  padding: 50px 0;
 }
 
 .case-layout:last-child {
@@ -406,29 +406,5 @@
 
   .case-layout.left {
     flex-direction: column-reverse;
-  }
-}
-
-@media (min-width: 768px) {
-  .case-layout {
-    padding: 180px 0 210px 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  .case-layout {
-    padding: 159px 0 155px 0;
-  }
-}
-
-@media (min-width: 1000px) {
-  .case-layout {
-    padding: 170px 0 175px 0;
-  }
-}
-
-@media (min-width: 768px) {
-  .case-layout {
-    padding: 258px 0 162px 0;
   }
 }

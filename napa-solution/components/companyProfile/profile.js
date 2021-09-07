@@ -25,9 +25,6 @@ const Profile = (props) => {
       </div>
       <div className="wrap-table-content">
         <table className="table table-style">
-          <thead>
-            <th colSpan="2">{data["CompanyProfile_Corporate_NPS"].value}</th>
-          </thead>
           <tbody>
             {profileTitle.map((item, index) => (
               <tr key={index}>
@@ -48,9 +45,6 @@ const Profile = (props) => {
         </table>
 
         <table className="table table-style">
-          <thead>
-            <th colSpan="2">{data["CompanyProfile_Corporate_NPG"].value}</th>
-          </thead>
           <tbody>
             {profileTitle.map((item, index) => (
               <tr key={index}>
