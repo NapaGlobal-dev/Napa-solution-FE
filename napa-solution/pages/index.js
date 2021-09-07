@@ -1,5 +1,8 @@
-import { HomePage } from "../query/general";
-import { convertArrToObject } from "../util/converArrayToObject";
+import {
+  HomePage,
+  GET_CASESTUDIES,
+} from "../query/general";
+import { convertArrToObject, convertArrToObjectBySpecialName } from "../util/converArrayToObject";
 import Company from "../components/homepage/Company";
 import Head from "next/head";
 import Begin from "../components/homepage/Begin";
@@ -7,6 +10,7 @@ import Service from "../components/homepage/Service/index.js";
 import Project from "../components/homepage/Project/index.js";
 import ClientSay from "../components/homepage/ClientSay/index.js";
 import { client } from "../apolo-client";
+import { OurWorksCpn } from "../components/case-study/ourworks/index.js";
 
 const Index = ({ footer, data, ...props }) => {
   const datas = convertArrToObject(data.page.layouts);
@@ -56,7 +60,8 @@ const Index = ({ footer, data, ...props }) => {
           className="container-fluid content-wrapper no-default-spacing"
         >
           <Company data={datas["Company"]} />
-          <Project data={datas["Slides_Section"]} />
+          {/* <Project data={datas["Slides_Section"]} /> */}
+          <OurWorksCpn center isRow={true} data={props.caseStudies} />
           <ClientSay data={clientSay} />
         </div>
         {footer}
@@ -67,9 +72,15 @@ const Index = ({ footer, data, ...props }) => {
 
 export async function getStaticProps() {
   const { data } = await client.query({ query: HomePage });
+  const caseStudies = await client.query({
+    query: GET_CASESTUDIES,
+  });
 
   return {
-    props: { data },
+    props: {
+      data,
+      caseStudies: caseStudies.data,
+    },
   };
 }
 export default Index;

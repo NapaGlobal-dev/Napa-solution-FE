@@ -1,34 +1,76 @@
 import Row from "../components/typeOfList/row";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import clsx from "clsx";
 import styles from "./index.module.css";
-import Head from "next/head";
 
-function filterProjectByType(type, index, projects) {
-  if (!type || !projects) return [];
+// function filterProjectByType(type, index, projects) {
+//   if (!type || !projects) return [];
 
-  const currentType = type.content[index];
-  return projects.content.filter((p) =>
-    p.content[0].content.some((t) => t.value == currentType.value)
-  );
-}
+//   const currentType = type.content[index];
+//   return projects.content.filter((p) =>
+//     p.content[0].content.some((t) => t.value == currentType.value)
+//   );
+// }
 
-function OurWork(props) {
+function OurWork({data, service}) {
   const [activeTech, setActiveTech] = useState(0);
-  const [loadmore, setLoadmore] = useState(false);
+  const [loadmore, setLoadmore] = useState(6);
+  const [caseStudies, setCaseStudies] = useState([])
+  
+  const keys = [
+    {
+      value: 'All'
+    },
+    ...data.keys[0]?.content,
+  ]
+
+  const title = data.caseStudies[0]?.key
+  const subTitle = data.caseStudies[0]?.value
+
+  useEffect(()=>{
+    setCaseStudies(
+      data.caseStudies[0]?.content
+        ?.map((value) => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value)
+    )
+  },[])
+
   // const history = useHistory();
-  console.log(
-    "data ourworks",
-    props.data,
-    filterProjectByType(props.data?.Type, activeTech, props.data?.Projects)
-  );
+  // console.log(
+  //   "data ourworks",
+  //   props.data,
+  //   filterProjectByType(props.data?.Type, activeTech, props.data?.Projects)
+  // );
+  const caseStudyList = (()=>{
+    
+    if(!service){
+      if(!activeTech)
+        return caseStudies
+
+      const reg = RegExp(keys[activeTech].key)
+      console.log(keys[activeTech],caseStudies?.filter(cs => reg.test(cs.key)))
+      return caseStudies?.filter(cs => reg.test(cs.key))
+    }
+
+    const reg = RegExp(service)
+    return caseStudies?.filter(cs => reg.test(cs.key))
+
+  })()
+
+  console.log(caseStudies)
   const handleActive = (index) => {
     setActiveTech(index);
-    setLoadmore(false);
+    setLoadmore(6);
   };
-  const handleLoadMoreToggle = () => {
-    setLoadmore(!loadmore);
+
+  const handleLoadMoreToggle = (e) => {
+    if(e.target.innerHTML=="COLLAPSE")
+      setLoadmore(6);
+    else
+      setLoadmore(loadmore+6);
   };
+
   return (
     <>
       <div className="container-fluid">
@@ -39,40 +81,40 @@ function OurWork(props) {
                 className={clsx(styles.title, "wow slideInDown")}
                 data-wow-delay="0.75s"
               >
-                {props.data?.Title?.value}
+                {title}
               </h2>
               <h5
                 className={clsx(styles.subTitle, "wow slideInDown")}
                 data-wow-delay="0.5s"
               >
-                {props.data?.SubTitle?.value}
+                {subTitle}
               </h5>
-              <div className={styles.wrapTech}>
-                {props.data?.Type?.content.map((entry, index) => (
-                  <div
-                    key={index}
-                    className={clsx(
-                      activeTech === index
-                        ? styles.techItemActive
-                        : styles.techItem,
-                      "wow slideInDown"
-                    )}
-                    data-wow-delay="0.25s"
-                    onClick={() => handleActive(index)}
-                  >
-                    <span>{entry.value}</span>
-                  </div>
-                ))}
-              </div>
+              {!service?
+                <div className={styles.wrapTech}>
+                  {keys.map((entry, index) => (
+                    <div
+                      key={index}
+                      className={clsx(
+                        activeTech === index
+                          ? styles.techItemActive
+                          : styles.techItem,
+                        "wow slideInDown"
+                      )}
+                      data-wow-delay="0.25s"
+                      onClick={() => handleActive(index)}
+                    >
+                      <span>{entry.value}</span>
+                    </div>
+                  ))}
+                </div>
+                :
+                <></>
+              }
             </div>
             <div
               className={
-                filterProjectByType(
-                  props.data?.Type,
-                  activeTech,
-                  props.data?.Projects
-                ).length > 6
-                  ? loadmore
+                caseStudyList?.length > 6
+                  ? loadmore < 6
                     ? clsx(
                         styles.wrapProjectRow,
                         styles.fixheight,
@@ -82,11 +124,7 @@ function OurWork(props) {
                   : clsx(styles.wrapProjectRow)
               }
             >
-              {filterProjectByType(
-                props.data?.Type,
-                activeTech,
-                props.data?.Projects
-              ).map((entry, index) => (
+              {caseStudyList?.slice(0, loadmore).map((entry, index) => (
                 <Row
                   entry={entry}
                   key={Date.now() + index}
@@ -95,11 +133,7 @@ function OurWork(props) {
                 />
               ))}
             </div>
-            {filterProjectByType(
-              props.data?.Type,
-              activeTech,
-              props.data?.Projects
-            ).length > 6 && (
+            {caseStudyList?.length > 6 && (
               <div className="d-flex justify-content-center align-items-center">
                 <svg
                   aria-hidden="true"
@@ -123,11 +157,10 @@ function OurWork(props) {
                   onClick={handleLoadMoreToggle}
                   className={clsx(styles.h4text)}
                 >
-                  {loadmore ? "COLLAPSE" : "LOAD MORE"}
+                  {loadmore>caseStudyList.length ? "COLLAPSE" : "LOAD MORE"}
                 </h4>
               </div>
             )}
-            x
           </div>
         </div>
       </div>
