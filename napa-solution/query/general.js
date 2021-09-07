@@ -616,6 +616,7 @@ export const GET_CASESTUDY_PAGE = gql`
             content {
               name
               value
+              url
               image {
                 original: publicUrl
                 thumbnail: publicUrlTransformed(transformation: { width: "64" })

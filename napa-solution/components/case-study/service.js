@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Head from "next/head";
 
 export default function Service(props) {
@@ -13,6 +14,7 @@ export default function Service(props) {
   const getList = (content, name) => {
     return Object.values(content).filter((it) => it.name.includes(name));
   };
+  
   return (
     <>
       <Head>
@@ -49,9 +51,33 @@ export default function Service(props) {
                 <div className="case-program">
                   {item.content &&
                     getList(item.content, "ImgProgram")?.map((e, ind) => (
-                      <img src={e?.image.original} key={ind} />
+                      <div key={ind}>
+                        <img src={e?.image.original} key={ind} />
+                        <p key={ind}> {e?.value}</p>
+                      </div>
                     ))}
                 </div>
+                {item.content &&
+                  getList(item.content, "ButtonCase")?.map((e, ind) => (
+                    <div key ={ind}>
+                      <a href={e.url}>
+                        <div
+                          className={clsx(
+                            "col-xs-12 order-3 order-xl-4 no-default-spacing",
+                            "boxButton"
+                          )}
+                          id="detail-btn-company"
+                        >
+                          <span id="detail-btn-company-content">
+                            {e.value}
+                          </span>
+                          <svg id="stroke-arr-btn" viewBox="0 0 64 7">
+                            <path d="M0 6h61.5l-5.2-5.2"></path>
+                          </svg>
+                        </div>
+                      </a>
+                    </div>
+                  ))}
               </div>
             </div>
           ) : (
@@ -72,9 +98,33 @@ export default function Service(props) {
                 <div className="case-program animate-down-up">
                   {item.content &&
                     getList(item.content, "ImgProgram")?.map((e, ind) => (
-                      <img src={e?.image.original} key={ind} />
+                      <div key={ind} className="tech-name">
+                        <img src={e?.image.original} key={ind} />
+                        <p key={ind}> {e?.value}</p>
+                      </div>
                     ))}
                 </div>
+                {item.content &&
+                  getList(item.content, "ButtonCase")?.map((e, ind) => (
+                    <div key = {ind}>
+                      <a href={e.url}>
+                        <div
+                          className={clsx(
+                            "col-xs-12 order-3 order-xl-4 no-default-spacing",
+                            "boxButton"
+                          )}
+                          id="detail-btn-company"
+                        >
+                          <span id="detail-btn-company-content">
+                            {e?.value}
+                          </span>
+                          <svg id="stroke-arr-btn" viewBox="0 0 64 7">
+                            <path d="M0 6h61.5l-5.2-5.2"></path>
+                          </svg>
+                        </div>
+                      </a>
+                    </div>
+                  ))}
               </div>
               <div
                 className="case-img"
