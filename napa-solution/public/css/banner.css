@@ -383,11 +383,24 @@
   max-width: 40%;
 }
 
+.case-program p{
+  margin-bottom: 0;
+}
+
 .case-program img {
-  max-width: 40px;
+  max-width: 90px;
   /* display: block;
   display: flex; */
-  margin-right: 10px;
+  margin-right: 40px;
+  max-height: 45px
+}
+
+.tech-name{
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  justify-content: space-between;
+  margin-right: 60px;
 }
 
 @media (max-width: 768px) {

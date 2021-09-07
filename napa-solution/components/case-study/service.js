@@ -13,6 +13,9 @@ export default function Service(props) {
   const getList = (content, name) => {
     return Object.values(content).filter((it) => it.name.includes(name));
   };
+  getList(data[1].content, "ImgProgram").map((e,ind)=>{
+    console.log(e.value)
+  })
   return (
     <>
       <Head>
@@ -49,7 +52,10 @@ export default function Service(props) {
                 <div className="case-program">
                   {item.content &&
                     getList(item.content, "ImgProgram")?.map((e, ind) => (
-                      <img src={e?.image.original} key={ind} />
+                      <div key = {ind}>
+                        <img src={e?.image.original} key={ind} />
+                        <p key={ind}> {e?.value}</p>
+                      </div>
                     ))}
                 </div>
               </div>
@@ -72,7 +78,10 @@ export default function Service(props) {
                 <div className="case-program animate-down-up">
                   {item.content &&
                     getList(item.content, "ImgProgram")?.map((e, ind) => (
-                      <img src={e?.image.original} key={ind} />
+                      <div key = {ind} className="tech-name">
+                        <img src={e?.image.original} key={ind} />
+                        <p key={ind}> {e?.value}</p>
+                      </div>
                     ))}
                 </div>
               </div>
