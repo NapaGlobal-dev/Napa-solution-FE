@@ -1,16 +1,20 @@
 import React from "react";
 import Head from "next/head";
-import { contactQuery, companyAbout, PROJECTS, GET_CEOMESSAGE } from "../../query/general";
+import {
+  contactQuery,
+  companyAbout,
+  PROJECTS,
+  GET_CEOMESSAGE,
+} from "../../query/general";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
-// import ContactBanner from "../../components/company-history/Banner";
 import Banner from "../../components/ceo-message/banner";
 import Message from "../../components/ceo-message";
 
 const CompanyAbout = ({ projects, ...props }) => {
   const data = convertArrToObject(props.data.page.layouts);
   const adata = convertArrToObject(props.data.adata.page.layouts);
-    
+
   return (
     <>
       <Head>
@@ -30,16 +34,6 @@ const CompanyAbout = ({ projects, ...props }) => {
           charset="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
-
-        <script
-          key="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"
-          src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"
-        ></script>
-
-        <script
-          key="https://cdn.jsdelivr.net/npm/jquery.counterup@2.1.0/jquery.counterup.min.js"
-          src="https://cdn.jsdelivr.net/npm/jquery.counterup@2.1.0/jquery.counterup.min.js"
-        ></script>
       </Head>
       <Banner data={adata["CEOMessage_Banner"]} />
       <Message data={adata["CEOMessage_Message"]} />
