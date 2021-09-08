@@ -14,7 +14,7 @@ export default function Service(props) {
   const getList = (content, name) => {
     return Object.values(content).filter((it) => it.name.includes(name));
   };
-  
+
   return (
     <>
       <Head>
@@ -27,13 +27,20 @@ export default function Service(props) {
               <div
                 className="case-img"
                 style={{
-                  background: `${item.content && getValue(item.content, "Background")
-                    }`,
+                  background: `${
+                    item.content && getValue(item.content, "Background")
+                  }`,
                 }}
               >
                 <img src={item.content && getImg(item.content, "ImgCase")} />
-                <img className="fire-small animate-bottom-right" src="/img/icon-fire.png" />
-                <img className="fire-large animate-bottom-right" src="/img/icon-fire.png" />
+                <img
+                  className="fire-small animate-bottom-right"
+                  src="/img/icon-fire.png"
+                />
+                <img
+                  className="fire-large animate-bottom-right"
+                  src="/img/icon-fire.png"
+                />
               </div>
               <div className="case-item">
                 <div className="service-name">
@@ -45,21 +52,21 @@ export default function Service(props) {
                 <div className="case-content">
                   {item.content &&
                     getList(item.content, "CaseContent")?.map((e, ind) => (
-                      <p key={ind}>{e.value}</p>
+                      <p key={ind + "a"}>{e.value}</p>
                     ))}
                 </div>
                 <div className="case-program">
                   {item.content &&
                     getList(item.content, "ImgProgram")?.map((e, ind) => (
-                      <div key={ind}>
-                        <img src={e?.image.original} key={ind} />
-                        <p key={ind}> {e?.value}</p>
+                      <div key={ind + "b"}>
+                        <img src={e?.image.original} />
+                        <p> {e?.value}</p>
                       </div>
                     ))}
                 </div>
                 {item.content &&
                   getList(item.content, "ButtonCase")?.map((e, ind) => (
-                    <div key ={ind}>
+                    <div key={ind + "c"}>
                       <a href={e.url}>
                         <div
                           className={clsx(
@@ -68,9 +75,7 @@ export default function Service(props) {
                           )}
                           id="detail-btn-company"
                         >
-                          <span id="detail-btn-company-content">
-                            {e.value}
-                          </span>
+                          <span id="detail-btn-company-content">{e.value}</span>
                           <svg id="stroke-arr-btn" viewBox="0 0 64 7">
                             <path d="M0 6h61.5l-5.2-5.2"></path>
                           </svg>
@@ -92,21 +97,21 @@ export default function Service(props) {
                 <div className="case-content animate-down-up">
                   {item.content &&
                     getList(item.content, "CaseContent")?.map((e, ind) => (
-                      <p key={ind}>{e.value}</p>
+                      <p key={ind + "a"}>{e.value}</p>
                     ))}
                 </div>
                 <div className="case-program animate-down-up">
                   {item.content &&
                     getList(item.content, "ImgProgram")?.map((e, ind) => (
-                      <div key={ind} className="tech-name">
-                        <img src={e?.image.original} key={ind} />
-                        <p key={ind}> {e?.value}</p>
+                      <div key={ind + "b"} className="tech-name">
+                        <img src={e?.image.original} />
+                        <p> {e?.value}</p>
                       </div>
                     ))}
                 </div>
                 {item.content &&
                   getList(item.content, "ButtonCase")?.map((e, ind) => (
-                    <div key = {ind}>
+                    <div key={ind + "c"}>
                       <a href={e.url}>
                         <div
                           className={clsx(
@@ -129,13 +134,20 @@ export default function Service(props) {
               <div
                 className="case-img"
                 style={{
-                  background: `${item.content && getValue(item.content, "Background")
-                    }`,
+                  background: `${
+                    item.content && getValue(item.content, "Background")
+                  }`,
                 }}
               >
                 <img src={item.content && getImg(item.content, "ImgCase")} />
-                <img className="fire-small animate-bottom-right" src="/img/icon-fire.png" />
-                <img className="fire-large animate-bottom-right" src="/img/icon-fire.png" />
+                <img
+                  className="fire-small animate-bottom-right"
+                  src="/img/icon-fire.png"
+                />
+                <img
+                  className="fire-large animate-bottom-right"
+                  src="/img/icon-fire.png"
+                />
               </div>
             </div>
           )

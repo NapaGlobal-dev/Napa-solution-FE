@@ -22,10 +22,10 @@ function OurWork({ data, service }) {
       value: "All",
     },
     ...data?.keys[0]?.content,
-  ]
+  ];
 
-  const title = data?.caseStudies[0]?.key
-  const subTitle = data?.caseStudies[0]?.value
+  const title = data?.caseStudies[0]?.key;
+  const subTitle = data?.caseStudies[0]?.value;
 
   useEffect(() => {
     setCaseStudies(
@@ -46,8 +46,8 @@ function OurWork({ data, service }) {
     if (!service) {
       if (!activeTech) return caseStudies;
 
-      const reg = RegExp(keys[activeTech].key)
-      return caseStudies?.filter(cs => reg.test(cs.key))
+      const reg = RegExp(keys[activeTech].key);
+      return caseStudies?.filter((cs) => reg.test(cs.key));
     }
 
     const reg = RegExp(service);
@@ -78,7 +78,7 @@ function OurWork({ data, service }) {
                 {title}
               </h2>
               <h5
-                className={("wow slideInDown")}
+                className={"wow slideInDown"}
                 data-wow-delay="0.5s"
                 id="sub-title"
               >
@@ -112,10 +112,10 @@ function OurWork({ data, service }) {
                   ? loadmore < 6
                     ? clsx(
                         styles.wrapProjectRow,
-                        styles.fixheight,
+                        // styles.fixheight,
                         styles.loadmore
                       )
-                    : clsx(styles.wrapProjectRow, styles.fixheight)
+                    : clsx(styles.wrapProjectRow)
                   : clsx(styles.wrapProjectRow)
               }
             >
