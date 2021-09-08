@@ -12,29 +12,29 @@ import styles from "./index.module.css";
 //   );
 // }
 
-function OurWork({data, service}) {
+function OurWork({ data, service }) {
   const [activeTech, setActiveTech] = useState(0);
   const [loadmore, setLoadmore] = useState(6);
-  const [caseStudies, setCaseStudies] = useState([])
-  
+  const [caseStudies, setCaseStudies] = useState([]);
+
   const keys = [
     {
-      value: 'All'
+      value: "All",
     },
     ...data.keys[0]?.content,
-  ]
+  ];
 
-  const title = data.caseStudies[0]?.key
-  const subTitle = data.caseStudies[0]?.value
+  const title = data.caseStudies[0]?.key;
+  const subTitle = data.caseStudies[0]?.value;
 
-  useEffect(()=>{
+  useEffect(() => {
     setCaseStudies(
       data.caseStudies[0]?.content
         ?.map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value)
-    )
-  },[])
+    );
+  }, []);
 
   // const history = useHistory();
   // console.log(
@@ -42,33 +42,31 @@ function OurWork({data, service}) {
   //   props.data,
   //   filterProjectByType(props.data?.Type, activeTech, props.data?.Projects)
   // );
-  const caseStudyList = (()=>{
-    
-    if(!service){
-      if(!activeTech)
-        return caseStudies
+  const caseStudyList = (() => {
+    if (!service) {
+      if (!activeTech) return caseStudies;
 
-      const reg = RegExp(keys[activeTech].key)
-      console.log(keys[activeTech],caseStudies?.filter(cs => reg.test(cs.key)))
-      return caseStudies?.filter(cs => reg.test(cs.key))
+      const reg = RegExp(keys[activeTech].key);
+      console.log(
+        keys[activeTech],
+        caseStudies?.filter((cs) => reg.test(cs.key))
+      );
+      return caseStudies?.filter((cs) => reg.test(cs.key));
     }
 
-    const reg = RegExp(service)
-    return caseStudies?.filter(cs => reg.test(cs.key))
+    const reg = RegExp(service);
+    return caseStudies?.filter((cs) => reg.test(cs.key));
+  })();
 
-  })()
-
-  console.log(caseStudies)
+  console.log(caseStudies);
   const handleActive = (index) => {
     setActiveTech(index);
     setLoadmore(6);
   };
 
   const handleLoadMoreToggle = (e) => {
-    if(e.target.innerHTML=="COLLAPSE")
-      setLoadmore(6);
-    else
-      setLoadmore(loadmore+6);
+    if (e.target.innerHTML == "COLLAPSE") setLoadmore(6);
+    else setLoadmore(loadmore + 6);
   };
 
   return (
@@ -91,7 +89,7 @@ function OurWork({data, service}) {
               >
                 {subTitle}
               </h5>
-              {!service?
+              {!service ? (
                 <div className={styles.wrapTech}>
                   {keys.map((entry, index) => (
                     <div
@@ -109,9 +107,9 @@ function OurWork({data, service}) {
                     </div>
                   ))}
                 </div>
-                :
+              ) : (
                 <></>
-              }
+              )}
             </div>
             <div
               className={
@@ -159,7 +157,7 @@ function OurWork({data, service}) {
                   onClick={handleLoadMoreToggle}
                   className={clsx(styles.h4text)}
                 >
-                  {loadmore>caseStudyList.length ? "COLLAPSE" : "LOAD MORE"}
+                  {loadmore > caseStudyList.length ? "COLLAPSE" : "LOAD MORE"}
                 </h4>
               </div>
             )}
