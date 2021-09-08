@@ -435,12 +435,47 @@
 
 @media (max-width: 768px) {
   .case-item {
-    max-width: 80%;
-    margin: 24px;
+    margin: 0px;
+    max-width: 100%;
+    min-width: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .case-img {
+    max-width: 100%;
+    margin: 0px !important;
+  }
+  
+  .case-img img {
+    left: 0;
+    padding: 5px 2px;
+    max-width: 100%;
   }
 
   .case-layout {
     flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0px;
+    max-height: unset;
+  }
+
+  .case-layout.left .case-img img {
+    left: 0px;
+  }
+
+  .service-name {
+    margin-top: 50px;
+  }
+  
+  .fire-small {
+    display: none !important;
+  }
+
+  .fire-large {
+    display: none !important;
   }
 
   .case-layout.left {

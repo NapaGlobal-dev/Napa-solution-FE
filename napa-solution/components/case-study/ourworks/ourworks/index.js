@@ -67,9 +67,9 @@ function OurWork({ data, service }) {
   return (
     <>
       <div className="container-fluid">
-        <div className={styles.wrapCS}>
+        <div className={styles.wrapCS} id='down-up'>
           <div id="projects-section">
-            <div className={clsx(styles.wrapText, styles.wrapTextCenter)} id='down-up'>
+            <div className={clsx(styles.wrapText, styles.wrapTextCenter)}>
               <h2
                 className={clsx("wow slideInDown")}
                 data-wow-delay="0.75s"
