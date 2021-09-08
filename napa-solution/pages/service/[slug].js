@@ -84,7 +84,6 @@ export async function getStaticPaths() {
   //   client.query({ query: GET_SERVICE_URL }),
   // ]);
   const data = await client.query({ query: GET_SERVICE_URL });
-  console.log(!data.loading && data.data.page[0]);
   const paths =
     !data.loading &&
     data?.data?.page[0]?.childrenPage.map((page) => ({

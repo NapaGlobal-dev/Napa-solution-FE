@@ -21,9 +21,9 @@ function OurWork({ data, service }) {
     {
       value: "All",
     },
-    ...data?.keys[0]?.content,
+    data?.keys[0]?.content && data?.keys[0]?.content.slice(0,-1),
   ];
-
+  
   const title = data?.caseStudies[0]?.key;
   const subTitle = data?.caseStudies[0]?.value;
 
@@ -98,7 +98,7 @@ function OurWork({ data, service }) {
                       data-wow-delay="0.25s"
                       onClick={() => handleActive(index)}
                     >
-                      <span>{entry.value}</span>
+                      <span>{entry?.value}</span>
                     </div>
                   ))}
                 </div>
