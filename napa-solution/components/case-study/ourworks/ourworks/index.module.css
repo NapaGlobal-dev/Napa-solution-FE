@@ -136,7 +136,7 @@
   width: 100%;
   /* max-width: 1310px; */
   margin: 30px auto;
-  overflow: auto;
+  /* overflow: auto; */
 }
 .fixheight {
   height: 931px;

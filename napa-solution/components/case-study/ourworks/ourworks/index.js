@@ -115,10 +115,10 @@ function OurWork({ data, service }) {
                   ? loadmore < 6
                     ? clsx(
                         styles.wrapProjectRow,
-                        styles.fixheight,
+                        // styles.fixheight,
                         styles.loadmore
                       )
-                    : clsx(styles.wrapProjectRow, styles.fixheight)
+                    : clsx(styles.wrapProjectRow)
                   : clsx(styles.wrapProjectRow)
               }
             >

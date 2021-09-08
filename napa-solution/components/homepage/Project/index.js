@@ -37,6 +37,7 @@ const settings = {
 const Project = (props) => {
   const slickRef = useRef(null);
   const router = useRouter();
+
   const { loading, error, data: serviceData } = useQuery(GET_SERVICE_URL);
   const service =
     !loading && !error && convertArrToObject(serviceData.page, "nameEN");
@@ -54,6 +55,18 @@ const Project = (props) => {
       : Object.values(data).filter((item) => item.name.includes("Img"));
   if (slides.length <= 6) slides = [...slides, ...slides];
   if (slides.length == 0) return <></>;
+  const handleClickUrl = (url) => {
+    if (new RegExp(",").test(url)) {
+      var urls = url.split(",");
+      const c = urls.filter(
+        (item) => item != `/service/${router.query.slug}/${router.query.pid}`
+      );
+      if (urls.length > 0) router.push(`${c[0]}`);
+      else router.push(`/service/${router.query.slug}/${router.query.pid}`);
+      return;
+    }
+    router.push(`${url}`);
+  };
   return (
     // !loading && (
     <div className="sl-container">
@@ -95,8 +108,8 @@ const Project = (props) => {
               <div key={index} className="sl-full-height">
                 <div className=" sl-full-height sl-carousel-item_flex">
                   <div className="sl-carousel-item_spacing">
-                    <a
-                      href={item.url}
+                    <div
+                      onClick={() => handleClickUrl(item.url)}
                       target="_blank"
                       className="sl-carousel-item_url"
                     >
@@ -106,7 +119,7 @@ const Project = (props) => {
                         width="100%"
                         className="sl-img-item"
                       />
-                    </a>
+                    </div>
                   </div>
                 </div>
               </div>
