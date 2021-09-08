@@ -2,7 +2,7 @@ import Row from "../components/typeOfList/row";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 import styles from "./index.module.css";
-
+import { useRouter } from "next/router";
 // function filterProjectByType(type, index, projects) {
 //   if (!type || !projects) return [];
 
@@ -16,7 +16,7 @@ function OurWork({ data, service }) {
   const [activeTech, setActiveTech] = useState(0);
   const [loadmore, setLoadmore] = useState(6);
   const [caseStudies, setCaseStudies] = useState([]);
-
+  const router = useRouter();
   const keys = [
     {
       value: "All",
@@ -129,7 +129,7 @@ function OurWork({ data, service }) {
                   entry={entry}
                   key={Date.now() + index}
                   // loading={loadingProject}
-                  // onClick={() => history.push(`/projects/detail/${entry.id}`)}
+                  onClick={() => router.push(`${entry.url}`)}
                 />
               ))}
             </div>
