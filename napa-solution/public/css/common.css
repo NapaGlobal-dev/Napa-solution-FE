@@ -235,12 +235,21 @@ html {
   margin-right: 100px;
 }
 
-.text-navbar-menu:hover{
+.text-navbar-menu:hover {
   /* border-bottom: 1px solid #fff; */
   /* text-decoration: underline !important; */
 }
 
-.text-animation::after{
+.text-animation-line::after {
+  content: "";
+  border-bottom: 2px solid #fff;
+  position: absolute;
+  width: 56%;
+  bottom: 0px;
+  left: 0px;
+  transform: translateY(-26px);
+}
+.text-animation::after {
   content: "";
   border-bottom: 2px solid #fff;
   position: absolute;
@@ -1192,11 +1201,12 @@ html {
   .text-navbar-menu {
     margin-right: 50px;
   }
-  .dropdown-chevron::before,.dropdown-chevron-animation::before{
+  .dropdown-chevron::before,
+  .dropdown-chevron-animation::before {
     right: 25px !important;
   }
-  .text-animation::after{
-    right: 50px !important
+  .text-animation::after {
+    right: 50px !important;
   }
 }
 
@@ -1945,8 +1955,8 @@ button:focus {
   position: relative;
 }
 
-.dropdown-chevron::before{
-  content: '';
+.dropdown-chevron::before {
+  content: "";
   position: absolute;
   right: 75px;
   top: 4px;
@@ -1960,8 +1970,8 @@ button:focus {
   transition: all 0.3s;
 }
 
-.dropdown-chevron-animation::before{
-  content: '';
+.dropdown-chevron-animation::before {
+  content: "";
   position: absolute;
   right: 75px;
   top: 35px;
@@ -2148,7 +2158,7 @@ button:focus {
   left: -80px;
   top: -20px;
 }
-.animate-bottom-right{
+.animate-bottom-right {
   opacity: 0;
   animation: slideInBottom 1s 1.5s ease-in-out alternate,
     up 2s 2500ms ease infinite alternate;

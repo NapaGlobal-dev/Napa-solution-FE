@@ -60,7 +60,7 @@ const Header = (props) => {
   const router = useRouter();
 
   const darkmode = useDarkMode();
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     if (!localStorage?.getItem("darkmode")) {
@@ -73,16 +73,14 @@ const Header = (props) => {
       else darkmode.disable();
     }
 
-    if(darkmode.value)
-      setIsDark(true)
-    
+    if (darkmode.value) setIsDark(true);
   }, []);
 
   function wrapToggle() {
-    if (darkmode.value){
+    if (darkmode.value) {
       localStorage?.setItem("darkmode", "off");
       darkmode.disable();
-    }else{
+    } else {
       localStorage?.setItem("darkmode", "on");
       darkmode.enable();
     }
@@ -191,10 +189,36 @@ const Header = (props) => {
                 <div className={clsx("dropdown")}>
                   <div className="hover-o">
                     <div className="hover-t">
-                      <a href={menu?.url} className={clsx("text-navbar-menu", menu.content.length !== 0 ? "dropdown-chevron": "")}>
+                      <a
+                        href={
+                          menu?.url === ("/service" || "/company")
+                            ? null
+                            : menu?.url
+                        }
+                        className={clsx(
+                          "text-navbar-menu",
+                          new RegExp(menu.url).test(router.pathname)
+                            ? "text-animation-line"
+                            : "",
+                          menu.content.length !== 0 ? "dropdown-chevron" : ""
+                        )}
+                      >
                         {menu?.value}
                       </a>
-                      <a href={menu?.url} className={clsx("text-navbar-menu", "text-animation" ,menu.content.length !== 0 ? "dropdown-chevron-animation": "")}>
+                      <a
+                        href={
+                          menu?.url === ("/service" || "/company")
+                            ? null
+                            : menu?.url
+                        }
+                        className={clsx(
+                          "text-navbar-menu",
+                          "text-animation",
+                          menu.content.length !== 0
+                            ? "dropdown-chevron-animation"
+                            : ""
+                        )}
+                      >
                         {menu?.value}
                       </a>
                     </div>
@@ -316,7 +340,7 @@ const Header = (props) => {
                       type="checkbox"
                       id="checkbox-dark-mode"
                     />
-                    <span className={isDark? "check-dark-on" : "check"}></span>
+                    <span className={isDark ? "check-dark-on" : "check"}></span>
                     <div className="dark-mode-bubble"></div>
                   </label>
                 </div>
