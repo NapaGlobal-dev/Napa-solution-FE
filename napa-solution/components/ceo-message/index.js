@@ -9,7 +9,10 @@ const Message = (props) => {
     item.name.includes("CEOMessage_Message_SubTitle")
   )[0];
   const content1 = getData(datas, /CEOMessage_Message_Content1/)[0];
-  // const content2 = getData(datas, /CompanyAbout_Message_Content2/)[0];
+  const content2 = getData(datas, /CompanyAbout_Message_Content2/)[0];
+  const content3 = getData(datas, /CompanyAbout_Message_Content3/)[0];
+  const content4 = getData(datas, /CompanyAbout_Message_Content4/)[0];
+  const content5 = getData(datas, /CompanyAbout_Message_Content5/)[0];
 
   return (
     <>
@@ -30,6 +33,14 @@ const Message = (props) => {
           <div className="ceo-message-subtitle">{subTitle.value}</div>
           <div className="ceo-message-content">
             {datas["CEOMessage_Message_Content1"]?.value}
+            <br />
+            {datas["CompanyAbout_Message_Content2"]?.value}
+            <br />
+            {datas["CompanyAbout_Message_Content3"]?.value}
+            <br />
+            {datas["CompanyAbout_Message_Content4"]?.value}
+            <br />
+            {datas["CompanyAbout_Message_Content5"]?.value}
           </div>
         </div>
       </div>
