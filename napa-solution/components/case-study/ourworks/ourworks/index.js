@@ -69,7 +69,7 @@ function OurWork({ data, service }) {
       <div className="container-fluid">
         <div className={styles.wrapCS}>
           <div id="projects-section">
-            <div className={clsx(styles.wrapText, styles.wrapTextCenter)}>
+            <div className={clsx(styles.wrapText, styles.wrapTextCenter)} id='down-up'>
               <h2
                 className={clsx("wow slideInDown")}
                 data-wow-delay="0.75s"
@@ -122,7 +122,7 @@ function OurWork({ data, service }) {
               {caseStudyList?.slice(0, loadmore).map((entry, index) => (
                 <Row
                   entry={entry}
-                  key={Date.now() + index}
+                  key={entry.name}
                   // loading={loadingProject}
                   onClick={() => router.push(`${entry.url}`)}
                 />

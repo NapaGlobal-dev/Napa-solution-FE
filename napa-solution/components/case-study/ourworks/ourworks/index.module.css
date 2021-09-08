@@ -290,6 +290,10 @@
     width: auto;
   }
 
+  .wrapCS {
+    margin: 100px 0px 0px;
+  }
+
   .wrapTech {
     display: flex;
     align-items: center;
