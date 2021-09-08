@@ -129,7 +129,7 @@ function OurWork({ data, service }) {
               ))}
             </div>
             {caseStudyList?.length > 6 && (
-              <div className="d-flex justify-content-center align-items-center">
+              <div className="d-flex icon-loadmore justify-content-center align-items-center">
                 <svg
                   aria-hidden="true"
                   focusable="false"
