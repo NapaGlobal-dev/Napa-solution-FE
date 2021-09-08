@@ -103,7 +103,7 @@
   width: 100%;
   /* max-width: 1310px; */
   margin: 30px auto;
-  overflow: hidden;
+  overflow: auto;
 }
 .fixheight {
   height: 931px;

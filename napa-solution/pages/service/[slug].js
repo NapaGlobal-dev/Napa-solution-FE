@@ -10,7 +10,7 @@ import {
   GET_SERVICES_PAGE_DATA,
   GET_SERVICE_URL,
   PROJECTS,
-  GET_OURWORKS_DATA,
+  GET_CASESTUDIES,
 } from "../../query/general";
 
 const Services = ({ projects, ...props }) => {
@@ -20,10 +20,7 @@ const Services = ({ projects, ...props }) => {
   let service = convertArrToObjectBySpecialName(
     props.data?.page[0].layouts[1].property
   );
-  let ourworkdata = convertArrToObjectBySpecialName(
-    props.ourworks?.layout[0]?.property
-  );
-  // console.log("props.ourworks", props.ourworks);
+  // console.log("props.ourworks", props);
   return (
     <>
       <Head>
@@ -50,7 +47,7 @@ const Services = ({ projects, ...props }) => {
       <ServiceBanner banner={banner} />
       <Service service={service} />
       {/* <Project data={projects} /> */}
-      <OurWorksCpn center isRow={true} data={ourworkdata} />
+      <OurWorksCpn center isRow={true} data={props.caseStudies} service={props.data?.page[0]?.slug} />
     </>
   );
 };
@@ -64,20 +61,20 @@ export async function getStaticProps({ params }) {
   //   }),
   //   client.query({ query: PROJECTS }),
   // ]);
-  const OurWorkData = await client.query({
-    query: GET_OURWORKS_DATA,
+  const caseStudies = await client.query({
+    query: GET_CASESTUDIES,
   });
   const pageData = await client.query({
     query: GET_SERVICES_PAGE_DATA,
     variables: { name: slug },
   });
 
-  const projectData = await client.query({ query: PROJECTS });
+  // const projectData = await client.query({ query: PROJECTS });
   return {
     props: {
       data: pageData.data,
-      projects: projectData.data.projects[0],
-      ourworks: OurWorkData.data,
+      // projects: projectData.data.projects[0],
+      caseStudies: caseStudies.data,
     },
   };
 }

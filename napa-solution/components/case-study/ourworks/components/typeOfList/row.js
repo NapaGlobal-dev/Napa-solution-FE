@@ -2,7 +2,7 @@ import styles from "./row.module.css";
 import clsx from "clsx";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-function Header(props) {
+function Row(props) {
   const { entry } = props;
 
   return (
@@ -16,11 +16,11 @@ function Header(props) {
         />
       </div>
       <div className={styles.wrapTitle}>
-        <h4 className={styles.projectName}>{entry?.key}</h4>
+        <h4 className={styles.projectName}>{entry?.value}</h4>
         {/* <span className={styles.description}>{entry?.value}</span> */}
       </div>
     </div>
   );
 }
 
-export default Header;
+export default Row;

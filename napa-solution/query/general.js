@@ -569,6 +569,7 @@ export const GET_SERVICES_PAGE_DATA = gql`
       name
       nameEN
       url
+      slug
       layouts {
         name
         property {
@@ -682,3 +683,31 @@ export const GET_CEOMESSAGE = gql`
     }
   }
 `;
+
+export const GET_CASESTUDIES = gql`
+  query getCaseStudies {
+    caseStudies: allProperties(where: { name: "CaseStudies" }) {
+      name
+      key
+      value
+      content {
+        name
+        key
+        value
+        image {
+          original: publicUrl
+          thumbnail: publicUrlTransformed(transformation: { width: "64" })
+        }
+      }
+    }
+    keys: allProperties(where: { name: "CaseStudy_Keys" }) {
+      name
+      content {
+        name
+        key
+        value
+      }
+    }
+  }
+`;
+
