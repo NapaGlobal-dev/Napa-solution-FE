@@ -177,7 +177,6 @@ const Header = (props) => {
       >
         <a className="navbar-brand no-default-spacing" href={navbarLogo?.url}>
           <img
-            alt="LOGO"
             src={navbarLogo?.image?.publicUrl}
             className="img-navbar-brand"
           />
