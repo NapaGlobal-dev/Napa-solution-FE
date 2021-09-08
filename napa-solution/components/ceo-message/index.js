@@ -1,5 +1,5 @@
 import { convertArrToObject, getData } from "../../util/converArrayToObject";
-
+import React from "react";
 const Message = (props) => {
   const datas = convertArrToObject(props.data.property);
   const title = Object.values(datas).filter((item) =>
@@ -29,7 +29,14 @@ const Message = (props) => {
           <div className="ceo-message-title">{title.value}</div>
           <div className="ceo-message-subtitle">{subTitle.value}</div>
           <div className="ceo-message-content">
-            {datas["CEOMessage_Message_Content1"]?.value}
+            {datas["CEOMessage_Message_Content1"].value
+              .split("\\n")
+              .map((text) => (
+                <React.Fragment key={text}>
+                  {text}
+                  <br />
+                </React.Fragment>
+              ))}
           </div>
         </div>
       </div>
