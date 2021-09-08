@@ -2,7 +2,7 @@ import Row from "../components/typeOfList/row";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 import styles from "./index.module.css";
-
+import { useRouter } from "next/router";
 // function filterProjectByType(type, index, projects) {
 //   if (!type || !projects) return [];
 
@@ -12,14 +12,14 @@ import styles from "./index.module.css";
 //   );
 // }
 
-function OurWork({data, service}) {
+function OurWork({ data, service }) {
   const [activeTech, setActiveTech] = useState(0);
   const [loadmore, setLoadmore] = useState(6);
-  const [caseStudies, setCaseStudies] = useState([])
-  
+  const [caseStudies, setCaseStudies] = useState([]);
+  const router = useRouter();
   const keys = [
     {
-      value: 'All'
+      value: "All",
     },
     ...data?.keys[0]?.content,
   ]
@@ -27,14 +27,14 @@ function OurWork({data, service}) {
   const title = data?.caseStudies[0]?.key
   const subTitle = data?.caseStudies[0]?.value
 
-  useEffect(()=>{
+  useEffect(() => {
     setCaseStudies(
       data?.caseStudies[0]?.content
         ?.map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value)
-    )
-  },[])
+    );
+  }, []);
 
   // const history = useHistory();
   // console.log(
@@ -42,20 +42,17 @@ function OurWork({data, service}) {
   //   props.data,
   //   filterProjectByType(props.data?.Type, activeTech, props.data?.Projects)
   // );
-  const caseStudyList = (()=>{
-    
-    if(!service){
-      if(!activeTech)
-        return caseStudies
+  const caseStudyList = (() => {
+    if (!service) {
+      if (!activeTech) return caseStudies;
 
       const reg = RegExp(keys[activeTech].key)
       return caseStudies?.filter(cs => reg.test(cs.key))
     }
 
-    const reg = RegExp(service)
-    return caseStudies?.filter(cs => reg.test(cs.key))
-
-  })()
+    const reg = RegExp(service);
+    return caseStudies?.filter((cs) => reg.test(cs.key));
+  })();
 
   const handleActive = (index) => {
     setActiveTech(index);
@@ -63,31 +60,31 @@ function OurWork({data, service}) {
   };
 
   const handleLoadMoreToggle = (e) => {
-    if(e.target.innerHTML=="COLLAPSE")
-      setLoadmore(6);
-    else
-      setLoadmore(loadmore+6);
+    if (e.target.innerHTML == "COLLAPSE") setLoadmore(6);
+    else setLoadmore(loadmore + 6);
   };
 
   return (
     <>
       <div className="container-fluid">
-        <div className="cover">
-          <div className="container-fluid" id="projects-section">
+        <div className={styles.wrapCS}>
+          <div id="projects-section">
             <div className={clsx(styles.wrapText, styles.wrapTextCenter)}>
               <h2
-                className={clsx(styles.title, "wow slideInDown")}
+                className={clsx("wow slideInDown")}
                 data-wow-delay="0.75s"
+                id="main-title"
               >
                 {title}
               </h2>
               <h5
-                className={clsx(styles.subTitle, "wow slideInDown")}
+                className={("wow slideInDown")}
                 data-wow-delay="0.5s"
+                id="sub-title"
               >
                 {subTitle}
               </h5>
-              {!service?
+              {!service ? (
                 <div className={styles.wrapTech}>
                   {keys.map((entry, index) => (
                     <div
@@ -105,9 +102,9 @@ function OurWork({data, service}) {
                     </div>
                   ))}
                 </div>
-                :
+              ) : (
                 <></>
-              }
+              )}
             </div>
             <div
               className={
@@ -127,7 +124,7 @@ function OurWork({data, service}) {
                   entry={entry}
                   key={Date.now() + index}
                   // loading={loadingProject}
-                  // onClick={() => history.push(`/projects/detail/${entry.id}`)}
+                  onClick={() => router.push(`${entry.url}`)}
                 />
               ))}
             </div>
@@ -155,7 +152,7 @@ function OurWork({data, service}) {
                   onClick={handleLoadMoreToggle}
                   className={clsx(styles.h4text)}
                 >
-                  {loadmore>caseStudyList.length ? "COLLAPSE" : "LOAD MORE"}
+                  {loadmore > caseStudyList.length ? "COLLAPSE" : "LOAD MORE"}
                 </h4>
               </div>
             )}

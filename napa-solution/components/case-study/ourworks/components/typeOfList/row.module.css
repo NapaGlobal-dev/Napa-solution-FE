@@ -10,6 +10,7 @@
   position: relative;
   z-index: 2;
   transition: ease-in-out 0.2s;
+  box-shadow: hsl(231deg 39% 49% / 30%) 5px 5px, rgb(63 81 181 / 30%) 10px 10px, rgb(63 81 181 / 20%) 15px 15px;
 }
 
 .root:hover {
@@ -20,9 +21,17 @@
   width: 100%;
 }
 
+.wrapImage {
+  height: 180px;
+  max-height: 180px;
+}
+
 .img {
   width: 100%;
   border-radius: 25px 25px 0 0;
+  object-fit: cover;
+  height: 100%;
+  box-shadow: rgb(14 30 37 / 32%) 0px 2px 16px 0px
 }
 
 .wrapTitle {
@@ -47,11 +56,13 @@
   font-weight: 100;
   line-height: 1.5;
 }
+
 @media (max-width: 1200px) {
   .root {
     width: calc(50% - 30px);
   }
 }
+
 @media only screen and (max-width: 800px) {
   .root {
     width: 100%;
@@ -78,9 +89,11 @@
   0% {
     transform: scale(0);
   }
+
   80% {
     transform: scale(0.8);
   }
+
   100% {
     transform: scale(1);
   }

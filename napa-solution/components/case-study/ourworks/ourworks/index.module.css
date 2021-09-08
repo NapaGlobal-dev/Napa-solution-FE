@@ -1,3 +1,34 @@
+.wrapCS {
+  margin: 100px;
+}
+@-webkit-keyframes ripple-colour {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 #6a43d5, 0 0 0 5px #6a43d5, 0 0 0 10px #6a43d5;
+    box-shadow: 0 0 0 0 #6a43d5, 0 0 0 5px #6a43d5, 0 0 0 10px #6a43d5;
+  }
+
+  100% {
+    -webkit-box-shadow: 0 0 0 10px #6a43d5, 0 0 0 10px #6a43d5,
+      0 0 0 15px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 10px 5#b3a3e0, 0 0 0 10px #6a43d5,
+      0 0 0 15px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes ripple-colour {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 #6a43d5, 0 0 0 5px #6a43d5, 0 0 0 10px #6a43d5;
+    box-shadow: 0 0 0 0 #6a43d5, 0 0 0 5px #6a43d5, 0 0 0 10px #6a43d5;
+  }
+
+  100% {
+    -webkit-box-shadow: 0 0 0 5px #6a43d5, 0 0 0 10px #6a43d5,
+      0 0 0 15px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 10px 5#b3a3e0, 0 0 0 10px #6a43d5,
+      0 0 0 15px rgba(255, 255, 255, 0);
+  }
+}
+
 .wrapOurWorks {
   width: 100%;
   padding: 100px 0;
@@ -26,11 +57,18 @@
   font-size: 18px;
   line-height: 22px;
 }
+
 .svgicon {
   height: 24px;
   cursor: pointer;
   color: #6a43d5;
+  margin-right: 12px;
+  border-radius: 50%;
+  animation: ripple-colour 1.2s linear infinite;
+  -webkit-transition: 0.7s linear;
+  /* transition-timing-function: cubic-bezier(0.84, -0.74, 0, 0.86); */
 }
+
 .subTitle {
   font-size: 26px;
   width: 70%;
@@ -67,13 +105,12 @@
   background-color: #f1f1f1;
 }
 
-.techItem > span {
+.techItem>span {
   line-height: 1;
 }
 
 .techItemActive {
   padding: 12px 32px;
-  border: 1px solid #8c298d;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -83,11 +120,12 @@
   box-shadow: 0px 3px 6px #00000029;
   background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
   background: #ffffff 0% 0% no-repeat padding-box;
+  background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%) !important;
 }
 
-.techItemActive > span {
+.techItemActive>span {
   line-height: 1;
-  color: #8c298d;
+  color: #FFFFFF;
   /* font-weight: bold; */
 }
 
@@ -102,35 +140,44 @@
   flex-wrap: wrap;
   width: 100%;
   /* max-width: 1310px; */
-  margin: 30px auto;
+  margin: 0;
   overflow: auto;
 }
+
 .fixheight {
-  height: 931px;
+  height: auto;
 }
+
 .loadmore {
   height: auto !important;
 }
+
 .wrapText {
   width: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
 }
+
 .wrapText .subTitle {
   text-align: left;
   width: 100%;
 }
+
 .wrapTextCenter {
   align-items: center;
+  margin-bottom: 40px;
 }
+
 .wrapTextCenter .subTitle {
   text-align: center;
 }
+
 .wrapTextCenter h5 strong {
   font-weight: normal;
 }
-@media (max-width: 1800px) {
+
+/* @media (max-width: 1800px) {
   .fixheight {
     height: 880px;
   }
@@ -159,17 +206,19 @@
   .fixheight {
     height: 630px;
   }
-}
+} */
 @media (max-width: 1200px) {
   .wrapOurWorks {
     padding: 48px 0;
     padding: 0 15px;
     width: auto;
   }
+
   .wrapProjectColumn,
   .wrapText {
     width: 100%;
   }
+
   .wrapTech {
     margin: 12px 0;
   }
@@ -182,24 +231,29 @@
     width: 100%;
     text-align: center;
   }
+
   .wrapProjectRow {
     margin: 0 -12px;
     width: auto;
   }
-  .fixheight {
+
+  /* .fixheight {
     height: 1223px;
-  }
+  } */
   .techItem {
     margin-right: 10px;
   }
+
   .techItemActive {
     margin-right: 10px;
   }
+
   .wrapOurWorks {
     padding: 0;
   }
 }
-@media (max-width: 1150px) {
+
+/* @media (max-width: 1150px) {
   .fixheight {
     height: 1180px;
   }
@@ -218,16 +272,18 @@
   .fixheight {
     height: 1842px;
   }
-}
+} */
 @media only screen and (max-width: 800px) {
   .wrapText {
     width: auto;
   }
+
   .wrapTech {
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
   .techItemActive,
   .techItem {
     font-size: 10px;
@@ -237,21 +293,26 @@
     box-shadow: 0px 3px 10px #00000017;
     border: none;
   }
+
   .techItemActive {
     border: 1px solid #8c298d;
   }
+
   .wrapOurWorks {
     padding: 0;
     width: auto;
   }
+
   .subTitle {
     width: 100%;
     font-size: 14px;
   }
+
   .title {
     text-align: center;
     font-size: 20px;
   }
+
   .wrapProjectRow {
     margin: 30px auto;
   }
