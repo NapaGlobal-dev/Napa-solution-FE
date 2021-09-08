@@ -694,6 +694,7 @@ export const GET_CASESTUDIES = gql`
         name
         key
         value
+        url
         image {
           original: publicUrl
           thumbnail: publicUrlTransformed(transformation: { width: "64" })
@@ -710,4 +711,3 @@ export const GET_CASESTUDIES = gql`
     }
   }
 `;
-
