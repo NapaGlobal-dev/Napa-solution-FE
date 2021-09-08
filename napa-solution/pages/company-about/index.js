@@ -1,13 +1,14 @@
 import React from "react";
 import Head from "next/head";
-import { contactQuery, companyAbout, PROJECTS } from "../../query/general";
+import { contactQuery, companyAbout, PROJECTS, GET_CASESTUDIES } from "../../query/general";
+import { OurWorksCpn } from "../../components/case-study/ourworks/index.js";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
 // import ContactBanner from "../../components/company-history/Banner";
 import Banner from "../../components/company-about/banner";
 import WhyNapa from "../../components/company-about/WhyNapa";
-import Message from "../../components/company-about/Message";
-import Project from "../../components/homepage/Project";
+// import Message from "../../components/company-about/Message";
+// import Project from "../../components/homepage/Project";
 import CounterUp from "../../components/company-about/CounterUp";
 const CompanyAbout = ({ projects, ...props }) => {
   const data = convertArrToObject(props.data.page.layouts);
@@ -47,7 +48,8 @@ const CompanyAbout = ({ projects, ...props }) => {
       <WhyNapa data={adata["WhyNapa"]} />
       <CounterUp data={adata.CompanyAbout_Counter} />
       {/* <Message data={adata["Message"]} /> */}
-      <Project data={projects} />
+      {/* <Project data={projects} /> */}
+      <OurWorksCpn center isRow={true} data={props.caseStudies}/>
     </>
   );
 };
@@ -62,12 +64,16 @@ export async function getStaticProps() {
   // ]);
   const pageData = await client.query({ query: contactQuery });
   const aboutData = await client.query({ query: companyAbout });
-  const projectData = await client.query({ query: PROJECTS });
+  // const projectData = await client.query({ query: PROJECTS });
+  const caseStudies = await client.query({
+    query: GET_CASESTUDIES,
+  });
 
   return {
     props: {
       data: { ...pageData.data, adata: aboutData.data },
-      projects: projectData.data.projects[0],
+      // projects: projectData.data.projects[0],
+      caseStudies: caseStudies.data,
     },
   };
 }

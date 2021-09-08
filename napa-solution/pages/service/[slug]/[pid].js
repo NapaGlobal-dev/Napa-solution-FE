@@ -1,15 +1,17 @@
 import React from "react";
 import Head from "next/head";
 import Banner from "../../../components/case-study/banner";
-import Project from "../../../components/homepage/Project";
+// import Project from "../../../components/homepage/Project";
 import Service from "../../../components/case-study/service";
 import { convertArrToObjectBySpecialName } from "../../../util/converArrayToObject";
 import { client } from "../../../apolo-client";
+import { OurWorksCpn } from "../../../components/case-study/ourworks/index.js";
 import {
   GET_CASESTUDY_PAGE,
   GET_SERVICES_PAGE_DATA,
   GET_SERVICE_URL,
   PROJECTS,
+  GET_CASESTUDIES,
 } from "../../../query/general";
 
 const Services = ({ projects, ...props }) => {
@@ -43,7 +45,8 @@ const Services = ({ projects, ...props }) => {
       </Head>
       <Banner banner={banner} />
       <Service data={props.data?.page[0].childrenPage[0].layouts[1].property} />
-      <Project data={projects} />
+      {/* <Project data={projects} /> */}
+      <OurWorksCpn center isRow={true} data={props.caseStudies} service={props.data?.page[0]?.slug} />
     </>
   );
 };
@@ -62,11 +65,15 @@ export async function getStaticProps({ params }) {
     query: GET_CASESTUDY_PAGE,
     variables: { slug: slug, pid: pid },
   });
-  const projectData = await client.query({ query: PROJECTS });
+  const caseStudies = await client.query({
+    query: GET_CASESTUDIES,
+  });
+  // const projectData = await client.query({ query: PROJECTS });
   return {
     props: {
       data: pageData.data,
-      projects: projectData.data.projects[0],
+      // projects: projectData.data.projects[0],
+      caseStudies: caseStudies.data,
     },
   };
 }

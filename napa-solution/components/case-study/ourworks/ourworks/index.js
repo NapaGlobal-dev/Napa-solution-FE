@@ -2,7 +2,7 @@ import Row from "../components/typeOfList/row";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 import styles from "./index.module.css";
-
+import { useRouter } from "next/router";
 // function filterProjectByType(type, index, projects) {
 //   if (!type || !projects) return [];
 
@@ -16,20 +16,20 @@ function OurWork({ data, service }) {
   const [activeTech, setActiveTech] = useState(0);
   const [loadmore, setLoadmore] = useState(6);
   const [caseStudies, setCaseStudies] = useState([]);
-
+  const router = useRouter();
   const keys = [
     {
       value: "All",
     },
-    ...data.keys[0]?.content,
-  ];
+    ...data?.keys[0]?.content,
+  ]
 
-  const title = data.caseStudies[0]?.key;
-  const subTitle = data.caseStudies[0]?.value;
+  const title = data?.caseStudies[0]?.key
+  const subTitle = data?.caseStudies[0]?.value
 
   useEffect(() => {
     setCaseStudies(
-      data.caseStudies[0]?.content
+      data?.caseStudies[0]?.content
         ?.map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value)
@@ -46,19 +46,14 @@ function OurWork({ data, service }) {
     if (!service) {
       if (!activeTech) return caseStudies;
 
-      const reg = RegExp(keys[activeTech].key);
-      console.log(
-        keys[activeTech],
-        caseStudies?.filter((cs) => reg.test(cs.key))
-      );
-      return caseStudies?.filter((cs) => reg.test(cs.key));
+      const reg = RegExp(keys[activeTech].key)
+      return caseStudies?.filter(cs => reg.test(cs.key))
     }
 
     const reg = RegExp(service);
     return caseStudies?.filter((cs) => reg.test(cs.key));
   })();
 
-  console.log(caseStudies);
   const handleActive = (index) => {
     setActiveTech(index);
     setLoadmore(6);
@@ -129,7 +124,7 @@ function OurWork({ data, service }) {
                   entry={entry}
                   key={Date.now() + index}
                   // loading={loadingProject}
-                  // onClick={() => history.push(`/projects/detail/${entry.id}`)}
+                  onClick={() => router.push(`${entry.url}`)}
                 />
               ))}
             </div>
