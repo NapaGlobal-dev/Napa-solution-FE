@@ -17,13 +17,12 @@ function OurWork({ data, service }) {
   const [loadmore, setLoadmore] = useState(6);
   const [caseStudies, setCaseStudies] = useState([]);
   const router = useRouter();
-  const keys = [
+  const arrKeys = [
     {
       value: "All",
     },
-    data?.keys[0]?.content && data?.keys[0]?.content.slice(0,-1),
   ];
-  
+  const keys = arrKeys.concat(data?.keys[0]?.content && data?.keys[0]?.content.slice())
   const title = data?.caseStudies[0]?.key;
   const subTitle = data?.caseStudies[0]?.value;
 
