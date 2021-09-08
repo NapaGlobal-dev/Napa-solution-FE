@@ -1,12 +1,13 @@
 import React from "react";
 import Head from "next/head";
-import { contactQuery, HomePage } from "../../query/general";
+import { contactQuery, HomePage, GET_CASESTUDIES } from "../../query/general";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import ContactForm from "../../components/contact/ContactForm";
-import Project from "../../components/homepage/Project/index";
+// import Project from "../../components/homepage/Project/index";
 import Banner from "../../components/contact/banner";
-import { getData } from "../../util/converArrayToObject";
+// import { getData } from "../../util/converArrayToObject";
+import { OurWorksCpn } from "../../components/case-study/ourworks/index.js";
 
 const ContactPage = (props) => {
   const data = convertArrToObject(props.data.page.layouts);
@@ -35,19 +36,26 @@ const ContactPage = (props) => {
       </Head>
       <Banner data={data.ContactBanner} />
       <ContactForm data={data.ContactForm} />
-      <div className="container-fluid content-wrapper no-default-spacing">
+      {/* <div className="container-fluid content-wrapper no-default-spacing">
         <Project data={getData(props.data, /Slides_Section/)[0]} />
-      </div>
+      </div> */}
+      <OurWorksCpn center isRow={true} data={props.caseStudies}/>
     </>
   );
 };
 
 export async function getStaticProps() {
   const { data } = await client.query({ query: contactQuery });
-  const { data: dataHome } = await client.query({ query: HomePage });
+  // const { data: dataHome } = await client.query({ query: HomePage });
+  const caseStudies = await client.query({
+    query: GET_CASESTUDIES,
+  });
 
   return {
-    props: { data: { ...data, dataHome: dataHome.page.layouts } },
+    props: {
+      data,
+      caseStudies: caseStudies.data,
+    },
   };
 }
 

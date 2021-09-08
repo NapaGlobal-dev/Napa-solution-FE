@@ -21,15 +21,15 @@ function OurWork({ data, service }) {
     {
       value: "All",
     },
-    ...data.keys[0]?.content,
+    ...data?.keys[0]?.content,
   ];
 
-  const title = data.caseStudies[0]?.key;
-  const subTitle = data.caseStudies[0]?.value;
+  const title = data?.caseStudies[0]?.key;
+  const subTitle = data?.caseStudies[0]?.value;
 
   useEffect(() => {
     setCaseStudies(
-      data.caseStudies[0]?.content
+      data?.caseStudies[0]?.content
         ?.map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value)
@@ -47,10 +47,6 @@ function OurWork({ data, service }) {
       if (!activeTech) return caseStudies;
 
       const reg = RegExp(keys[activeTech].key);
-      console.log(
-        keys[activeTech],
-        caseStudies?.filter((cs) => reg.test(cs.key))
-      );
       return caseStudies?.filter((cs) => reg.test(cs.key));
     }
 
@@ -58,7 +54,6 @@ function OurWork({ data, service }) {
     return caseStudies?.filter((cs) => reg.test(cs.key));
   })();
 
-  console.log(caseStudies);
   const handleActive = (index) => {
     setActiveTech(index);
     setLoadmore(6);
@@ -72,18 +67,20 @@ function OurWork({ data, service }) {
   return (
     <>
       <div className="container-fluid">
-        <div className="cover">
-          <div className="container-fluid" id="projects-section">
+        <div className={styles.wrapCS}>
+          <div id="projects-section">
             <div className={clsx(styles.wrapText, styles.wrapTextCenter)}>
               <h2
-                className={clsx(styles.title, "wow slideInDown")}
+                className={clsx("wow slideInDown")}
                 data-wow-delay="0.75s"
+                id="main-title"
               >
                 {title}
               </h2>
               <h5
-                className={clsx(styles.subTitle, "wow slideInDown")}
+                className={"wow slideInDown"}
                 data-wow-delay="0.5s"
+                id="sub-title"
               >
                 {subTitle}
               </h5>

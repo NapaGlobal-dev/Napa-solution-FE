@@ -6,7 +6,7 @@ function Row(props) {
   const { entry, onClick } = props;
 
   return (
-    <div className={clsx(styles.root, styles.bounce)} onClick={onClick}>
+    <div className={clsx(styles.root, styles.bounce, styles.shine)} onClick={onClick}>
       <div className={styles.wrapImage}>
         {/* <img alt='pic-project' src={!loading ? entry?.imageDetail?.original : undefined} className={styles.img} /> */}
         <LazyLoadImage
