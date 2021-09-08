@@ -7,6 +7,7 @@
   background-repeat: no-repeat;
   min-height: 45vw;
   margin-bottom: 5%;
+  height: 100vh;
 }
 
 .ceo-image-part {
@@ -18,7 +19,7 @@
 }
 
 .ceo-picture {
-  width: 100%;
+  width: 110%;
 }
 
 .ceo-message-part {
@@ -28,26 +29,28 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 3% 3%;
+  padding: 150px 50px 150px 0;
 }
 
 .ceo-message-title {
-  font-size: 3vw;
+  font-size: 30px;
   font-weight: bold;
   padding-bottom: 0px;
   text-align: center;
   color: #2f3f4e;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 .ceo-message-subtitle {
-  font-size: 2vw;
-  padding-bottom: 20px;
-  color: #9e9e9e;
+  font-size: 26px;
+  padding-bottom: 30px;
 }
 
 .ceo-message-content {
-  font-size: 1vw;
-  line-height: 2.2vw;
+  font-size: 16px;
+  line-height: 1.8;
+  font-family: 'New Tegomin', serif;
 }
 
 .ceo-cover p {
@@ -131,6 +134,15 @@
   .ceo-box-image {
     width: 100%;
   }
+  .ceo-picture{
+    width: 100%;
+  }
+  .ceo-container{
+    height: auto;
+  }
+  .ceo-message-part{
+    padding: 80px 24px !important;
+  }
   .ceo-row {
     flex-direction: column;
   }
@@ -149,26 +161,22 @@
     flex-direction: column-reverse;
   }
 
-  .ceo-image-part {
-  }
-
   .ceo-message-part,
   .ceo-image-part {
     flex-basis: 100%;
     width: 100%;
-    padding-top: 8%;
   }
 
   .ceo-message-title {
-    font-size: 6vw;
+    font-size: 20px;
   }
   .ceo-message-content {
-    font-size: 3vw;
+    font-size: 14px;
     line-height: 5.2vw;
   }
 
   .ceo-message-subtitle {
-    font-size: 4vw;
+    font-size: 16px;
   }
 }
 

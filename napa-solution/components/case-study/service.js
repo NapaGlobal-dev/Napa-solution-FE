@@ -20,7 +20,7 @@ export default function Service(props) {
       <Head>
         <link key="/css/banner.css" rel="stylesheet" href="/css/banner.css" />
       </Head>
-      <div className="wrap-case sl-container">
+      <div className="wrap-case">
         {data?.map((item, index) =>
           index % 2 == 0 ? (
             <div className="case-layout" key={index}>
@@ -58,7 +58,7 @@ export default function Service(props) {
                 <div className="case-program">
                   {item.content &&
                     getList(item.content, "ImgProgram")?.map((e, ind) => (
-                      <div key={ind + "b"}>
+                      <div className="tech-name" key={ind + "b"}>
                         <img src={e?.image.original} />
                         <p> {e?.value}</p>
                       </div>
