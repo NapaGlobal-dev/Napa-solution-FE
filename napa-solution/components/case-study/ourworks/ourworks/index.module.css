@@ -1,3 +1,31 @@
+@-webkit-keyframes ripple-colour {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 #6a43d5, 0 0 0 5px #6a43d5, 0 0 0 10px #6a43d5;
+    box-shadow: 0 0 0 0 #6a43d5, 0 0 0 5px #6a43d5, 0 0 0 10px #6a43d5;
+  }
+
+  100% {
+    -webkit-box-shadow: 0 0 0 10px #6a43d5, 0 0 0 10px #6a43d5,
+      0 0 0 15px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 10px 5#b3a3e0, 0 0 0 10px #6a43d5,
+      0 0 0 15px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes ripple-colour {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 #6a43d5, 0 0 0 5px #6a43d5, 0 0 0 10px #6a43d5;
+    box-shadow: 0 0 0 0 #6a43d5, 0 0 0 5px #6a43d5, 0 0 0 10px #6a43d5;
+  }
+
+  100% {
+    -webkit-box-shadow: 0 0 0 5px #6a43d5, 0 0 0 10px #6a43d5,
+      0 0 0 15px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 10px 5#b3a3e0, 0 0 0 10px #6a43d5,
+      0 0 0 15px rgba(255, 255, 255, 0);
+  }
+}
+
 .wrapOurWorks {
   width: 100%;
   padding: 100px 0;
@@ -30,6 +58,11 @@
   height: 24px;
   cursor: pointer;
   color: #6a43d5;
+  margin-right: 12px;
+  border-radius: 50%;
+  animation: ripple-colour 1.2s linear infinite;
+  -webkit-transition: 0.7s linear;
+  /* transition-timing-function: cubic-bezier(0.84, -0.74, 0, 0.86); */
 }
 .subTitle {
   font-size: 26px;
