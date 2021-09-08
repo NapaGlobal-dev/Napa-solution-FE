@@ -4,6 +4,15 @@
   margin: 0px;
   padding: 0px;
 }
+::-webkit-scrollbar {
+  width: 7px;
+  
+  /* background: lightgray; */
+}
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 5px;
+}
 
 html {
   scroll-behavior: smooth;
@@ -244,7 +253,7 @@ html {
   content: "";
   border-bottom: 2px solid #fff;
   position: absolute;
-  width: 56%;
+  width: 70%;
   bottom: 0px;
   left: 0px;
   transform: translateY(-26px);
