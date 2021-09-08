@@ -109,7 +109,10 @@ const Header = (props) => {
   useEffect(() => {
     window.addEventListener("scroll", scrollEvent, true);
 
-    if (router.pathname.includes("company"))
+    if (
+      router.pathname.includes("company") ||
+      router.pathname.includes("ceo-message")
+    )
       document.getElementById("navbar")?.classList.add("dark-nav-force");
 
     const cleanupSwipeEvent = registerSwipeEvent(({ direction }) => {
