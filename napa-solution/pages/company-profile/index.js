@@ -7,10 +7,12 @@ import {
   contactQuery,
   GET_COMPANYPROFILE,
   PROJECTS,
+  GET_CASESTUDIES
 } from "../../query/general";
 import { convertArrToObject, getData } from "../../util/converArrayToObject";
 import Profile from "../../components/companyProfile/profile";
-import Project from "../../components/homepage/Project";
+// import Project from "../../components/homepage/Project";
+import { OurWorksCpn } from "../../components/case-study/ourworks/index.js";
 
 const CompanyProfilePage = ({ projects, ...props }) => {
   const data = convertArrToObject(props.data.page.layouts);
@@ -38,7 +40,8 @@ const CompanyProfilePage = ({ projects, ...props }) => {
       <Banner data={data.CompanyProfile_Banner} />
       <Profile data={data.CompanyProfile_Corporate} />
       <Message data={data.CompanyProfile_Message} />
-      <Project data={projects} />
+      {/* <Project data={projects} /> */}
+      <OurWorksCpn center isRow={true} data={props.caseStudies}/>
     </>
   );
 };
@@ -52,11 +55,16 @@ export async function getStaticProps() {
   //   client.query({ query: PROJECTS }),
   // ]);
   const pageData = await client.query({ query: GET_COMPANYPROFILE });
-  const projectData = await client.query({ query: PROJECTS });
+  // const projectData = await client.query({ query: PROJECTS });
+  const caseStudies = await client.query({
+    query: GET_CASESTUDIES,
+  });
+
   return {
     props: {
       data: pageData.data,
-      projects: projectData.data.projects[0],
+      // projects: projectData.data.projects[0],
+      caseStudies: caseStudies.data,
     },
   };
 }
