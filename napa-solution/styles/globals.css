@@ -40,6 +40,14 @@ body.dark-mode #wrap-contact {
   background-color: #231846;
 }
 
+body.dark-mode #ceo-message-darkmode div {
+  color: #2c3e50 !important;
+}
+
+body.dark-mode #casetudy-select div {
+  color: #2c3e50 !important;
+}
+
 body.dark-mode #right-contact input:focus,textarea:focus{
   border-bottom: 2px solid #DEDEE2;
 }
