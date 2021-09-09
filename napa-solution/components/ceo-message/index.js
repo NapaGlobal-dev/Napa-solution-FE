@@ -15,11 +15,10 @@ const Message = (props) => {
     <>
       <div
         className="ceo-container"
-        style={{
-          backgroundImage: `url(${datas["CEOMessage_Message_Background"]?.image.original})`,
-        }}
       >
-        <div className="ceo-image-part">
+        <div className="ceo-image-part" style={{
+          backgroundImage: `url(${datas["CEOMessage_Message_Background"]?.image.original})`,
+        }}>
           <img
             className="ceo-picture"
             src={datas["CEOMessage_Message_CEO"]?.image.original}
