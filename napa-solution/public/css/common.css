@@ -911,6 +911,11 @@ html {
   display: block;
 }
 
+.title-company {
+  padding-left: 0px;
+  color: #2c3e50 !important;
+}
+
 @media (min-width: 1920px) {
   #carousel {
     height: 650px;
@@ -962,9 +967,6 @@ html {
     padding-top: 16px;
   }
 
-  .section-title-company {
-    padding-left: 0px;
-  }
 
   .section-title-cn-company {
     padding-left: 0px;
@@ -1722,10 +1724,6 @@ html {
     height: 100%;
     margin: 25px 12px 50px 20px;
     padding: 0;
-  }
-
-  .section-title-company {
-    padding-left: 0px;
   }
 
   .section-title-cn-company {

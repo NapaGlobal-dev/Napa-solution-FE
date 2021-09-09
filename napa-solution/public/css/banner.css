@@ -230,6 +230,7 @@
 
   .banner-page.new-version .main-title {
     position: static;
+    font-size: 35px;
   }
 
   .banner-page.new-version .sub-menu {
@@ -299,6 +300,12 @@
 @media (max-width: 1290px) {
   .wrap-banner {
     padding: 80px 120px;
+  }
+  .case-layout.left .case-img {
+    margin-left: 60px !important;
+  }
+  .case-item{
+    min-width: 0px !important;
   }
 }
 
