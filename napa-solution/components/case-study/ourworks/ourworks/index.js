@@ -84,7 +84,7 @@ function OurWork({ data, service }) {
                 {subTitle}
               </h5>
               {!service ? (
-                <div className={styles.wrapTech}>
+                <div className={styles.wrapTech} id="casetudy-select">
                   {keys.map((entry, index) => (
                     <div
                       key={index}
