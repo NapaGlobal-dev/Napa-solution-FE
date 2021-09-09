@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import Head from "next/head";
 
-const Loader = () => {
+const Loader = ({distance}) => {
   useEffect(() => {
+    let time = 3000
+    if(distance)
+      time = distance
     setTimeout(function () {
       document.getElementById("loader-loading-page").className +=
         " loader-loaded ";
@@ -10,7 +13,7 @@ const Loader = () => {
       document.getElementById("loader-lastray").className +=
         " loader-finalray ";
       document.body.className += " loader-whitebk ";
-    }, 3000);
+    }, time);
   }, []);
   return (
     <>
