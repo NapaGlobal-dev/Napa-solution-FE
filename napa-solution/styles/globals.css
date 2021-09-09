@@ -9,6 +9,10 @@ html {
   scroll-behavior: smooth;
 }
 
+a{
+  display: block;
+}
+
 body.light-mode {
   font-family: 'Hina Mincho', serif;
   /* body: "#FFF"; */
