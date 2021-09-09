@@ -46,18 +46,11 @@ const Layout = ({ footerData, children, ...props }) => {
 
   return (
     <>
-      {/* <Header isLoading={loading} />
-      <div>{children}</div>
-      <ScrollToTop />
-      <Footer data={footerData} isLoading={loading} /> */}
       <Header isLoading={loading} />
-
-      <ScrollToTop />
+      <div>{children}</div>
       {loading && <Loader distance={20000}/>}
-
-      {React.cloneElement(children, {
-        footer: <Footer data={footerData} isLoading={loading} />,
-      })}
+      <ScrollToTop />
+      <Footer data={footerData} isLoading={loading} />
     </>
   );
 };

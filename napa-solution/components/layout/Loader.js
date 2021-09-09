@@ -7,6 +7,9 @@ const Loader = ({distance}) => {
     if(distance)
       time = distance
     setTimeout(function () {
+      if(distance)
+        return
+
       document.getElementById("loader-loading-page").className +=
         " loader-loaded ";
       document.getElementById("loader-loader").className += " loader-opzero ";
