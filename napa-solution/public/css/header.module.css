@@ -578,24 +578,6 @@
     opacity: 0;
     visibility: hidden;
   }
-/* 
-  .check::after {
-    content: "";
-    position: absolute;
-    top: 5px;
-    right: 5px;
-
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    transition: 0.2s;
-    transform: translateX(50px);
-  }
-
-  #checkbox-dark-mode:checked ~ .check::after {
-    transform: translateX(0px);
-  } */
 }
 
 @media (width: 1024px) {
@@ -742,7 +724,7 @@
   height: 100%;
 
   opacity: 1;
-  /* visibility: hidden; */
+  visibility: hidden;
 
   background-color: #7c57e2;
   z-index: -1;
@@ -751,7 +733,7 @@
   -webkit-clip-path: circle(0% at 100% 0);
 
   transition: clip-path 0.3s ease-in, -webkit-clip-path 0.3s ease-in,
-    z-index 0.9s;
+    z-index 0.9s, visibility 0.9s;
 }
 
 .po-popcover a {
@@ -759,7 +741,7 @@
 }
 
 .po-popcover-open {
-  /* visibility: visible; */
+  visibility: visible;
   opacity: 1;
   clip-path: circle(160% at 100% 0);
   -webkit-clip-path: circle(160% at 100% 0);
