@@ -2,7 +2,7 @@ import Row from "../components/typeOfList/row";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 import styles from "./index.module.css";
-import { useRouter } from "next/router";
+import router, { useRouter } from "next/router";
 // function filterProjectByType(type, index, projects) {
 //   if (!type || !projects) return [];
 
@@ -123,8 +123,8 @@ function OurWork({ data, service }) {
                   entry={entry}
                   key={entry.name}
                   // loading={loadingProject}
-                  onClick={() => router.push(`${entry.url}`)}
-                />
+                  // onClick={() => router.push(`${entry.url}`)}
+                  />
               ))}
             </div>
             {caseStudyList?.length > 6 && (

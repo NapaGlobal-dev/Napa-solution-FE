@@ -17,6 +17,10 @@
 
 }
 
+.root a{
+  color: #2c3e50
+}
+
 .wrapImage span {
   width: 100%;
 }
