@@ -25,7 +25,7 @@ const Message = (props) => {
             src={datas["CEOMessage_Message_CEO"]?.image.original}
           />
         </div>
-        <div className="ceo-message-part">
+        <div className="ceo-message-part" id="ceo-message-darkmode">
           <div className="ceo-message-title">{title.value}</div>
           <div className="ceo-message-subtitle">{subTitle.value}</div>
           <div className="ceo-message-content">

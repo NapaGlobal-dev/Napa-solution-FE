@@ -457,6 +457,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   .case-img {
@@ -480,6 +481,10 @@
 
   .case-layout.left .case-img img {
     left: 0px;
+  }
+
+  .case-content{
+    width: 100%;
   }
 
   .service-name {
@@ -507,5 +512,9 @@
     width: 60px;
     margin-right: 50px;
     max-height: 45px;
+  }
+
+  .case-program {
+    width: 100%;
   }
 }

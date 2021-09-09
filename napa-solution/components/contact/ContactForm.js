@@ -168,7 +168,7 @@ const ContactForm = (props) => {
           </a>
           <div id="down-up">
             {data["Contact_Location_JP"]?.value}
-            <a href={data?.Footer_MapBtn_EN?.url} target="_blank">
+            <a href={data?.Footer_MapBtn_JP?.url} target="_blank">
               <svg version="1.1" x="0px" y="0px" viewBox="0 0 512 512">
                 <path
                   fill="currentColor"
