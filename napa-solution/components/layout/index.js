@@ -23,7 +23,9 @@ const Layout = ({ footerData, children, ...props }) => {
       document.body.style.overflow = "hidden";
       demoAsyncCall().then(() => handleLoading());
     } else {
-      setLoading(false);
+      window.addEventListener('load', ()=>{
+        setLoading(false)
+      })
     }
   }, []);
 
@@ -44,10 +46,18 @@ const Layout = ({ footerData, children, ...props }) => {
 
   return (
     <>
-      <Header isLoading={loading} />
+      {/* <Header isLoading={loading} />
       <div>{children}</div>
       <ScrollToTop />
-      <Footer data={footerData} isLoading={loading} />
+      <Footer data={footerData} isLoading={loading} /> */}
+      <Header isLoading={loading} />
+
+      <ScrollToTop />
+      {loading && <Loader distance={20000}/>}
+
+      {React.cloneElement(children, {
+        footer: <Footer data={footerData} isLoading={loading} />,
+      })}
     </>
   );
 };
