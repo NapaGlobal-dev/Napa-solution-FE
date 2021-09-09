@@ -7,7 +7,8 @@
   background-repeat: no-repeat;
   min-height: 45vw;
   margin-bottom: 5%;
-  height: 100vh;
+  height: auto;
+  margin-top: 100px;
 }
 
 .ceo-image-part {
@@ -16,10 +17,12 @@
   display: flex;
   justify-content: start;
   align-items: flex-end;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .ceo-picture {
-  width: 110%;
+  width: 100%;
 }
 
 .ceo-message-part {
@@ -29,7 +32,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 150px 50px 150px 0;
+  padding-right: 20px;
 }
 
 .ceo-message-title {
@@ -50,7 +53,6 @@
 .ceo-message-content {
   font-size: 16px;
   line-height: 1.8;
-  font-family: 'New Tegomin', serif;
 }
 
 .ceo-cover p {
@@ -165,6 +167,7 @@
   .ceo-image-part {
     flex-basis: 100%;
     width: 100%;
+    background: none;
   }
 
   .ceo-message-title {
