@@ -15,7 +15,7 @@
 }
 
 .subtitle1 {
-  color: #7c57e2
+  color: #7c57e2;
 }
 
 .phoneNum {
@@ -50,7 +50,7 @@
   margin-top: 40px;
 }
 
-.left-contact>div {
+.left-contact > div {
   margin-top: 60px;
   margin-bottom: 25px;
   display: flex;
@@ -61,7 +61,7 @@
   font-weight: bold;
 }
 
-.left-contact>div>a {
+.left-contact > div > a {
   display: none;
 }
 
@@ -82,7 +82,7 @@
   margin-top: 40px;
 }
 
-.right-contact>form>input {
+.right-contact > form > input {
   border: none;
   border-bottom: solid 1px #12144a;
   padding: 10px;
@@ -103,7 +103,7 @@
 }
 
 .right-contact label {
-  color: #F13A3A !important;
+  color: #f13a3a !important;
   font-size: 10px;
 }
 
@@ -118,7 +118,7 @@ textarea:focus {
   align-items: center;
 }
 
-.phone-contact>input {
+.phone-contact > input {
   border: none;
   border-bottom: solid 1px #12144a;
   padding: 10px;
@@ -139,19 +139,19 @@ textarea:focus {
   align-items: center;
 }
 
-.checkbox-form>input {
+.checkbox-form > input {
   margin-bottom: 0px;
   margin-right: 10px;
   width: 1.4rem;
   height: 1.4rem;
 }
 
-.checkbox-form>a {
+.checkbox-form > a {
   display: flex;
   position: relative;
 }
 
-.checkbox-form>a::after {
+.checkbox-form > a::after {
   content: "";
   width: 100%;
   height: 1px;
@@ -185,10 +185,14 @@ textarea:focus {
 }
 
 .error {
-  color: #F13A3A;
-  border-bottom-color: #F13A3A !important;
+  color: #f13a3a;
+  border-bottom-color: #f13a3a !important;
 }
-
+@media (max-width: 1024px) {
+  .container-contact {
+    padding: 40px 50px;
+  }
+}
 @media (max-width: 960px) {
   .subtitle-contact {
     max-width: 100%;
@@ -237,16 +241,16 @@ textarea:focus {
     text-align: center;
   }
 
-  .left-contact>a {
+  .left-contact > a {
     display: none;
   }
 
-  .left-contact>div>a {
+  .left-contact > div > a {
     display: block;
     margin-left: 5px;
   }
 
-  .left-contact>div {
+  .left-contact > div {
     padding: 5px 10px;
   }
 
@@ -255,7 +259,7 @@ textarea:focus {
     justify-content: center;
   }
 
-  .footer-form>div {
+  .footer-form > div {
     margin-bottom: 40px;
   }
 
