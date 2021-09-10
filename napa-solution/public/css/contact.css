@@ -89,6 +89,8 @@
   width: 100%;
   background: transparent;
   color: inherit;
+  appearance: none;
+  resize: none;
 }
 
 .right-contact textarea {
@@ -100,6 +102,8 @@
   border-bottom: solid 1px #12144a;
   background: transparent;
   color: inherit;
+  appearance: none;
+  resize: none;
 }
 
 .right-contact label {
@@ -125,6 +129,8 @@ textarea:focus {
   width: 70px;
   background: transparent;
   color: inherit;
+  appearance: none;
+  resize: none;
 }
 
 .footer-form {
@@ -144,6 +150,8 @@ textarea:focus {
   margin-right: 10px;
   width: 1.4rem;
   height: 1.4rem;
+  appearance: none;
+  resize: none;
 }
 
 .checkbox-form>a {
@@ -261,5 +269,9 @@ textarea:focus {
 
   .button-contact {
     width: 60%;
+  }
+  input[type="text"]:focus, input[type="input"]:focus,
+  textarea:focus, select:focus {
+  font-size: 16px;
   }
 }

@@ -23,9 +23,9 @@ const Layout = ({ footerData, children, ...props }) => {
       document.body.style.overflow = "hidden";
       demoAsyncCall().then(() => handleLoading());
     } else {
-      window.addEventListener('load', ()=>{
+      // window.addEventListener('load', ()=>{
         setLoading(false)
-      })
+      // })
     }
   }, []);
 
