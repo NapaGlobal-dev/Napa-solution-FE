@@ -11,12 +11,12 @@ html {
   scroll-behavior: smooth;
 }
 
-a{
+a {
   display: block;
 }
 
 body.light-mode {
-  font-family: 'Hina Mincho', serif;
+  font-family: "Hina Mincho", serif;
   /* body: "#FFF"; */
   color: #2c3e50;
   /* toggleBorder: "#FFF"; */
@@ -54,13 +54,14 @@ body.dark-mode #casetudy-select div {
   color: #2c3e50 !important;
 }
 
-body.dark-mode #right-contact input:focus,textarea:focus{
-  border-bottom: 2px solid #DEDEE2;
+body.dark-mode #right-contact input:focus,
+textarea:focus {
+  border-bottom: 2px solid #dedee2;
 }
-body.dark-mode #right-contact input,body.dark-mode #right-contact textarea{
-  border-bottom: 1px solid #DEDEE2;
+body.dark-mode #right-contact input,
+body.dark-mode #right-contact textarea {
+  border-bottom: 1px solid #dedee2;
 }
-
 
 .btn-dark-mode {
   position: fixed;
@@ -73,10 +74,12 @@ body.dark-mode #right-contact input,body.dark-mode #right-contact textarea{
 .wrap-table-content {
   padding: 0 100px 0px 200px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
+.center {
+  align-items: center;
+}
 .wrap-table-content > table:first-child {
   /* margin-bottom: 28px; */
   margin-right: 20px;
@@ -185,7 +188,7 @@ a:hover {
 
 .table-style {
   border: 2px solid #6f5bca;
-  height: 550px;
+  /* height: 550px; */
 }
 
 .table-style > thead > th:first-child {
@@ -194,10 +197,14 @@ a:hover {
   /* width: 200px; */
   text-align: center;
   border: 1px solid #442493;
-
 }
 .table-style > tbody > th {
   width: 199px;
+}
+@media (width: 1024px) {
+  .wrap-table-content {
+    padding: 0 50px 0px 150px;
+  }
 }
 @media (max-width: 1023px) {
   .wrap-table-content {
@@ -210,7 +217,8 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-  .table td, .table th {
+  .table td,
+  .table th {
     font-size: 14px;
   }
   #detail-btn-company {

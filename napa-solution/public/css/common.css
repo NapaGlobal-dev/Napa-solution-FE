@@ -6,7 +6,7 @@
 }
 ::-webkit-scrollbar {
   width: 7px;
-  
+
   /* background: lightgray; */
 }
 ::-webkit-scrollbar-thumb {
@@ -966,7 +966,6 @@ html {
     padding-bottom: 41px;
     padding-top: 16px;
   }
-
 
   .section-title-cn-company {
     padding-left: 0px;
@@ -2096,13 +2095,13 @@ button:focus {
   position: relative;
 }
 
-.cover > svg {
+/* .cover > svg {
   position: absolute;
   top: 0;
   left: 20px;
   transform: translate(-90px, -20%);
   width: 50px;
-}
+} */
 
 .cover > p {
   text-align: left;
@@ -2358,7 +2357,15 @@ button:focus {
   color: #9e9e9e;
   opacity: 1;
 }
-
+@media (width: 1024px) {
+  .cover {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: 100px 50px 40px 150px;
+    position: relative;
+  }
+}
 @media (max-width: 1023px) {
   .cover > svg {
     display: none;

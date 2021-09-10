@@ -202,6 +202,9 @@
     width: 120px;
     height: 120px;
   }
+  .cover {
+    margin: 50px 0px 70px;
+  }
 }
 
 @media (max-width: 768px) {

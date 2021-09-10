@@ -19,10 +19,13 @@
   align-items: flex-end;
   background-size: contain;
   background-repeat: no-repeat;
+
+  position: relative;
 }
 
 .ceo-picture {
   width: 100%;
+  position: absolute;
 }
 
 .ceo-message-part {
@@ -136,13 +139,13 @@
   .ceo-box-image {
     width: 100%;
   }
-  .ceo-picture{
+  .ceo-picture {
     width: 100%;
   }
-  .ceo-container{
+  .ceo-container {
     height: auto;
   }
-  .ceo-message-part{
+  .ceo-message-part {
     padding: 80px 24px !important;
   }
   .ceo-row {

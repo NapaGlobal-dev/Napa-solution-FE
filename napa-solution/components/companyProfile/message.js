@@ -20,7 +20,7 @@ const Message = (props) => {
         <h3>{data["CompanyProfile_Message_Label"].value}</h3>
         <p>{data["CompanyProfile_Message_Description"].value}</p>
       </div>
-      <div className="wrap-table-content">
+      <div className="wrap-table-content center">
         <div className="wrap-detail">
           <div className="wrap-message" id="down-up">
             <div className="message-content">
@@ -35,16 +35,18 @@ const Message = (props) => {
             </div>
           </div>
         </div>
-        <div className = "wrapped-image" id= "down-up">
-            <LazyLoadImage
-              effect="blur"
-              src={data["CompanyProfile_Message_Img"]?.image?.original}
-              placeholderSrc={data["CompanyProfile_Message_Img"]?.image?.thumbnail}
-              threshold={100}
-              width="100%"
-              height='100%'
-              className = "image-detail"
-            />
+        <div className="wrapped-image" id="down-up">
+          <LazyLoadImage
+            effect="blur"
+            src={data["CompanyProfile_Message_Img"]?.image?.original}
+            placeholderSrc={
+              data["CompanyProfile_Message_Img"]?.image?.thumbnail
+            }
+            threshold={100}
+            width="100%"
+            height="100%"
+            className="image-detail"
+          />
         </div>
       </div>
     </div>
