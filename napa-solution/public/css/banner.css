@@ -306,6 +306,21 @@
   }
   .case-item{
     min-width: 0px !important;
+    max-width: 28% !important;
+  }
+  .main-title{
+    font-size: 35px !important;
+  }
+}
+
+@media (max-width:768px) {
+  .case-item{
+    min-width: 0px !important;
+    max-width: 40% !important;
+  }
+  .case-name{
+    font-size: 25px !important;
+    text-align: center;
   }
 }
 
@@ -317,6 +332,16 @@
   .wrap-banner {
     margin: 0 12px;
     padding: 40px 20px;
+  }
+  .case-layout.left .case-img {
+    margin-left: 0px !important;
+  }
+  .case-item{
+    min-width: 0px !important;
+    max-width: 100% !important;
+  }
+   .case-content {
+    margin-bottom: 10px !important;
   }
 }
 
