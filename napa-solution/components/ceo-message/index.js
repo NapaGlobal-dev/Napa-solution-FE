@@ -13,12 +13,14 @@ const Message = (props) => {
 
   return (
     <>
-      <div
-        className="ceo-container"
-      >
-        <div className="ceo-image-part" style={{
-          backgroundImage: `url(${datas["CEOMessage_Message_Background"]?.image.original})`,
-        }}>
+      <div className="ceo-container">
+        <div
+          className="ceo-image-part"
+          // style={{
+          //   backgroundImage: `url(${datas["CEOMessage_Message_Background"]?.image.original})`,
+          // }}
+        >
+          <img src={datas["CEOMessage_Message_Background"]?.image.original} />
           <img
             className="ceo-picture"
             src={datas["CEOMessage_Message_CEO"]?.image.original}
