@@ -32,7 +32,7 @@ const Company = (props) => {
         <div
           className="col-xs-12 order-1 order-xl-1 no-default-spacing section-title-company-wrapped"
         >
-          <span className="section-title-company" id="main-title">
+          <span className="title-company" id="main-title">
             {data["Home_Company_Title"]?.value}
           </span>
         </div>
