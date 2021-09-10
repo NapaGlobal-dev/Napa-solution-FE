@@ -234,3 +234,61 @@
     opacity: 1;
   }
 }
+
+@keyframes loading {
+	0% {
+		transform: rotateZ(0);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
+
+.loading {
+	overflow: hidden;
+}
+.loading #loading-msg {
+  display: block;
+  color: #fefefe;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #dbd7d7;
+  top: 0;
+  left: 0;
+  z-index: 199999999;
+  opacity: 0.7;
+}
+#loading-msg {
+	display: none;
+}
+#loading-msg	.msg {
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2em;
+  font-size: 2.2em;
+}
+	
+#loading-msg .spin {
+		position: relative;
+		width: 5rem;
+		height: 5rem;
+		margin: 0 auto;
+	}
+
+#loading-msg	span {
+  position: absolute;
+  border-radius: 100%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #404c77 #435080 transparent;
+  animation: loading 2s infinite linear;
+  left: 0;
+  top: 0;
+  
+  width: inherit;
+  height: inherit;
+}
