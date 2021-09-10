@@ -566,10 +566,10 @@
     transition: 0.5s;
     position: fixed;
     right: 0;
-    bottom: 0;
+    top: 0;
     border-radius: 50%;
     z-index: 999;
-    transform: translate(calc(50% - 50px), calc(50% - 50px));
+    transform: translate(calc(50% - 60px), calc(-50% + 120px));
   }
 
   #checkbox-dark-mode:checked ~ .dark-mode-bubble {
@@ -767,7 +767,7 @@
 }
 
 .po-box-logo-container {
-  background-color: #7f6fe2;
+  background-color: #7c57e2;
   position: sticky;
   top: 0;
   left: 0;
@@ -885,9 +885,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 24px 40px 39px;
+  padding: 30px 11px 10px 14px;
   color: white;
-  background-color: #7f6fe2;
   z-index: 999;
   position: sticky;
   bottom: 0;
@@ -897,6 +896,11 @@
 
 .po-language-item {
   padding: 0 5px;
+}
+
+.po-language-item-selected {
+  text-decoration-line: underline;
+  font-weight: bold;
 }
 
 .po-box-language {

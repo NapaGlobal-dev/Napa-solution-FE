@@ -1,8 +1,8 @@
+import { HomePage, GET_CASESTUDIES } from "../query/general";
 import {
-  HomePage,
-  GET_CASESTUDIES,
-} from "../query/general";
-import { convertArrToObject, convertArrToObjectBySpecialName } from "../util/converArrayToObject";
+  convertArrToObject,
+  convertArrToObjectBySpecialName,
+} from "../util/converArrayToObject";
 import Company from "../components/homepage/Company";
 import Head from "next/head";
 import Begin from "../components/homepage/Begin";
@@ -19,11 +19,6 @@ const Index = ({ footer, data, ...props }) => {
   return (
     <>
       <Head>
-        <link
-          key="css/header.module.css"
-          rel="stylesheet"
-          href="css/header.module.css"
-        />
         <link
           key="css/home-page.module.css"
           rel="stylesheet"
