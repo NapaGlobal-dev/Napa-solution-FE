@@ -4,9 +4,11 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import ScrollToTop from "./ScrollToTop";
 import Loader from "./Loader";
+import SimpleLoader from "./SimpleLoader"
 
 const Layout = ({ footerData, children, ...props }) => {
   const [loading, setLoading] = useState(true);
+  const [simpleLoading, setSimpleLoading] = useState(true);
   function demoAsyncCall() {
     return new Promise((resolve) => setTimeout(() => resolve(), 4000));
   }
@@ -22,11 +24,14 @@ const Layout = ({ footerData, children, ...props }) => {
     if (router.pathname === "/") {
       document.body.style.overflow = "hidden";
       demoAsyncCall().then(() => handleLoading());
+
+      setSimpleLoading(false)
     } else {
-      window.addEventListener('load', ()=>{
-        setLoading(false)
-      })
+      setLoading(false);
+      
+      window.addEventListener('load', ()=> setSimpleLoading(false))
     }
+  
   }, []);
 
   if (router.pathname === "/") {
@@ -40,6 +45,7 @@ const Layout = ({ footerData, children, ...props }) => {
         {React.cloneElement(children, {
           footer: <Footer data={footerData} isLoading={loading} />,
         })}
+        {simpleLoading && <SimpleLoader />}
       </>
     );
   }
@@ -48,9 +54,9 @@ const Layout = ({ footerData, children, ...props }) => {
     <>
       <Header isLoading={loading} />
       <div>{children}</div>
-      {loading && <Loader distance={20000}/>}
       <ScrollToTop />
       <Footer data={footerData} isLoading={loading} />
+      {simpleLoading && <SimpleLoader />}
     </>
   );
 };
