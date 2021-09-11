@@ -9,8 +9,16 @@ import router, { useRouter } from "next/router";
 //   const currentType = type.content[index];
 //   return projects.content.filter((p) =>
 //     p.content[0].content.some((t) => t.value == currentType.value)
-//   );
+//   );s
 // }
+
+const splitUrl = (urlstring, regex = undefined) => {
+  const urls = urlstring.split(",");
+  const rs = !regex ? urls[0] : urls.find((url) => regex.test(url)) || urls[0];
+
+  console.log("-----------", regex, urlstring, rs);
+  return rs.trim();
+};
 
 function OurWork({ data, service }) {
   const [activeTech, setActiveTech] = useState(0);
@@ -22,7 +30,9 @@ function OurWork({ data, service }) {
       value: "All",
     },
   ];
-  const keys = arrKeys.concat(data?.keys[0]?.content && data?.keys[0]?.content.slice())
+  const keys = arrKeys.concat(
+    data?.keys[0]?.content && data?.keys[0]?.content.slice()
+  );
   const title = data?.caseStudies[0]?.key;
   const subTitle = data?.caseStudies[0]?.value;
 
@@ -42,15 +52,39 @@ function OurWork({ data, service }) {
   //   filterProjectByType(props.data?.Type, activeTech, props.data?.Projects)
   // );
   const caseStudyList = (() => {
+    console.log(
+      "sssssssssss",
+      service,
+      activeTech,
+      keys,
+      keys[activeTech]?.key,
+      caseStudies
+    );
+
     if (!service) {
-      if (!activeTech) return caseStudies;
+      if (!activeTech)
+        return caseStudies.map((cs) => {
+          cs.rightUrl = splitUrl(cs.url);
+          return cs;
+        });
 
       const reg = RegExp(keys[activeTech].key);
-      return caseStudies?.filter((cs) => reg.test(cs.key));
+      return caseStudies
+        ?.filter((cs) => reg.test(cs.key))
+        .map((cs) => {
+          cs.rightUrl = splitUrl(cs.url, reg);
+          return cs;
+        });
     }
 
     const reg = RegExp(service);
-    return caseStudies?.filter((cs) => reg.test(cs.key));
+    return caseStudies
+      ?.filter((cs) => reg.test(cs.key))
+      .map((cs) => {
+        // find url based on service name
+        cs.rightUrl = splitUrl(cs.url, reg);
+        return cs;
+      });
   })();
 
   const handleActive = (index) => {
@@ -66,7 +100,7 @@ function OurWork({ data, service }) {
   return (
     <>
       <div className="container-fluid">
-        <div className={styles.wrapCS} id='down-up'>
+        <div className={styles.wrapCS} id="down-up">
           <div id="projects-section">
             <div className={clsx(styles.wrapText, styles.wrapTextCenter)}>
               <h2
@@ -124,7 +158,7 @@ function OurWork({ data, service }) {
                   key={entry.name}
                   // loading={loadingProject}
                   // onClick={() => router.push(`${entry.url}`)}
-                  />
+                />
               ))}
             </div>
             {caseStudyList?.length > 6 && (
