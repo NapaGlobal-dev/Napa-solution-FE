@@ -283,6 +283,7 @@ textarea:focus {
 }
 @media (max-width: 768px) {
   .checkbox-form > input {
-    appearance: none;
+    -webkit-appearance: none;
+    appearance: auto;
   }
 }
