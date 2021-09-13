@@ -70,9 +70,9 @@ const ContactForm = (props) => {
         },
         body: JSON.stringify(data),
       }).then((res) => {
-        console.log("Response received");
+        // console.log("Response received");
         if (res.status === 200) {
-          console.log("Response succeeded!");
+          // console.log("Response succeeded!");
           setEmail("");
           setMessage("");
           setPhone1("");
@@ -249,7 +249,7 @@ const ContactForm = (props) => {
               type="input"
               name="fullName"
               className={fullNameError ? "error" : ""}
-              onChange={onChange}
+              onChange={() => onChange}
               value={fullName}
             />
             {fullNameError ? (
@@ -268,7 +268,7 @@ const ContactForm = (props) => {
               type="input"
               name="companyName"
               className={companyNameError ? "error" : ""}
-              onChange={onChange}
+              onChange={() => onChange}
               value={companyName}
             />
             {companyNameError ? (
@@ -287,7 +287,7 @@ const ContactForm = (props) => {
               type="input"
               name="companyAddress"
               className={companyAddressError ? "error" : ""}
-              onChange={onChange}
+              onChange={() => onChange}
               value={companyAddress}
             />
             {companyAddressError ? (
@@ -308,7 +308,7 @@ const ContactForm = (props) => {
                 name="phone1"
                 className={phoneError ? "error" : ""}
                 placeholder="090"
-                onChange={onChange}
+                onChange={() => onChange}
                 value={phone1}
               />
               -
@@ -317,7 +317,7 @@ const ContactForm = (props) => {
                 name="phone2"
                 className={phoneError ? "error" : ""}
                 placeholder="0000"
-                onChange={onChange}
+                onChange={() => onChange}
                 value={phone2}
               />
               -
@@ -326,7 +326,7 @@ const ContactForm = (props) => {
                 name="phone3"
                 className={phoneError ? "error" : ""}
                 placeholder="0000"
-                onChange={onChange}
+                onChange={() => onChange}
                 value={phone3}
               />
             </div>
@@ -346,7 +346,7 @@ const ContactForm = (props) => {
               type="input"
               name="email"
               className={emailError || !emailValid ? "error" : ""}
-              onChange={onChange}
+              onChange={() => onChange}
               value={email}
             />
             {emailError ? (
@@ -366,7 +366,7 @@ const ContactForm = (props) => {
               type="input"
               name="message"
               className={messageError ? "error" : ""}
-              onChange={onChange}
+              onChange={() => onChange}
               value={message}
             ></textarea>
             {messageError ? (
@@ -383,7 +383,7 @@ const ContactForm = (props) => {
                 <input
                   type="checkbox"
                   checked={checked}
-                  onClick={() => setChecked(!checked)}
+                  onChange={() => setChecked(!checked)}
                 />
                 <a
                   href={data?.Contact_ContactForm_CheckBox?.url}

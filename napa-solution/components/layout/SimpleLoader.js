@@ -2,24 +2,22 @@ import { useEffect } from "react";
 import Head from "next/head";
 
 const SimpleLoader = () => {
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
   return (
     <>
       <Head>
         <link key="/css/loader.css" rel="stylesheet" href="/css/loader.css" />
       </Head>
-      <div class="loading" id="loader">
+      <div className="loading" id="loader">
         <div id="loading-msg">
-          <div class="msg">
-            <div class="spin">
+          <div className="msg">
+            <div className="spin">
               <span></span>
             </div>
           </div>
         </div>
       </div>
     </>
-    
   );
 };
 
