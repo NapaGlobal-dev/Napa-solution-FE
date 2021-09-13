@@ -41,25 +41,19 @@ const ContactForm = (props) => {
       setEmailValid(false);
     }
     if (
-      !fullName ||
-      !companyAddress ||
-      !companyName ||
-      !phone ||
-      !message ||
-      !email ||
-      !emailValid ||
-      !checked
+      !(
+        fullNameError ||
+        companyAddressError ||
+        companyNameError ||
+        phoneError ||
+        messageError ||
+        emailError ||
+        !emailValid ||
+        !checked
+      )
     ) {
       e.preventDefault();
-      console.log(
-        "value:",
-        fullName,
-        companyName,
-        companyAddress,
-        phone,
-        message,
-        email
-      );
+
       let data = {
         fullName,
         companyName,
@@ -86,30 +80,34 @@ const ContactForm = (props) => {
           setPhone3("");
           setCompanyName("");
           setCompanyAddress("");
+          setFullName("");
         }
       });
-
-      return;
     }
     e.preventDefault();
   }
 
   function onChange(e) {
     e.preventDefault();
+    let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+    let check = new RegExp(format).test(e.target.value);
     switch (e.target.name) {
       case "fullName": {
         setFullName(e.target.value);
-        setFullNameError(false);
+        if (!!check) setFullNameError(true);
+        else setFullNameError(false);
         break;
       }
       case "companyName": {
         setCompanyName(e.target.value);
-        setCompanyNameError(false);
+        if (!!check) setCompanyNameError(true);
+        else setCompanyNameError(false);
         break;
       }
       case "companyAddress": {
         setCompanyAddress(e.target.value);
-        setCompanyAddressError(false);
+        if (!!check) setCompanyAddressError(true);
+        else setCompanyAddressError(false);
         break;
       }
       case "phone1": {
@@ -144,23 +142,13 @@ const ContactForm = (props) => {
       }
       case "message": {
         setMessage(e.target.value);
-        setMessageError(false);
+        if (!!check) setMessageError(true);
+        else setMessageError(false);
         break;
       }
     }
   }
-  // const handleSubmit = (e) => {
-  //   console.log("e:", e.target.value);
-  //   console.log(
-  //     "value me:",
-  //     fullName,
-  //     companyName,
-  //     companyAddress,
-  //     message,
-  //     email
-  //   );
 
-  // };
   return (
     <>
       <div className="wrap-title" id="down-up">
