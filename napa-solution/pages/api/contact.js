@@ -1,22 +1,25 @@
 const nodeMailer = require("nodemailer");
-const adminEmail = "noreply@ezteam.net";
-const adminPassword = "9jTJvxAkJ99Y6t";
-const mailHost = "mail9351.maychuemail.com";
-const mailPort = 465;
+// const adminEmail = "noreply@ezteam.net";
+// const adminPassword = "9jTJvxAkJ99Y6t";
+// const mailHost = "mail9351.maychuemail.com";
+// const mailPort = 465;
+const adminEmail = "sodin511@gmail.com";
+const adminPassword = "Sntuanqsang";
 export default function handler(req, res) {
   const sendMail = async (to, subject, htmlContent) => {
     const transporter = nodeMailer.createTransport({
-      host: mailHost,
-      pool: true,
-      port: mailPort,
-      secure: true,
+      // host: mailHost,
+      // pool: true,
+      // port: mailPort,
+      // secure: true,
+      service: "Gmail",
       auth: {
         user: adminEmail,
         pass: adminPassword,
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
+      // tls: {
+      //   rejectUnauthorized: false,
+      // },
     });
     const options = {
       from: adminEmail,
