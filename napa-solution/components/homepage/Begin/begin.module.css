@@ -5,9 +5,9 @@
   --arrowDistance: -60px;
 }
 
-.hidden {
+/* .hidden {
   display: none;
-}
+} */
 
 .root {
   /* background-image: url('../../../assets/images/home/banner-1.png'); */
@@ -850,9 +850,9 @@
   .text {
     font-size: 0.8rem;
   }
-  .hidden {
+  /* .hidden {
     display: none;
-  }
+  } */
   .earthContainer {
     display: none;
   }

@@ -15,8 +15,6 @@ import router, { useRouter } from "next/router";
 const splitUrl = (urlstring, regex = undefined) => {
   const urls = urlstring.split(",");
   const rs = !regex ? urls[0] : urls.find((url) => regex.test(url)) || urls[0];
-
-  // console.log("-----------", regex, urlstring, rs);
   return rs.trim();
 };
 
