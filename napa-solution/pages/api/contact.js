@@ -44,8 +44,7 @@ export default function handler(req, res) {
   //   return updatedFileContent;
   // }
   const mailerRes = sendMail(
-    // "phuongnt99.dn@gmail.com",
-    "nguyentuanquangsang1999@gmail.com",
+    "phuongnt99.dn@gmail.com",
     `Information from ${req.body.fullName} in ${req.body.companyName} `,
     `<table>
       <tr>
