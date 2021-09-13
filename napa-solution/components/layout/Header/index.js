@@ -299,6 +299,35 @@ const Header = (props) => {
                     src="/img/close.svg"
                   />
                 </div>
+                <div className="po-box-options">
+                  <div className="po-box-language">
+                    {languagesdata.map((lang, index) => (
+                      <div
+                        className={clsx(
+                          "po-language-item",
+                          lang.name == "JP" && "po-language-item-selected"
+                        )}
+                        key={index}
+                      >
+                        <a href={lang.url}>{lang.name}</a>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="po-box-darkmode">
+                    {darkmode.value ? <p>Dark</p> : <p>Light</p>}
+                    <label className="po-box-darkmode-switch">
+                      <input
+                        onClick={wrapToggle}
+                        type="checkbox"
+                        id="checkbox-dark-mode"
+                      />
+                      <span
+                        className={isDark ? "check-dark-on" : "check"}
+                      ></span>
+                      <div className="dark-mode-bubble"></div>
+                    </label>
+                  </div>
+                </div>
               </div>
               <ul className="po-list-container">
                 {navbarMobile.length > 0 &&
@@ -324,27 +353,6 @@ const Header = (props) => {
                     </li>
                   ))}
               </ul>
-              <div className="po-box-options">
-                <div className="po-box-language">
-                  {languagesdata.map((lang, index) => (
-                    <div className="po-language-item" key={index}>
-                      <a href={lang.url}>{lang.name}</a>
-                    </div>
-                  ))}
-                </div>
-                <div className="po-box-darkmode">
-                  {darkmode.value ? <p>Dark</p> : <p>Light</p>}
-                  <label className="po-box-darkmode-switch">
-                    <input
-                      onClick={wrapToggle}
-                      type="checkbox"
-                      id="checkbox-dark-mode"
-                    />
-                    <span className={isDark ? "check-dark-on" : "check"}></span>
-                    <div className="dark-mode-bubble"></div>
-                  </label>
-                </div>
-              </div>
             </div>
           </div>
         </div>
