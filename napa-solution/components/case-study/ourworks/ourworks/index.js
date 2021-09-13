@@ -16,7 +16,6 @@ const splitUrl = (urlstring, regex = undefined) => {
   const urls = urlstring.split(",");
   const rs = !regex ? urls[0] : urls.find((url) => regex.test(url)) || urls[0];
 
-  console.log("-----------", regex, urlstring, rs);
   return rs.trim();
 };
 
@@ -52,15 +51,6 @@ function OurWork({ data, service }) {
   //   filterProjectByType(props.data?.Type, activeTech, props.data?.Projects)
   // );
   const caseStudyList = (() => {
-    console.log(
-      "sssssssssss",
-      service,
-      activeTech,
-      keys,
-      keys[activeTech]?.key,
-      caseStudies
-    );
-
     if (!service) {
       if (!activeTech)
         return caseStudies.map((cs) => {
