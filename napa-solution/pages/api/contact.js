@@ -48,6 +48,7 @@ export default function handler(req, res) {
   // }
   const mailerRes = sendMail(
     "phuongnt99.dn@gmail.com",
+    // "nguyentuanquangsang1999@gmail.com",
     `Information from ${req.body.fullName} in ${req.body.companyName} `,
     `<table>
       <tr>
