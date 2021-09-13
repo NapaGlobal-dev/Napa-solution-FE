@@ -27,7 +27,7 @@ class MyDocument extends Document {
           <meta name="google" content="notranslate" />
           <meta
             name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+            content="initial-scale=1, width=device-width, user-scalable=no, target-densitydpi=device-dpi"
           />
           <meta
             name="viewport"

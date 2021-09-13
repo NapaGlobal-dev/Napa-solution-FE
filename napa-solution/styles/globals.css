@@ -4,7 +4,9 @@
   margin: 0px;
   padding: 0px;
 }
-
+body{
+  touch-action: pan-x pan-y;
+}
 html {
   scroll-behavior: smooth;
 }
