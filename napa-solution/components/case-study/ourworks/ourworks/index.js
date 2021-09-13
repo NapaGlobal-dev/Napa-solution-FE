@@ -15,7 +15,6 @@ import router, { useRouter } from "next/router";
 const splitUrl = (urlstring, regex = undefined) => {
   const urls = urlstring.split(",");
   const rs = !regex ? urls[0] : urls.find((url) => regex.test(url)) || urls[0];
-
   return rs.trim();
 };
 
@@ -44,12 +43,6 @@ function OurWork({ data, service }) {
     );
   }, []);
 
-  // const history = useHistory();
-  // console.log(
-  //   "data ourworks",
-  //   props.data,
-  //   filterProjectByType(props.data?.Type, activeTech, props.data?.Projects)
-  // );
   const caseStudyList = (() => {
     if (!service) {
       if (!activeTech)
