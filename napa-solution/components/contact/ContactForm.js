@@ -3,6 +3,7 @@ import { useState, Fragment } from "react";
 import { ADD_CUSTOMER } from "../../query/general";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import joinJsx from "../../util/joinJsx";
+import { createContactGQL } from "../../query/mutation";
 
 const ContactForm = (props) => {
   const [fullName, setFullName] = useState("");
@@ -22,6 +23,24 @@ const ContactForm = (props) => {
   const [messageError, setMessageError] = useState(false);
   const [checked, setChecked] = useState(false);
   const data = convertArrToObject(props.data.property);
+
+  const [createContact, { data: contactData, loading, error }] = useMutation(
+    createContactGQL,
+    {
+      onCompleted: resetForm,
+    }
+  );
+
+  function resetForm() {
+    setEmail("");
+    setMessage("");
+    setPhone1("");
+    setPhone2("");
+    setPhone3("");
+    setCompanyName("");
+    setCompanyAddress("");
+    setFullName("");
+  }
 
   function submit(e) {
     const phone = (phone1 + phone2 + phone3).length === 11;
@@ -54,34 +73,17 @@ const ContactForm = (props) => {
     ) {
       e.preventDefault();
 
-      let data = {
-        fullName,
-        companyName,
-        companyAddress,
+      const variables = {
+        name: fullName,
+        email: email,
         phone: phone1 + phone2 + phone3,
-        message,
-        email,
+        company: companyName,
+        address: companyAddress,
+        message: message,
       };
-      fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }).then((res) => {
-        // console.log("Response received");
-        if (res.status === 200) {
-          // console.log("Response succeeded!");
-          setEmail("");
-          setMessage("");
-          setPhone1("");
-          setPhone2("");
-          setPhone3("");
-          setCompanyName("");
-          setCompanyAddress("");
-          setFullName("");
-        }
+
+      createContact({
+        variables: variables,
       });
     }
     e.preventDefault();
@@ -148,6 +150,11 @@ const ContactForm = (props) => {
       }
     }
   }
+
+  if (error)
+    alert(
+      "An error occur when trying send your message, plase try again later"
+    );
 
   return (
     <>
@@ -251,6 +258,7 @@ const ContactForm = (props) => {
               className={fullNameError ? "error" : ""}
               onChange={onChange}
               value={fullName}
+              disabled={loading}
             />
             {fullNameError ? (
               <label>
@@ -270,6 +278,7 @@ const ContactForm = (props) => {
               className={companyNameError ? "error" : ""}
               onChange={onChange}
               value={companyName}
+              disabled={loading}
             />
             {companyNameError ? (
               <label>
@@ -289,6 +298,7 @@ const ContactForm = (props) => {
               className={companyAddressError ? "error" : ""}
               onChange={onChange}
               value={companyAddress}
+              disabled={loading}
             />
             {companyAddressError ? (
               <label>
@@ -310,6 +320,7 @@ const ContactForm = (props) => {
                 placeholder="090"
                 onChange={onChange}
                 value={phone1}
+                disabled={loading}
               />
               -
               <input
@@ -319,6 +330,7 @@ const ContactForm = (props) => {
                 placeholder="0000"
                 onChange={onChange}
                 value={phone2}
+                disabled={loading}
               />
               -
               <input
@@ -328,6 +340,7 @@ const ContactForm = (props) => {
                 placeholder="0000"
                 onChange={onChange}
                 value={phone3}
+                disabled={loading}
               />
             </div>
             {phoneError ? (
@@ -348,6 +361,7 @@ const ContactForm = (props) => {
               className={emailError || !emailValid ? "error" : ""}
               onChange={onChange}
               value={email}
+              disabled={loading}
             />
             {emailError ? (
               <label>
@@ -368,6 +382,7 @@ const ContactForm = (props) => {
               className={messageError ? "error" : ""}
               onChange={onChange}
               value={message}
+              disabled={loading}
             ></textarea>
             {messageError ? (
               <label>
@@ -384,6 +399,7 @@ const ContactForm = (props) => {
                   type="checkbox"
                   checked={checked}
                   onChange={() => setChecked(!checked)}
+                  disabled={loading}
                 />
                 <a
                   href={data?.Contact_ContactForm_CheckBox?.url}
