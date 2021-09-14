@@ -23,8 +23,11 @@
   position: relative;
 }
 
-.ceo-picture {
+.ceo-image-part img {
   width: 100%;
+}
+
+.ceo-picture {
   position: absolute;
 }
 
@@ -139,9 +142,9 @@
   .ceo-box-image {
     width: 100%;
   }
-  .ceo-picture {
+  /* .ceo-picture {
     width: 100%;
-  }
+  } */
   .ceo-container {
     height: auto;
   }
