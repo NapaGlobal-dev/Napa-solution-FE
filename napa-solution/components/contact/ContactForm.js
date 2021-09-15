@@ -44,7 +44,7 @@ const ContactForm = (props) => {
 
   function submit(e) {
     const phone = (phone1 + phone2 + phone3).length === 11;
-    console.log("test true", phone1 + phone2 + phone3, phone);
+    // console.log("test true", phone1 + phone2 + phone3, phone);
     if (fullName.trim().length == 0) setFullNameError(true);
     if (companyName.trim().length == 0) setCompanyNameError(true);
     if (companyAddress.trim().length == 0) setCompanyAddressError(true);
@@ -121,7 +121,7 @@ const ContactForm = (props) => {
     let check =
       new RegExp(format).test(e.target.value) ||
       e.target.value.trim().length == 0;
-    console.log("check:", check, e.target.name, e.target.value);
+    // console.log("check:", check, e.target.name, e.target.value);
     switch (e.target.name) {
       case "fullName": {
         setFullName(e.target.value);
