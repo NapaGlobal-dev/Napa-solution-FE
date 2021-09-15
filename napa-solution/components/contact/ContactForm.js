@@ -45,7 +45,7 @@ const ContactForm = (props) => {
   }
 
   function submit(e) {
-    const phone = (phone1 + phone2 + phone3).length === 11;
+    const phone = (phone1 + phone2 + phone3).length === 11 || (phone1 + phone2 + phone3).length === 10;
     console.log("test true", phone1 + phone2 + phone3, phone);
     if (fullName.trim().length == 0) setFullNameError(true);
     if (companyName.trim().length == 0) setCompanyNameError(true);
