@@ -3,8 +3,8 @@ const nodeMailer = require("nodemailer");
 // const adminPassword = "9jTJvxAkJ99Y6t";
 // const mailHost = "mail9351.maychuemail.com";
 // const mailPort = 465;
-const adminEmail = "sodin511@gmail.com";
-const adminPassword = "Sntuanqsang";
+const adminEmail = "napaglobalwebsite@gmail.com";
+const adminPassword = "napa@123";
 export default function handler(req, res) {
   const sendMail = async (to, subject, htmlContent) => {
     const transporter = nodeMailer.createTransport({
