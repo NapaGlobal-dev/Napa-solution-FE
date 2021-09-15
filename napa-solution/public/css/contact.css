@@ -107,7 +107,7 @@
 }
 
 .right-contact label {
-  color: #f13a3a !important;
+  color: #f13a3a ;
   font-size: 10px;
 }
 
@@ -143,6 +143,7 @@ textarea:focus {
 .checkbox-form {
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
 
 .checkbox-form > input {
@@ -196,6 +197,20 @@ textarea:focus {
   color: #f13a3a;
   border-bottom-color: #f13a3a !important;
 }
+.success{
+  color: rgb(203, 255, 192) !important;
+  font-size: 20px !important;
+}
+
+.checkbox-private{
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"]{
+  margin-right: 5px;
+}
+
 @media (max-width: 1024px) {
   .container-contact {
     padding: 40px 50px;
@@ -274,6 +289,7 @@ textarea:focus {
   .button-contact {
     width: 60%;
   }
+
   input[type="text"]:focus,
   input[type="input"]:focus,
   textarea:focus,
