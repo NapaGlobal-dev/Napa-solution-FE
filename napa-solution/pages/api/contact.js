@@ -1,28 +1,32 @@
 const nodeMailer = require("nodemailer");
-// const adminEmail = "noreply@ezteam.net";
-// const adminPassword = "9jTJvxAkJ99Y6t";
-// const mailHost = "mail9351.maychuemail.com";
-// const mailPort = 465;
-const adminEmail = "napaglobalwebsite@gmail.com";
-const adminPassword = "napa@123";
+const OAUTH_CLIENTID =
+  "97425185563-fvie07qrr1p881apmfir38hk4jlubpcj.apps.googleusercontent.com";
+const OAUTH_CLIENT_SECRET = "-dKLdJNLip5Xmb8-gFqMpa3n";
+const MAIL_USERNAME = "napaglobalwebsite@gmail.com";
+const MAIL_PASSWORD = "napa@123";
+const ACCESS_TOKEN =
+  "ya29.a0ARrdaM811hK-USQUTXg_GCRzlBgvpQ-ack2JYxDnY-0w79EQ3lIQrHAFfKVR3pd-xr2POj2Oua58B49_s1kE2a135FWPHaxKrMMv73pLOKkYPyTk4qXJZEx3bKSr6qyUpVaKTLeIMyQMTnMudtqHRaKdfTLF";
+const OAUTH_REFRESH_TOKEN =
+  "1//04T_jlMSR5uyGCgYIARAAGAQSNwF-L9IrlF90MoTEAL2fcich0Q66Jlyar94eZL0eYV1qmiW2X7EqFm0aGK9BPvhLKvK7iUD-x-s";
 export default function handler(req, res) {
   const sendMail = async (to, subject, htmlContent) => {
     const transporter = nodeMailer.createTransport({
-      // host: mailHost,
-      // pool: true,
-      // port: mailPort,
-      // secure: true,
-      service: "Gmail",
+      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
-        user: adminEmail,
-        pass: adminPassword,
+        type: "OAuth2",
+        user: MAIL_USERNAME,
+        pass: MAIL_PASSWORD,
+        clientId: OAUTH_CLIENTID,
+        clientSecret: OAUTH_CLIENT_SECRET,
+        refreshToken: OAUTH_REFRESH_TOKEN,
+        accessToken: ACCESS_TOKEN,
       },
-      // tls: {
-      //   rejectUnauthorized: false,
-      // },
     });
     const options = {
-      from: adminEmail,
+      from: MAIL_USERNAME,
       to: to,
       subject: subject,
       html: htmlContent,
