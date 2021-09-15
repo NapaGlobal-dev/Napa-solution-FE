@@ -4,6 +4,7 @@ import { ADD_CUSTOMER } from "../../query/general";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import joinJsx from "../../util/joinJsx";
 import SimpleLoader from "../layout/SimpleLoader";
+import { createContactGQL } from "../../query/mutation";
 
 const ContactForm = (props) => {
   const [fullName, setFullName] = useState("");
@@ -23,78 +24,91 @@ const ContactForm = (props) => {
   const [messageError, setMessageError] = useState(false);
   const [checked, setChecked] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [loading, setLoading] = useState(false)
   const data = convertArrToObject(props.data.property);
 
-  function submit(e) {
-    const phone = (phone1 + phone2 + phone3).length === 11 || (phone1 + phone2 + phone3).length === 10;
-    !fullName ? setFullNameError(true) : "none";
-    !companyName ? setCompanyNameError(true) : "none";
-    !companyAddress ? setCompanyAddressError(true) : "none";
-    !phone ? setPhoneError(true) : "none";
-    !email ? setEmailError(true) : "none";
-    !message ? setMessageError(true) : "none";
-    if (
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        email
-      )
-    ) {
-      setEmailValid(true);
-    } else {
-      setEmailValid(false);
+  const [createContact, { data: contactData, loading, error }] = useMutation(
+    createContactGQL,
+    {
+      onCompleted: resetForm,
     }
-    if (
-      !(
-        fullNameError ||
-        companyAddressError ||
-        companyNameError ||
-        phoneError ||
-        messageError ||
-        emailError ||
-        !emailValid ||
-        !checked
-      )
-    ) {
-      e.preventDefault();
+  );
 
-      let data = {
-        fullName,
-        companyName,
-        companyAddress,
-        phone: phone1 + phone2 + phone3,
-        message,
-        email,
-      };
-
-      setLoading(true);
-
-      fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }).then((res) => {
-        // console.log("Response received");
-        if (res.status === 200) {
-          // console.log("Response succeeded!");
-          setEmail("");
-          setMessage("");
-          setPhone1("");
-          setPhone2("");
-          setPhone3("");
-          setCompanyName("");
-          setCompanyAddress("");
-          setFullName("");
-          setSubmitting(true)
-          setLoading(false)
-        }
-      });
-    }
-    e.preventDefault();
+  function resetForm() {
+    setEmail("");
+    setMessage("");
+    setPhone1("");
+    setPhone2("");
+    setPhone3("");
+    setCompanyName("");
+    setCompanyAddress(""); 
+    setFullName("");
   }
 
+  function submit(e) {
+    const phone = (phone1 + phone2 + phone3).length === 11;
+    console.log("test true", phone1 + phone2 + phone3, phone);
+    if (fullName.trim().length == 0) setFullNameError(true);
+    if (companyName.trim().length == 0) setCompanyNameError(true);
+    if (companyAddress.trim().length == 0) setCompanyAddressError(true);
+    if (!phone) setPhoneError(true);
+    if (email.trim().length == 0) setEmailError(true);
+    if (message.trim().length == 0) setMessageError(true);
+
+    if (
+      fullNameError ||
+      companyAddressError ||
+      companyNameError ||
+      phoneError ||
+      messageError ||
+      emailError ||
+      !emailValid ||
+      !checked
+    ) {
+      e.preventDefault();
+      return;
+    }
+
+    const variables = {
+      name: fullName,
+      email: email,
+      phone: phone1 + phone2 + phone3,
+      company: companyName,
+      address: companyAddress,
+      message: message,
+    };
+
+    createContact({
+      variables: variables,
+    });
+    setSubmitting(true);
+    e.preventDefault();
+  }
+  const checkPhone = (e, num, pos) => {
+    if (/[0-9]/.test(e.target.value) && e.target.value.length < num) {
+      pos == 1
+        ? setPhone1(e.target.value)
+        : pos == 2
+        ? setPhone2(e.target.value)
+        : setPhone3(e.target.value);
+      setPhoneError(true);
+      return;
+    }
+    if (/[0-9]/.test(e.target.value) && e.target.value.length == num) {
+      pos == 1
+        ? setPhone1(e.target.value)
+        : pos == 2
+        ? setPhone2(e.target.value)
+        : setPhone3(e.target.value);
+      setPhoneError(false);
+      return;
+    }
+    if (/[0-9]/.test(e.target.value) && e.target.value.length > num) {
+      setPhoneError(false);
+      return;
+    }
+    setPhoneError(true);
+    return;
+  };
   function onChange(e) {
     e.preventDefault();
     let format = /^[^a-zA-Z0-9]+$/;
@@ -119,33 +133,29 @@ const ContactForm = (props) => {
         break;
       }
       case "phone1": {
-        if (/[^0-9]/.test(e.target.value) || e.target.value.length > 3) {
-          break;
-        }
-        setPhone1(e.target.value);
-        setPhoneError(false);
+        checkPhone(e, 3, 1);
         break;
       }
       case "phone2": {
-        if (/[^0-9]/.test(e.target.value) || e.target.value.length > 4) {
-          break;
-        }
-        setPhone2(e.target.value);
-        setPhoneError(false);
+        checkPhone(e, 4, 2);
         break;
       }
       case "phone3": {
-        if (/[^0-9]/.test(e.target.value) || (e.target.value.length > 4)) {
-          break;
-        }
-        setPhone3(e.target.value);
-        setPhoneError(false);
+        checkPhone(e, 4, 3);
         break;
       }
       case "email": {
         setEmail(e.target.value);
         if (!!check) setEmailError(true); else setEmailError(false)
-        setEmailValid(true);
+        if (
+          /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+            e.target.value
+          )
+        ) {
+          setEmailValid(true);
+        } else {
+          setEmailValid(false);
+        }
         break;
       }
       case "message": {
@@ -156,6 +166,11 @@ const ContactForm = (props) => {
       }
     }
   }
+
+  if (error)
+    alert(
+      "An error occur when trying send your message, plase try again later"
+    );
 
   return (
     <>
@@ -259,6 +274,7 @@ const ContactForm = (props) => {
               className={fullNameError ? "error" : ""}
               onChange={onChange}
               value={fullName}
+              disabled={loading}
             />
             {fullNameError ? (
               <label>
@@ -278,6 +294,7 @@ const ContactForm = (props) => {
               className={companyNameError ? "error" : ""}
               onChange={onChange}
               value={companyName}
+              disabled={loading}
             />
             {companyNameError ? (
               <label>
@@ -297,6 +314,7 @@ const ContactForm = (props) => {
               className={companyAddressError ? "error" : ""}
               onChange={onChange}
               value={companyAddress}
+              disabled={loading}
             />
             {companyAddressError ? (
               <label>
@@ -318,6 +336,7 @@ const ContactForm = (props) => {
                 placeholder="090"
                 onChange={onChange}
                 value={phone1}
+                disabled={loading}
               />
               -
               <input
@@ -327,6 +346,7 @@ const ContactForm = (props) => {
                 placeholder="0000"
                 onChange={onChange}
                 value={phone2}
+                disabled={loading}
               />
               -
               <input
@@ -336,6 +356,7 @@ const ContactForm = (props) => {
                 placeholder="0000"
                 onChange={onChange}
                 value={phone3}
+                disabled={loading}
               />
             </div>
             {phoneError ? (
@@ -356,6 +377,7 @@ const ContactForm = (props) => {
               className={emailError || !emailValid ? "error" : ""}
               onChange={onChange}
               value={email}
+              disabled={loading}
             />
             {emailError ? (
               <label>
@@ -376,6 +398,7 @@ const ContactForm = (props) => {
               className={messageError ? "error" : ""}
               onChange={onChange}
               value={message}
+              disabled={loading}
             ></textarea>
             {messageError ? (
               <label>
