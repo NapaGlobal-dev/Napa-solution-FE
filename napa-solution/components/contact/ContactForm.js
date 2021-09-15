@@ -44,12 +44,14 @@ const ContactForm = (props) => {
 
   function submit(e) {
     const phone = (phone1 + phone2 + phone3).length === 11;
-    !fullName ? setFullNameError(true) : "none";
-    !companyName ? setCompanyNameError(true) : "none";
-    !companyAddress ? setCompanyAddressError(true) : "none";
-    !phone ? setPhoneError(true) : "none";
-    !email ? setEmailError(true) : "none";
-    !message ? setMessageError(true) : "none";
+    console.log("test true", phone1 + phone2 + phone3, phone);
+    if (fullName.trim().length == 0) setFullNameError(true);
+    if (companyName.trim().length == 0) setCompanyNameError(true);
+    if (companyAddress.trim().length == 0) setCompanyAddressError(true);
+    if (!phone) setPhoneError(true);
+    if (email.trim().length == 0) setEmailError(true);
+    if (message.trim().length == 0) setMessageError(true);
+
     if (
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         email
@@ -60,39 +62,66 @@ const ContactForm = (props) => {
       setEmailValid(false);
     }
     if (
-      !(
-        fullNameError ||
-        companyAddressError ||
-        companyNameError ||
-        phoneError ||
-        messageError ||
-        emailError ||
-        !emailValid ||
-        !checked
-      )
+      fullNameError ||
+      companyAddressError ||
+      companyNameError ||
+      phoneError ||
+      messageError ||
+      emailError ||
+      !emailValid ||
+      !checked
     ) {
       e.preventDefault();
-
-      const variables = {
-        name: fullName,
-        email: email,
-        phone: phone1 + phone2 + phone3,
-        company: companyName,
-        address: companyAddress,
-        message: message,
-      };
-
-      createContact({
-        variables: variables,
-      });
+      return;
     }
+
+    const variables = {
+      name: fullName,
+      email: email,
+      phone: phone1 + phone2 + phone3,
+      company: companyName,
+      address: companyAddress,
+      message: message,
+    };
+
+    createContact({
+      variables: variables,
+    });
     e.preventDefault();
   }
-
+  const checkPhone = (e, num, pos) => {
+    if (/[0-9]/.test(e.target.value) && e.target.value.length < num) {
+      pos == 1
+        ? setPhone1(e.target.value)
+        : pos == 2
+        ? setPhone2(e.target.value)
+        : setPhone3(e.target.value);
+      setPhoneError(true);
+      return;
+    }
+    if (/[0-9]/.test(e.target.value) && e.target.value.length == num) {
+      pos == 1
+        ? setPhone1(e.target.value)
+        : pos == 2
+        ? setPhone2(e.target.value)
+        : setPhone3(e.target.value);
+      setPhoneError(false);
+      return;
+    }
+    if (/[0-9]/.test(e.target.value) && e.target.value.length > num) {
+      setPhoneError(false);
+      return;
+    }
+    setPhoneError(true);
+    return;
+  };
   function onChange(e) {
     e.preventDefault();
     let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-    let check = new RegExp(format).test(e.target.value);
+    let check =
+      new RegExp(format).test(e.target.value) ||
+      e.target.value.trim().length == 0;
+    console.log("check:", check, e.target.name, e.target.value);
     switch (e.target.name) {
       case "fullName": {
         setFullName(e.target.value);
@@ -113,27 +142,15 @@ const ContactForm = (props) => {
         break;
       }
       case "phone1": {
-        if (/[^0-9]/.test(e.target.value) || e.target.value.length > 3) {
-          break;
-        }
-        setPhone1(e.target.value);
-        setPhoneError(false);
+        checkPhone(e, 3, 1);
         break;
       }
       case "phone2": {
-        if (/[^0-9]/.test(e.target.value) || e.target.value.length > 4) {
-          break;
-        }
-        setPhone2(e.target.value);
-        setPhoneError(false);
+        checkPhone(e, 4, 2);
         break;
       }
       case "phone3": {
-        if (/[^0-9]/.test(e.target.value) || e.target.value.length > 4) {
-          break;
-        }
-        setPhone3(e.target.value);
-        setPhoneError(false);
+        checkPhone(e, 4, 3);
         break;
       }
       case "email": {
