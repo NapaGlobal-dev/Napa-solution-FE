@@ -3,6 +3,7 @@ import { useState, Fragment } from "react";
 import { ADD_CUSTOMER } from "../../query/general";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import joinJsx from "../../util/joinJsx";
+import SimpleLoader from "../layout/SimpleLoader";
 import { createContactGQL } from "../../query/mutation";
 
 const ContactForm = (props) => {
@@ -22,6 +23,7 @@ const ContactForm = (props) => {
   const [message, setMessage] = useState("");
   const [messageError, setMessageError] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const data = convertArrToObject(props.data.property);
 
   const [createContact, { data: contactData, loading, error }] = useMutation(
@@ -43,7 +45,9 @@ const ContactForm = (props) => {
   }
 
   function submit(e) {
-    const phone = (phone1 + phone2 + phone3).length === 11;
+    const phone =
+      (phone1 + phone2 + phone3).length === 11 ||
+      (phone1 + phone2 + phone3).length === 10;
     // console.log("test true", phone1 + phone2 + phone3, phone);
     if (fullName.trim().length == 0) setFullNameError(true);
     if (companyName.trim().length == 0) setCompanyNameError(true);
@@ -52,15 +56,6 @@ const ContactForm = (props) => {
     if (email.trim().length == 0) setEmailError(true);
     if (message.trim().length == 0) setMessageError(true);
 
-    if (
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        email
-      )
-    ) {
-      setEmailValid(true);
-    } else {
-      setEmailValid(false);
-    }
     if (
       fullNameError ||
       companyAddressError ||
@@ -87,6 +82,7 @@ const ContactForm = (props) => {
     createContact({
       variables: variables,
     });
+    setSubmitting(true);
     e.preventDefault();
   }
   const checkPhone = (e, num, pos) => {
@@ -117,11 +113,8 @@ const ContactForm = (props) => {
   };
   function onChange(e) {
     e.preventDefault();
-    let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-    let check =
-      new RegExp(format).test(e.target.value) ||
-      e.target.value.trim().length == 0;
-    // console.log("check:", check, e.target.name, e.target.value);
+    let format = /^[^a-zA-Z0-9]+$/;
+    let check = new RegExp(format).test(e.target.value);
     switch (e.target.name) {
       case "fullName": {
         setFullName(e.target.value);
@@ -155,8 +148,17 @@ const ContactForm = (props) => {
       }
       case "email": {
         setEmail(e.target.value);
-        setEmailValid(true);
-        setEmailError(false);
+        if (!!check) setEmailError(true);
+        else setEmailError(false);
+        if (
+          /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+            e.target.value
+          )
+        ) {
+          setEmailValid(true);
+        } else {
+          setEmailValid(false);
+        }
         break;
       }
       case "message": {
@@ -385,7 +387,10 @@ const ContactForm = (props) => {
                 Enter Your {data?.Contact_ContactForm_Content5?.value}
               </label>
             ) : !emailValid ? (
-              <label>Email Address must be include @ after {email}</label>
+              <label>
+                Email Address must be include @ after {email} or have xxx.com
+                after @ or don't have whitespace
+              </label>
             ) : (
               <></>
             )}
@@ -412,19 +417,32 @@ const ContactForm = (props) => {
 
             <div className="footer-form">
               <div className="checkbox-form">
-                <input
-                  type="checkbox"
-                  checked={checked}
-                  onChange={() => setChecked(!checked)}
-                  disabled={loading}
-                />
-                <a
-                  href={data?.Contact_ContactForm_CheckBox?.url}
-                  target="_blank"
-                >
-                  {data?.Contact_ContactForm_CheckBox?.key}
-                </a>
-                {data?.Contact_ContactForm_CheckBox?.value}
+                <div className="checkbox-private">
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => setChecked(!checked)}
+                    className={!checked ? "error" : ""}
+                    disabled={loading}
+                  />
+                  <a
+                    href={data?.Contact_ContactForm_CheckBox?.url}
+                    target="_blank"
+                  >
+                    {data?.Contact_ContactForm_CheckBox?.key}
+                  </a>
+                  {data?.Contact_ContactForm_CheckBox?.value}
+                </div>
+                {!checked ? (
+                  <label>Please accept private policy before submitting </label>
+                ) : (
+                  <></>
+                )}
+                {!loading && submitting ? (
+                  <label className="success"> Submit Successfully ! </label>
+                ) : (
+                  <></>
+                )}
               </div>
               <button className="button-contact">
                 {data["Contact_ContactForm_Button"]?.value}
@@ -443,6 +461,7 @@ const ContactForm = (props) => {
             </div>
           </form>
         </div>
+        {loading && <SimpleLoader />}
       </div>
     </>
   );
