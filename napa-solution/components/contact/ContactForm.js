@@ -1,10 +1,12 @@
 import { useMutation } from "@apollo/client";
-import { useState, Fragment } from "react";
+import { useState, Fragment, useEffect } from "react";
 import { ADD_CUSTOMER } from "../../query/general";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import joinJsx from "../../util/joinJsx";
 import SimpleLoader from "../layout/SimpleLoader";
 import { createContactGQL } from "../../query/mutation";
+import usedarkmode from "use-dark-mode";
+import clsx from "clsx";
 
 const ContactForm = (props) => {
   const [fullName, setFullName] = useState("");
@@ -24,7 +26,66 @@ const ContactForm = (props) => {
   const [messageError, setMessageError] = useState(false);
   const [checked, setChecked] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [isChecked, setIsChecked] = useState(true);
   const data = convertArrToObject(props.data.property);
+  const [darkMode, setDarkmode] = useState(false);
+  const isDarkMode= usedarkmode();
+
+  useEffect(()=>{
+    const enableDarkMode = localStorage?.getItem("darkMode")
+    enableDarkMode === "true" ? setDarkmode(true): setDarkmode(false);
+  })
+
+  useEffect(() => {
+    tinymce.init({
+      selector: "textarea",
+      menubar: false,
+      statusbar: false,
+      height: 300,
+      plugins: [
+        "advlist autolink lists link image charmap print preview anchor",
+        "searchreplace visualblocks code fullscreen",
+        "insertdatetime media table contextmenu paste"
+      ],
+      forced_root_block: "",
+      content_css: 'css/content.css',
+      body_class: !!isDarkMode.value ? "body-editor-dark" : ""
+      // toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+
+    });
+  }, []);
+
+  useEffect(() => {
+    setCommentColor();
+  }, [setCommentColor]);
+
+  useEffect(() => {
+    tinymce.activeEditor.on('change', function () {
+      setMessage(document.getElementById("mytextarea").value.trim());
+      if (document.getElementById("mytextarea").value.trim() === "") setMessageError(true);
+      else setMessageError(false);
+    })
+  });
+
+  function setCommentColor() {
+    let bgColor = ""
+    let color = ""
+    if (darkMode) {
+      bgColor = "#230b4c";
+      color = "#fff";
+    } else {
+      bgColor = "#fff";
+      color = "#000"
+    }
+    if (tinymce.activeEditor.contentDocument) {
+      tinymce.activeEditor.contentDocument.body.style.background = bgColor
+      tinymce.activeEditor.contentDocument.body.style.color = color
+    }
+  }
+
+  function demoAsyncCall() {
+    return new Promise((resolve) => setTimeout(() => resolve(), 2000));
+  }
 
   const [createContact, { data: contactData, loading, error }] = useMutation(
     createContactGQL,
@@ -40,30 +101,35 @@ const ContactForm = (props) => {
     setPhone2("");
     setPhone3("");
     setCompanyName("");
-    setCompanyAddress(""); 
+    setCompanyAddress("");
     setFullName("");
+    setIsChecked(true)
+    demoAsyncCall().then(() => setSubmitting(false));
+    tinymce.activeEditor.setContent('');
   }
 
   function submit(e) {
     const phone = (phone1 + phone2 + phone3).length === 11 || (phone1 + phone2 + phone3).length === 10;
-    console.log("test true", phone1 + phone2 + phone3, phone);
-    if (fullName.trim().length == 0) setFullNameError(true);
-    if (companyName.trim().length == 0) setCompanyNameError(true);
-    if (companyAddress.trim().length == 0) setCompanyAddressError(true);
+    if (fullName.trim() === "") setFullNameError(true);
+    if (companyName.trim() === "") setCompanyNameError(true);
+    if (companyAddress.trim() === "") setCompanyAddressError(true);
     if (!phone) setPhoneError(true);
-    if (email.trim().length == 0) setEmailError(true);
-    if (message.trim().length == 0) setMessageError(true);
-
+    if (email.trim() === "") setEmailError(true);
+    if (message.trim() === "") setMessageError(true);
     if (
-      fullNameError ||
-      companyAddressError ||
-      companyNameError ||
+      fullName.trim() === "" ||
+      companyAddress.trim() === "" ||
+      companyName.trim() === "" ||
       phoneError ||
-      messageError ||
-      emailError ||
-      !emailValid ||
-      !checked
+      message.trim() === "" ||
+      email.trim() === "" ||
+      !emailValid
     ) {
+      if(!checked){
+        setIsChecked(false);
+        e.preventDefault();
+        return;
+      }
       e.preventDefault();
       return;
     }
@@ -81,28 +147,29 @@ const ContactForm = (props) => {
       variables: variables,
     });
     setSubmitting(true);
+    tinyMCE.activeEditor.setContent('');
     e.preventDefault();
   }
   const checkPhone = (e, num, pos) => {
-    if (/[0-9]/.test(e.target.value) && e.target.value.length < num) {
+    if (/^[0-9]+$/.test(e.target.value) && e.target.value.length < num) {
       pos == 1
         ? setPhone1(e.target.value)
         : pos == 2
-        ? setPhone2(e.target.value)
-        : setPhone3(e.target.value);
+          ? setPhone2(e.target.value)
+          : setPhone3(e.target.value);
       setPhoneError(true);
       return;
     }
-    if (/[0-9]/.test(e.target.value) && e.target.value.length == num) {
+    if (/^[0-9]+$/.test(e.target.value) && e.target.value.length == num) {
       pos == 1
         ? setPhone1(e.target.value)
         : pos == 2
-        ? setPhone2(e.target.value)
-        : setPhone3(e.target.value);
+          ? setPhone2(e.target.value)
+          : setPhone3(e.target.value);
       setPhoneError(false);
       return;
     }
-    if (/[0-9]/.test(e.target.value) && e.target.value.length > num) {
+    if (/^[0-9]+$/.test(e.target.value) && e.target.value.length > num) {
       setPhoneError(false);
       return;
     }
@@ -158,12 +225,6 @@ const ContactForm = (props) => {
         }
         break;
       }
-      case "message": {
-        setMessage(e.target.value);
-        if (!!check) setMessageError(true);
-        else setMessageError(false);
-        break;
-      }
     }
   }
 
@@ -171,6 +232,7 @@ const ContactForm = (props) => {
     alert(
       "An error occur when trying send your message, plase try again later"
     );
+
 
   return (
     <>
@@ -264,14 +326,14 @@ const ContactForm = (props) => {
           </a>
         </div>
         <div className="right-contact" id="right-contact">
-          <form onSubmit={submit}>
-            <p className={fullNameError ? "error" : ""}>
+          <form onSubmit={submit} autoComplete="off">
+            <p>
               {data?.Contact_ContactForm_Content1?.value}
             </p>
             <input
               type="input"
               name="fullName"
-              className={fullNameError ? "error" : ""}
+              className={fullNameError ? "error" : "", darkMode ? "auto-fill-darkmode" : ""}
               onChange={onChange}
               value={fullName}
               disabled={loading}
@@ -285,13 +347,13 @@ const ContactForm = (props) => {
               <></>
             )}
 
-            <p className={companyNameError ? "error" : ""}>
+            <p>
               {data?.Contact_ContactForm_Content2?.value}
             </p>
             <input
               type="input"
               name="companyName"
-              className={companyNameError ? "error" : ""}
+              className={clsx(companyNameError ? "error" : "", darkMode ? "auto-fill-darkmode" : "")}
               onChange={onChange}
               value={companyName}
               disabled={loading}
@@ -305,13 +367,13 @@ const ContactForm = (props) => {
               <></>
             )}
 
-            <p className={companyAddressError ? "error" : ""}>
+            <p>
               {data?.Contact_ContactForm_Content3?.value}
             </p>
             <input
               type="input"
               name="companyAddress"
-              className={companyAddressError ? "error" : ""}
+              className={clsx(companyAddressError ? "error" : "", darkMode ? "auto-fill-darkmode" : "")}
               onChange={onChange}
               value={companyAddress}
               disabled={loading}
@@ -325,14 +387,14 @@ const ContactForm = (props) => {
               <></>
             )}
 
-            <p className={phoneError ? "error" : ""}>
+            <p>
               {data?.Contact_ContactForm_Content4?.value}
             </p>
             <div className="phone-contact">
               <input
                 type="input"
                 name="phone1"
-                className={phoneError ? "error" : ""}
+                className={clsx(phoneError ? "error" : "", darkMode ? "auto-fill-darkmode" : "")}
                 placeholder="090"
                 onChange={onChange}
                 value={phone1}
@@ -342,7 +404,7 @@ const ContactForm = (props) => {
               <input
                 type="input"
                 name="phone2"
-                className={phoneError ? "error" : ""}
+                className={clsx(phoneError ? "error" : "", darkMode ? "auto-fill-darkmode" : "")}
                 placeholder="0000"
                 onChange={onChange}
                 value={phone2}
@@ -352,7 +414,7 @@ const ContactForm = (props) => {
               <input
                 type="input"
                 name="phone3"
-                className={phoneError ? "error" : ""}
+                className={clsx(phoneError ? "error" : "", darkMode ? "auto-fill-darkmode" : "")}
                 placeholder="0000"
                 onChange={onChange}
                 value={phone3}
@@ -368,13 +430,13 @@ const ContactForm = (props) => {
               <></>
             )}
 
-            <p className={emailError || !emailValid ? "error" : ""}>
+            <p>
               {data?.Contact_ContactForm_Content5?.value}
             </p>
             <input
               type="input"
               name="email"
-              className={emailError || !emailValid ? "error" : ""}
+              className={clsx(emailError || !emailValid ? "error" : "", darkMode ? "auto-fill-darkmode" : "")}
               onChange={onChange}
               value={email}
               disabled={loading}
@@ -389,16 +451,15 @@ const ContactForm = (props) => {
               <></>
             )}
 
-            <p className={messageError ? "error" : ""}>
+            <p>
               {data?.Contact_ContactForm_Content6?.value}
             </p>
             <textarea
               type="input"
               name="message"
-              className={messageError ? "error" : ""}
-              onChange={onChange}
+              id="mytextarea"
+              className={clsx(messageError ? "error" : "" , darkMode ? "auto-fill-darkmode?.value" : "")}
               value={message}
-              disabled={loading}
             ></textarea>
             {messageError ? (
               <label>
@@ -426,11 +487,11 @@ const ContactForm = (props) => {
                   </a>
                   {data?.Contact_ContactForm_CheckBox?.value}
                 </div>
-                {!checked ? (
+                {!isChecked ? (
                   <label>Please accept private policy before submitting </label>
                 ) : <></>}
                 {!loading && submitting ? (
-                  <label className = "success"> Submit Successfully ! </label>
+                  <label className="success"> Submit Successfully ! </label>
                 ) : <></>}
               </div>
               <button className="button-contact">
@@ -450,7 +511,7 @@ const ContactForm = (props) => {
             </div>
           </form>
         </div>
-        {loading && <SimpleLoader/>}
+        {loading && <SimpleLoader />}
       </div>
     </>
   );

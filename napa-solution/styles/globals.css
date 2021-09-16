@@ -15,6 +15,22 @@ a {
   display: block;
 }
 
+/* text editor css */
+.tox .tox-menu{
+  background-color: transparent !important;
+}
+
+.tox-collection__group > *:hover{
+  background-color: transparent !important;
+  text-decoration: underline;
+}
+
+.tox-collection__item--active{
+  background: none !important;
+  text-decoration: underline;
+}
+/* ... */
+
 body.light-mode {
   font-family: "Hina Mincho", serif;
   /* body: "#FFF"; */

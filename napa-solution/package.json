@@ -17,6 +17,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@tinymce/tinymce-react": "^3.12.6",
     "clsx": "^1.1.1",
     "fontfaceobserver": "^2.1.0",
     "graphql": "^15.5.1",
