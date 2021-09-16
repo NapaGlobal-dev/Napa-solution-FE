@@ -33,7 +33,6 @@ const Banner = (props) => {
             width='100%'
           />
         </div>
-        {/* <img className="shape-banner" src="/img/wave-shape.svg" /> */}
         <div className="shape-banner">
 
           <svg className="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
