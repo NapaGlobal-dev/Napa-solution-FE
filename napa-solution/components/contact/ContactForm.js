@@ -213,7 +213,8 @@ const ContactForm = (props) => {
       }
       case "email": {
         setEmail(e.target.value);
-        if (!!check) setEmailError(true); else setEmailError(false)
+        if (!!check) setEmailError(true);
+        else setEmailError(false);
         if (
           /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
             e.target.value
@@ -446,7 +447,10 @@ const ContactForm = (props) => {
                 Enter Your {data?.Contact_ContactForm_Content5?.value}
               </label>
             ) : !emailValid ? (
-              <label>Email Address must be include @ after {email} or have xxx.com after @ or don't have whitespace</label>
+              <label>
+                Email Address must be include @ after {email} or have xxx.com
+                after @ or do not have whitespace
+              </label>
             ) : (
               <></>
             )}
@@ -478,6 +482,7 @@ const ContactForm = (props) => {
                     checked={checked}
                     onChange={() => setChecked(!checked)}
                     className={!checked ? "error" : ""}
+                    disabled={loading}
                   />
                   <a
                     href={data?.Contact_ContactForm_CheckBox?.url}
@@ -489,10 +494,18 @@ const ContactForm = (props) => {
                 </div>
                 {!isChecked ? (
                   <label>Please accept private policy before submitting </label>
-                ) : <></>}
+                ) : (
+                  <></>
+                )}
                 {!loading && submitting ? (
                   <label className="success"> Submit Successfully ! </label>
+<<<<<<< HEAD
                 ) : <></>}
+=======
+                ) : (
+                  <></>
+                )}
+>>>>>>> 4bff3af6128f587af77c7daec172fb596fa8294a
               </div>
               <button className="button-contact">
                 {data["Contact_ContactForm_Button"]?.value}
