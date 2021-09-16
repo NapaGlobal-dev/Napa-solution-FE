@@ -389,7 +389,7 @@ const ContactForm = (props) => {
             ) : !emailValid ? (
               <label>
                 Email Address must be include @ after {email} or have xxx.com
-                after @ or don't have whitespace
+                after @ or do not have whitespace
               </label>
             ) : (
               <></>
