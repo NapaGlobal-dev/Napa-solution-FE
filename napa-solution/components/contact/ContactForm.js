@@ -40,13 +40,15 @@ const ContactForm = (props) => {
     setPhone2("");
     setPhone3("");
     setCompanyName("");
-    setCompanyAddress(""); 
+    setCompanyAddress("");
     setFullName("");
   }
 
   function submit(e) {
-    const phone = (phone1 + phone2 + phone3).length === 11 || (phone1 + phone2 + phone3).length === 10;
-    console.log("test true", phone1 + phone2 + phone3, phone);
+    const phone =
+      (phone1 + phone2 + phone3).length === 11 ||
+      (phone1 + phone2 + phone3).length === 10;
+    // console.log("test true", phone1 + phone2 + phone3, phone);
     if (fullName.trim().length == 0) setFullNameError(true);
     if (companyName.trim().length == 0) setCompanyNameError(true);
     if (companyAddress.trim().length == 0) setCompanyAddressError(true);
@@ -146,7 +148,8 @@ const ContactForm = (props) => {
       }
       case "email": {
         setEmail(e.target.value);
-        if (!!check) setEmailError(true); else setEmailError(false)
+        if (!!check) setEmailError(true);
+        else setEmailError(false);
         if (
           /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
             e.target.value
@@ -384,7 +387,10 @@ const ContactForm = (props) => {
                 Enter Your {data?.Contact_ContactForm_Content5?.value}
               </label>
             ) : !emailValid ? (
-              <label>Email Address must be include @ after {email} or have xxx.com after @ or don't have whitespace</label>
+              <label>
+                Email Address must be include @ after {email} or have xxx.com
+                after @ or don't have whitespace
+              </label>
             ) : (
               <></>
             )}
@@ -417,6 +423,7 @@ const ContactForm = (props) => {
                     checked={checked}
                     onChange={() => setChecked(!checked)}
                     className={!checked ? "error" : ""}
+                    disabled={loading}
                   />
                   <a
                     href={data?.Contact_ContactForm_CheckBox?.url}
@@ -428,10 +435,14 @@ const ContactForm = (props) => {
                 </div>
                 {!checked ? (
                   <label>Please accept private policy before submitting </label>
-                ) : <></>}
+                ) : (
+                  <></>
+                )}
                 {!loading && submitting ? (
-                  <label className = "success"> Submit Successfully ! </label>
-                ) : <></>}
+                  <label className="success"> Submit Successfully ! </label>
+                ) : (
+                  <></>
+                )}
               </div>
               <button className="button-contact">
                 {data["Contact_ContactForm_Button"]?.value}
@@ -450,7 +461,7 @@ const ContactForm = (props) => {
             </div>
           </form>
         </div>
-        {loading && <SimpleLoader/>}
+        {loading && <SimpleLoader />}
       </div>
     </>
   );
