@@ -106,7 +106,7 @@ const ContactForm = (props) => {
     setCompanyAddress("");
     setFullName("");
     setIsChecked(true);
-    setChecked(!checked)
+    setChecked(false)
     demoAsyncCall().then(() => setSubmitting(false));
     tinymce.activeEditor.setContent('');
   }
