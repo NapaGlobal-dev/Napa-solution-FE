@@ -59,6 +59,8 @@ class MyDocument extends Document {
           integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
           crossorigin="anonymous"
           ></script>
+          {/* editor api */}
+          <script src="https://cdn.tiny.cloud/1/kgoz83g4pa9hf3ty6rf30954qbxxsi2k222f9b3fdpmhhonu/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         {/* google map api  */}
           <script
           src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyDauj3g7HyE202aDRkrUUBzcbCkcrK_CQg&libraries=&v=weekly`}

@@ -14,6 +14,20 @@
   color: #2f3f4e;
 }
 
+
+/* input:-webkit-autofill {
+  background-color: transparent !important;
+  -webkit-box-shadow: 0 0 0 50px white inset;
+} */
+
+.auto-fill-darkmode{
+  -webkit-box-shadow: 0 0 0 50px #230b4c inset !important;
+  -webkit-text-fill-color: #fff !important;
+}
+.auto-fill-darkmode:focus{
+  caret-color: #fff;
+}
+
 .subtitle1 {
   color: #7c57e2;
 }
@@ -205,6 +219,10 @@ textarea:focus {
 .checkbox-private{
   display: flex;
   align-items: center;
+}
+
+#message-area iframe{
+  background-color: transparent;
 }
 
 input[type="checkbox"]{
