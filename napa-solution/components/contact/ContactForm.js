@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { useState, Fragment, useEffect } from "react";
+import { useState, Fragment, useEffect, useRef } from "react";
 import { ADD_CUSTOMER } from "../../query/general";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import joinJsx from "../../util/joinJsx";
@@ -19,6 +19,7 @@ const ContactForm = (props) => {
   const [phone2, setPhone2] = useState("");
   const [phone3, setPhone3] = useState("");
   const [phoneError, setPhoneError] = useState(false);
+  const [phoneInvalid, setPhoneInvalid] = useState(false);
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [emailValid, setEmailValid] = useState(true);
@@ -30,6 +31,7 @@ const ContactForm = (props) => {
   const data = convertArrToObject(props.data.property);
   const [darkMode, setDarkmode] = useState(false);
   const isDarkMode = usedarkmode();
+  const skipFirst = useRef(false);
 
   useEffect(() => {
     const enableDarkMode = localStorage?.getItem("darkMode");
@@ -55,6 +57,24 @@ const ContactForm = (props) => {
         "8pt 9pt 10pt 11pt 12pt 14pt 18pt 24pt 30pt 36pt 48pt 60pt 72pt 96pt",
       toolbar:
         "insertfile undo redo | bold italic forecolor backcolor fontsizeselect | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect | link image",
+      max_chars: 1000,
+      setup: function (ed) {
+        ed.on("keydown", function (e) {
+          debugger;
+          const maxChars = parseInt(ed.getParam("max_chars"));
+          const content = ed.getContent({ format: "text" });
+          if (content.length > maxChars) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }
+        });
+        ed.on("keyup", (e) => {
+          const content = ed.getContent({ format: "text" });
+          if (content.length === 0) setMessageError(true);
+          else setMessageError(false);
+        });
+      },
     });
   }, []);
 
@@ -63,14 +83,11 @@ const ContactForm = (props) => {
   }, [setCommentColor]);
 
   useEffect(() => {
-    tinymce.activeEditor.on("change", function () {
-      tinymce.triggerSave();
-      const content = tinymce.activeEditor.getContent().trim();
-      setMessage(content);
-      if (content.length === 0) setMessageError(true);
-      else setMessageError(false);
-    });
-  });
+    if (skipFirst.current) {
+      if ((phone1 + phone2 + phone3).length < 10) setPhoneInvalid(true);
+      else setPhoneInvalid(false);
+    } else skipFirst.current = true;
+  }, [phone1, phone2, phone3]);
 
   function setCommentColor() {
     let bgColor = "";
@@ -104,6 +121,7 @@ const ContactForm = (props) => {
     setMessage("");
     setPhone1("");
     setPhone2("");
+    skipFirst.current = false;
     setPhone3("");
     setCompanyName("");
     setCompanyAddress("");
@@ -115,6 +133,7 @@ const ContactForm = (props) => {
   }
 
   function submit(e) {
+    const message = tinymce.editors["textareamessage"].getContent().trim();
     const phone =
       (phone1 + phone2 + phone3).length === 11 ||
       (phone1 + phone2 + phone3).length === 10;
@@ -192,33 +211,33 @@ const ContactForm = (props) => {
     e.preventDefault();
 
     const unexpectedCharacters =
-      /[^\wぁ-ゔゞァ-・ヽヾ゛゜ー一-龯~`!@#$%^&*()_+{}|\[\]\\:";'<?>,.\/]/g;
+      /[^\w\sぁ-ゔゞァ-・ヽヾ゛゜ー一-龯~`!@#$%^&*()_+{}|\[\]\\:";'<?>,.\/ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]/g;
     const spaces = /\s+/g;
     const emailRegex =
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     const value = e.target.value
-      .replace(unexpectedCharacters, "")
-      .replace(spaces, "");
+      .replace(spaces, " ")
+      .replace(unexpectedCharacters, "");
     const isEmpty = value == "";
 
     switch (e.target.name) {
       case "fullName": {
         if (isEmpty) setFullNameError(true);
         else setFullNameError(false);
-        setFullName(value);
+        setFullName(value.slice(0, 30));
         break;
       }
       case "companyName": {
         if (isEmpty) setCompanyNameError(true);
         else setCompanyNameError(false);
-        setCompanyName(value);
+        setCompanyName(value.slice(0, 30));
         break;
       }
       case "companyAddress": {
         if (isEmpty) setCompanyAddressError(true);
         else setCompanyAddressError(false);
-        setCompanyAddress(value);
+        setCompanyAddress(value.slice(0, 100));
         break;
       }
       case "phone1": {
@@ -244,7 +263,7 @@ const ContactForm = (props) => {
           }
         }
 
-        setEmail(value);
+        setEmail(value.slice(0, 30));
         break;
       }
     }
@@ -414,7 +433,7 @@ const ContactForm = (props) => {
                 type="input"
                 name="phone1"
                 className={clsx(
-                  phoneError ? "error" : "",
+                  phoneError || phoneInvalid ? "error" : "",
                   darkMode ? "auto-fill-darkmode" : ""
                 )}
                 placeholder="090"
@@ -428,7 +447,7 @@ const ContactForm = (props) => {
                 type="input"
                 name="phone2"
                 className={clsx(
-                  phoneError ? "error" : "",
+                  phoneError || phoneInvalid ? "error" : "",
                   darkMode ? "auto-fill-darkmode" : ""
                 )}
                 placeholder="0000"
@@ -442,7 +461,7 @@ const ContactForm = (props) => {
                 type="input"
                 name="phone3"
                 className={clsx(
-                  phoneError ? "error" : "",
+                  phoneError || phoneInvalid ? "error" : "",
                   darkMode ? "auto-fill-darkmode" : ""
                 )}
                 placeholder="0000"
@@ -452,6 +471,9 @@ const ContactForm = (props) => {
                 disabled={loading}
               />
             </div>
+            {phoneInvalid && (
+              <label>Phone number must be in 10, 11 characters</label>
+            )}
 
             <p>
               {data?.Contact_ContactForm_Content5?.value}
@@ -486,7 +508,7 @@ const ContactForm = (props) => {
             <textarea
               type="input"
               name="message"
-              id="mytextarea"
+              id="textareamessage"
               className={clsx(
                 messageError ? "textarea-error" : "",
                 darkMode ? "auto-fill-darkmode?.value" : ""
