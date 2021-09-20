@@ -45,7 +45,6 @@ const Layout = ({ footerData, children, ...props }) => {
         {React.cloneElement(children, {
           footer: <Footer data={footerData} isLoading={loading} />,
         })}
-        {simpleLoading && <SimpleLoader />}
       </>
     );
   }

@@ -42,7 +42,7 @@ export default function Service(props) {
                   src="/img/icon-fire.png"
                 />
               </div>
-              <div className="case-item">
+              <div className="case-item" id="down-up">
                 <div className="service-name">
                   {item.content && getValue(item.content, "ServiceName")}
                 </div>
@@ -87,20 +87,20 @@ export default function Service(props) {
             </div>
           ) : (
             <div className="case-layout left" key={index}>
-              <div className="case-item">
-                <div className="service-name animate-down-up">
+              <div className="case-item" id="down-up">
+                <div className="service-name">
                   {item.content && getValue(item.content, "ServiceName")}
                 </div>
-                <div className="case-name animate-down-up">
+                <div className="case-name">
                   {item.content && getValue(item.content, "CaseName")}
                 </div>
-                <div className="case-content animate-down-up">
+                <div className="case-content">
                   {item.content &&
                     getList(item.content, "CaseContent")?.map((e, ind) => (
                       <p key={ind + "a"}>{e.value}</p>
                     ))}
                 </div>
-                <div className="case-program animate-down-up">
+                <div className="case-program">
                   {item.content &&
                     getList(item.content, "ImgProgram")?.map((e, ind) => (
                       <div key={ind + "b"} className="tech-name">

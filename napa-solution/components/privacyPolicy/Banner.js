@@ -1,16 +1,42 @@
 import { getData } from "../../util/converArrayToObject";
 import Head from "next/head";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import usedarkmode from "use-dark-mode";
+import { useEffect, useState, useRef } from "react";
 
 export default function Banner({ data }) {
   const banner = getData(data, /PrivacyPolicy_Banner_Img/)[0];
   const title = getData(data, /PrivacyPolicy_Banner_Title/)[0];
   const subtitle = getData(data, /PrivacyPolicy_Banner_SubTitle/)[0];
-  // useEffect(() => {
-  //   window.onload = function () {
-  //     document.getElementById("banner").className = "wrap-banner open";
-  //   };
-  // }, []);
+  const darkMode = usedarkmode();
+  const [darkmodeIssue, setDarkmodeIssue] = useState(true)
+  useEffect(() => {
+    // window.onload = function () {
+    //   document.getElementById("banner").className = "wrap-banner open";
+    // };
+
+    const isDarmode = localStorage.getItem('darkmode')
+    if(isDarmode)
+      if(isDarmode=="off")
+        setDarkmodeIssue(false)
+    else
+      setDarkmodeIssue(false)
+    
+  }, []);
+
+  // run only for update
+  const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      setDarkmodeIssue(false)
+    }
+  });
+
+  const whatColor = darkmodeIssue || darkMode.value
+
   return (
     <>
       <Head>
@@ -38,16 +64,36 @@ export default function Banner({ data }) {
         <div className="shape-banner">
 
           <svg className="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
-          viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-          <defs>
-          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-          </defs>
-          <g className="parallax">
-          <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-          <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-          <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-          <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
-          </g>
+          viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
+            <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g className="parallax">
+              <use
+                xlinkHref="#gentle-wave"
+                x="48"
+                y="0"
+                fill={whatColor? "rgba(35, 11, 76,0.7)" : "rgba(255, 255, 255,0.7)"}
+              />
+              <use
+                xlinkHref="#gentle-wave"
+                x="48"
+                y="3"
+                fill={whatColor? "rgba(35, 11, 76,0.5)" : "rgba(255, 255, 255,0.5)"}
+              />
+              <use
+                xlinkHref="#gentle-wave"
+                x="48"
+                y="5"
+                fill={whatColor? "rgba(35, 11, 76,0.3)" : "rgba(255, 255, 255,0.3)"}
+              />
+              <use
+                xlinkHref="#gentle-wave"
+                x="48"
+                y="7"
+                fill={whatColor? "#230b4c" : "#FFF"}
+              />
+            </g>
           </svg>
 
         </div>
