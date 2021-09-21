@@ -21,10 +21,32 @@
 
 .auto-fill-darkmode {
   -webkit-box-shadow: 0 0 0 50px #230b4c inset !important;
-  -webkit-text-fill-color: #fff !important;
+  /* -webkit-text-fill-color: #fff !important; */
 }
 .auto-fill-darkmode:focus {
   caret-color: #fff;
+}
+
+.auto-fill-darkmode::-webkit-input-placeholder {
+  /* Edge */
+  color: rgb(188, 188, 188);
+}
+
+.auto-fill-darkmode:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgb(188, 188, 188);
+}
+
+.auto-fill-darkmode:-moz-placeholder {
+  color: rgb(188, 188, 188);
+}
+
+.auto-fill-darkmode::-moz-placeholder {
+  color: rgb(188, 188, 188);
+}
+
+.auto-fill-darkmode::placeholder {
+  color: rgb(188, 188, 188);
 }
 
 .subtitle1 {
