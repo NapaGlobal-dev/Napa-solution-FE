@@ -1,4 +1,4 @@
-import Landing from 'components/vi/landing';
+import Landing from '../../../components/vi/landing';
 
 const LandingPage = () => {
   return <Landing />;

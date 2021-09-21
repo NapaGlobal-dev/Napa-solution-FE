@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import styles from './applyCard.module.css';
-import FolderImage from 'assets/images/vi/landing/folder.svg';
+import FolderImage from '../../../../assets/images/vi/landing/folder.svg';
 import axios from 'axios';
 import { UPLOAD_S3_ENTRY_POINT } from 'config';
 import { S3_URL } from 'config';
 import { useMutation } from '@apollo/client';
-import generalQueries from 'query/vi/general';
+import generalQueries from '../../../../../query/vi/general';
 import Popup from 'reactjs-popup';
-import { ReactComponent as CloseIcon } from 'assets/icons/vi/recruit/times-solid.svg';
-import { ReactComponent as CheckIcon } from 'assets/icons/vi/recruit/check-circle-regular.svg';
-import { ReactComponent as LongRightArrowIcon } from 'assets/icons/vi/recruit/long-arrow-alt-right-solid.svg';
-import { ReactComponent as FailIcon } from 'assets/icons/vi/recruit/times-circle-regular.svg';
-import Loading from 'components/vi/common/loading';
+import { ReactComponent as CloseIcon } from '../../../../assets/icons/vi/recruit/times-solid.svg';
+import { ReactComponent as CheckIcon } from '../../../../assets/icons/vi/recruit/check-circle-regular.svg';
+import { ReactComponent as LongRightArrowIcon } from '../../../../assets/icons/vi/recruit/long-arrow-alt-right-solid.svg';
+import { ReactComponent as FailIcon } from '../../../../assets/icons/vi/recruit/times-circle-regular.svg';
+import Loading from '../../../../vi/common/loading';
 
 const BuildFileSelector = () => {
   const fileSelector = document.createElement('input');

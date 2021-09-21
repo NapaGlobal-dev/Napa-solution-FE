@@ -1,9 +1,9 @@
 import styles from './index.module.css';
-import CalendarIcon from 'assets/images/vi/recruit/calendar.svg';
-import ExperienceIcon from 'assets/images/vi/recruit/experience.svg';
-import SalaryIcon from 'assets/images/vi/recruit/salary.svg';
-import FileIcon from 'assets/images/vi/recruit/file.svg';
-import LocationIcon from 'assets/images/vi/recruit/location.svg';
+import CalendarIcon from '../../../../assets/images/vi/recruit/calendar.svg';
+import ExperienceIcon from '../../../../assets/images/vi/recruit/experience.svg';
+import SalaryIcon from '../../../../assets/images/vi/recruit/salary.svg';
+import FileIcon from '../../../../assets/images/vi/recruit/file.svg';
+import LocationIcon from '../../../../assets/images/vi/recruit/location.svg';
 
 const Right = ({ data, loading }) => {
   return (

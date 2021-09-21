@@ -1,7 +1,7 @@
 import styles from './index.module.css';
-import img1 from 'assets/images/vi/works/jobstep_CV.svg';
-import img2 from 'assets/images/vi/works/jobstep_call.svg';
-import img3 from 'assets/images/vi/works/jobstep_onjob.svg';
+import img1 from '../../../assets/images/vi/works/jobstep_CV.svg';
+import img2 from '../../../assets/images/vi/works/jobstep_call.svg';
+import img3 from '../../../assets/images/vi/works/jobstep_onjob.svg';
 
 const Recruit = () => {
   return (

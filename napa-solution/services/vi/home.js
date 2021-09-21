@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
-import { zipToObject } from 'helper/converter';
-import generalQueries from 'query/vi/general';
+import { zipToObject } from '../../../helper/converter';
+import generalQueries from '../../../query/vi/general';
 
 // const FetchIntroService = () => {
 //     const { loading: loadingIS, data, error: errorIS } = useQuery(homeQuery.GET_INTRO_SERVICE, {

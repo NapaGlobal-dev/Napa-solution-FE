@@ -1,4 +1,4 @@
-import Recruit from 'components/vi/recruit';
+import Recruit from '../../../components/vi/recruit';
 
 const Recruitment = () => {
   console.log('Hmmm')

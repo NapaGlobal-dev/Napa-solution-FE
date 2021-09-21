@@ -1,17 +1,17 @@
 import styles from './index.module.css';
-import NAPALogo from 'assets/images/vi/napa/company-logo.png';
-import NAPALightLogo from 'assets/images/vi/napa/company-logo-light.png';
+import NAPALogo from '../../../assets/images/vi/napa/company-logo.png';
+import NAPALightLogo from '../../../assets/images/vi/napa/company-logo-light.png';
 import { Link } from 'react-router-dom';
 import Language from './language';
 import { useState, useEffect, useContext } from 'react';
 import clsx from 'clsx';
-import HomeIcon from 'assets/icons/vi/header/home.svg';
-import ServiceIcon from 'assets/icons/vi/header/service.svg';
-import ProjectIcon from 'assets/icons/vi/header/project.svg';
-import ContactIcon from 'assets/icons/vi/header/contact.svg';
-import LangIcon from 'assets/icons/vi/header/lang.svg';
-import languages from 'utils/languages';
-import { StoreContext } from 'utils/store';
+import HomeIcon from '../../../assets/icons/vi/header/home.svg';
+import ServiceIcon from '../../../assets/icons/vi/header/service.svg';
+import ProjectIcon from '../../../assets/icons/vi/header/project.svg';
+import ContactIcon from '../../../assets/icons/vi/header/contact.svg';
+import LangIcon from '../../../assets/icons/vi/header/lang.svg';
+import languages from '../../../../utils/language/language';
+import StoreContext from '../../../../utils/language/store';
 
 const headerNavigations = [
   {

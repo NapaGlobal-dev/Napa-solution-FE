@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
-import { zipToObject } from "helper/converter";
-import generalQueries from "query/en/general";
+import { zipToObject } from "../../../helper/converter";
+import generalQueries from "../../../query/en/general";
 
 const FetchDetailProject = (id) => {
     const { loading: loadingDP, data: detailProject, error: errorDP } = useQuery(generalQueries.GET_DETAIL_PROJECT, {

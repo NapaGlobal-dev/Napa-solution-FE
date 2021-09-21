@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
-import { zipToObject } from "helper/converter";
-import generalQueries from "query/en/general";
+import { zipToObject } from "../../../helper/converter";
+import generalQueries from "../../../query/en/general";
 
 // 1.Fetch data navbar (menu)
 const FetchNavbar = () => {
