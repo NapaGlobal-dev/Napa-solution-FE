@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'NotoSans';
+  src: local('NotoSans'),
+    url('fonts/vi/NotoSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  font-family: NotoSans, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.popup-overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

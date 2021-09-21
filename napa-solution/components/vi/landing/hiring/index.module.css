@@ -1,0 +1,54 @@
+.root {
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 55px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #0d0426;
+}
+
+.desc {
+    font-size: 20px;
+    width: 80%;
+    margin: 10px auto;
+    line-height: 1.5;
+    color: #746c8c;
+}
+
+.wrapListItem {
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+    .root {
+        width: 100%;
+    }
+
+    .wrapListItem {
+        margin: 20px;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .title {
+        font-size: 25px;
+        margin: 0;
+    }
+
+    .desc {
+        font-size: 14px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .wrapListItem {
+        margin: 0 20px 20px 20px;
+    }
+}

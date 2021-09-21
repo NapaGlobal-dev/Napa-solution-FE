@@ -1,0 +1,318 @@
+.root {
+  width: 100%;
+  /* background: #673ab7;
+  background: linear-gradient(45deg, #9c27b0, #673ab7); */
+  position: relative;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 40px 30px;
+  box-shadow: 0px 0px 13px #ccc;
+}
+
+.cpnArea {
+  top: -200px;
+  position: absolute;
+}
+
+.title {
+  color: #303030;
+  margin: 0;
+  font-size: 24px;
+  margin: 0 20px;
+}
+
+.wrapInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+
+.wrapTextarea {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.wrapSubmit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.wrapForm {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 20px;
+}
+
+.error {
+  color: #ff7700;
+  margin: 5px;
+}
+
+.label {
+  font-size: 18px;
+  margin-right: 20px;
+}
+.input {
+  border: 1px solid #a24b9e;
+  padding: 20px;
+  font-size: 18px;
+  font-family: 'NotoSans';
+  width: 100%;
+  border-radius: 10px;
+}
+
+textarea {
+  resize: vertical;
+  border: 1px solid #a24b9e;
+  border-radius: 10px;
+  outline: none;
+  font-family: 'NotoSans';
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.textarea {
+  width: 100%;
+}
+
+.folderImg {
+  width: 75px;
+  height: auto;
+  margin: 20px 0;
+}
+
+.uploadSection {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #a24b9e;
+  border-radius: 10px;
+  margin-top: 25px;
+  cursor: pointer;
+  background: rgb(209 196 233 / 42%);
+  width: 100%;
+  margin: 0 20px;
+}
+
+.btnSection {
+  margin: 0 20px;
+}
+
+.wrapBtnSubmit {
+  margin: 40px 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.wrapBtnSubmit > button {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  font-family: 'NotoSans';
+  position: absolute;
+  color: #0d0426;
+  letter-spacing: 1px;
+  left: 2%;
+}
+.wrapBtnSubmit::before {
+  content: '';
+  width: 60px;
+  height: 60px;
+  background: #eebe38;
+  border-radius: 45px;
+  position: absolute;
+  left: -20px;
+  box-shadow: 0 0 10px #eebe38;
+}
+.wrapBtnSubmit:hover::before {
+  animation: increase 1s 0.2s;
+  animation-fill-mode: forwards;
+}
+
+.wrapHelpertext p {
+  font-size: 20px;
+  color: #9c27b0;
+}
+
+@keyframes increase {
+  from {
+    width: 50px;
+  }
+  to {
+    width: 180px;
+  }
+}
+
+.wrapPopup {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px #00000029;
+  max-width: 650px;
+  width: auto;
+  margin: 0 12px;
+}
+
+.wrapFailPopupTitle {
+  background: #dc717c 0% 0% no-repeat padding-box;
+  padding: 15px 0;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapSuccessPopupTitle {
+  background: #eebe38 0% 0% no-repeat padding-box;
+  padding: 15px 0;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapCloseIcon {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.closeIcon {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+
+.btnIcon {
+  border: none;
+  background-color: inherit;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.btnIcon:hover{
+  opacity: 1;
+}
+.statusIcon {
+  width: 70px;
+  height: 70px;
+  color: #fff;
+}
+
+.wrapContent {
+  padding: 45px;
+}
+
+.popupTitle {
+  font-size: 30px;
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+.popupContent {
+  font-size: 18px;
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  font-weight: 400;
+  height: 48px;
+  margin-top: 15px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.popupFooter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 45px;
+  align-items: center;
+}
+
+.longRightArrowIcon {
+  width: 24px;
+  height: 12px;
+}
+.longRightArrowIcon path{
+  color: #7c4ea7;
+}
+@media only screen and (max-width: 800px) {
+  .wrapPopup{
+    margin: 0 12px;
+  }
+  .wrapInfo {
+    flex-direction: column;
+    margin: 0;
+  }
+  .wrapForm {
+    width: 100%;
+    margin: 20px 0;
+  }
+  .uploadSection {
+    margin: 20px 0 10px 0;
+  }
+  .wrapSubmit {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 0;
+  }
+  .wrapBtnSubmit {
+    width: 100%;
+    margin: 40px 0;
+  }
+  .input,
+  .textarea {
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .root {
+    margin: 20px 0 50px 0;
+    padding: 20px;
+  }
+  .folderImg {
+    width: 55px;
+  }
+  .wrapBtnSubmit button {
+    font-size: 20px;
+    left: 20px;
+  }
+  .wrapBtnSubmit::before {
+    width: 45px;
+    height: 45px;
+    left: 0;
+  }
+  .wrapHelpertext p {
+    font-size: 12px;
+  }
+  .wrapTextarea {
+    margin: 20px 0 10px 0;
+  }
+  .wrapContent{
+    padding: 45px 12px;
+  }
+  .popupContent{
+    font-size: 14px;
+  }
+  .popupFooter{
+    font-size: 14px;
+  }
+  .statusIcon{
+    width: 60px;
+    height: auto;
+  }
+}

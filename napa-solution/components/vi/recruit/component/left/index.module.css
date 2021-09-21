@@ -1,0 +1,35 @@
+.bodyLeft {
+    width: 75%;
+    margin-right: 40px;
+}
+
+.titleText {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.contentText {
+    padding: 5px 40px 10px 20px;
+}
+
+.contentText ul li {
+    font-size: 16px;
+    margin: 1rem 0;
+    line-height: 1.5;
+}
+
+@media only screen and (max-width: 800px) {
+    .bodyLeft {
+        width: 100%;
+        margin-right: 0;
+    }
+    .contentText {
+        padding: 10px;
+    }
+    .titleText {
+        margin: 20px 0 0 0;
+    }
+    .contentText ul li {
+        font-size: 13px;
+    }
+}

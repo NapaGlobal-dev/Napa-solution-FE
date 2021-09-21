@@ -1,0 +1,112 @@
+.bodyRight {
+    width: 25%;
+}
+
+.jobOverv {
+    font-size: 20px;
+}
+
+.boxOverview {
+    padding: 20px 5px;
+    margin-top: 20px;
+    background-color: #673ab729;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapContentOverview {
+    display: flex;
+    margin: 10px 0;
+}
+
+.contentOverviewLeft {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.contentOverviewRight {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px;
+}
+
+.titleContent {
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.dataContent {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.wrapBtnApply {
+    margin: 40px 0 20px 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.wrapBtnApply>button {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    font-family: 'NotoSans';
+    position: absolute;
+    color: #0d0426;
+    letter-spacing: 1px;
+    left: 2%;
+}
+
+.wrapBtnApply>button>a {
+    text-decoration: none;
+    color: #303030;
+}
+
+.wrapBtnApply::before {
+    content: '';
+    width: 50px;
+    height: 50px;
+    background: #eebe38;
+    border-radius: 45px;
+    position: absolute;
+    left: -20px;
+    box-shadow: 0 0 10px #eebe38;
+}
+
+.wrapBtnApply:hover::before {
+    animation: increase 1s 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes increase {
+    from {
+        width: 50px;
+    }
+    to {
+        width: 170px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .bodyRight {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .wrapContentOverview {
+        align-items: center;
+    }
+    .dataContent,
+    .titleContent {
+        font-size: 16px;
+    }
+}
