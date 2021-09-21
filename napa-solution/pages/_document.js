@@ -1,7 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import React, { Fragment } from "react";
-import StoreProvier from "../util/language/store";
-import { GOOGLE_API_KEY } from "../config";
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const originalRenderPage = ctx.renderPage;

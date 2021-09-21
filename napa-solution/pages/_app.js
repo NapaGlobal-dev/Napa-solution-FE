@@ -1,5 +1,5 @@
 // import "../styles/globals.css";
-import Layout from "../components/layout";
+import Layout from "../components/jp/layout";
 import { ApolloProvider } from "@apollo/client";
 import App from "next/app";
 
@@ -11,9 +11,7 @@ import Fonts from "../util/fonts";
 import React, { useState, useEffect } from "react";
 
 import useDarkMode from "use-dark-mode";
-import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../themeConfig";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
 function MyApp({ Component, pageProps, footerData, ...props }) {
   useEffect(() => {
     Fonts();

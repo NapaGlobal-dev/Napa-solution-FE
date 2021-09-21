@@ -1,0 +1,135 @@
+.root {
+  max-width: 1200px;
+  /* margin: 0 auto; */
+  padding: 50px 0;
+}
+
+.root h2,
+.root p {
+  text-align: center;
+}
+
+.root h2 {
+  font-size: 50px;
+  color: #0d0426;
+  margin: 0;
+}
+
+.root p {
+  color: #746c8c;
+  font-size: 20px;
+}
+
+.wrapProcess {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+}
+
+.itemProcess1,
+.itemProcess2,
+.itemProcess3 {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  height: 100%;
+  flex: 1 1;
+  align-items: stretch;
+  position: relative;
+}
+
+.mainText {
+  font-size: 20px;
+  color: #0d0426;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.des h5 {
+  color: #746c8c;
+  font-size: 18px;
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.text {
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.background {
+  width: 50px;
+  background: #efc039;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemProcess1 .background::after {
+  content: "1";
+  margin-left: -8px;
+}
+
+.itemProcess2 .background::after {
+  content: "2";
+  margin-left: 40px;
+}
+
+.itemProcess3 .background::after {
+  content: "3";
+  margin-left: -12px;
+}
+
+.background::after {
+  font-size: 40px;
+  font-weight: bold;
+  position: absolute;
+  top: 41%;
+  line-height: 1;
+
+}
+
+.img {
+  width: 40%;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+}
+.img img{
+  max-width: 100%;
+}
+@media only screen and (max-width: 450px) {
+  .mainText{
+    font-size: 18px;
+  }
+  .des h5 {
+    font-size: 13px;
+  }
+
+  .background::after {
+    font-size: 35px;
+  }
+
+  .root {
+    padding: 0;
+  }
+
+  .root h2 {
+    font-size: 25px;
+  }
+
+  .root p {
+    font-size: 14px;
+  }
+
+  .background {
+    width: 30px;
+  }
+
+  .itemProcess2 .background::after {
+    margin-left: 20px;
+  }
+}

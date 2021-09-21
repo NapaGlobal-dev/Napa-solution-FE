@@ -1,0 +1,400 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+.root {
+    max-width: 1200px;
+    height: auto;
+    margin: auto;
+    padding: 100px 0;
+    overflow: visible;
+}
+
+.wrapTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    line-height: 1;
+    font-size: 55px;
+    color: #0d0426;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.subTitle {
+    color: #746c8c;
+    font-size: 20px;
+}
+
+.sliderBox {
+    width: 100%;
+    position: relative;
+}
+
+.slider {
+    width: 100%;
+    position: relative;
+    border-radius: 20px;
+    height: 500px;
+    display: flex;
+    justify-content: end;
+}
+
+.boxImage {
+    position: absolute;
+    width: 400px;
+    height: 350px;
+    top: calc(50% - 198px);
+    background-image: url('../../../../assets/images/vi/landing/loading.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 4px 13px 30px 1px #a24b9e57;
+}
+
+.content {
+    width: 90%;
+    margin-left: 10%;
+    border-radius: 20px;
+    height: 450px;
+    padding: 0 80px 0 30%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.date {
+    font-size: 18px;
+    opacity: 0.8;
+    margin: 0;
+    color: #7b7992;
+    font-weight: bold;
+}
+
+.boxTitle {
+    font-size: 28px;
+    margin-top: 5px;
+}
+
+.boxDesc {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 10px 0;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn {
+    margin-top: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.btn>button {
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    font-family: 'NotoSans';
+    position: absolute;
+    color: #0d0426;
+    letter-spacing: 1px;
+    left: 2%;
+}
+.btn>button a{
+    color: #0d0426;  
+}
+.btn::before {
+    content: '';
+    width: 60px;
+    height: 60px;
+    background: #eebe38;
+    border-radius: 45px;
+    position: absolute;
+    left: -20px;
+    box-shadow: 0 0 10px #eebe38;
+}
+
+.btn:hover::before {
+    animation: increase 1s 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.pagBox {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 30px;
+    top: 30%;
+}
+
+.pag {
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background: #ccc;
+    margin: 10px 0;
+    cursor: pointer;
+    animation: decreasePag 0.4s ease-in-out;
+}
+
+.activePag {
+    /* background: red;
+  height: 50px; */
+    animation: increasePag 0.4s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.fadeOut1 {
+    animation: fadeOutAnim 0.75s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.fadeOut2 {
+    animation: fadeOutAnim 0.95s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.fadeOut3 {
+    animation: fadeOutAnim 1.05s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.fadeOut4 {
+    animation: fadeOutAnim 1.15s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.fadeOutImg {
+    animation: fadeOutImgAnim 0.75 ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOutAnim {
+    50% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 800px) {
+    .root {
+        width: 100%;
+        overflow: initial;
+        padding: 100px 24px;
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0;
+        padding: 50px;
+        padding-top: 20%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .slider {
+        height: unset;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .boxImage {
+        position: unset;
+        width: 90%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 20px;
+        margin-bottom: -10%;
+        z-index: 1;
+    }
+
+    .pagBox {
+        flex-direction: row;
+        top: 18%;
+        right: calc(50% - 95px);
+    }
+
+    .pag {
+        animation: decreasePagMobile 0.4s ease-in-out;
+        margin: 10px;
+    }
+
+    .activePag {
+        animation: increasePagMobile 0.4s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+
+    .subTitle {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .content {
+        padding: 20% 20px 20px 20px;
+    }
+
+    .pagBox {
+        top: 10%;
+    }
+
+    .root {
+        padding: 50px 24px;
+    }
+
+    .btn {
+        margin-left: 20px;
+    }
+
+    .title {
+        font-size: 25px;
+    }
+
+    .subTitle {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .wrapTitle {
+        margin-bottom: 30px;
+    }
+
+    .pag {
+        width: 15px;
+        height: 15px;
+    }
+
+    .pagBox {
+        right: calc(50% - (175px / 2));
+    }
+
+    .boxTitle {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .date {
+        font-size: 16px;
+    }
+
+    .boxDesc {
+        font-size: 14px;
+    }
+
+    .btn::before {
+        width: 45px;
+        height: 45px;
+    }
+
+    .btn button {
+        font-size: 18px;
+    }
+
+    .content {
+        height: auto;
+        margin-top: 30px;
+        padding: 20% 20px 40px 20px;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .boxDesc span {
+        font-size: 13px !important;
+    }
+}
+
+@keyframes fadeOutImgAnim {
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes increase {
+    from {
+        width: 50px;
+    }
+
+    to {
+        width: 160px;
+    }
+}
+
+@keyframes increasePag {
+    from {
+        height: 15px;
+        background-color: #ccc;
+    }
+
+    to {
+        height: 50px;
+        background-color: #673ab7;
+    }
+}
+
+@keyframes decreasePag {
+    from {
+        height: 50px;
+        background-color: #673ab7;
+    }
+
+    to {
+        height: 15px;
+        background-color: #ccc;
+    }
+}
+
+@keyframes increasePagMobile {
+    from {
+        width: 15px;
+        background-color: #ccc;
+    }
+
+    to {
+        width: 50px;
+        background-color: #9c27b0;
+    }
+}
+
+@keyframes decreasePagMobile {
+    from {
+        width: 50px;
+        background-color: #9c27b0;
+    }
+
+    to {
+        width: 15px;
+        background-color: #ccc;
+    }
+}
