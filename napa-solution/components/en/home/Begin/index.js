@@ -3,11 +3,11 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import Slider from 'react-slick';
 import SliderWrapper from './sliderWrapper';
-import BannerHome1 from '../../../assets/images/en/home/banner-1.png';
-import BannerHome1Mobile from '../../../assets/images/en/home/banner-1-mobile.png';
-import BannerHome2 from '../../../assets/images/en/home/banner-2/ai-bg.png';
-import BannerHome3 from '../../../assets/images/en/home/banner-3/banner-mobile_app.png';
-import BannerHome4 from '../../../assets/images/en/home/banner-2/banner-2-bg.png';
+const BannerHome1 = "/assets/images/en/home/banner-1.png";
+const BannerHome1Mobile = "/assets/images/en/home/banner-1-mobile.png";
+const BannerHome2 = "/assets/images/en/home/banner-2/ai-bg.png";
+const BannerHome3 = "/assets/images/en/home/banner-3/banner-mobile_app.png";
+const BannerHome4 = "/assets/images/en/home/banner-2/banner-2-bg.png";
 import { useEffect } from 'react';
 
 import Banner4Component from './banner4/blockchain';

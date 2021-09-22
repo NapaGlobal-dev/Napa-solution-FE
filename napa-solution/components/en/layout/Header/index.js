@@ -14,8 +14,9 @@ import NewsIcon from '../../../assets/icons/en/news.svg';
 // import LangIcon from 'assets/icons/language-solid.svg';
 import clsx from 'clsx';
 import { useLocation } from 'react-router-dom';
-import { StoreContext } from 'utils/store';
+import { StoreContext } from '../../../../util/language/store';
 import languages from '../../../../util/language/language';
+import router from 'next/router';
 
 const mobileIcons = [
   HomeIcon,
@@ -30,28 +31,28 @@ const mobileIcons = [
 
 function Language() {
   const [openDropdown, setOpenDropndown] = useState(false);
+  const [language, setLanguage] = useState({});
+  const dataLang = useContext(StoreContext)?.language;
 
-  const {
-    language: [languageId, setLanguageId]
-  } = useContext(StoreContext);
+  useEffect(() => {
+    setLanguage(dataLang);
+  }, [dataLang]);
 
   return (
     <div className={styles.langWrapper}>
       <div className={styles.langBtn} onClick={() => setOpenDropndown(true)}>
-        <div>{languages[languageId]}</div>
+        <div>{languages[language[0]]}</div>
         <div className={clsx(styles.langArr, styles.arrDown)}></div>
       </div>
-      <div
-        className={clsx(styles.langList, openDropdown && styles.showLangList)}
-      >
+      <div className={clsx(styles.langList, openDropdown && styles.showLangList)}>
         {languages.map((lang, index) => (
           <div
             key={index}
             onClick={() => {
-              setLanguageId(index);
+              language && language[1](index);
               setOpenDropndown(false);
             }}
-            className={clsx(index === languageId && styles.langActive)}
+            className={clsx(index === language[0] && styles.langActive)}
           >
             <div>{lang}</div>
           </div>
@@ -95,12 +96,14 @@ function Header() {
     activePath: 0,
     isOpen: false
   });
-  const currentPath = useLocation();
   const shouldHideNav = useScroller(200);
   const [changeNav, setChangeNav] = useState(false);
-  const {
-    language: [languageId, setLanguageId]
-  } = useContext(StoreContext);
+  const [language, setLanguage] = useState({});
+  const dataLang = useContext(StoreContext)?.language;
+
+  useEffect(() => {
+    setLanguage(dataLang);
+  }, [dataLang]);
 
   const { activePath, isOpen } = state;
   const langNavigations = languages.map((lang, index) => ({
@@ -115,7 +118,7 @@ function Header() {
 
   useEffect(() => {
     const path = headerNavigations.findIndex(
-      (menu) => menu.path === currentPath.pathname
+      (menu) => menu.path === router.pathname
     );
 
     setState({ ...state, activePath: path });
@@ -150,14 +153,14 @@ function Header() {
       mobileHeaderNav[index].type === 'language' &&
       mobileHeaderNav[index].name === 'VI'
     )
-      setLanguageId(page.languageId);
+      language[1](page.languageId);
   };
 
   return (
     <header
       className={clsx(
         styles.root,
-        (currentPath.pathname === '/' || currentPath.pathname === 'home') &&
+        (router.pathname === '/' || router.pathname === 'home') &&
           styles.fixedNav,
         changeNav && styles.darkNav,
         shouldHideNav && styles.hideNav

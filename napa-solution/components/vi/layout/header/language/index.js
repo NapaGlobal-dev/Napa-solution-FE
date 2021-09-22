@@ -1,20 +1,22 @@
 import clsx from 'clsx';
-import { useContext, useState } from 'react';
-import languages from 'utils/languages';
-import { StoreContext } from 'utils/store';
+import { useContext, useEffect, useState } from 'react';
+import languages from '../../../../../util/language/language';
+import { StoreContext } from '../../../../../util/language/store';
 import styles from './index.module.css';
 
 const Language = () => {
   const [openDropdown, setOpenDropndown] = useState(false);
+  const [language, setLanguage] = useState({});
+  const dataLang = useContext(StoreContext)?.language;
 
-  const {
-    language: [languageId, setLanguageId]
-  } = useContext(StoreContext);
+  useEffect(() => {
+    setLanguage(dataLang);
+  }, [dataLang]);
 
   return (
     <div className={styles.langWrapper}>
       <div className={styles.langBtn} onClick={() => setOpenDropndown(true)}>
-        <div>{languages[languageId]}</div>
+        <div>{languages[language[0]]}</div>
         <div className={clsx(styles.langArr, styles.arrDown)}></div>
       </div>
       <div className={clsx(styles.langList, openDropdown && styles.showLangList)}>
@@ -22,10 +24,10 @@ const Language = () => {
           <div
             key={index}
             onClick={() => {
-              setLanguageId(index);
+              language && language[1](index);
               setOpenDropndown(false);
             }}
-            className={clsx(index === lang.activeLang && styles.langActive)}
+            className={clsx(index === language[0] && styles.langActive)}
           >
             <div>{lang}</div>
           </div>

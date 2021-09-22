@@ -4,7 +4,7 @@
     position: relative;
     padding: 10px 60px;
     box-sizing: border-box;
-    background-image: url('../../../../assets/images/vi/layout/footer.svg');
+    background-image: url('../../../../public/assets/images/vi/layout/footer.svg');
     background-size: cover;
 }
 

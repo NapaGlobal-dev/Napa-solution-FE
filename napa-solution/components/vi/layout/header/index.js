@@ -10,8 +10,8 @@ import ServiceIcon from '../../../assets/icons/vi/header/service.svg';
 import ProjectIcon from '../../../assets/icons/vi/header/project.svg';
 import ContactIcon from '../../../assets/icons/vi/header/contact.svg';
 import LangIcon from '../../../assets/icons/vi/header/lang.svg';
-import languages from '../../../../utils/language/language';
-import StoreContext from '../../../../utils/language/store';
+import languages from '../../../../util/language/language';
+import StoreContext from '../../../../util/language/store';
 
 const headerNavigations = [
   {
@@ -44,9 +44,12 @@ const Header = () => {
   const [activePath, setActivePath] = useState(0);
   const [navColor, setNavColor] = useState('light');
 
-  const {
-    language: [languageId, setLanguageId]
-  } = useContext(StoreContext);
+  const [language, setLanguage] = useState({});
+  const dataLang = useContext(StoreContext)?.language;
+
+  useEffect(() => {
+    setLanguage(dataLang);
+  }, [dataLang]);
 
   const mobileHeaderNav = [
     ...headerNavigations,
@@ -84,7 +87,7 @@ const Header = () => {
     setActivePath(index);
     if (entry.type === 'language') {
       if (entry.name === 'EN') {
-        setLanguageId(entry.languageId);
+        language[1](entry.languageId);
       }
       if (entry.name === 'JP') {
         window.location = 'http://www.napa-solutions.com';

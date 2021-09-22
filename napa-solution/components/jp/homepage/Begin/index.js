@@ -47,7 +47,7 @@ const Element = ({ currentSlide, index, img, data }) => {
           currentSlide === index && styles.zoomInBanner
         )}
         effect = "blur"
-        width = "100%"
+        width = "900%"
       />
       <div className={styles.wrapper}>
         <div className={styles.content}>

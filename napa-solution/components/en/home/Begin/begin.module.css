@@ -1,9 +1,9 @@
-/* :root {
+.beginWrapper:root {
   --slickHeight: 700px;
   --arrowHeight: 200px;
   --arrowWidth: 100px;
   --arrowDistance: -60px;
-} */
+}
 
 .hidden {
   display: none;
@@ -785,12 +785,12 @@
 }
 
 @media only screen and (max-width: 1280px) {
-  /* :root {
+  .beginWrapper:root{
     --slickHeight: 500px;
     --arrowHeight: 120px;
     --arrowDistance: -20px;
     --arrowWidth: 50px;
-  } */
+  }
 
   .title {
     font-size: 2.5rem;
@@ -836,9 +836,9 @@
     object-fit: cover;
     padding-left: 10px;
   }
-  /* :root {
+  .beginWrapper:root {
     --slickHeight: 400px;
-  } */
+  }
   .title {
     font-size: 1.5rem;
   }
@@ -1090,10 +1090,10 @@
   .title {
     text-align: center;
   }
-/* 
-  :root {
+
+  .beginWrapper:root {
     --arrowDistance: -10px;
-  } */
+  }
 
   .tiniStar:nth-child(6) {
     left: calc(50% - 13% - 24% - 52% - 15%);
