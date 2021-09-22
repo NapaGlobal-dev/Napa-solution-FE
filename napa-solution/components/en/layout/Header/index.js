@@ -16,7 +16,7 @@ import clsx from 'clsx';
 import { useLocation } from 'react-router-dom';
 import { StoreContext } from '../../../../util/language/store';
 import languages from '../../../../util/language/language';
-import router from 'next/router';
+import { useRouter } from 'next/router';
 
 const mobileIcons = [
   HomeIcon,
@@ -64,9 +64,8 @@ function Language() {
 
 function useScroller(distance) {
   const [hide, setHide] = useState(false);
-  let anchorPosition = window.pageYOffset;
-
   const scrollEvent = (event) => {
+    let anchorPosition = window.pageYOffset;
     if (window.pageYOffset > anchorPosition) {
       const scrollDistance = window.pageYOffset - anchorPosition;
       if (scrollDistance > distance && hide === false) {
@@ -99,6 +98,7 @@ function Header() {
   const shouldHideNav = useScroller(200);
   const [changeNav, setChangeNav] = useState(false);
   const [language, setLanguage] = useState({});
+  const router = useRouter();
   const dataLang = useContext(StoreContext)?.language;
 
   useEffect(() => {
@@ -182,7 +182,7 @@ function Header() {
         </a>
         <nav className={styles.navigation}>
           <ul className={styles.listNavigationTitle}>
-            {window.location.pathname === '/' &&
+            {router.pathname &&
               headerNavigations.map((page, index) => (
                 <li key={index} className={styles.wrapLink}>
                   <button className={styles.btn}>
@@ -222,7 +222,7 @@ function Header() {
       {/* Menu mobile */}
       <div className={clsx(styles.overlay, { [styles.show]: isOpen })}></div>
       <div className={clsx(styles.mobileMenu, { [styles.show]: isOpen })}>
-        {window.location.pathname === '/'
+        {router.pathname === "/"
           ? mobileHeaderNav.map((page, index) => (
               <a
                 key={index}

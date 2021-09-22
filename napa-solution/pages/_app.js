@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps, footerData, ...props }) {
   const theme = darkmode.value ? darkTheme : lightTheme;
   let initLanguageData = null;
   const [language, setLanguage] = useState(
-    initLanguageData === null ? 1 : parseInt(initLanguageData)
+    initLanguageData === null ? 0 : parseInt(initLanguageData)
   );
   useEffect(() => {
     setIsMounted(true);

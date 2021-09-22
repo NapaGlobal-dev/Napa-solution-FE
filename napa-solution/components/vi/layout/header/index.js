@@ -44,12 +44,9 @@ const Header = () => {
   const [activePath, setActivePath] = useState(0);
   const [navColor, setNavColor] = useState('light');
 
-  const [language, setLanguage] = useState({});
-  const dataLang = useContext(StoreContext)?.language;
-
-  useEffect(() => {
-    setLanguage(dataLang);
-  }, [dataLang]);
+  const {
+    language: [languageId, setLanguageId]
+  } = useContext(StoreContext);
 
   const mobileHeaderNav = [
     ...headerNavigations,
@@ -87,7 +84,7 @@ const Header = () => {
     setActivePath(index);
     if (entry.type === 'language') {
       if (entry.name === 'EN') {
-        language[1](entry.languageId);
+        setLanguageId(entry.languageId);
       }
       if (entry.name === 'JP') {
         window.location = 'http://www.napa-solutions.com';

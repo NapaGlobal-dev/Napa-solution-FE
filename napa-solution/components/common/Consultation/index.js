@@ -31,6 +31,8 @@ function Consultation() {
   const {
     language: [languageId, setLanguageId]
   } = useContext(StoreContext);
+
+  console.log(languageId)
   
   /*===============Function================*/
 
