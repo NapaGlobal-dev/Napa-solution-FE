@@ -8,7 +8,7 @@ import { footerDataQuery } from "../query/general";
 import "../styles/globals.css";
 import StoreProvier, { StoreContext } from "../util/language/store";
 import Fonts from "../util/fonts";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import useDarkMode from "use-dark-mode";
 import { lightTheme, darkTheme } from "../themeConfig";
@@ -20,28 +20,20 @@ function MyApp({ Component, pageProps, footerData, ...props }) {
   const [isMounted, setIsMounted] = useState(false);
   const darkmode = useDarkMode(true);
   const theme = darkmode.value ? darkTheme : lightTheme;
+  let initLanguageData = 2;
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
+  useEffect(()=>{
+    initLanguageData = parseInt(localStorage.getItem("languageID"))
+  })
+  console.log(initLanguageData)
   return (
     <StoreProvier>
       <ApolloProvider client={client}>
         {/* <ThemeProvider theme={theme}> */}
         <Layout footerData={footerData}>
-          {/* <DarkModeSwitch
-              style={{
-                position: "fixed",
-                zIndex: 20,
-                top: 28,
-                height: 30,
-                right: 150,
-              }}
-              checked={!!darkmode.value}
-              onChange={darkmode.toggle}
-              size={120}
-            /> */}
-          {/* {isMounted && <Component {...pageProps} />} */}
           <Component {...pageProps} />
         </Layout>
         {/* </ThemeProvider> */}

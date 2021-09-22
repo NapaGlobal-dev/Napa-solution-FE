@@ -1,6 +1,6 @@
 import styles from './index.module.css';
-import FacebookIcon from 'assets/icons/vi/social/facebook.svg';
-import LinkedInIcon from 'assets/icons/vi/social/linkedIn.svg';
+import FacebookIcon from '../../../assets/icons/vi/social/facebook.svg';
+import LinkedInIcon from '../../../assets/icons/vi/social/linkedIn.svg';
 
 const arrSocial = [
   {

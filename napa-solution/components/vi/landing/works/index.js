@@ -1,5 +1,5 @@
 import styles from './index.module.css';
-import { FetchAllWorks, FetchIntroWorks } from 'services/vi/home';
+import { FetchAllWorks, FetchIntroWorks } from '../../../../services/vi/home';
 import parser from 'html-react-parser';
 
 const Works = () => {

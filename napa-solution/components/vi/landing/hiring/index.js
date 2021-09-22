@@ -1,6 +1,6 @@
 import styles from './index.module.css';
 import Item from './item';
-import { FetchAllRecruits, FetchIntroRecruit } from 'services/vi/home';
+import { FetchAllRecruits, FetchIntroRecruit } from '../../../../services/vi/home';
 import parser from 'html-react-parser';
 
 const Hiring = () => {

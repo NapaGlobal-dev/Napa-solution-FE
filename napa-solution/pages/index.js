@@ -13,6 +13,7 @@ import { OurWorksCpn } from "../components/jp/case-study/ourworks/index.js";
 import  ENHome  from "../components/en/home/index.js"
 import { useContext } from "react";
 import { StoreContext } from "../util/language/store";
+import VIHome from "../components/vi/landing"
 
 const Index = ({ footer, data, ...props }) => {
   const datas = convertArrToObject(data.page.layouts);
@@ -66,7 +67,7 @@ const Index = ({ footer, data, ...props }) => {
             {footer}
           </div>
         </>
-      ) : <ENHome />}
+      ) : languageId === 1 ? <VIHome/> : <ENHome />}
     </>
   );
 };

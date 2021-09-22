@@ -1,7 +1,7 @@
 import styles from './index.module.css';
 import clsx from 'clsx';
 import { useState } from 'react';
-import { FetchAllNews, FetchIntroNews } from 'services/vi/home';
+import { FetchAllNews, FetchIntroNews } from '../../../../services/vi/home';
 import parser from 'html-react-parser';
 const News = () => {
   const [activeArt, setActiveArt] = useState(0);

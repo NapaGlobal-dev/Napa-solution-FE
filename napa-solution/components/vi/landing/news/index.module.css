@@ -1,7 +1,7 @@
-* {
+/* * {
     box-sizing: border-box;
     outline: none;
-}
+} */
 
 .root {
     max-width: 1200px;
@@ -50,7 +50,7 @@
     width: 400px;
     height: 350px;
     top: calc(50% - 198px);
-    background-image: url('../../../../assets/images/vi/landing/loading.gif');
+    background-image: url('../../../../public/assets/images/vi/landing/loading.gif');
     background-repeat: no-repeat;
     background-position: center;
 }

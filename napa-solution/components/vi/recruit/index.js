@@ -1,10 +1,10 @@
 import styles from './index.module.css';
-import Banner from 'assets/images/vi/recruit/banner.svg';
+import Banner from '../../../assets/images/vi/recruit/banner.svg';
 import LeftComponent from './component/left';
 import RightComponent from './component/right';
 import { FetchDetailRecruit } from 'services/vi/home';
-import RecruitProcess from 'components/vi/landing/recruit';
-import ListJobs from 'components/vi/landing/hiring';
+import RecruitProcess from '../../landing/recruit';
+import ListJobs from '../../landing/hiring';
 import { useParams } from "react-router-dom";
 
 const Recruit = () => {

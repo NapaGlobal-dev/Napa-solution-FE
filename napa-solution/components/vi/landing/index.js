@@ -3,7 +3,7 @@ import Works from './works';
 import Home from './home';
 import Hiring from './hiring';
 import News from './news';
-import Consultation from 'components/common/Consultation';
+import Consultation from '../../common/Consultation';
 import clsx from 'clsx';
 
 const Landing = () => {

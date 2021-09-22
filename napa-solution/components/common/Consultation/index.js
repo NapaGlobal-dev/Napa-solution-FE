@@ -1,8 +1,8 @@
 // import { useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import clsx from 'clsx';
-import Button from '../../../components/en/common/Button';
-import Loading from '../../../components/vi/common/loading';
+import Button from '../../en/common/Button';
+import Loading from '../../vi/common/loading';
 import parser from 'html-react-parser';
 import generalQueries from '../../../query/en/general';
 import { useContext, useState } from 'react';

@@ -1,8 +1,8 @@
 import styles from './index.module.css';
-import Banner from 'assets/images/vi/landing/banner.svg';
+import Banner from '../../../assets/images/vi/landing/banner.svg';
 import Slider from 'react-slick';
 import parser from 'html-react-parser';
-import { FetchAllBanner } from 'services/vi/home';
+import { FetchAllBanner } from '../../../../services/vi/home';
 
 const Home = () => {
   const settings = {

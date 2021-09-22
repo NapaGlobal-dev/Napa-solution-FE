@@ -1,6 +1,6 @@
-import VILayout from 'components/vi/layout';
+import VILayout from '../../components/vi/layout';
 import { Route, Switch } from 'react-router';
-import routes from 'utils/routes';
+import routes from '../../utils/routes';
 import './_app.module.css';
 
 const VIApp = () => {
