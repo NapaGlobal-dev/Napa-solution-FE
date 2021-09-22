@@ -1,66 +1,72 @@
-import { HomePage, GET_CASESTUDIES } from "../query/general";
+import { GET_CASESTUDIES, HomePage } from "../query/general";
 import {
   convertArrToObject,
   convertArrToObjectBySpecialName,
 } from "../util/converArrayToObject";
-import Company from "../components/homepage/Company";
+import Company from "../components/jp/homepage/Company";
 import Head from "next/head";
-import Begin from "../components/homepage/Begin";
-import Service from "../components/homepage/Service/index.js";
-import Project from "../components/homepage/Project/index.js";
-import ClientSay from "../components/homepage/ClientSay/index.js";
+import Begin from "../components/jp/homepage/Begin";
+import Service from "../components/jp/homepage/Service/index.js";
+import ClientSay from "../components/jp/homepage/ClientSay/index.js";
 import { client } from "../apolo-client";
-import { OurWorksCpn } from "../components/case-study/ourworks/index.js";
+import { OurWorksCpn } from "../components/jp/case-study/ourworks/index.js";
+import  ENHome  from "../components/en/home/index.js"
+import { useContext } from "react";
+import { StoreContext } from "../util/language/store";
 
 const Index = ({ footer, data, ...props }) => {
   const datas = convertArrToObject(data.page.layouts);
   const clientSay = data.clientSay;
-
+  const {
+    language: [languageId, setLanguageId]
+  } = useContext(StoreContext);
   return (
     <>
-      <Head>
-        <link
-          key="css/home-page.module.css"
-          rel="stylesheet"
-          href="css/home-page.module.css"
-        />
+      {languageId === 2 ? (
+        <>
+          <Head>
+            <link
+              key="/css/home-page.module.css"
+              rel="stylesheet"
+              href="/css/home-page.module.css"
+            />
 
-        <link
-          key="css/home-page-slide.css"
-          rel="stylesheet"
-          href="css/home-page-slide.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          charset="UTF-8"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-          integrity="sha512-L/EyzxvZCddd652hKB4w2gEaZgCZSOaH0Ia6JoEGysTu27VnWvej5ipuBnru/iDhPWMO0AvwiVd0HHVUHWeDRA=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"
-        />
+            <link
+              key="/css/home-page-slide.css"
+              rel="stylesheet"
+              href="/css/home-page-slide.css"
+            />
+            <link
+              rel="stylesheet"
+              type="text/css"
+              charset="UTF-8"
+              href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+            />
+            <link
+              rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+              integrity="sha512-L/EyzxvZCddd652hKB4w2gEaZgCZSOaH0Ia6JoEGysTu27VnWvej5ipuBnru/iDhPWMO0AvwiVd0HHVUHWeDRA=="
+              crossorigin="anonymous"
+              referrerpolicy="no-referrer"
+            />
+          </Head>
 
-        {/* <link rel="stylesheet" href="/node_modules/swiper/swiper.scss" /> */}
-      </Head>
-
-      <div className="">
-        <Begin data={data.banner} />
-        <Service data={datas["Service"]} />
-        <div
-          id="root"
-          className="container-fluid content-wrapper no-default-spacing"
-        >
-          <Company data={datas["Company"]} />
-          {/* <Project data={datas["Slides_Section"]} /> */}
-          <OurWorksCpn center isRow={true} data={props.caseStudies} />
-          <ClientSay data={clientSay} />
-        </div>
-        {footer}
-      </div>
+          <div className="">
+            <Begin data={data.banner} />
+            <Service data={datas["Service"]} />
+            <div
+              id="root"
+              className="container-fluid content-wrapper no-default-spacing"
+            >
+              <Company data={datas["Company"]} />
+              {/* <Project data={datas["Slides_Section"]} /> */}
+              <OurWorksCpn center isRow={true} data={props.caseStudies} />
+              <ClientSay data={clientSay} />
+            </div>
+            {footer}
+          </div>
+        </>
+      ) : <ENHome />}
     </>
   );
 };

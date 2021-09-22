@@ -1,32 +1,35 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useRef, useState } from 'react';
 
 export const StoreContext = createContext(null);
 
- const StoreProvier = ({ children }) => {
-  const [store, setStore] = useState(null)
-  let initLanguageData = null
-    const [language, setLanguage] = useState(
-      initLanguageData === null ? 2 : parseInt(initLanguageData)
-    );
+const StoreProvier = ({ children }) => {
+  let initLanguageData = null;
+  const [language, setLanguage] = useState(
+    initLanguageData === null ? 2 : parseInt(initLanguageData)
+  );
+  // const prevLanguage = useRef();
+  // useEffect(() =>{
+  //   prevLanguage.current = 
+  // })
+
+  const handleChangeLanguage = (languageId) => {
+    localStorage.setItem('languageID', languageId);
+    setLanguage(languageId);
+    window.location.href = '/';
+  };
+
+  const [store, setStore] = useState({
+    language: [language, handleChangeLanguage]
+  })
 
   useEffect(() => {
-    initLanguageData = localStorage.getItem('languageID');
-    const handleChangeLanguage = (languageId) => {
-      if (languageId === 0 || 1) {
-        localStorage.removeItem('languageID');
-        window.location.href = 'https://napaglobal.com/';
-        return;
-      }
-  
-      localStorage.setItem('languageID', languageId);
-      setLanguage(languageId);
-      window.location.href = '/';
-    };
-    const store = {
-      language: [language, handleChangeLanguage]
-    };
-    setStore(store);
-  }, [])
+      initLanguageData = localStorage.getItem('languageID');
+      setLanguage(parseInt(initLanguageData));
+      const store = {
+        language: [language, handleChangeLanguage]
+      };
+      setStore(store);
+  },[language])
 
   return (
     <StoreContext.Provider value={store}>{children}</StoreContext.Provider>

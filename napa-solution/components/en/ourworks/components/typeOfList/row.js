@@ -1,8 +1,8 @@
 import styles from './row.module.css';
 import parser from 'html-react-parser';
 import clsx from 'clsx';
-import appearStyles from 'components/en/common/AppearAnimation/appear.module.css';
-import LazyLoadImage from 'components/en/common/LazyLoadImage';
+import appearStyles from '../../../../../components/en/common/AppearAnimation/appear.module.css';
+import LazyLoadImage from '../../../../../components/en/common/LazyLoadImage';
 
 function Header(props) {
   const { entry, onClick, loading } = props;

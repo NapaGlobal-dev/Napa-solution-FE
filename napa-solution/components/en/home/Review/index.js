@@ -2,7 +2,7 @@ import styles from './review.module.css';
 import Slider from 'react-slick';
 import ReviewItem from './ReviewItem';
 import clsx from 'clsx';
-import { FetchAllRenew, FetchIntroFeedback } from 'services/en/data/home';
+import { FetchAllRenew, FetchIntroFeedback } from '../../../../services/en/data/home';
 import parser from 'html-react-parser';
 import SlideWrapper from './slideWrapper';
 

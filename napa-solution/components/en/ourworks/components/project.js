@@ -2,7 +2,7 @@ import styles from './project.module.css';
 import React from 'react';
 import clsx from 'clsx';
 import parser from "html-react-parser";
-import { FetchInfoLeftProject } from 'services/en/data/general';
+import { FetchInfoLeftProject } from '../../../../services/en/data/general';
 
 function Header(props) {
   const { loadingLP, leftProject, errorLP } = FetchInfoLeftProject();

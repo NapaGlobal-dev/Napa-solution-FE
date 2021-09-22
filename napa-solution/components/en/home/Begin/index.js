@@ -3,18 +3,16 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import Slider from 'react-slick';
 import SliderWrapper from './sliderWrapper';
-import BannerHome1 from 'assets/images/en/home/banner-1.png';
-import BannerHome1Mobile from 'assets/images/en/home/banner-1-mobile.png';
-import BannerHome2 from 'assets/images/en/home/banner-2/ai-bg.png';
-import BannerHome3 from 'assets/images/en/home/banner-3/banner-mobile_app.png';
-import BannerHome4 from 'assets/images/en/home/banner-2/banner-2-bg.png';
+import BannerHome1 from '../../../assets/images/en/home/banner-1.png';
+import BannerHome1Mobile from '../../../assets/images/en/home/banner-1-mobile.png';
+import BannerHome2 from '../../../assets/images/en/home/banner-2/ai-bg.png';
+import BannerHome3 from '../../../assets/images/en/home/banner-3/banner-mobile_app.png';
+import BannerHome4 from '../../../assets/images/en/home/banner-2/banner-2-bg.png';
 import { useEffect } from 'react';
 
 import Banner4Component from './banner4/blockchain';
 import Banner2Component from './banner2/ai';
 import Banner3Component from './banner3';
-
-import LazyLoadImage from 'components/en/common/LazyLoadImage';
 
 const contentSlide = [
   {

@@ -1,9 +1,9 @@
 import styles from "./ourServices.module.css";
 import ServiceBlock from "../ServiceBlock";
-import { FetchIntroService } from "services/en/data/home";
-import { FetchAllService } from "services/en/data/general";
+import { FetchIntroService } from "../../../../services/en/data/home";
+import { FetchAllService } from "../../../../services/en/data/general";
 import parser from "html-react-parser";
-import appearStyles from "components/en/common/AppearAnimation/appear.module.css";
+import appearStyles from "../../../../components/en/common/AppearAnimation/appear.module.css";
 import clsx from "clsx";
 
 const OurServices = () => {

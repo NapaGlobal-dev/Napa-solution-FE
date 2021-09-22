@@ -7,7 +7,7 @@ import {
   FetchIntroProject,
   FetchProject,
   FetchProjectType
-} from 'services/en/data/general';
+} from '../../../../services/en/data/general';
 import parser from 'html-react-parser';
 import { useHistory } from 'react-router-dom';
 

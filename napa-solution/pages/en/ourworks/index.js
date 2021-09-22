@@ -1,4 +1,4 @@
-import { OurWorksCpn, Team, Consultation } from 'components/en/ourworks';
+import { OurWorksCpn, Team, Consultation } from '../../../components/en/ourworks';
 import styles from './index.module.css';
 
 const OurWorks = () => {

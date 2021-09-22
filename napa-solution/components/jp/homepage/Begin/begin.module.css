@@ -747,7 +747,7 @@
   height: 60%;
   position: absolute;
   bottom: 0;
-  background-image: url("../../../public/assets/images/en/home/banner-2/ai-image.svg");
+  background-image: url("../../../../public/assets/images/en/home/banner-2/ai-image.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -758,7 +758,7 @@
   position: absolute;
   bottom: 20%;
   left: 24%;
-  background-image: url("../../../public/assets/images/en/home/banner-2/light.svg");
+  background-image: url("../../../../public/assets/images/en/home/banner-2/light.svg");
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0;

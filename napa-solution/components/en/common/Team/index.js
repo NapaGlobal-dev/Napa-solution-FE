@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 // import Slider from "react-slick";
 // import ItemTeam from "./ItemTeam";
-import FacebookIcon from 'assets/images/en/socials/facebook-f-brand.svg';
-import LinkedInIcon from 'assets/images/en/socials/linkedin-in-brand.svg';
-import TwitterIcon from 'assets/images/en/socials/twitter-brand.svg';
-import { FetchIntroTeam, FetchOurTeam } from 'services/en/data/home';
+import FacebookIcon from '../../../assets/images/en/socials/facebook-f-brand.svg';
+import LinkedInIcon from '../../../assets/images/en/socials/linkedin-in-brand.svg';
+import TwitterIcon from '../../../assets/images/en/socials/twitter-brand.svg';
+import { FetchIntroTeam, FetchOurTeam } from '../../../../services/en/data/home';
 import parser from 'html-react-parser';
-import LazyLoadImage from 'components/en/common/LazyLoadImage';
+import LazyLoadImage from '../../../../components/en/common/LazyLoadImage';
 
 function formatData(data) {
   if (!data) return;

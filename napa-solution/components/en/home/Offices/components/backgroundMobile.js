@@ -1,6 +1,6 @@
 import styles from './backgroundMobile.module.css';
 
-import BgOffices from 'assets/images/en/home/offices/bg_office.svg';
+import BgOffices from '../../../../assets/images/en/home/offices/bg_office.svg';
 const BackgroundMobile = ({ currentSlide }) => {
   return (
     <div className={styles.root}>

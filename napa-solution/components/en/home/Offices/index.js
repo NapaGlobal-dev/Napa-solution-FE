@@ -1,11 +1,11 @@
 import styles from './index.module.css';
-import WorldMap from 'assets/images/en/home/world-map.png';
+import WorldMap from '../../../assets/images/en/home/world-map.png';
 import clsx from 'clsx';
-import Earth from 'assets/flag/earth-globe.svg';
-import VNFlag from 'assets/flag/vn.svg';
-import USAFlag from 'assets/flag/usa.svg';
-import AUSFlag from 'assets/flag/aus.svg';
-import JPFlag from 'assets/flag/jp.svg';
+import Earth from '../../../assets/flag/earth-globe.svg';
+import VNFlag from '../../../assets/flag/vn.svg';
+import USAFlag from '../../../assets/flag/usa.svg';
+import AUSFlag from '../../../assets/flag/aus.svg';
+import JPFlag from '../../../assets/flag/jp.svg';
 import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import SlideWrapper from './SlideWrapper';

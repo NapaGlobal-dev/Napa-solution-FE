@@ -2,20 +2,20 @@ import styles from './index.module.css';
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect, useContext } from 'react';
 // import NAPALogo from 'assets/images/napa/company-logo.png';
-import NAPALogoWhite from 'assets/images/en/napa/logo_napa.svg';
-import { headerNavigations } from 'navigations';
+import NAPALogoWhite from '../../../assets/images/en/napa/logo_napa.svg';
+import { headerNavigations } from '../../../../navigations';
 
-import HomeIcon from 'assets/icons/en/home.svg';
-import ServiceIcon from 'assets/icons/en/service.svg';
-import ProjectIcon from 'assets/icons/en/project.svg';
-import ProfileIcon from 'assets/icons/en/profile.svg';
-import ContractIcon from 'assets/icons/en/contract.svg';
-import NewsIcon from 'assets/icons/en/news.svg';
+import HomeIcon from '../../../assets/icons/en/home.svg';
+import ServiceIcon from '../../../assets/icons/en/service.svg';
+import ProjectIcon from '../../../assets/icons/en/project.svg';
+import ProfileIcon from '../../../assets/icons/en/profile.svg';
+import ContractIcon from '../../../assets/icons/en/contract.svg';
+import NewsIcon from '../../../assets/icons/en/news.svg';
 // import LangIcon from 'assets/icons/language-solid.svg';
 import clsx from 'clsx';
 import { useLocation } from 'react-router-dom';
 import { StoreContext } from 'utils/store';
-import languages from 'utils/languages';
+import languages from '../../../../util/language/language';
 
 const mobileIcons = [
   HomeIcon,

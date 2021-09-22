@@ -2,8 +2,8 @@ import styles from './column.module.css';
 import React from 'react';
 import clsx from 'clsx';
 import parser from 'html-react-parser';
-import { FetchInfoLeftProject } from 'services/en/data/general';
-import appearStyles from 'components/en/common/AppearAnimation/appear.module.css';
+import { FetchInfoLeftProject } from '../../../../../services/en/data/general';
+import appearStyles from '../../../../../components/en/common/AppearAnimation/appear.module.css';
 
 function Header(props) {
   const { loadingLP, leftProject, errorLP } = FetchInfoLeftProject();

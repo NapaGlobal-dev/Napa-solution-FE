@@ -39,11 +39,11 @@ const Blogs = () => {
                 <span className={styles.blogDate}>{blog.date}</span>
                 <h2 className={styles.blogTitle}>{blog.title}</h2>
                 <p className={styles.blogContent}>{blog.content}</p>
-                <Link className={styles.readmore} to="/">
+                <a className={styles.readmore} to="/">
                   <div className={styles.arrow}></div>
                   <div className={styles.arrow}></div>
                   <span className={styles.readmoreTxt}>Read more</span>
-                </Link>
+                </a>
               </div>
             </div>
           ))}

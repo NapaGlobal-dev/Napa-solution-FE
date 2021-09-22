@@ -19,12 +19,12 @@ function Language() {
 
   useEffect(() => {
     setLanguage(dataLang);
-  }, []);
+  }, [dataLang]);
 
   return (
     <div className="langWrapper">
       <div className="langBtn" onClick={() => setOpenDropndown(!openDropdown)}>
-        <div>{languages[2]}</div>
+        <div>{languages[language[0]]}</div>
         <div className="arr-down lang-arr"></div>
       </div>
       <div
@@ -38,11 +38,9 @@ function Language() {
               language && language[1](index);
               setOpenDropndown(false);
             }}
-            className={index === (language && language[0]) ? "lang-active" : ""}
+            className={index === language[0] ? "lang-active" : ""}
           >
-            <a href={lang !== "JP" ? "http://www.napaglobal.com" : "#"}>
-              {lang}
-            </a>
+            <div>{lang}</div>
           </div>
         ))}
       </div>

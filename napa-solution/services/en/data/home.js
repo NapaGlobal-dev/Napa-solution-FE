@@ -1,8 +1,8 @@
 import { useQuery } from "@apollo/client";
-import { zipToObject } from "helper/converter";
-import generalQueries from "query/en/general";
+import { zipToObject } from "../../../helper/converter";
+import generalQueries from "../../../query/en/general";
 
-import homeQuery from "query/en/home";
+import homeQuery from "../../../query/en/home";
 
 
 // Fetch data get introduce service at home page

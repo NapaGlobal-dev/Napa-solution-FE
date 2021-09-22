@@ -1,8 +1,8 @@
 import styles from './index.module.css';
-import FacebookIcon from 'assets/images/en/socials/facebook-f-brand.svg';
-import LinkedInIcon from 'assets/images/en/socials/linkedin-in-brand.svg';
-import { FetchFooterLeft, FetchFooterRight } from 'services/en/data/home';
-import LogoNapa from 'assets/images/en/home/logo_napa.svg';
+import FacebookIcon from '../../../assets/images/en/socials/facebook-f-brand.svg';
+import LinkedInIcon from '../../../assets/images/en/socials/linkedin-in-brand.svg';
+import { FetchFooterLeft, FetchFooterRight } from '../../../../services/en/data/home';
+import LogoNapa from '../../../assets/images/en/home/logo_napa.svg';
 
 const Footer = () => {
   const { loadingFL, footerLeft, errorFL } = FetchFooterLeft();

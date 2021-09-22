@@ -1,7 +1,7 @@
 import styles from "./about.module.css";
-import { FetchIntroCompany } from "services/en/data/home";
+import { FetchIntroCompany } from "../../../../services/en/data/home";
 import parser from "html-react-parser";
-import LazyLoadImage from 'components/en/common/LazyLoadImage';
+import LazyLoadImage from '../../../../components/en/common/LazyLoadImage';
 
 const About = () => {
   const { loadingIC, introCom } = FetchIntroCompany();

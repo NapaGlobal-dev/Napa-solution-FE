@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import styles from './index.module.css';
-import { Detail, Member, RelatedProject } from 'components/en/detail';
-import { Consultation } from 'components/en/ourworks';
-import { FetchDetailProject } from "services/en/data/detailProject";
+import { Detail, Member, RelatedProject } from '../../../../components/en/detail';
+import { Consultation } from '../../../../components/en/ourworks';
+import { FetchDetailProject } from "../../../../services/en/data/detailProject";
 
 function DetailProjects(props) {
     const query = useParams();

@@ -1,7 +1,7 @@
 import styles from "./reviewItem.module.css";
-import QuoteIcon from "assets/icons/en/quotes.svg";
+import QuoteIcon from "../../../../assets/icons/en/quotes.svg";
 import parser from "html-react-parser";
-import LazyLoadImage from 'components/en/common/LazyLoadImage';
+import LazyLoadImage from '../../../../../components/en/common/LazyLoadImage';
 
 const ReviewItem = ({ message, name, position, image, loading }) => {
   const parse2 = (text, placeholder) =>

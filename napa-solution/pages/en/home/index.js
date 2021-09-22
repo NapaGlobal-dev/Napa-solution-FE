@@ -7,9 +7,9 @@ import {
   Offices,
   Review,
   Consultation
-} from 'components/en/home';
-import { OurWorksCpn } from 'components/en/ourworks';
-import BackToTopButton from 'components/en/common/BackToTopButton';
+} from '../../../components/en/home';
+import { OurWorksCpn } from '../../../components/en/ourworks';
+import BackToTopButton from '../../../components/en/common/BackToTopButton';
 import styles from './home.module.css';
 
 const Home = () => {

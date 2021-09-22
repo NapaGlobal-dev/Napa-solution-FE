@@ -10,7 +10,7 @@
     width: 25px;
     height: 25px;
     background-repeat: no-repeat;
-    background-image: url("assets/images/en/home/location-sp.svg");
+    background-image: url("../../../../../public/assets/images/en/home/location-sp.svg");
     position: absolute;
     border-radius: 50%;
     cursor: pointer;

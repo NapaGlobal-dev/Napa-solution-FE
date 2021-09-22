@@ -1,6 +1,6 @@
 import styles from './index.module.css';
-import LinkIcon from 'assets/icons/en/link.svg';
-import { FetchIFProject } from 'services/en/data/detailProject';
+import LinkIcon from '../../../../assets/icons/en/link.svg';
+import { FetchIFProject } from '../../../../../services/en/data/detailProject';
 import parser from 'html-react-parser';
 
 function Detail({ loading, data }) {

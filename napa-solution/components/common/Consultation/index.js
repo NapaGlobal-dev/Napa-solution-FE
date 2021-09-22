@@ -1,14 +1,14 @@
 // import { useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import clsx from 'clsx';
-import Button from 'components/en/common/Button';
-import Loading from 'components/vi/common/loading';
+import Button from '../../../components/en/common/Button';
+import Loading from '../../../components/vi/common/loading';
 import parser from 'html-react-parser';
-import generalQueries from 'query/en/general';
+import generalQueries from '../../../query/en/general';
 import { useContext, useState } from 'react';
-import { FetchIntroEmail } from 'services/en/data/general';
-import languages from 'utils/languages';
-import { StoreContext } from 'utils/store';
+import { FetchIntroEmail } from '../../../services/en/data/general';
+import languages from '../../../util/language/language';
+import { StoreContext } from '../../../util/language/store';
 
 import styles from './index.module.css';
 
@@ -18,6 +18,7 @@ function Consultation() {
   const { loadingEmail, introEmail } = FetchIntroEmail();
 
   const [state, setState] = useState(initialState);
+  
   const [errors, setErrors] = useState({
     nameErr: false,
     emailErr: false,
@@ -30,7 +31,7 @@ function Consultation() {
   const {
     language: [languageId, setLanguageId]
   } = useContext(StoreContext);
-
+  
   /*===============Function================*/
 
   /*
