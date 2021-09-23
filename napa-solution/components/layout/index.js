@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import ScrollToTop from "./ScrollToTop";
 import Loader from "./Loader";
 import SimpleLoader from "./SimpleLoader";
+import NewYearEvent from "./NewYearEvent";
 
 const Layout = ({ footerData, children, ...props }) => {
   const [loading, setLoading] = useState(true);
@@ -25,13 +26,12 @@ const Layout = ({ footerData, children, ...props }) => {
       document.body.style.overflow = "hidden";
       demoAsyncCall().then(() => handleLoading());
 
-      setSimpleLoading(false)
+      setSimpleLoading(false);
     } else {
       setLoading(false);
-      
-      window.addEventListener('load', ()=> setSimpleLoading(false))
+
+      window.addEventListener("load", () => setSimpleLoading(false));
     }
-  
   }, []);
 
   if (router.pathname === "/") {
@@ -41,7 +41,7 @@ const Layout = ({ footerData, children, ...props }) => {
 
         <ScrollToTop />
         <Loader />
-
+        <NewYearEvent delay={3000} />
         {React.cloneElement(children, {
           footer: <Footer data={footerData} isLoading={loading} />,
         })}
@@ -54,6 +54,7 @@ const Layout = ({ footerData, children, ...props }) => {
       <Header isLoading={loading} />
       <div>{children}</div>
       <ScrollToTop />
+      <NewYearEvent />
       <Footer data={footerData} isLoading={loading} />
       {simpleLoading && <SimpleLoader />}
     </>
