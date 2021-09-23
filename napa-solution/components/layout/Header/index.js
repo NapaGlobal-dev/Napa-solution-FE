@@ -41,7 +41,11 @@ function Language() {
             }}
             className={index === (language && language[0]) ? "lang-active" : ""}
           >
-            <a href={lang !== "JP" ? "http://www.napaglobal.com" : "#"}>
+            <a
+              href={
+                lang !== "JP" ? `http://www.napaglobal.com/?lang=${lang}` : "#"
+              }
+            >
               {lang}
             </a>
           </div>
