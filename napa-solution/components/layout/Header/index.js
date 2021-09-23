@@ -11,6 +11,7 @@ import { DarkModeSwitch } from "react-toggle-dark-mode";
 import ScrollToTop from "../ScrollToTop";
 import { registerSwipeEvent } from "../../../util/windowEvents";
 import { useRouter } from "next/router";
+import isSnow from "../snow-event";
 
 function Language() {
   const [openDropdown, setOpenDropndown] = useState(false);
@@ -74,6 +75,9 @@ const Header = (props) => {
     }
 
     if (darkmode.value) setIsDark(true);
+
+    isSnow()
+
   }, []);
 
   function wrapToggle() {
@@ -161,6 +165,7 @@ const Header = (props) => {
     <>
       <Head>
         <link key="/css/common.css" rel="stylesheet" href="/css/common.css" />
+        <link key="/css/snow-event.scss" rel="stylesheet" href="/css/snow-event.scss" />
         <link
           key="/css/header.module.css"
           rel="stylesheet"

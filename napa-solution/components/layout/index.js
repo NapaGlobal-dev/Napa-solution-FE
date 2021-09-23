@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import ScrollToTop from "./ScrollToTop";
 import Loader from "./Loader";
-import SimpleLoader from "./SimpleLoader"
+import SimpleLoader from "./SimpleLoader";
 
 const Layout = ({ footerData, children, ...props }) => {
   const [loading, setLoading] = useState(true);

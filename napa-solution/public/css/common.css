@@ -2443,3 +2443,22 @@ button:focus {
   color: #fff !important;
   margin-bottom: 3px;
 }
+
+.snows {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  /* z-index: 9000000000000000; */
+  filter: drop-shadow(0 0 10px white);
+  /* background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%) ; */
+}
+.snow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+}
