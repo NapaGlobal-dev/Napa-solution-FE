@@ -15,12 +15,7 @@ import isSnow from "../snow-event";
 
 function Language() {
   const [openDropdown, setOpenDropndown] = useState(false);
-  const [language, setLanguage] = useState({});
   const dataLang = useContext(StoreContext)?.language;
-
-  useEffect(() => {
-    setLanguage(dataLang);
-  }, []);
 
   return (
     <div className="langWrapper">
@@ -36,10 +31,10 @@ function Language() {
           <div
             key={index}
             onClick={() => {
-              language && language[1](index);
+              dataLang && dataLang[1](index);
               setOpenDropndown(false);
             }}
-            className={index === (language && language[0]) ? "lang-active" : ""}
+            className={index === (dataLang && dataLang[0]) ? "lang-active" : ""}
           >
             <a
               href={
@@ -95,7 +90,7 @@ const Header = (props) => {
   }
 
   const languagesdata = languages.map((lang, index) => ({
-    url: lang !== "JP" ? "http://www.napaglobal.com" : "#",
+    url: lang !== "JP" ? `http://www.napaglobal.com${lang}` : "#",
     languageId: index,
     icon: "img/header/lang.svg",
     name: lang,
