@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_HEADER } from "../../../query/general";
-import { getData } from "../../../util/converArrayToObject";
+import { convertArrToObject, getData } from "../../../util/converArrayToObject";
 import Head from "next/head";
 import { useContext, useEffect, useRef, useState } from "react";
 import languages from "../../../util/language/language";
@@ -56,11 +56,16 @@ function Language() {
 }
 
 const Header = (props) => {
-  const { data } = useQuery(GET_HEADER);
-  const navbarLogo = getData(data, /Navbar_Logo/)[0];
-  const navbarMenu = getData(data, /Navbar_Menu/);
-  const navbarMobile = getData(data, /Navbar_Menu/);
-  const contact = navbarMenu.slice(-1)[0];
+  const { data, loading, error } = useQuery(GET_HEADER);
+
+  const {
+    Home: navbarLogo = {},
+    Contact: contact = {},
+    ...navbarMenu
+  } = loading || error ? {} : convertArrToObject(data["navbar"], "nameEN");
+
+  const navbarMenuList = Object.values(navbarMenu);
+
   const navRef = useRef(null);
   const router = useRouter();
 
@@ -80,8 +85,7 @@ const Header = (props) => {
 
     if (darkmode.value) setIsDark(true);
 
-    isSnow()
-
+    isSnow();
   }, []);
 
   function wrapToggle() {
@@ -169,7 +173,11 @@ const Header = (props) => {
     <>
       <Head>
         <link key="/css/common.css" rel="stylesheet" href="/css/common.css" />
-        <link key="/css/snow-event.scss" rel="stylesheet" href="/css/snow-event.scss" />
+        <link
+          key="/css/snow-event.scss"
+          rel="stylesheet"
+          href="/css/snow-event.scss"
+        />
         <link
           key="/css/header.module.css"
           rel="stylesheet"
@@ -186,66 +194,57 @@ const Header = (props) => {
         )}
       >
         <a className="navbar-brand no-default-spacing" href={navbarLogo?.url}>
-          <img
-            src={navbarLogo?.image?.publicUrl}
-            className="img-navbar-brand"
-          />
+          <img src={navbarLogo?.image?.original} className="img-navbar-brand" />
         </a>
         <div className="collapse navbar-collapse navbar-menu" id="navbarNav">
           <ul className="navbar-nav">
-            {navbarMenu.slice(0, -1).map((menu, key) => (
+            {navbarMenuList.map((menu, key) => (
               <li className="nav-item item-navbar-menu" key={key}>
                 <div className={clsx("dropdown")}>
                   <div className="hover-o">
                     <div className="hover-t">
                       <a
-                        href={
-                          menu?.url === ("/service" || "/company")
-                            ? null
-                            : menu?.url
-                        }
+                        href={menu?.url}
                         className={clsx(
                           "text-navbar-menu",
                           new RegExp(menu.url).test(router.pathname)
                             ? "text-animation-line"
                             : "",
-                          menu.content.length !== 0 ? "dropdown-chevron" : ""
+                          menu.childrenPage.length !== 0
+                            ? "dropdown-chevron"
+                            : ""
                         )}
                       >
-                        {menu?.value}
+                        {menu?.name}
                       </a>
                       <a
-                        href={
-                          menu?.url === ("/service" || "/company")
-                            ? null
-                            : menu?.url
-                        }
+                        href={menu?.url}
                         className={clsx(
                           "text-navbar-menu",
                           "text-animation",
-                          menu.content.length !== 0
+                          menu.childrenPage.length !== 0
                             ? "dropdown-chevron-animation"
                             : ""
                         )}
                       >
-                        {menu?.value}
+                        {menu?.name}
                       </a>
                     </div>
                   </div>
-                  {menu.content.length !== 0 && (
+                  {menu.childrenPage.length !== 0 && (
                     <div
                       className={
-                        menu.content.length > 4
+                        menu.childrenPage.length > 4
                           ? "dropdown-layer long-width"
                           : "dropdown-layer"
                       }
                     >
                       <div className="dropdown-body">
                         <ul>
-                          {menu.content.map((item, index) => (
+                          {menu.childrenPage.map((item, index) => (
                             <li key={index}>
                               <div>
-                                <a href={item.url}>{item.value}</a>
+                                <a href={item.url}>{item.name}</a>
                               </div>
                             </li>
                           ))}
@@ -256,7 +255,7 @@ const Header = (props) => {
                 </div>
               </li>
             ))}
-            {contact ? (
+            {contact && (
               <a className="skewed-button" href={contact?.url}>
                 <svg
                   className="contact-icon-button"
@@ -281,10 +280,8 @@ const Header = (props) => {
                     d="M0,52.1v128.484c0,1.475,0.339,2.897,0.707,4.256l69.738-67.156L0,52.1z"
                   />
                 </svg>
-                {contact?.value}
+                {contact?.name}
               </a>
-            ) : (
-              <></>
             )}
           </ul>
         </div>
@@ -301,7 +298,7 @@ const Header = (props) => {
               <div className="po-box-logo-container">
                 <div className="po-box-logo">
                   <a className="po-logo" href={navbarLogo?.url}>
-                    <img alt="LOGO" src={navbarLogo?.image?.publicUrl} />
+                    <img alt="LOGO" src={navbarLogo?.image?.original} />
                   </a>
                   <img
                     className="po-close-button toggle-open-popcover-button"
@@ -339,22 +336,22 @@ const Header = (props) => {
                 </div>
               </div>
               <ul className="po-list-container">
-                {navbarMobile.length > 0 &&
-                  navbarMobile.map((item, index) => (
+                {navbarMenuList.length > 0 &&
+                  navbarMenuList.map((item, index) => (
                     <li key={index} className="po-list-dropdown">
                       <div
                         className={`po-list-dropdown-text ${
-                          item.content.length > 0 && `po-arrow`
+                          item.childrenPage.length > 0 && `po-arrow`
                         }`}
                       >
-                        <a href={item.url}> {item.value}</a>
+                        <a href={item.url}> {item.name}</a>
                       </div>
                       <ul className="po-list-dropdown-children">
-                        {item.content.length > 0 &&
-                          item.content.map((subitem, key) => (
+                        {item.childrenPage.length > 0 &&
+                          item.childrenPage.map((subitem, key) => (
                             <li key={key} className="po-list-dropdown-item">
                               <a className="" href={subitem.url} key={key}>
-                                <div className="">{subitem.value}</div>
+                                <div className="">{subitem.name}</div>
                               </a>
                             </li>
                           ))}
