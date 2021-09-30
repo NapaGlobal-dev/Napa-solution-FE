@@ -1,4 +1,4 @@
-import { HomePage, GET_CASESTUDIES } from "../query/general";
+import {  GET_CASESTUDIES, HOME_PAGE } from "../query/general";
 import {
   convertArrToObject,
   convertArrToObjectBySpecialName,
@@ -66,7 +66,7 @@ const Index = ({ footer, data, ...props }) => {
 };
 
 export async function getStaticProps() {
-  const { data } = await client.query({ query: HomePage });
+  const { data } = await client.query({ query: HOME_PAGE });
   const caseStudies = await client.query({
     query: GET_CASESTUDIES,
   });

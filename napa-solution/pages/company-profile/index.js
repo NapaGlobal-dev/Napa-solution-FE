@@ -4,7 +4,6 @@ import Banner from "../../components/companyProfile/banner";
 import Message from "../../components/companyProfile/message";
 import { client } from "../../apolo-client";
 import {
-  contactQuery,
   GET_COMPANYPROFILE,
   PROJECTS,
   GET_CASESTUDIES

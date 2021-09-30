@@ -4,7 +4,7 @@ import Banner from "../../components/offshore/Banner";
 import Benefit from "../../components/offshore/Benefit";
 import OffshoreType from "../../components/offshore/OffshoreType";
 import WhatOffshore from "../../components/offshore/WhatOffshore";
-import { OffshoreQuery } from "../../query/general";
+import { OFFSHORE_QUERY } from "../../query/general";
 import { convertArrToObject } from "../../util/converArrayToObject";
 const Offshore = (props) => {
   const data = convertArrToObject(props.data.page.layouts)
@@ -19,7 +19,7 @@ const Offshore = (props) => {
 };
 
 export async function getStaticProps() {
-  const { data } = await client.query({ query: OffshoreQuery });
+  const { data } = await client.query({ query: OFFSHORE_QUERY });
 
   return {
     props: { data },
