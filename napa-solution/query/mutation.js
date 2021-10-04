@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const createContactGQL = gql`
+export const CREATE_CONTACT = gql`
   mutation (
     $name: String
     $email: String

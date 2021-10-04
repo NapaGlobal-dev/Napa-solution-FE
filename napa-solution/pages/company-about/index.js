@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { contactQuery, companyAbout, PROJECTS, GET_CASESTUDIES } from "../../query/general";
+import { CONTACT_QUERY, COMPANY_ABOUT, PROJECTS, GET_CASESTUDIES } from "../../query/general";
 import { OurWorksCpn } from "../../components/case-study/ourworks/index.js";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
@@ -62,8 +62,8 @@ export async function getStaticProps() {
   //   client.query({ query: companyAbout }),
   //   client.query({ query: PROJECTS }),
   // ]);
-  const pageData = await client.query({ query: contactQuery });
-  const aboutData = await client.query({ query: companyAbout });
+  const pageData = await client.query({ query: CONTACT_QUERY });
+  const aboutData = await client.query({ query: COMPANY_ABOUT });
   // const projectData = await client.query({ query: PROJECTS });
   const caseStudies = await client.query({
     query: GET_CASESTUDIES,

@@ -4,7 +4,7 @@ import { ApolloProvider } from "@apollo/client";
 import App from "next/app";
 
 import { client } from "../apolo-client";
-import { footerDataQuery } from "../query/general";
+import { FOOTER_DATA_QUERY } from "../query/general";
 import "../styles/globals.css";
 import StoreProvier, { StoreContext } from "../util/language/store";
 import Fonts from "../util/fonts";
@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps, footerData, ...props }) {
 
 MyApp.getInitialProps = async (ctx) => {
   const { data } = await client.query({
-    query: footerDataQuery,
+    query: FOOTER_DATA_QUERY,
   });
 
   const appData = await App.getInitialProps(ctx);

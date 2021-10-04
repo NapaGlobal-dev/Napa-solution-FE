@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { contactQuery, HomePage, GET_CASESTUDIES } from "../../query/general";
+import { contactQuery, HomePage, GET_CASESTUDIES, CONTACT_QUERY } from "../../query/general";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import ContactForm from "../../components/contact/ContactForm";
@@ -45,7 +45,7 @@ const ContactPage = (props) => {
 };
 
 export async function getStaticProps() {
-  const { data } = await client.query({ query: contactQuery });
+  const { data } = await client.query({ query: CONTACT_QUERY });
   // const { data: dataHome } = await client.query({ query: HomePage });
   const caseStudies = await client.query({
     query: GET_CASESTUDIES,

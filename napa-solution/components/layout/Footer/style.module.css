@@ -194,7 +194,7 @@
   margin-top: 10px;
 }
 
-.socialsIconDeskTop svg {
+.socialsIconDeskTop img {
   margin-right: 20px;
   opacity: 0.8;
   cursor: pointer;
@@ -563,7 +563,7 @@
     position: relative;
   }
 
-  .groupText > h4 > span > svg {
+  .groupText > h4 > span > img {
     display: none;
   }
 
@@ -590,7 +590,7 @@
     padding-right: 15px;
   }
 
-  .socialsIcon svg {
+  .socialsIcon img {
     width: 30px;
   }
 
@@ -620,7 +620,7 @@
     list-style-type: circle;
   }
 
-  .groupText > h4 > span > svg {
+  .groupText > h4 > span > img {
     display: block;
     height: 22px;
     position: absolute;
