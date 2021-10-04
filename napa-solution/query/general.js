@@ -139,13 +139,6 @@ export const HomePage = gql`
         thumbnail: publicUrlTransformed(transformation: { width: "64" })
       }
     }
-    new: allNews(sortBy: createdDate_DESC, first: 1) {
-      title
-      type
-      typeJP
-      description
-      createdDate
-    }
   }
 `;
 // new: allNews(sortBy: createdDate_DESC, first: 1) {
@@ -233,20 +226,30 @@ export const footerDataQuery = gql`
 
 export const GET_HEADER = gql`
   query getHeader {
-    navbar: allLayouts(where: { name: "Navbar" }) {
+    navbar: allPages(
+      where: {
+        OR: [
+          { nameEN: "Home" }
+          { nameEN: "Services" }
+          { nameEN: "Company" }
+          { nameEN: "Contact" }
+          { nameEN: "Offshore" }
+        ]
+      }
+      sortBy: headerOrder_ASC
+    ) {
+      id
       name
-      property {
+      nameEN
+      url
+      childrenPage(sortBy: footerOrder_ASC) {
         name
-        value
-        content {
-          name
-          value
-          url
-        }
+        nameEN
         url
-        image {
-          publicUrl
-        }
+      }
+      image {
+        original: publicUrl
+        thumbnail: publicUrlTransformed(transformation: { width: "64" })
       }
     }
   }
