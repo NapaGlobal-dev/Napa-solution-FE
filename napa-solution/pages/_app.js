@@ -26,27 +26,41 @@ function MyApp({ Component, pageProps, footerData, ...props }) {
     setIsMounted(true);
   }, []);
 
+  useEffect(() => {
+    var chatbox = document.getElementById("fb-customer-chat");
+    chatbox.setAttribute("page_id", "109640574821750");
+    chatbox.setAttribute("attribution", "biz_inbox");
+
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: "v12.0",
+      });
+    };
+
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, "script", "facebook-jssdk");
+  }, []);
+
   return (
     <StoreProvier>
       <ApolloProvider client={client}>
-        {/* <ThemeProvider theme={theme}> */}
         <Layout footerData={footerData}>
-          {/* <DarkModeSwitch
-              style={{
-                position: "fixed",
-                zIndex: 20,
-                top: 28,
-                height: 30,
-                right: 150,
-              }}
-              checked={!!darkmode.value}
-              onChange={darkmode.toggle}
-              size={120}
-            /> */}
-          {/* {isMounted && <Component {...pageProps} />} */}
           <Component {...pageProps} />
         </Layout>
-        {/* </ThemeProvider> */}
+
+        {/* <!-- Messenger Chat Plugin Code --> */}
+        <div id="fb-root"></div>
+
+        {/* <!-- Your Chat Plugin code --> */}
+        <div id="fb-customer-chat" class="fb-customerchat"></div>
       </ApolloProvider>
     </StoreProvier>
   );
