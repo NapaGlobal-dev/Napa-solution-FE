@@ -23,7 +23,10 @@ const CounterUp = (props) => {
                 backgroundImage: `url(${data.CompanyAbout_Counter_Background?.image.original})`,
               }}
             >
-              <img className="ab-background-over" src="/img/wave-shape.svg" />
+              <img
+                className="ab-background-over"
+                src={data.CompanyAbout_Counter_DecorWave?.image.original}
+              />
             </div>
           </div>
         </div>
