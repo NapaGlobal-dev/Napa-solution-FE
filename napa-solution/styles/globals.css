@@ -8,6 +8,13 @@
 }
 /* @import url(//db.onlinewebfonts.com/c/704fb797ddcec1f88709024604df2940?family=Meiryo); */
 
+@font-face {
+  font-family: 'HerrVonMuellerhoff';
+  src: local('HerrVonMuellerhoff'),
+    url('../fonts/HerrVonMuellerhoff-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
 * {
   margin: 0px;
   padding: 0px;
