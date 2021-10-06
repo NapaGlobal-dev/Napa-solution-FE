@@ -365,7 +365,7 @@ const Header = (props) => {
           onChange={wrapToggle}
           size={40}
         />
-        <Language />
+        {/* <Language /> */}
       </nav>
       <ScrollToTop />
     </>

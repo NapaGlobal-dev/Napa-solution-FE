@@ -472,7 +472,7 @@ const ContactForm = (props) => {
               />
             </div>
             {phoneInvalid && (
-              <label>Phone number must be in 10, 11 characters</label>
+              <label>電話番号は10文字または11文字である必要があります</label>
             )}
 
             <p>
@@ -494,8 +494,7 @@ const ContactForm = (props) => {
             />
             {!emailValid ? (
               <label>
-                Email Address must be include @ after {email} or have xxx.com
-                after @ or do not have whitespace
+               メールアドレスには、{email} の後に@を含めるか、@の後にxxx.comを使用するか、スペースを入れないでください
               </label>
             ) : (
               <></>
@@ -536,7 +535,7 @@ const ContactForm = (props) => {
                   {data?.Contact_ContactForm_CheckBox?.value}
                 </div>
                 {!isChecked ? (
-                  <label>Please accept private policy before submitting </label>
+                  <label>送信する前にプライベートポリシーに同意してください </label>
                 ) : (
                   <></>
                 )}
