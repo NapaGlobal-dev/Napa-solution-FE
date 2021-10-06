@@ -106,7 +106,7 @@ html {
   top: 0;
   left: 0;
   z-index: 20;
-  padding: 10px 100px 10px 100px;
+  padding: 10px 60px 10px 60px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -269,7 +269,8 @@ html {
 
 .navbar-menu {
   padding-left: 10%;
-  justify-content: center;
+  padding-right: 30px;
+  justify-content: flex-end;
 }
 
 .img-navbar-brand {
