@@ -58,6 +58,7 @@
   width: 100%;
   display: flex;
   justify-content: end;
+  padding: 0 20px;
 }
 
 .ceo-message-name div{
@@ -166,6 +167,9 @@
 }
 
 @media (max-width: 768px) {
+  .ceo-message-name{
+    padding: 0;
+  }
   .ceo-box-image {
     width: 100%;
   }

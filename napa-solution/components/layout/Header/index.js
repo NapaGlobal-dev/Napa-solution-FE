@@ -116,7 +116,8 @@ const Header = (props) => {
 
     if (
       router.pathname.includes("company") ||
-      router.pathname.includes("ceo-message")
+      router.pathname.includes("ceo-message")||
+      router.pathname.includes("why-napa")
     )
       document.getElementById("navbar")?.classList.add("dark-nav-force");
 
