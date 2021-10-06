@@ -27,8 +27,8 @@ const Message = (props) => {
           />
         </div>
         <div className="ceo-message-part" id="ceo-message-darkmode">
-          <div className="ceo-message-title">{title.value}</div>
-          <div className="ceo-message-subtitle">{subTitle.value}</div>
+          <div className="ceo-message-title">{title.key}</div>
+          <div className="ceo-message-subtitle">{title.value}</div>
           <div className="ceo-message-content">
             {datas["CEOMessage_Message_Content1"].value
               .split("\\n")
@@ -39,6 +39,10 @@ const Message = (props) => {
                 </React.Fragment>
               ))}
           </div>
+          <div className="ceo-message-name">
+            <p>{subTitle.value}</p>
+          </div>
+          {/* //代表取締役 Napa Global */}
         </div>
       </div>
     </>
