@@ -40,7 +40,10 @@ const Message = (props) => {
               ))}
           </div>
           <div className="ceo-message-name">
-            <p>{subTitle.value}</p>
+            <div>
+              <p>{subTitle.value.split("ー")[0]}</p>
+              <p id="font-signature">{subTitle.value.split("ー")[1]}</p>
+            </div>
           </div>
           {/* //代表取締役 Napa Global */}
         </div>
