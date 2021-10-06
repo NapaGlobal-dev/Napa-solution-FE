@@ -540,7 +540,7 @@ const ContactForm = (props) => {
                   <></>
                 )}
                 {!loading && submitting ? (
-                  <label className="success"> Submit Successfully ! </label>
+                  <label className="success">投稿完了</label>
                 ) : (
                   <></>
                 )}
