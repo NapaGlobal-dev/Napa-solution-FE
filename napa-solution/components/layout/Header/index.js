@@ -163,7 +163,17 @@ const Header = (props) => {
       );
     };
   });
-
+  const checkRoute = (childrenPage, name) => {
+    if (name == "Services") {
+      return new RegExp("/service").test(router.pathname);
+    }
+    for (let i = 0; i < childrenPage.length; i++) {
+      if (new RegExp(childrenPage[i].url).test(router.pathname)) {
+        return true;
+      }
+    }
+    return false;
+  };
   return (
     <>
       <Head>
@@ -202,7 +212,8 @@ const Header = (props) => {
                         href={menu?.url}
                         className={clsx(
                           "text-navbar-menu",
-                          new RegExp(menu.url).test(router.pathname)
+                          new RegExp(menu.url).test(router.pathname) ||
+                            checkRoute(menu.childrenPage, menu.nameEN)
                             ? "text-animation-line"
                             : "",
                           menu.childrenPage.length !== 0
