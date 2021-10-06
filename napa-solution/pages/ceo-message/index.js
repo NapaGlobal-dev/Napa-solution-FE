@@ -1,18 +1,13 @@
 import React from "react";
 import Head from "next/head";
-import {
-  contactQuery,
-  companyAbout,
-  PROJECTS,
-  GET_CEOMESSAGE,
-} from "../../query/general";
+import { CONTACT_QUERY, PROJECTS, GET_CEOMESSAGE } from "../../query/general";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import Banner from "../../components/ceo-message/banner";
 import Message from "../../components/ceo-message";
 
 const CompanyAbout = ({ projects, ...props }) => {
-  const data = convertArrToObject(props.data.page.layouts);
+  // const data = convertArrToObject(props.data.page.layouts);
   const adata = convertArrToObject(props.data.adata.page.layouts);
 
   return (
@@ -50,7 +45,7 @@ export async function getStaticProps() {
   //   client.query({ query: companyAbout }),
   //   client.query({ query: PROJECTS }),
   // ]);
-  const pageData = await client.query({ query: contactQuery });
+  const pageData = await client.query({ query: CONTACT_QUERY });
   const aboutData = await client.query({ query: GET_CEOMESSAGE });
   const projectData = await client.query({ query: PROJECTS });
 
