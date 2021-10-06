@@ -3,7 +3,15 @@
 @font-face {
   font-family: 'HinaMincho';
   src: local('HinaMincho'),
-    url('../fonts/HinaMincho-Regular.ttf') format('truetype');
+    url('../fonts/meiryo.ttf') format('truetype');
+  font-weight: normal;
+}
+/* @import url(//db.onlinewebfonts.com/c/704fb797ddcec1f88709024604df2940?family=Meiryo); */
+
+@font-face {
+  font-family: 'HerrVonMuellerhoff';
+  src: local('HerrVonMuellerhoff'),
+    url('../fonts/HerrVonMuellerhoff-Regular.ttf') format('truetype');
   font-weight: normal;
 }
 
@@ -12,7 +20,7 @@
   padding: 0px;
 }
 body {
-  font-family: Hina Mincho, serif;
+  font-family: meiryo;
   touch-action: pan-x pan-y;
 }
 html {

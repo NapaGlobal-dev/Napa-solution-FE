@@ -675,6 +675,7 @@ export const GET_CEOMESSAGE = gql`
         name
         property {
           name
+          key
           value
           url
           image {

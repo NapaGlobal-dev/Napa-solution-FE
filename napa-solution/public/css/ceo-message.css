@@ -51,6 +51,32 @@
   margin-bottom: 10px;
 }
 
+.ceo-message-name {
+  font-size: 26px;
+  padding-bottom: 30px;
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.ceo-message-name div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+}
+
+#font-signature{
+  font-family: HerrVonMuellerhoff;
+  font-size: 30px;
+}
+
+.ceo-message-name p{
+  margin-bottom: 5px;
+  font-size: 24px;
+}
+
 .ceo-message-subtitle {
   font-size: 26px;
   padding-bottom: 30px;
@@ -59,6 +85,7 @@
 .ceo-message-content {
   font-size: 16px;
   line-height: 1.8;
+  padding: 0 20px;
 }
 
 .ceo-cover p {
@@ -174,6 +201,10 @@
     flex-basis: 100%;
     width: 100%;
     background: none;
+    padding: 0 24px !important;
+  }
+  .ceo-image-part{
+    padding: 0 !important;
   }
 
   .ceo-message-title {
@@ -182,6 +213,7 @@
   .ceo-message-content {
     font-size: 14px;
     line-height: 5.2vw;
+    padding: 0;
   }
 
   .ceo-message-subtitle {
