@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 export const CREATE_CONTACT = gql`
   mutation (
     $name: String
+    $role: String
     $email: String
     $phone: String
     $company: String
@@ -12,6 +13,7 @@ export const CREATE_CONTACT = gql`
     createContact(
       data: {
         name: $name
+        role: $role
         email: $email
         phone: $phone
         company: $company

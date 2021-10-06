@@ -11,6 +11,8 @@ import clsx from "clsx";
 const ContactForm = (props) => {
   const [fullName, setFullName] = useState("");
   const [fullNameError, setFullNameError] = useState(false);
+  const [role, setRole] = useState("");
+  const [roleError, setRoleError] = useState(false);
   const [companyName, setCompanyName] = useState("");
   const [companyNameError, setCompanyNameError] = useState(false);
   const [companyAddress, setCompanyAddress] = useState("");
@@ -126,6 +128,7 @@ const ContactForm = (props) => {
     setCompanyName("");
     setCompanyAddress("");
     setFullName("");
+    setRole("");
     setIsChecked(true);
     setChecked(false);
     demoAsyncCall().then(() => setSubmitting(false));
@@ -138,6 +141,7 @@ const ContactForm = (props) => {
       (phone1 + phone2 + phone3).length === 11 ||
       (phone1 + phone2 + phone3).length === 10;
     if (fullName.trim() === "") setFullNameError(true);
+    if (role.trim() === "") setRoleError(true);
     if (companyName.trim() === "") setCompanyNameError(true);
     if (companyAddress.trim() === "") setCompanyAddressError(true);
     if (!phone) setPhoneError(true);
@@ -145,6 +149,7 @@ const ContactForm = (props) => {
     if (message.trim() === "") setMessageError(true);
     if (
       fullName.trim() === "" ||
+      role.trim() === "" ||
       companyAddress.trim() === "" ||
       companyName.trim() === "" ||
       phoneError ||
@@ -163,6 +168,7 @@ const ContactForm = (props) => {
 
     const variables = {
       name: fullName,
+      role: role,
       email: email,
       phone: phone1 + phone2 + phone3,
       company: companyName,
@@ -226,6 +232,12 @@ const ContactForm = (props) => {
         if (isEmpty) setFullNameError(true);
         else setFullNameError(false);
         setFullName(value.slice(0, 30));
+        break;
+      }
+      case "role": {
+        if (isEmpty) setRoleError(true);
+        else setRoleError(false);
+        setRole(value.slice(0, 30));
         break;
       }
       case "companyName": {
@@ -361,14 +373,14 @@ const ContactForm = (props) => {
           >
             {data["Footer_MapBtn_JP"]?.value}
             <svg version="1.1" x="0px" y="0px" viewBox="0 0 512 512">
-                <path
-                  fill="currentColor"
-                  d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068
+              <path
+                fill="currentColor"
+                d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068
                   c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557
                   l-70.162,69.824c-7.829,7.792-7.859,20.455-0.067,28.284c7.793,7.831,20.457,7.858,28.285,0.068l104.504-104
                   c0.006-0.006,0.011-0.013,0.018-0.019C513.968,262.339,513.943,249.635,506.134,241.843z"
-                />
-              </svg>
+              />
+            </svg>
           </a>
         </div>
         <div className="right-contact" id="right-contact">
@@ -387,6 +399,24 @@ const ContactForm = (props) => {
               onChange={onChange}
               onBlur={onChange}
               value={fullName}
+              disabled={loading}
+            />
+
+            <p>
+              {/* {data?.Contact_ContactForm_Content7?.value} */}
+              Role
+              <span className="it-is-important"> *</span>
+            </p>
+            <input
+              type="input"
+              name="role"
+              className={clsx(
+                roleError ? "error" : "",
+                darkMode ? "auto-fill-darkmode" : ""
+              )}
+              onChange={onChange}
+              onBlur={onChange}
+              value={role}
               disabled={loading}
             />
 
