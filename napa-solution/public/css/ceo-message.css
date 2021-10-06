@@ -85,6 +85,7 @@
 .ceo-message-content {
   font-size: 16px;
   line-height: 1.8;
+  padding: 0 20px;
 }
 
 .ceo-cover p {
@@ -200,6 +201,10 @@
     flex-basis: 100%;
     width: 100%;
     background: none;
+    padding: 0 24px !important;
+  }
+  .ceo-image-part{
+    padding: 0 !important;
   }
 
   .ceo-message-title {
@@ -208,6 +213,7 @@
   .ceo-message-content {
     font-size: 14px;
     line-height: 5.2vw;
+    padding: 0;
   }
 
   .ceo-message-subtitle {
