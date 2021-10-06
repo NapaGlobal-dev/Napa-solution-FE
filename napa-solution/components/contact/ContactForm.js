@@ -404,7 +404,7 @@ const ContactForm = (props) => {
 
             <p>
               {/* {data?.Contact_ContactForm_Content7?.value} */}
-              Role
+              ポジション
               <span className="it-is-important"> *</span>
             </p>
             <input
