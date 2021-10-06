@@ -3,10 +3,10 @@ import React from "react";
 const Message = (props) => {
   const datas = convertArrToObject(props.data.property);
   const title = Object.values(datas).filter((item) =>
-    item.name.includes("CEOMessage_Message_Title")
+    item.name.includes("CEOMessage_Message_Title1")
   )[0];
   const subTitle = Object.values(datas).filter((item) =>
-    item.name.includes("CEOMessage_Message_SubTitle")
+    item.name.includes("CEOMessage_Message_SubTitle1")
   )[0];
   const content1 = getData(datas, /CEOMessage_Message_Content1/)[0];
   // const content2 = getData(datas, /CompanyAbout_Message_Content2/)[0];
@@ -20,10 +20,10 @@ const Message = (props) => {
           //   backgroundImage: `url(${datas["CEOMessage_Message_Background"]?.image.original})`,
           // }}
         >
-          <img src={datas["CEOMessage_Message_Background"]?.image.original} />
+          <img src={datas["CEOMessage_Message_Background1"]?.image.original} />
           <img
             className="ceo-picture"
-            src={datas["CEOMessage_Message_CEO"]?.image.original}
+            src={datas["CEOMessage_Message_CEO1"]?.image.original}
           />
         </div>
         <div className="ceo-message-part" id="ceo-message-darkmode">
