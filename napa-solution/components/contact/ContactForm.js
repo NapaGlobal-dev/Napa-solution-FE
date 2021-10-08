@@ -62,7 +62,6 @@ const ContactForm = (props) => {
       max_chars: 1000,
       setup: function (ed) {
         ed.on("keydown", function (e) {
-          debugger;
           const maxChars = parseInt(ed.getParam("max_chars"));
           const content = ed.getContent({ format: "text" });
           if (content.length > maxChars) {
