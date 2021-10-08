@@ -403,8 +403,7 @@ const ContactForm = (props) => {
             />
 
             <p>
-              {/* {data?.Contact_ContactForm_Content7?.value} */}
-              ポジション
+              {data?.Contact_ContactForm_Content7?.value}
               <span className="it-is-important"> *</span>
             </p>
             <input
@@ -524,7 +523,8 @@ const ContactForm = (props) => {
             />
             {!emailValid ? (
               <label>
-               メールアドレスには、{email} の後に@を含めるか、@の後にxxx.comを使用するか、スペースを入れないでください
+                メールアドレスには、{email}{" "}
+                の後に@を含めるか、@の後にxxx.comを使用するか、スペースを入れないでください
               </label>
             ) : (
               <></>
@@ -565,7 +565,9 @@ const ContactForm = (props) => {
                   {data?.Contact_ContactForm_CheckBox?.value}
                 </div>
                 {!isChecked ? (
-                  <label>送信する前にプライベートポリシーに同意してください </label>
+                  <label>
+                    送信する前にプライベートポリシーに同意してください{" "}
+                  </label>
                 ) : (
                   <></>
                 )}
