@@ -4,7 +4,7 @@ import { ApolloProvider } from "@apollo/client";
 import App from "next/app";
 
 import { client } from "../apolo-client";
-import { FOOTER_DATA_QUERY } from "../query/general";
+import { FOOTER_DATA_QUERY, GET_HEADER } from "../query/general";
 import "../styles/globals.css";
 import StoreProvier, { StoreContext } from "../util/language/store";
 import Fonts from "../util/fonts";
@@ -14,7 +14,7 @@ import useDarkMode from "use-dark-mode";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../themeConfig";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
-function MyApp({ Component, pageProps, footerData, ...props }) {
+function MyApp({ Component, pageProps, layoutData, ...props }) {
   useEffect(() => {
     Fonts();
   }, []);
@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps, footerData, ...props }) {
   return (
     <StoreProvier>
       <ApolloProvider client={client}>
-        <Layout footerData={footerData}>
+        <Layout data={layoutData}>
           <Component {...pageProps} />
         </Layout>
 
@@ -67,14 +67,29 @@ function MyApp({ Component, pageProps, footerData, ...props }) {
 }
 
 MyApp.getInitialProps = async (ctx) => {
-  const { data } = await client.query({
-    query: FOOTER_DATA_QUERY,
-  });
+  // const { data } = await client.query({
+  //   query: FOOTER_DATA_QUERY,
+  // });
+  // const { data } = await client.query({
+  //   query: GET_HEADER,
+  // });
+
+  const [footerData, headerData] = await Promise.allSettled([
+    client.query({
+      query: FOOTER_DATA_QUERY,
+    }),
+    client.query({
+      query: GET_HEADER,
+    }),
+  ]);
 
   const appData = await App.getInitialProps(ctx);
   return {
     ...appData,
-    footerData: data,
+    layoutData: {
+      footerData: footerData.value.data,
+      headerData: headerData.value.data,
+    },
   };
 };
 

@@ -1,6 +1,4 @@
-import { useQuery } from "@apollo/client";
-import { GET_HEADER } from "../../../query/general";
-import { convertArrToObject, getData } from "../../../util/converArrayToObject";
+import { convertArrToObject } from "../../../util/converArrayToObject";
 import Head from "next/head";
 import { useContext, useEffect, useRef, useState } from "react";
 import languages from "../../../util/language/language";
@@ -50,14 +48,14 @@ function Language() {
   );
 }
 
-const Header = (props) => {
-  const { data, loading, error } = useQuery(GET_HEADER);
+const Header = ({ data, ...props }) => {
+  // const { data, loading, error } = useQuery(GET_HEADER);
 
   const {
     Home: navbarLogo = {},
     Contact: contact = {},
     ...navbarMenu
-  } = loading || error ? {} : convertArrToObject(data["navbar"], "nameEN");
+  } = !data ? {} : convertArrToObject(data["navbar"], "nameEN");
 
   const navbarMenuList = Object.values(navbarMenu);
 
@@ -116,7 +114,7 @@ const Header = (props) => {
 
     if (
       router.pathname.includes("company") ||
-      router.pathname.includes("ceo-message")||
+      router.pathname.includes("ceo-message") ||
       router.pathname.includes("why-napa")
     )
       document.getElementById("navbar")?.classList.add("dark-nav-force");

@@ -7,7 +7,7 @@ import Loader from "./Loader";
 import SimpleLoader from "./SimpleLoader";
 import NewYearEvent from "./NewYearEvent";
 
-const Layout = ({ footerData, children, ...props }) => {
+const Layout = ({ data, children, ...props }) => {
   const [loading, setLoading] = useState(true);
   const [simpleLoading, setSimpleLoading] = useState(true);
   function demoAsyncCall() {
@@ -37,13 +37,13 @@ const Layout = ({ footerData, children, ...props }) => {
   if (router.pathname === "/") {
     return (
       <>
-        <Header isLoading={loading} />
+        <Header data={data.headerData} isLoading={loading} />
 
         <ScrollToTop />
         <Loader />
         <NewYearEvent delay={3000} />
         {React.cloneElement(children, {
-          footer: <Footer data={footerData} isLoading={loading} />,
+          footer: <Footer data={data.footerData} isLoading={loading} />,
         })}
       </>
     );
@@ -51,11 +51,11 @@ const Layout = ({ footerData, children, ...props }) => {
 
   return (
     <>
-      <Header isLoading={loading} />
+      <Header data={data.headerData} isLoading={loading} />
       <div>{children}</div>
       <ScrollToTop />
       <NewYearEvent />
-      <Footer data={footerData} isLoading={loading} />
+      <Footer data={data.footerData} isLoading={loading} />
       {simpleLoading && <SimpleLoader />}
     </>
   );

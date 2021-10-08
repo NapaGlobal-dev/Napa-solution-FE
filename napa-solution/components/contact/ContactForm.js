@@ -62,7 +62,6 @@ const ContactForm = (props) => {
       max_chars: 1000,
       setup: function (ed) {
         ed.on("keydown", function (e) {
-          debugger;
           const maxChars = parseInt(ed.getParam("max_chars"));
           const content = ed.getContent({ format: "text" });
           if (content.length > maxChars) {
@@ -524,7 +523,8 @@ const ContactForm = (props) => {
             />
             {!emailValid ? (
               <label>
-               メールアドレスには、{email} の後に@を含めるか、@の後にxxx.comを使用するか、スペースを入れないでください
+                メールアドレスには、{email}{" "}
+                の後に@を含めるか、@の後にxxx.comを使用するか、スペースを入れないでください
               </label>
             ) : (
               <></>
@@ -565,7 +565,9 @@ const ContactForm = (props) => {
                   {data?.Contact_ContactForm_CheckBox?.value}
                 </div>
                 {!isChecked ? (
-                  <label>送信する前にプライベートポリシーに同意してください </label>
+                  <label>
+                    送信する前にプライベートポリシーに同意してください{" "}
+                  </label>
                 ) : (
                   <></>
                 )}
