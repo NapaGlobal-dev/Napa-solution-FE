@@ -133,6 +133,8 @@ const ContactForm = (props) => {
     setChecked(false);
     demoAsyncCall().then(() => setSubmitting(false));
     tinymce.activeEditor.setContent("");
+    setPhoneError(false);
+    setPhoneInvalid(false);
   }
 
   function submit(e) {
@@ -190,6 +192,7 @@ const ContactForm = (props) => {
         : pos == 2
         ? setPhone2(e.target.value)
         : setPhone3(e.target.value);
+
       setPhoneError(true);
       return;
     }
@@ -209,6 +212,11 @@ const ContactForm = (props) => {
       setPhoneError(false);
       return;
     }
+    pos == 1
+      ? setPhone1(e.target.value)
+      : pos == 2
+      ? setPhone2(e.target.value)
+      : setPhone3(e.target.value);
     setPhoneError(true);
     return;
   };
@@ -254,14 +262,17 @@ const ContactForm = (props) => {
       }
       case "phone1": {
         checkPhone(e, 3, 1);
+        // setPhone1(e.target.value);
         break;
       }
       case "phone2": {
         checkPhone(e, 4, 2);
+        // setPhone2(e.target.value);
         break;
       }
       case "phone3": {
         checkPhone(e, 4, 3);
+        // setPhone3(e.target.value);
         break;
       }
       case "email": {
@@ -275,7 +286,7 @@ const ContactForm = (props) => {
           }
         }
 
-        setEmail(value.slice(0, 30));
+        setEmail(value.slice(0, 50));
         break;
       }
     }
@@ -500,8 +511,10 @@ const ContactForm = (props) => {
                 disabled={loading}
               />
             </div>
-            {phoneInvalid && (
+            {phoneError || phoneInvalid ? (
               <label>電話番号は10文字または11文字である必要があります</label>
+            ) : (
+              ""
             )}
 
             <p>
