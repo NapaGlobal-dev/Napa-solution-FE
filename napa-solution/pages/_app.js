@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps, layoutData, ...props }) {
 
   useEffect(() => {
     var chatbox = document.getElementById("fb-customer-chat");
-    chatbox.setAttribute("page_id", "109640574821750");
+    chatbox.setAttribute("page_id", "1055847547921910");
     chatbox.setAttribute("attribution", "biz_inbox");
 
     window.fbAsyncInit = function () {
