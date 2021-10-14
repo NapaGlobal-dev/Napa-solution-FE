@@ -36,7 +36,12 @@ function Language() {
           >
             <a
               href={
-                lang !== "JP" ? `http://www.napaglobal.com/?lang=${lang}` : "#"
+                lang !== "JP"
+                  ? `https://napaglobal.com/?lang=${lang
+                      .toString()
+                      .trim()
+                      .toLocaleLowerCase()}`
+                  : "#"
               }
             >
               {lang}
@@ -92,7 +97,13 @@ const Header = ({ data, ...props }) => {
   }
 
   const languagesdata = languages.map((lang, index) => ({
-    url: lang !== "JP" ? `http://www.napaglobal.com${lang}` : "#",
+    url:
+      lang !== "JP"
+        ? `https://napaglobal.com/?lang=${lang
+            .toString()
+            .trim()
+            .toLocaleLowerCase()}`
+        : "#",
     languageId: index,
     icon: "img/header/lang.svg",
     name: lang,
