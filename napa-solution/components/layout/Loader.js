@@ -3,6 +3,8 @@ import Head from "next/head";
 
 const Loader = () => {
   useEffect(() => {
+    const navbar = document.getElementById('navbar')
+    navbar?.style.setProperty('top', '0px', 'important')
     setTimeout(function () {
       document.getElementById("loader-loading-page").className +=
         " loader-loaded ";
@@ -10,6 +12,10 @@ const Loader = () => {
       document.getElementById("loader-lastray").className +=
         " loader-finalray ";
       document.body.className += " loader-whitebk ";
+
+      setTimeout(() => {
+        navbar?.style.setProperty('top', '0px', '')
+      }, 1000);
     }, 3000);
   }, []);
   return (
