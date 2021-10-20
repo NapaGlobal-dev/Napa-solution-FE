@@ -13,9 +13,7 @@ const Loader = () => {
         " loader-finalray ";
       document.body.className += " loader-whitebk ";
 
-      setTimeout(() => {
-        navbar?.style.setProperty('top', '0px', '')
-      }, 1000);
+      navbar?.style.setProperty('top', '0px', '')
     }, 3000);
   }, []);
   return (

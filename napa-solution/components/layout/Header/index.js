@@ -65,6 +65,7 @@ const Header = ({ data, ...props }) => {
   const navbarMenuList = Object.values(navbarMenu);
 
   const navRef = useRef(null);
+  const isLoadingTime = useRef(true);
   const router = useRouter();
 
   const darkmode = useDarkMode();
@@ -112,6 +113,16 @@ const Header = ({ data, ...props }) => {
 
   const scrollEvent = () => {
     if (navRef.current) {
+      if(isLoadingTime.current){
+        const loadingTime = 3000 + 500
+        setTimeout(() => {
+          isLoadingTime.current = false
+          if (window.pageYOffset >= 20) {
+            navRef.current.classList.add("dark-nav");
+          }
+        }, loadingTime);
+        return
+      }
       if (window.pageYOffset >= 20) {
         navRef.current.classList.add("dark-nav");
       } else {
