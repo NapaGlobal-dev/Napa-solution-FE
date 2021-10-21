@@ -83,15 +83,17 @@ const Header = ({ data, ...props }) => {
 
     if (darkmode.value) setIsDark(true);
 
-    isSnow();
+    isSnow(darkmode.value);
   }, []);
 
   function wrapToggle() {
     if (darkmode.value) {
       localStorage?.setItem("darkmode", "off");
+      isSnow(false);
       darkmode.disable();
     } else {
       localStorage?.setItem("darkmode", "on");
+      isSnow(true);
       darkmode.enable();
     }
   }
