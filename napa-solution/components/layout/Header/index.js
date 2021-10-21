@@ -65,6 +65,7 @@ const Header = ({ data, ...props }) => {
   const navbarMenuList = Object.values(navbarMenu);
 
   const navRef = useRef(null);
+  const isLoadingTime = useRef('loading');
   const router = useRouter();
 
   const darkmode = useDarkMode();
@@ -114,6 +115,19 @@ const Header = ({ data, ...props }) => {
 
   const scrollEvent = () => {
     if (navRef.current) {
+      if(isLoadingTime.current==='loading' || isLoadingTime.current==='waiting'){
+        if(isLoadingTime.current!=='waiting'){
+          isLoadingTime.current = 'waiting'
+          const loadingTime = 3000 + 500
+          setTimeout(() => {
+            isLoadingTime.current = 'end'
+            if (window.pageYOffset >= 20) {
+              navRef.current.classList.add("dark-nav");
+            }
+          }, loadingTime);
+        }
+        return
+      }
       if (window.pageYOffset >= 20) {
         navRef.current.classList.add("dark-nav");
       } else {
@@ -190,11 +204,6 @@ const Header = ({ data, ...props }) => {
     <>
       <Head>
         <link key="/css/common.css" rel="stylesheet" href="/css/common.css" />
-        <link
-          key="/css/snow-event.scss"
-          rel="stylesheet"
-          href="/css/snow-event.scss"
-        />
         <link
           key="/css/header.module.css"
           rel="stylesheet"

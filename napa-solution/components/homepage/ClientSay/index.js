@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import styles from "./style.module.css";
 import { useEffect } from "react";
-import Head from "next/head";
 const ClientSay = (props) => {
   const { data } = props;
 
@@ -40,9 +39,6 @@ const ClientSay = (props) => {
 
   return (
     <>
-      <Head>
-        <link key="css/video.css" rel="stylesheet" href="css/video.css" />
-      </Head>
       <div className="container-fluid">
         <div className={clsx(styles.cover)}>
           <h3 id="main-title" id="down-up">

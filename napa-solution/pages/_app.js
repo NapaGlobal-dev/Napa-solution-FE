@@ -60,7 +60,7 @@ function MyApp({ Component, pageProps, layoutData, ...props }) {
         <div id="fb-root"></div>
 
         {/* <!-- Your Chat Plugin code --> */}
-        <div id="fb-customer-chat" class="fb-customerchat"></div>
+        <div id="fb-customer-chat" className="fb-customerchat"></div>
       </ApolloProvider>
     </StoreProvier>
   );
