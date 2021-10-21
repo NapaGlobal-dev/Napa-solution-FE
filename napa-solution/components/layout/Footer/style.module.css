@@ -252,7 +252,8 @@
 }
 
 .imgNapa {
-  width: 100%;
+  /* width: 100%; */
+  width: 250px;
   height: auto;
   margin: auto;
 }

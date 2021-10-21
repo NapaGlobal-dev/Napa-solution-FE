@@ -40,7 +40,7 @@ const Layout = ({ data, children, ...props }) => {
         <Header data={data.headerData} isLoading={loading} />
 
         <ScrollToTop />
-        {/* <Loader /> */}
+        <Loader />
         <NewYearEvent delay={3000} />
         {React.cloneElement(children, {
           footer: <Footer data={data.footerData} isLoading={loading} />,
