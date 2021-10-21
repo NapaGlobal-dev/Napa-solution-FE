@@ -420,7 +420,6 @@ export default function isSnow(isDarkMode){
             const randomXEndYoyo = randomX + (randomOffset / 2)
             const randomYoyoTime = randomRange(1000, 30000) / 100000
             const randomYoyoY = randomYoyoTime * 100
-            // const min = Math.random() + 1
             const randomScale = Math.random()
             const fallDuration = randomRange(10, 30) * 1 *1000
             const fallDelay = Math.random() * -30 * 1000
@@ -430,8 +429,8 @@ export default function isSnow(isDarkMode){
             svg.style.opacity = min>1? 1:min
             svg.animate(
                 [
-                    { transform: `translate(${randomXEnd}vw, ${randomYoyoY}vh) scale(${randomScale})` },
-                    { transform: `translate(${randomXEndYoyo}vw, 100vh) scale(${randomScale})` }
+                    { transform: `translate(${randomXEnd}vw, ${randomYoyoY}vh) scale(${randomScale}) rotate(45deg)` },
+                    { transform: `translate(${randomXEndYoyo}vw, 100vh) scale(${randomScale}) rotate(45deg)` }
                 ],
                 {
                     duration: fallDuration,
