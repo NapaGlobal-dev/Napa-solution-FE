@@ -189,11 +189,6 @@ const Header = ({ data, ...props }) => {
       <Head>
         <link key="/css/common.css" rel="stylesheet" href="/css/common.css" />
         <link
-          key="/css/snow-event.scss"
-          rel="stylesheet"
-          href="/css/snow-event.scss"
-        />
-        <link
           key="/css/header.module.css"
           rel="stylesheet"
           href="/css/header.module.css"

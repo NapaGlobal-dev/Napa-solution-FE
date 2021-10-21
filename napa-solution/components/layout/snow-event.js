@@ -9,8 +9,8 @@ export default function isSnow(){
     const snows = document.createElement('div')
     snows.classList.add("snows")
 
-    if(date.getDate()===22 && date.getMonth()===8){
-        for(let i=0;i<100;i++){
+    if(date.getDate()===21 && date.getMonth()===9){
+        for(let i=0;i<150;i++){
             const div = document.createElement('div')
             div.classList.add("snow")
 
@@ -20,16 +20,18 @@ export default function isSnow(){
             const randomXEndYoyo = randomX + (randomOffset / 2)
             const randomYoyoTime = randomRange(10000, 80000) / 100000
             const randomYoyoY = randomYoyoTime * 100
-            const randomScale = Math.random()
+            const min = Math.random()*.7 + .1
+            const randomScale = min>.7? .7 : min
             const fallDuration = randomRange(10, 30) * 1 *1000
             const fallDelay = Math.random() * -30 * 1000
 
             div.style.transform = `translate(${randomX}vw, -10px) scale(${randomScale})`
-            div.style.opacity = Math.random()
+            const minO = Math.random() + .3
+            div.style.opacity = minO>1? 1 : minO
             div.animate(
                 [
-                    { transform: `translate(${randomXEnd}vw, ${randomYoyoY}vh) scale(${randomScale})` },
-                    { transform: `translate(${randomXEndYoyo}vw, 100vh) scale(${randomScale})` }
+                    { transform: `translate(${randomXEnd}vw, ${randomYoyoY}vh) scale(${randomScale}) rotate(45deg)` },
+                    { transform: `translate(${randomXEndYoyo}vw, 100vh) scale(${randomScale}) rotate(45deg)` }
                 ],
                 {
                     duration: fallDuration,
