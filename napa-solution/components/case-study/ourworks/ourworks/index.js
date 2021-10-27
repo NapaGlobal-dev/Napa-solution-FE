@@ -84,7 +84,7 @@ function OurWork({ data, service }) {
     <>
       <div className="container-fluid">
         <div className={styles.wrapCS} id="down-up">
-          <div id="projects-section">
+          <div id="projects-section" className={styles.wrapCenter}>
             <div className={clsx(styles.wrapText, styles.wrapTextCenter)}>
               <h2
                 className={clsx("wow slideInDown")}
@@ -145,12 +145,14 @@ function OurWork({ data, service }) {
               ))}
             </div>
             {caseStudyList?.length > 6 && (
-              <div className="d-flex icon-loadmore justify-content-center align-items-center">
+              <div
+                className={clsx("d-flex icon-loadmore justify-content-center align-items-center", styles.button)}
+                onClick={handleLoadMoreToggle}
+              >
                 <img className={clsx("svg-inline--fa fa-dot-circle fa-w-16",styles.svgicon)}
                       src = "/img/loadmore.svg" alt= "loadmore"
                   />
                 <h4
-                  onClick={handleLoadMoreToggle}
                   className={clsx(styles.h4text)}
                 >
                   {loadmore > caseStudyList.length ? "COLLAPSE" : "LOAD MORE"}

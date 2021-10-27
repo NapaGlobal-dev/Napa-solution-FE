@@ -22,9 +22,9 @@ const Service = (props) => {
                 </div>
               </div>
               <div className="item-services">
-                <div className="intro-service">
+                <ul className="intro-service">
                   {data?.Content?.value}
-                </div>
+                </ul>
               </div>
             </div>
             <div className="img-service">
