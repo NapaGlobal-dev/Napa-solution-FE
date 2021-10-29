@@ -208,7 +208,7 @@ export const FOOTER_DATA_QUERY = gql`
         OR: [
           { nameEN: "Information" }
           { nameEN: "Services" }
-          { nameEN: "Company" }
+          { nameEN: "About Us" }
         ]
       }
     ) {
@@ -231,7 +231,7 @@ export const GET_HEADER = gql`
         OR: [
           { nameEN: "Home" }
           { nameEN: "Services" }
-          { nameEN: "Company" }
+          { nameEN: "About Us" }
           { nameEN: "Contact" }
           { nameEN: "Offshore" }
         ]
