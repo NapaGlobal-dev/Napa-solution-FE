@@ -155,17 +155,21 @@ const Footer = (props) => {
                       </span>
                     </h4>
                     <ul id={`ul-item-${index + 1}`}>
-                      {page.childrenPage.map((childPage, key) => (
-                        <li key={key}>
-                          <a
-                            href={childPage.url}
-                            className={clsx(styles.liText)}
-                            key={key}
-                          >
-                            {childPage.name}
-                          </a>
-                        </li>
-                      ))}
+                      {page.childrenPage.map((childPage, key) => 
+                        /\(not used by Napa Solution\)/.test(childPage.name)
+                        ? <></>
+                        :
+                          (
+                            <li key={key}>
+                              <a
+                                href={childPage.url}
+                                className={clsx(styles.liText)}
+                                key={key}
+                              >
+                                {childPage.name}{console.log(props)}
+                              </a>
+                            </li>
+                          ))}
                     </ul>
                   </div>
                 ))}

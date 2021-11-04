@@ -251,7 +251,7 @@ html {
   content: "";
   border-bottom: 2px solid #fff;
   position: absolute;
-  width: 46%;
+  width: 64px;
   bottom: 0px;
   left: 0px;
   transform: translateY(-26px);
