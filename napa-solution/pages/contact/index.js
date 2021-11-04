@@ -1,6 +1,11 @@
 import React from "react";
 import Head from "next/head";
-import { contactQuery, HomePage, GET_CASESTUDIES, CONTACT_QUERY } from "../../query/general";
+import {
+  contactQuery,
+  HomePage,
+  GET_CASESTUDIES,
+  CONTACT_QUERY
+} from "../../query/general";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import ContactForm from "../../components/contact/ContactForm";
@@ -23,15 +28,15 @@ const ContactPage = (props) => {
         <link
           rel="stylesheet"
           type="text/css"
-          charset="UTF-8"
+          charSet="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
           integrity="sha512-L/EyzxvZCddd652hKB4w2gEaZgCZSOaH0Ia6JoEGysTu27VnWvej5ipuBnru/iDhPWMO0AvwiVd0HHVUHWeDRA=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
         />
       </Head>
       <Banner data={data.ContactBanner} />
@@ -39,7 +44,7 @@ const ContactPage = (props) => {
       {/* <div className="container-fluid content-wrapper no-default-spacing">
         <Project data={getData(props.data, /Slides_Section/)[0]} />
       </div> */}
-      <OurWorksCpn center isRow={true} data={props.caseStudies}/>
+      <OurWorksCpn center isRow={true} data={props.caseStudies} />
     </>
   );
 };
@@ -48,14 +53,14 @@ export async function getStaticProps() {
   const { data } = await client.query({ query: CONTACT_QUERY });
   // const { data: dataHome } = await client.query({ query: HomePage });
   const caseStudies = await client.query({
-    query: GET_CASESTUDIES,
+    query: GET_CASESTUDIES
   });
 
   return {
     props: {
       data,
-      caseStudies: caseStudies.data,
-    },
+      caseStudies: caseStudies.data
+    }
   };
 }
 

@@ -10,7 +10,7 @@ import {
   GET_SERVICES_PAGE_DATA,
   GET_SERVICE_URL,
   PROJECTS,
-  GET_CASESTUDIES,
+  GET_CASESTUDIES
 } from "../../query/general";
 
 const Services = ({ projects, ...props }) => {
@@ -40,14 +40,19 @@ const Services = ({ projects, ...props }) => {
           key="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
           rel="stylesheet"
           type="text/css"
-          charset="UTF-8"
+          charSet="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
       </Head>
       <ServiceBanner banner={banner} />
       <Service service={service} />
       {/* <Project data={projects} /> */}
-      <OurWorksCpn center isRow={true} data={props.caseStudies} service={props.data?.page[0]?.slug} />
+      <OurWorksCpn
+        center
+        isRow={true}
+        data={props.caseStudies}
+        service={props.data?.page[0]?.slug}
+      />
     </>
   );
 };
@@ -62,11 +67,11 @@ export async function getStaticProps({ params }) {
   //   client.query({ query: PROJECTS }),
   // ]);
   const caseStudies = await client.query({
-    query: GET_CASESTUDIES,
+    query: GET_CASESTUDIES
   });
   const pageData = await client.query({
     query: GET_SERVICES_PAGE_DATA,
-    variables: { name: slug },
+    variables: { name: slug }
   });
 
   // const projectData = await client.query({ query: PROJECTS });
@@ -74,8 +79,8 @@ export async function getStaticProps({ params }) {
     props: {
       data: pageData.data,
       // projects: projectData.data.projects[0],
-      caseStudies: caseStudies.data,
-    },
+      caseStudies: caseStudies.data
+    }
   };
 }
 
@@ -87,12 +92,12 @@ export async function getStaticPaths() {
   const paths =
     !data.loading &&
     data?.data?.page[0]?.childrenPage.map((page) => ({
-      params: { slug: page.slug },
+      params: { slug: page.slug }
     }));
   // const paths = [{ params: { slug: "ai-solutions" } }];
   return {
     paths,
-    fallback: true,
+    fallback: true
   };
 }
 

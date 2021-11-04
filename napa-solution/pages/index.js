@@ -1,7 +1,7 @@
-import {  GET_CASESTUDIES, HOME_PAGE } from "../query/general";
+import { GET_CASESTUDIES, HOME_PAGE } from "../query/general";
 import {
   convertArrToObject,
-  convertArrToObjectBySpecialName,
+  convertArrToObjectBySpecialName
 } from "../util/converArrayToObject";
 import Company from "../components/homepage/Company";
 import Head from "next/head";
@@ -33,15 +33,15 @@ const Index = ({ footer, data, ...props }) => {
         <link
           rel="stylesheet"
           type="text/css"
-          charset="UTF-8"
+          charSet="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
           integrity="sha512-L/EyzxvZCddd652hKB4w2gEaZgCZSOaH0Ia6JoEGysTu27VnWvej5ipuBnru/iDhPWMO0AvwiVd0HHVUHWeDRA=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
         />
 
         {/* <link rel="stylesheet" href="/node_modules/swiper/swiper.scss" /> */}
@@ -68,14 +68,14 @@ const Index = ({ footer, data, ...props }) => {
 export async function getStaticProps() {
   const { data } = await client.query({ query: HOME_PAGE });
   const caseStudies = await client.query({
-    query: GET_CASESTUDIES,
+    query: GET_CASESTUDIES
   });
 
   return {
     props: {
       data,
-      caseStudies: caseStudies.data,
-    },
+      caseStudies: caseStudies.data
+    }
   };
 }
 export default Index;

@@ -11,9 +11,10 @@ import Fonts from "../util/fonts";
 import React, { useState, useEffect } from "react";
 
 import useDarkMode from "use-dark-mode";
-import { ThemeProvider } from "styled-components";
+// import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../themeConfig";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
+// import { DarkModeSwitch } from "react-toggle-dark-mode";
+import Head from "next/head";
 function MyApp({ Component, pageProps, layoutData, ...props }) {
   useEffect(() => {
     Fonts();
@@ -34,7 +35,7 @@ function MyApp({ Component, pageProps, layoutData, ...props }) {
     window.fbAsyncInit = function () {
       FB.init({
         xfbml: true,
-        version: "v12.0",
+        version: "v12.0"
       });
     };
 
@@ -50,19 +51,31 @@ function MyApp({ Component, pageProps, layoutData, ...props }) {
   }, []);
 
   return (
-    <StoreProvier>
-      <ApolloProvider client={client}>
-        <Layout data={layoutData}>
-          <Component {...pageProps} />
-        </Layout>
+    <>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="google" content="notranslate" />
+        <meta
+          name="viewport"
+          content="initial-scale=1, width=device-width, user-scalable=no, target-densitydpi=device-dpi"
+        />
 
-        {/* <!-- Messenger Chat Plugin Code --> */}
-        <div id="fb-root"></div>
+        <title>NAPA Solutions</title>
+      </Head>
+      <StoreProvier>
+        <ApolloProvider client={client}>
+          <Layout data={layoutData}>
+            <Component {...pageProps} />
+          </Layout>
 
-        {/* <!-- Your Chat Plugin code --> */}
-        <div id="fb-customer-chat" className="fb-customerchat"></div>
-      </ApolloProvider>
-    </StoreProvier>
+          {/* <!-- Messenger Chat Plugin Code --> */}
+          <div id="fb-root"></div>
+
+          {/* <!-- Your Chat Plugin code --> */}
+          <div id="fb-customer-chat" className="fb-customerchat"></div>
+        </ApolloProvider>
+      </StoreProvier>
+    </>
   );
 }
 
@@ -76,11 +89,11 @@ MyApp.getInitialProps = async (ctx) => {
 
   const [footerData, headerData] = await Promise.allSettled([
     client.query({
-      query: FOOTER_DATA_QUERY,
+      query: FOOTER_DATA_QUERY
     }),
     client.query({
-      query: GET_HEADER,
-    }),
+      query: GET_HEADER
+    })
   ]);
 
   const appData = await App.getInitialProps(ctx);
@@ -88,8 +101,8 @@ MyApp.getInitialProps = async (ctx) => {
     ...appData,
     layoutData: {
       footerData: footerData.value.data,
-      headerData: headerData.value.data,
-    },
+      headerData: headerData.value.data
+    }
   };
 };
 
