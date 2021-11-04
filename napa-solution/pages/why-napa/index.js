@@ -1,6 +1,11 @@
 import React from "react";
 import Head from "next/head";
-import { CONTACT_QUERY, COMPANY_ABOUT, PROJECTS, GET_CASESTUDIES } from "../../query/general";
+import {
+  CONTACT_QUERY,
+  COMPANY_ABOUT,
+  PROJECTS,
+  GET_CASESTUDIES
+} from "../../query/general";
 import { OurWorksCpn } from "../../components/case-study/ourworks/index.js";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
@@ -30,7 +35,7 @@ const CompanyAbout = ({ projects, ...props }) => {
         <link
           rel="stylesheet"
           type="text/css"
-          charset="UTF-8"
+          charSet="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
 
@@ -49,7 +54,7 @@ const CompanyAbout = ({ projects, ...props }) => {
       <CounterUp data={adata.CompanyAbout_Counter} />
       {/* <Message data={adata["Message"]} /> */}
       {/* <Project data={projects} /> */}
-      <OurWorksCpn center isRow={true} data={props.caseStudies}/>
+      <OurWorksCpn center isRow={true} data={props.caseStudies} />
     </>
   );
 };
@@ -66,15 +71,15 @@ export async function getStaticProps() {
   const aboutData = await client.query({ query: COMPANY_ABOUT });
   // const projectData = await client.query({ query: PROJECTS });
   const caseStudies = await client.query({
-    query: GET_CASESTUDIES,
+    query: GET_CASESTUDIES
   });
 
   return {
     props: {
       data: { ...pageData.data, adata: aboutData.data },
       // projects: projectData.data.projects[0],
-      caseStudies: caseStudies.data,
-    },
+      caseStudies: caseStudies.data
+    }
   };
 }
 export default CompanyAbout;
