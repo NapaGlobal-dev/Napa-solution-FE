@@ -230,7 +230,7 @@ export const GET_HEADER = gql`
       where: {
         OR: [
           { nameEN: "Home" }
-          { nameEN: "Services" }
+          { nameEN: "Our Services" }
           { nameEN: "About Us" }
           { nameEN: "Contact" }
           { nameEN: "Offshore" }
