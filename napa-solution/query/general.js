@@ -207,7 +207,7 @@ export const FOOTER_DATA_QUERY = gql`
       where: {
         OR: [
           { nameEN: "Information" }
-          { nameEN: "Services" }
+          { nameEN: "Our Services" }
           { nameEN: "About Us" }
         ]
       }
