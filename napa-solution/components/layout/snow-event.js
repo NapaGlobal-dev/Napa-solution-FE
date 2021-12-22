@@ -386,7 +386,7 @@ function randomRange(min, max){
 export default function isSnow(isDarkMode){
     const date = new Date()
     const snowsNode = document.getElementById('snows')
-    // console.log('d', isDarkMode, snowsNode)
+    console.log('d', isDarkMode, snowsNode)
     if(isDarkMode){
         if(snowsNode) return
     } else {
@@ -400,7 +400,7 @@ export default function isSnow(isDarkMode){
     snows.classList.add("snows")
 
     if(date.getDate()!==41 && date.getMonth()>=9){
-        for(let i=0;i<50;i++){
+        for(let i=0;i<44;i++){
             // const div = document.createElement('div')
             // div.classList.add("snow")
             const index = Math.floor(Math.random()*5)

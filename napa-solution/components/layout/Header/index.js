@@ -65,37 +65,50 @@ const Header = ({ data, ...props }) => {
   const navbarMenuList = Object.values(navbarMenu);
 
   const navRef = useRef(null);
-  const isLoadingTime = useRef('loading');
+  const isLoadingTime = useRef("loading");
   const router = useRouter();
 
   const darkmode = useDarkMode();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
+    const date = new Date();
+    if (date.getMonth() === 11 && date.getDate() > 21 && date.getDate() < 28) {
+      darkmode.enable();
+      setIsDark(true);
+      isSnow(true);
+      return;
+    }
     if (!localStorage?.getItem("darkmode")) {
-      const hour = new Date().getHours();
-      if (hour < 5 || hour >= 19) darkmode.enable();
-      else darkmode.disable();
+      const hour = date.getHours();
+      if (hour < 5 || hour >= 19) {
+        darkmode.enable();
+        setIsDark(true);
+        isSnow(true);
+      } else {
+        darkmode.disable();
+      }
     } else {
       const isDarkmode = localStorage.getItem("darkmode");
-      if (isDarkmode == "on") darkmode.enable();
-      else darkmode.disable();
+      if (isDarkmode == "on") {
+        darkmode.enable();
+        setIsDark(true);
+        isSnow(true);
+      } else darkmode.disable();
     }
-
-    if (darkmode.value) setIsDark(true);
-
-    isSnow(darkmode.value);
   }, []);
 
-  function wrapToggle() {
-    if (darkmode.value) {
+  function wrapToggle() {console.count('elo')
+    if (isDark) {
       localStorage?.setItem("darkmode", "off");
       isSnow(false);
       darkmode.disable();
+      setIsDark(false);console.log('elo1',isDark)
     } else {
       localStorage?.setItem("darkmode", "on");
       isSnow(true);
       darkmode.enable();
+      setIsDark(true);console.log('elo2',isDark)
     }
   }
 
@@ -115,18 +128,21 @@ const Header = ({ data, ...props }) => {
 
   const scrollEvent = () => {
     if (navRef.current) {
-      if(isLoadingTime.current==='loading' || isLoadingTime.current==='waiting'){
-        if(isLoadingTime.current!=='waiting'){
-          isLoadingTime.current = 'waiting'
-          const loadingTime = 3000 + 500
+      if (
+        isLoadingTime.current === "loading" ||
+        isLoadingTime.current === "waiting"
+      ) {
+        if (isLoadingTime.current !== "waiting") {
+          isLoadingTime.current = "waiting";
+          const loadingTime = 3000 + 500;
           setTimeout(() => {
-            isLoadingTime.current = 'end'
+            isLoadingTime.current = "end";
             if (window.pageYOffset >= 20) {
               navRef.current.classList.add("dark-nav");
             }
           }, loadingTime);
         }
-        return
+        return;
       }
       if (window.pageYOffset >= 20) {
         navRef.current.classList.add("dark-nav");
@@ -347,15 +363,11 @@ const Header = ({ data, ...props }) => {
                     ))}
                   </div>
                   <div className="po-box-darkmode">
-                    {darkmode.value ? <p>Dark</p> : <p>Light</p>}
-                    <label className="po-box-darkmode-switch">
-                      <input
-                        onClick={wrapToggle}
-                        type="checkbox"
-                        id="checkbox-dark-mode"
-                      />
+                    {isDark ? <p>Dark</p> : <p>Light</p>}
+                    <label className="po-box-darkmode-switch" >
                       <span
                         className={isDark ? "check-dark-on" : "check"}
+                        onClick={wrapToggle}
                       ></span>
                       <div className="dark-mode-bubble"></div>
                     </label>
@@ -393,7 +405,7 @@ const Header = ({ data, ...props }) => {
         <DarkModeSwitch
           style={{ margin: "0 12px" }}
           className="nav-darkmode-icon hide-on-mobile"
-          checked={!!darkmode.value}
+          checked={isDark}
           onChange={wrapToggle}
           size={40}
         />

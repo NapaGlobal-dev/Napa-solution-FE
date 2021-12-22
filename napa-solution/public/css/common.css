@@ -2451,6 +2451,7 @@ button:focus {
   left: 0;
   bottom: 0;
   filter: drop-shadow(0 0 10px white);
+  pointer-events: none;
   /* background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%) ; */
 }
 .snow {
