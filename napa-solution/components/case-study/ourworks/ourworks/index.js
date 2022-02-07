@@ -46,7 +46,7 @@ function OurWork({ data, service }) {
   const caseStudyList = (() => {
     if (!service) {
       if (!activeTech)
-        return caseStudies.map((cs) => {
+        return caseStudies?.map((cs) => {
           cs.rightUrl = splitUrl(cs.url);
           return cs;
         });
@@ -146,15 +146,21 @@ function OurWork({ data, service }) {
             </div>
             {caseStudyList?.length > 6 && (
               <div
-                className={clsx("d-flex icon-loadmore justify-content-center align-items-center", styles.button)}
+                className={clsx(
+                  "d-flex icon-loadmore justify-content-center align-items-center",
+                  styles.button
+                )}
                 onClick={handleLoadMoreToggle}
               >
-                <img className={clsx("svg-inline--fa fa-dot-circle fa-w-16",styles.svgicon)}
-                      src = "/img/loadmore.svg" alt= "loadmore"
-                  />
-                <h4
-                  className={clsx(styles.h4text)}
-                >
+                <img
+                  className={clsx(
+                    "svg-inline--fa fa-dot-circle fa-w-16",
+                    styles.svgicon
+                  )}
+                  src="/img/loadmore.svg"
+                  alt="loadmore"
+                />
+                <h4 className={clsx(styles.h4text)}>
                   {loadmore > caseStudyList.length ? "COLLAPSE" : "LOAD MORE"}
                 </h4>
               </div>

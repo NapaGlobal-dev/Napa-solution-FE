@@ -10,7 +10,7 @@ import {
   GET_SERVICES_PAGE_DATA,
   GET_SERVICE_URL,
   PROJECTS,
-  GET_CASESTUDIES
+  GET_CASESTUDIES,
 } from "../../query/general";
 
 const Services = ({ projects, ...props }) => {
@@ -67,11 +67,11 @@ export async function getStaticProps({ params }) {
   //   client.query({ query: PROJECTS }),
   // ]);
   const caseStudies = await client.query({
-    query: GET_CASESTUDIES
+    query: GET_CASESTUDIES,
   });
   const pageData = await client.query({
     query: GET_SERVICES_PAGE_DATA,
-    variables: { name: slug }
+    variables: { name: slug },
   });
 
   // const projectData = await client.query({ query: PROJECTS });
@@ -79,8 +79,8 @@ export async function getStaticProps({ params }) {
     props: {
       data: pageData.data,
       // projects: projectData.data.projects[0],
-      caseStudies: caseStudies.data
-    }
+      caseStudies: caseStudies.data,
+    },
   };
 }
 
@@ -91,13 +91,15 @@ export async function getStaticPaths() {
   const data = await client.query({ query: GET_SERVICE_URL });
   const paths =
     !data.loading &&
-    data?.data?.page[0]?.childrenPage.map((page) => ({
-      params: { slug: page.slug }
-    }));
+    data?.data?.page[0]?.childrenPage
+      .map((page) => ({
+        params: { slug: page.slug },
+      }))
+      .filter((prs) => prs.slug != null);
   // const paths = [{ params: { slug: "ai-solutions" } }];
   return {
     paths,
-    fallback: true
+    fallback: true,
   };
 }
 
