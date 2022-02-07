@@ -207,9 +207,9 @@ export const FOOTER_DATA_QUERY = gql`
       where: {
         OR: [
           { nameEN: "Information" }
-          { nameEN: "Services" }
+          { nameEN: "Our Services" }
           { nameEN: "About Us" }
-          { nameEN: "Company" }
+          { nameEN: "Group Company" }
         ]
       }
     ) {
@@ -231,11 +231,11 @@ export const GET_HEADER = gql`
       where: {
         OR: [
           { nameEN: "Home" }
-          { nameEN: "Services" }
+          { nameEN: "Our Services" }
           { nameEN: "About Us" }
           { nameEN: "Contact" }
-          { nameEN: "Company" }
-          { nameEN: "Offshore" }
+          { nameEN: "Group Company" }
+          { nameEN: "Offshore Development" }        
         ]
       }
       sortBy: headerOrder_ASC
