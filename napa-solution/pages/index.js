@@ -7,7 +7,7 @@ import Company from "../components/homepage/Company";
 import Head from "next/head";
 import Begin from "../components/homepage/Begin";
 import Service from "../components/homepage/Service/index.js";
-import Project from "../components/homepage/Project/index.js";
+// import Project from "../components/homepage/Project/index.js";
 import ClientSay from "../components/homepage/ClientSay/index.js";
 import { client } from "../apolo-client";
 import { OurWorksCpn } from "../components/case-study/ourworks/index.js";

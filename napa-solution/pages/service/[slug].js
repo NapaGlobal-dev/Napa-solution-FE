@@ -9,7 +9,7 @@ import { client } from "../../apolo-client";
 import {
   GET_SERVICES_PAGE_DATA,
   GET_SERVICE_URL,
-  PROJECTS,
+  // PROJECTS,
   GET_CASESTUDIES,
 } from "../../query/general";
 

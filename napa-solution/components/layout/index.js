@@ -30,7 +30,13 @@ const Layout = ({ data, children, ...props }) => {
     } else {
       setLoading(false);
 
-      window.addEventListener("load", () => setSimpleLoading(false));
+      const closeLoading = () => setSimpleLoading(false);
+      window.addEventListener("load", closeLoading);
+      setTimeout(() => {
+        setSimpleLoading(false);
+        window.removeEventListener("load", closeLoading);
+      }, 3998);
+      return () => window.removeEventListener("load", closeLoading);
     }
   }, []);
 

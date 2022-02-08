@@ -2,7 +2,7 @@ import Row from "../components/typeOfList/row";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 import styles from "./index.module.css";
-import router, { useRouter } from "next/router";
+// import router, { useRouter } from "next/router";
 // function filterProjectByType(type, index, projects) {
 //   if (!type || !projects) return [];
 
@@ -22,7 +22,7 @@ function OurWork({ data, service }) {
   const [activeTech, setActiveTech] = useState(0);
   const [loadmore, setLoadmore] = useState(6);
   const [caseStudies, setCaseStudies] = useState([]);
-  const router = useRouter();
+  // const router = useRouter();
   const arrKeys = [
     {
       value: "All",
@@ -41,7 +41,7 @@ function OurWork({ data, service }) {
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value)
     );
-  }, []);
+  }, [data]);
 
   const caseStudyList = (() => {
     if (!service) {
@@ -60,9 +60,9 @@ function OurWork({ data, service }) {
         });
     }
 
-    const reg = RegExp(service);
+    const reg = RegExp(service.toUpperCase());
     return caseStudies
-      ?.filter((cs) => reg.test(cs.key))
+      ?.filter((cs) => reg.test(cs.key.toUpperCase()))
       .map((cs) => {
         // find url based on service name
         cs.rightUrl = splitUrl(cs.url, reg);
