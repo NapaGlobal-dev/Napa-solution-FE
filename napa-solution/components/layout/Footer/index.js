@@ -62,7 +62,8 @@ const Footer = (props) => {
               placeholderSrc={data.Footer_ContactImage?.image?.thumbnail}
               threshold={100}
               width="100%"
-              height='100%'
+              height="100%"
+              
             />
             <div className={clsx(styles.scaleText)}>
               <span className={clsx(styles.h3text)} id="down-up">
@@ -112,16 +113,24 @@ const Footer = (props) => {
                   />
                   <div className={clsx(styles.socialsIconDeskTop)}>
                     <a href={data.Footer_Social_LinkedIn?.url}>
-                    <img className="svg-inline--fa fa-linkedin fa-w-14" src = "/img/linkedin.svg" />
+                      <img
+                        className="svg-inline--fa fa-linkedin fa-w-14"
+                        src="/img/linkedin.svg"
+                      />
                     </a>
                     <a href={data.Footer_Social_Facebook?.url}>
-                    <img className="svg-inline--fa fa-facebook-square fa-w-14" src = "/img/facebook.svg" />
+                      <img
+                        className="svg-inline--fa fa-facebook-square fa-w-14"
+                        src="/img/facebook.svg"
+                      />
                     </a>
                     <a href={data.Footer_Social_Twitter?.url}>
-                      <img className="svg-inline--fa fa-twitter-square fa-w-14" src = "/img/twitter.svg" />
+                      <img
+                        className="svg-inline--fa fa-twitter-square fa-w-14"
+                        src="/img/twitter.svg"
+                      />
                     </a>
                   </div>
-
                 </div>
               </div>
 
@@ -145,31 +154,37 @@ const Footer = (props) => {
                         page.name
                       )}
                       <span id={`btn-down-${index + 1}`}>
-                        <img className="svg-inline--fa fa-sort-down fa-w-10" src = "/img/load-down.svg"/>
+                        <img
+                          className="svg-inline--fa fa-sort-down fa-w-10"
+                          src="/img/load-down.svg"
+                        />
                       </span>
                       <span
                         id={`btn-up-${index + 1}`}
                         className={clsx(styles.upIcon)}
                       >
-                        <img className="svg-inline--fa fa-sort-up fa-w-10" src = "/img/load-up.svg"/>
+                        <img
+                          className="svg-inline--fa fa-sort-up fa-w-10"
+                          src="/img/load-up.svg"
+                        />
                       </span>
                     </h4>
                     <ul id={`ul-item-${index + 1}`}>
-                      {page.childrenPage.map((childPage, key) => 
-                        /\(not used by Napa Solution\)/.test(childPage.name)
-                        ? <></>
-                        :
-                          (
-                            <li key={key}>
-                              <a
-                                href={childPage.url}
-                                className={clsx(styles.liText)}
-                                key={key}
-                              >
-                                {childPage.name}{console.log(props)}
-                              </a>
-                            </li>
-                          ))}
+                      {page.childrenPage.map((childPage, key) =>
+                        /\(not used by Napa Solution\)/.test(childPage.name) ? (
+                          <></>
+                        ) : (
+                          <li key={key}>
+                            <a
+                              href={childPage.url}
+                              className={clsx(styles.liText)}
+                              key={key}
+                            >
+                              {childPage.name}
+                            </a>
+                          </li>
+                        )
+                      )}
                     </ul>
                   </div>
                 ))}
@@ -178,13 +193,22 @@ const Footer = (props) => {
                 </div> */}
                 <div className={clsx(styles.socialsIcon)}>
                   <a href={data.Footer_Social_LinkedIn?.url}>
-                  <img className="svg-inline--fa fa-linkedin fa-w-14" src = "/img/linkedin.svg" />
+                    <img
+                      className="svg-inline--fa fa-linkedin fa-w-14"
+                      src="/img/linkedin.svg"
+                    />
                   </a>
                   <a href={data.Footer_Social_Facebook?.url}>
-                  <img className="svg-inline--fa fa-facebook-square fa-w-14" src = "/img/facebook.svg" />
+                    <img
+                      className="svg-inline--fa fa-facebook-square fa-w-14"
+                      src="/img/facebook.svg"
+                    />
                   </a>
                   <a href={data.Footer_Social_Twitter?.url}>
-                  <img className="svg-inline--fa fa-twitter-square fa-w-14" src = "/img/twitter.svg" />
+                    <img
+                      className="svg-inline--fa fa-twitter-square fa-w-14"
+                      src="/img/twitter.svg"
+                    />
                   </a>
                 </div>
               </div>

@@ -7,8 +7,7 @@ const OffshoreType = (props) => {
   const typeOffshore = convertArrToObject(props.data.property);
   const content = Object.values(typeOffshore).filter((item) =>
     item.name.includes("Offshore_OffshoreType_Introduce")
-  );
-  console.log(content.map((item) => convertArrToObject(item.content)));
+  ); 
   let offshoreIntro = [];
   content.map((item) => {
     offshoreIntro.push({
@@ -17,8 +16,7 @@ const OffshoreType = (props) => {
       img: item.content[2].image,
       content: item.content.slice(3),
     });
-  });
-  console.log(offshoreIntro);
+  }); 
   return (
     <>
       <div className="container-fluid">

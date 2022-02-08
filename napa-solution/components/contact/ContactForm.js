@@ -43,6 +43,7 @@ const ContactForm = (props) => {
   useEffect(() => {
     tinymce.init({
       selector: "textarea",
+      deprecation_warnings: false,
       menubar: false,
       statusbar: false,
       height: 300,
@@ -554,7 +555,7 @@ const ContactForm = (props) => {
                 messageError ? "textarea-error" : "",
                 darkMode ? "auto-fill-darkmode?.value" : ""
               )}
-              value={message}
+              defaultValue={message}
             ></textarea>
 
             <div className="footer-form">

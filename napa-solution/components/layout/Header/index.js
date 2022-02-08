@@ -97,8 +97,7 @@ const Header = ({ data, ...props }) => {
       isSnow(true);
       darkmode.enable();
     }
-  }
-
+  } 
   const languagesdata = languages.map((lang, index) => ({
     url:
       lang !== "JP"
@@ -347,7 +346,7 @@ const Header = ({ data, ...props }) => {
                     ))}
                   </div>
                   <div className="po-box-darkmode">
-                    {darkmode.value ? <p>Dark</p> : <p>Light</p>}
+                    {/* {darkmode.value ? <p>Dark</p> : <p>Light</p>} */}
                     <label className="po-box-darkmode-switch">
                       <input
                         onClick={wrapToggle}
