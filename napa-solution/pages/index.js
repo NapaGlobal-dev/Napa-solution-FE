@@ -1,7 +1,7 @@
 import { GET_CASESTUDIES, HOME_PAGE } from "../query/general";
 import {
   convertArrToObject,
-  convertArrToObjectBySpecialName
+  convertArrToObjectBySpecialName,
 } from "../util/converArrayToObject";
 import Company from "../components/homepage/Company";
 import Head from "next/head";
@@ -15,7 +15,7 @@ import { OurWorksCpn } from "../components/case-study/ourworks/index.js";
 const Index = ({ footer, data, ...props }) => {
   const datas = convertArrToObject(data.page.layouts);
   const clientSay = data.clientSay;
-
+  const BannerHome1 = "/assets/images/en/home/banner-1.png";
   return (
     <>
       <Head>
@@ -45,6 +45,7 @@ const Index = ({ footer, data, ...props }) => {
         />
 
         {/* <link rel="stylesheet" href="/node_modules/swiper/swiper.scss" /> */}
+        <meta property="og:image" content={BannerHome1}></meta>
       </Head>
 
       <div className="">
@@ -68,14 +69,14 @@ const Index = ({ footer, data, ...props }) => {
 export async function getStaticProps() {
   const { data } = await client.query({ query: HOME_PAGE });
   const caseStudies = await client.query({
-    query: GET_CASESTUDIES
+    query: GET_CASESTUDIES,
   });
 
   return {
     props: {
       data,
-      caseStudies: caseStudies.data
-    }
+      caseStudies: caseStudies.data,
+    },
   };
 }
 export default Index;
