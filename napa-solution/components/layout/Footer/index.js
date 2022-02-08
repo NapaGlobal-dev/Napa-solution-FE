@@ -166,7 +166,7 @@ const Footer = (props) => {
                                 className={clsx(styles.liText)}
                                 key={key}
                               >
-                                {childPage.name}{console.log(props)}
+                                {childPage.name}
                               </a>
                             </li>
                           ))}
