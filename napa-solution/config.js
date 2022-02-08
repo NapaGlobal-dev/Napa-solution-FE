@@ -4,7 +4,8 @@ const HOST = process.env.NEXT_PUBLIC_API || "localhost";
 const PORT = "3001";
 
 const apiEnv = {
-  production: `https://api.napa-solutions.com/admin/api`,
+  //production: `https://api.napa-solutions.com/admin/api`,
+  production: "http://13.212.4.35:3001/admin/api",
   dev: `http://${HOST}:${PORT}/admin/api`,
 };
 
