@@ -2,12 +2,10 @@ import Banner from "../../components/privacyPolicy/Banner";
 import PrivacyPolicy from "../../components/privacyPolicy/PrivacyPolicy";
 
 import { GET_PRIVACYPOLICY } from "../../query/general";
-import { useQuery } from "@apollo/client";
 
 import Head from "next/head";
-
-export default function Index() {
-  const { data, loading, error } = useQuery(GET_PRIVACYPOLICY);
+import { client } from "../../apolo-client";
+function Index(data) {
   const listBreadcrumb = [];
   if (data?.privacyPolicy?.length) {
     listBreadcrumb.push({
@@ -25,3 +23,13 @@ export default function Index() {
     </>
   );
 }
+
+export async function getStaticProps() {
+  const { data } = await client.query({ query: GET_PRIVACYPOLICY });
+
+  return {
+    props: { data },
+  };
+}
+
+export default Index;
