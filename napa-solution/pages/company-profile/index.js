@@ -6,7 +6,7 @@ import { client } from "../../apolo-client";
 import {
   GET_COMPANYPROFILE,
   PROJECTS,
-  GET_CASESTUDIES
+  GET_CASESTUDIES,
 } from "../../query/general";
 import { convertArrToObject, getData } from "../../util/converArrayToObject";
 import Profile from "../../components/companyProfile/profile";
@@ -15,7 +15,9 @@ import { OurWorksCpn } from "../../components/case-study/ourworks/index.js";
 
 const CompanyProfilePage = ({ projects, ...props }) => {
   const data = convertArrToObject(props.data.page.layouts);
-
+  const convertImageSeo = convertArrToObject(data.CompanyProfile_Banner.property);
+  const imageSeo = convertImageSeo["CompanyProfile_Banner_Img"]?.image?.original;
+  
   return (
     <>
       <Head>
@@ -35,6 +37,7 @@ const CompanyProfilePage = ({ projects, ...props }) => {
           charSet="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
+        <meta property="og:image" content={imageSeo}></meta>
       </Head>
       <Banner data={data.CompanyProfile_Banner} />
       <Profile data={data.CompanyProfile_Corporate} />
@@ -56,15 +59,15 @@ export async function getStaticProps() {
   const pageData = await client.query({ query: GET_COMPANYPROFILE });
   // const projectData = await client.query({ query: PROJECTS });
   const caseStudies = await client.query({
-    query: GET_CASESTUDIES
+    query: GET_CASESTUDIES,
   });
 
   return {
     props: {
       data: pageData.data,
       // projects: projectData.data.projects[0],
-      caseStudies: caseStudies.data
-    }
+      caseStudies: caseStudies.data,
+    },
   };
 }
 
