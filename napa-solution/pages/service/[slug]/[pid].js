@@ -11,7 +11,7 @@ import {
   GET_SERVICES_PAGE_DATA,
   GET_SERVICE_URL,
   PROJECTS,
-  GET_CASESTUDIES
+  GET_CASESTUDIES,
 } from "../../../query/general";
 
 const Services = ({ projects, ...props }) => {
@@ -68,18 +68,18 @@ export async function getStaticProps({ params }) {
 
   const pageData = await client.query({
     query: GET_CASESTUDY_PAGE,
-    variables: { slug: slug, pid: pid }
+    variables: { slug: slug, pid: pid },
   });
   const caseStudies = await client.query({
-    query: GET_CASESTUDIES
+    query: GET_CASESTUDIES,
   });
   // const projectData = await client.query({ query: PROJECTS });
   return {
     props: {
       data: pageData.data,
       // projects: projectData.data.projects[0],
-      caseStudies: caseStudies.data
-    }
+      caseStudies: caseStudies.data,
+    },
   };
 }
 
@@ -94,8 +94,8 @@ export async function getStaticPaths() {
       paths.push({
         params: {
           slug: data.data?.page[0].childrenPage[i].slug,
-          pid: ""
-        }
+          pid: "",
+        },
       });
     } else {
       for (
@@ -106,15 +106,15 @@ export async function getStaticPaths() {
         paths.push({
           params: {
             slug: data.data?.page[0].childrenPage[i].slug,
-            pid: data.data?.page[0].childrenPage[i].childrenPage[k].slug
-          }
+            pid: data.data?.page[0].childrenPage[i].childrenPage[k].slug,
+          },
         });
       }
     }
   }
   return {
     paths,
-    fallback: true
+    fallback: true,
   };
 }
 
