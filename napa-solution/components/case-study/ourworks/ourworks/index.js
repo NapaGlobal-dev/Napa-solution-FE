@@ -41,7 +41,7 @@ function OurWork({ data, service }) {
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value)
     );
-  }, []);
+  }, [data]);
 
   const caseStudyList = (() => {
     if (!service) {

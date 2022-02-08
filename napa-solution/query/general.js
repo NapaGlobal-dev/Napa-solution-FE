@@ -235,7 +235,7 @@ export const GET_HEADER = gql`
           { nameEN: "About Us" }
           { nameEN: "Contact" }
           { nameEN: "Group Company" }
-          { nameEN: "Offshore Development" }        
+          { nameEN: "Offshore Development" }
         ]
       }
       sortBy: headerOrder_ASC
@@ -618,10 +618,10 @@ export const GET_CASESTUDY_PAGE = gql`
           name
           property {
             name
-            value
+            value: valueEN
             content {
               name
-              value
+              value: valueEN
               url
               image {
                 original: publicUrl
@@ -695,11 +695,11 @@ export const GET_CASESTUDIES = gql`
     caseStudies: allProperties(where: { name: "CaseStudies" }) {
       name
       key
-      value
+      value: valueEN
       content {
         name
         key
-        value
+        value: valueEN
         url
         image {
           original: publicUrl
@@ -712,7 +712,7 @@ export const GET_CASESTUDIES = gql`
       content {
         name
         key
-        value
+        value: valueEN
       }
     }
   }

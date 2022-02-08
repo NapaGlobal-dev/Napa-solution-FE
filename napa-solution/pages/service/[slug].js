@@ -20,7 +20,7 @@ const Services = ({ projects, ...props }) => {
   let service = convertArrToObjectBySpecialName(
     props.data?.page[0].layouts[1].property
   );
-  // console.log("props.ourworks", props);
+
   return (
     <>
       <Head>
