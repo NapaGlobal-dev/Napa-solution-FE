@@ -7,6 +7,7 @@ import {
   GET_COMPANYPROFILE,
   PROJECTS,
   GET_CASESTUDIES,
+  GET_IMAGE_PROPERTIES,
 } from "../../query/general";
 import { convertArrToObject, getData } from "../../util/converArrayToObject";
 import Profile from "../../components/companyProfile/profile";
@@ -15,9 +16,11 @@ import { OurWorksCpn } from "../../components/case-study/ourworks/index.js";
 
 const CompanyProfilePage = ({ projects, ...props }) => {
   const data = convertArrToObject(props.data.page.layouts);
-  const convertImageSeo = convertArrToObject(data.CompanyProfile_Banner.property);
-  const imageSeo = convertImageSeo["CompanyProfile_Banner_Img"]?.image?.original;
-  
+  const convertImageSeo = convertArrToObject(
+    props.imagePropertions.data.allProperties
+  );
+  const imageSeo =
+    convertImageSeo["Image_Preview_Company_Profile"]?.image?.original;
   return (
     <>
       <Head>
@@ -61,12 +64,17 @@ export async function getStaticProps() {
   const caseStudies = await client.query({
     query: GET_CASESTUDIES,
   });
+  const imagePropertions = await client.query({
+    query: GET_IMAGE_PROPERTIES,
+    variables: { name: "Image_Preview_Company_Profile" },
+  });
 
   return {
     props: {
       data: pageData.data,
       // projects: projectData.data.projects[0],
       caseStudies: caseStudies.data,
+      imagePropertions: imagePropertions,
     },
   };
 }

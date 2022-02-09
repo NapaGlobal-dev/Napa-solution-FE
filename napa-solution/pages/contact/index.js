@@ -4,7 +4,8 @@ import {
   contactQuery,
   HomePage,
   GET_CASESTUDIES,
-  CONTACT_QUERY
+  CONTACT_QUERY,
+  GET_IMAGE_PROPERTIES,
 } from "../../query/general";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
@@ -16,6 +17,10 @@ import { OurWorksCpn } from "../../components/case-study/ourworks/index.js";
 
 const ContactPage = (props) => {
   const data = convertArrToObject(props.data.page.layouts);
+  const convertImageSeo = convertArrToObject(
+    props.imagePropertions.data.allProperties
+  );
+  const imageSeo = convertImageSeo["Image_Preview_Contact"]?.image?.original;
   return (
     <>
       <Head>
@@ -38,6 +43,7 @@ const ContactPage = (props) => {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
+        <meta property="og:image" content={imageSeo}></meta>
       </Head>
       <Banner data={data.ContactBanner} />
       <ContactForm data={data.ContactForm} />
@@ -53,14 +59,18 @@ export async function getStaticProps() {
   const { data } = await client.query({ query: CONTACT_QUERY });
   // const { data: dataHome } = await client.query({ query: HomePage });
   const caseStudies = await client.query({
-    query: GET_CASESTUDIES
+    query: GET_CASESTUDIES,
   });
-
+  const imagePropertions = await client.query({
+    query: GET_IMAGE_PROPERTIES,
+    variables: { name: "Image_Preview_Contact" },
+  });
   return {
     props: {
       data,
-      caseStudies: caseStudies.data
-    }
+      caseStudies: caseStudies.data,
+      imagePropertions: imagePropertions,
+    },
   };
 }
 

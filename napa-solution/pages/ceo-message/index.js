@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { CONTACT_QUERY, PROJECTS, GET_CEOMESSAGE } from "../../query/general";
+import { CONTACT_QUERY, PROJECTS, GET_CEOMESSAGE,GET_IMAGE_PROPERTIES } from "../../query/general";
 import { client } from "../../apolo-client";
 import { convertArrToObject } from "../../util/converArrayToObject";
 import Banner from "../../components/ceo-message/banner";
@@ -9,7 +9,10 @@ import Message from "../../components/ceo-message";
 const CompanyAbout = ({ projects, ...props }) => {
   // const data = convertArrToObject(props.data.page.layouts);
   const adata = convertArrToObject(props.data.adata.page.layouts);
-
+  const convertImageSeo = convertArrToObject(
+    props.imagePropertions.data.allProperties
+  );
+  const imageSeo = convertImageSeo["Image_Preview_CEO_Message"]?.image?.original;
   return (
     <>
       <Head>
@@ -29,6 +32,7 @@ const CompanyAbout = ({ projects, ...props }) => {
           charSet="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
+         <meta property="og:image" content={imageSeo}></meta>
       </Head>
       <Banner data={adata["CEOMessage_Banner"]} />
       <Message data={adata["CEOMessage_Message"]} />
@@ -48,11 +52,15 @@ export async function getStaticProps() {
   const pageData = await client.query({ query: CONTACT_QUERY });
   const aboutData = await client.query({ query: GET_CEOMESSAGE });
   const projectData = await client.query({ query: PROJECTS });
-
+  const imagePropertions = await client.query({
+    query: GET_IMAGE_PROPERTIES,
+    variables: { name: "Image_Preview_CEO_Message" },
+  });
   return {
     props: {
       data: { ...pageData.data, adata: aboutData.data },
-      projects: projectData.data.projects[0]
+      projects: projectData.data.projects[0],
+      imagePropertions: imagePropertions
     }
   };
 }
