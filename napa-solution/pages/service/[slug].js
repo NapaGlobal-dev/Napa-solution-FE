@@ -27,8 +27,7 @@ const Services = ({ projects, ...props }) => {
   );
   const imageSeo =
     convertImageSeo["Image_Preview_" + props.data?.page[0]?.slug]?.image
-      ?.original;
-  console.log(imageSeo,props.data?.page[0]?.slug); 
+      ?.original; 
   return (
     <>
       <Head>
