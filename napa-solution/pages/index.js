@@ -1,4 +1,8 @@
-import { GET_CASESTUDIES, HOME_PAGE } from "../query/general";
+import {
+  GET_CASESTUDIES,
+  HOME_PAGE,
+  GET_IMAGE_PROPERTIES,
+} from "../query/general";
 import {
   convertArrToObject,
   convertArrToObjectBySpecialName,
@@ -15,7 +19,10 @@ import { OurWorksCpn } from "../components/case-study/ourworks/index.js";
 const Index = ({ footer, data, ...props }) => {
   const datas = convertArrToObject(data.page.layouts);
   const clientSay = data.clientSay;
-  const BannerHome1 = "/assets/images/en/home/banner-1.png";
+  const convertImageSeo = convertArrToObject(
+    props.imagePropertions.data.allProperties
+  );
+  const imageSeo = convertImageSeo["Image_Preview_Home"]?.image?.original; 
   return (
     <>
       <Head>
@@ -45,7 +52,7 @@ const Index = ({ footer, data, ...props }) => {
         />
 
         {/* <link rel="stylesheet" href="/node_modules/swiper/swiper.scss" /> */}
-        <meta property="og:image" content={BannerHome1}></meta>
+        <meta property="og:image" content={imageSeo}></meta>
       </Head>
 
       <div className="">
@@ -71,11 +78,16 @@ export async function getStaticProps() {
   const caseStudies = await client.query({
     query: GET_CASESTUDIES,
   });
+  const imagePropertions = await client.query({
+    query: GET_IMAGE_PROPERTIES,
+    variables: { name: "Image_Preview_Home" },
+  });
 
   return {
     props: {
       data,
       caseStudies: caseStudies.data,
+      imagePropertions: imagePropertions,
     },
   };
 }

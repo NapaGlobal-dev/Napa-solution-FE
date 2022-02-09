@@ -1,18 +1,20 @@
-import React from "react";
-import Head from "next/head";
+import React, { useState, useEffect } from "react";
+
 import ServiceBanner from "../../components/services/serviceBanner";
 // import Project from "../../components/homepage/Project";
 import Service from "../../components/services/service";
 import { OurWorksCpn } from "../../components/case-study/ourworks/index.js";
 import { convertArrToObjectBySpecialName } from "../../util/converArrayToObject";
+import { convertArrToObject } from "../../util/converArrayToObject";
 import { client } from "../../apolo-client";
 import {
   GET_SERVICES_PAGE_DATA,
   GET_SERVICE_URL,
   // PROJECTS,
   GET_CASESTUDIES,
+  GET_IMAGE_PROPERTIES,
 } from "../../query/general";
-
+import Head from "next/head";
 const Services = ({ projects, ...props }) => {
   let banner = convertArrToObjectBySpecialName(
     props.data?.page[0].layouts[2].property
@@ -20,7 +22,12 @@ const Services = ({ projects, ...props }) => {
   let service = convertArrToObjectBySpecialName(
     props.data?.page[0].layouts[1].property
   );
-
+  const convertImageSeo = convertArrToObject(
+    props.imagePropertions?.data.allProperties
+  );
+  const imageSeo =
+    convertImageSeo["Image_Preview_" + props.data?.page[0]?.slug]?.image
+      ?.original; 
   return (
     <>
       <Head>
@@ -30,7 +37,6 @@ const Services = ({ projects, ...props }) => {
           rel="stylesheet"
           href="/css/services.css"
         />
-
         <link
           key="/css/home-page-slide.css"
           rel="stylesheet"
@@ -43,6 +49,7 @@ const Services = ({ projects, ...props }) => {
           charSet="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
+        <meta property="og:image" content={imageSeo} key="ogimage"></meta>
       </Head>
       <ServiceBanner banner={banner} />
       <Service service={service} />
@@ -73,13 +80,19 @@ export async function getStaticProps({ params }) {
     query: GET_SERVICES_PAGE_DATA,
     variables: { name: slug },
   });
-
   // const projectData = await client.query({ query: PROJECTS });
+
+  const imagePropertions = await client.query({
+    query: GET_IMAGE_PROPERTIES,
+    variables: { name: "Image_Preview_" + slug },
+  }); 
+
   return {
     props: {
       data: pageData.data,
       // projects: projectData.data.projects[0],
       caseStudies: caseStudies.data,
+      imagePropertions: imagePropertions,
     },
   };
 }
