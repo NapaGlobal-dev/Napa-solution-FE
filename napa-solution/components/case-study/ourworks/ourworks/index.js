@@ -114,7 +114,7 @@ function OurWork({ data, service }) {
                       data-wow-delay="0.25s"
                       onClick={() => handleActive(index)}
                     >
-                      <span>{entry?.value}</span>
+                      <span>{index === 0 ? entry?.value : entry?.key}</span>
                     </div>
                   ))}
                 </div>
