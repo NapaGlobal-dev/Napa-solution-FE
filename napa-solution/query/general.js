@@ -716,3 +716,17 @@ export const GET_CASESTUDIES = gql`
     }
   }
 `;
+
+export const GET_IMAGE_PROPERTIES = gql`
+  query getCaseStudies($name: String!) {
+    allProperties(where: { name: $name }) {
+      name
+      key
+      image {
+        original: publicUrl
+        thumbnail: publicUrlTransformed(transformation: { width: "64" })
+      }
+      value: valueEN
+    }
+  }
+`;
