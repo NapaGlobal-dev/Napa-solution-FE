@@ -52,20 +52,26 @@ function Language() {
     </div>
   );
 }
-
+const removeRoute = (data, url) => {
+  return data.childrenPage.filter((item) => item.url !== url);
+};
 const Header = ({ data, ...props }) => {
   // const { data, loading, error } = useQuery(GET_HEADER);
-
   const {
     Home: navbarLogo = {},
     Contact: contact = {},
     ...navbarMenu
   } = !data ? {} : convertArrToObject(data["navbar"], "nameEN");
 
-  const navbarMenuList = Object.values(navbarMenu);
+  const navbarMenuListtemp = Object.values(navbarMenu);
+
+  let p0 = {};
+  p0 = { ...navbarMenuListtemp[0] };
+  p0.childrenPage = removeRoute(navbarMenuListtemp[0], "/executive-committee");
+  const navbarMenuList = [p0, ...navbarMenuListtemp.slice(1)];
 
   const navRef = useRef(null);
-  const isLoadingTime = useRef('loading');
+  const isLoadingTime = useRef("loading");
   const router = useRouter();
 
   const darkmode = useDarkMode();
@@ -115,18 +121,21 @@ const Header = ({ data, ...props }) => {
 
   const scrollEvent = () => {
     if (navRef.current) {
-      if(isLoadingTime.current==='loading' || isLoadingTime.current==='waiting'){
-        if(isLoadingTime.current!=='waiting'){
-          isLoadingTime.current = 'waiting'
-          const loadingTime = 3000 + 500
+      if (
+        isLoadingTime.current === "loading" ||
+        isLoadingTime.current === "waiting"
+      ) {
+        if (isLoadingTime.current !== "waiting") {
+          isLoadingTime.current = "waiting";
+          const loadingTime = 3000 + 500;
           setTimeout(() => {
-            isLoadingTime.current = 'end'
+            isLoadingTime.current = "end";
             if (window.pageYOffset >= 20) {
               navRef.current.classList.add("dark-nav");
             }
           }, loadingTime);
         }
-        return
+        return;
       }
       if (window.pageYOffset >= 20) {
         navRef.current.classList.add("dark-nav");
