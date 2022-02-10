@@ -17,7 +17,8 @@ export default function CompanyHistory({ data, projects, ...props }) {
   const convertImageSeo = convertArrToObject(
     props.imagePropertions.data.allProperties
   );
-  const imageSeo = convertImageSeo["Image_Preview_Company_History"]?.image?.original; 
+  const imageSeo =
+    convertImageSeo["Image_Preview_Company_History"]?.image?.original;
   return (
     <>
       <Head>
@@ -65,6 +66,7 @@ export async function getStaticProps() {
     props: {
       data: { ...pageData.value.data },
       // projects: projectData.value.data.projects[0],
+      caseStudies: caseStudies.data,
       imagePropertions: imagePropertions,
     },
   };
