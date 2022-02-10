@@ -10,29 +10,28 @@ export const GET_NEWS = gql`
     }
   }
 `;
-
-export const PAGE_GROUPS = gql`
-  query PageGroups {
-    groups: allPages(
-      where: {
-        OR: [
-          { nameEN_contains: "Infomation" }
-          { nameEN_contains: "Services" }
-          { nameEN_contains: "Company" }
-        ]
-      }
-    ) {
-      name
-      nameEN
-      url
-      childrenPage {
-        name
-        nameEN
-        url
-      }
-    }
-  }
-`;
+// export const PAGE_GROUPS = gql`
+//   query PageGroups {
+//     groups: allPages(
+//       where: {
+//         OR: [
+//           { nameEN_contains: "Infomation" }
+//           { nameEN_contains: "Services" }
+//           { nameEN_contains: "Company" }
+//         ]
+//       }
+//     ) {
+//       name
+//       nameEN
+//       url
+//       childrenPage {
+//         name
+//         nameEN
+//         url
+//       }
+//     }
+//   }
+// `;
 
 export const BUSINGESS_SUMMARY_QUERY = gql`
   query BusinessSummary {
