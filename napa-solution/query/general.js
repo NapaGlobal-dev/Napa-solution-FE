@@ -128,7 +128,7 @@ export const HOME_PAGE = gql`
         value
       }
     }
-    clientSay: ClientSay(where: { id: "610c7b46f17d152a94a2c535" }) {
+    clientSay: ClientSayVideo(where: { id: "610c7b46f17d152a94a2c535" }) {
       name
       title
       subTitle
@@ -140,13 +140,7 @@ export const HOME_PAGE = gql`
     }
   }
 `;
-// new: allNews(sortBy: createdDate_DESC, first: 1) {
-//   title
-//   type
-//   typeJP
-//   description
-//   createdDate
-// }
+
 export const CONTACT_QUERY = gql`
   query getContact {
     page: Page(where: { id: "60f10dca64a49c3384b60661" }) {

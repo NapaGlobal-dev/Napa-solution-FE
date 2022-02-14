@@ -57,12 +57,12 @@ const Index = ({ footer, data, ...props }) => {
 
       <div className="">
         <Begin data={data.banner} />
-        <Service data={datas["Service"]} />
+        <Service data={datas["Home_Service"]} />
         <div
           id="root"
           className="container-fluid content-wrapper no-default-spacing"
         >
-          <Company data={datas["Company"]} />
+          <Company data={datas["Home_Company"]} />
           {/* <Project data={datas["Slides_Section"]} /> */}
           <OurWorksCpn center isRow={true} data={props.caseStudies} />
           <ClientSay data={clientSay} />
