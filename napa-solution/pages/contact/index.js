@@ -45,8 +45,8 @@ const ContactPage = (props) => {
         />
         <meta property="og:image" content={imageSeo}></meta>
       </Head>
-      <Banner data={data.ContactBanner} />
-      <ContactForm data={data.ContactForm} />
+      <Banner data={data.Contact_ContactBanner} />
+      <ContactForm data={data.Contact_ContactForm} />
       {/* <div className="container-fluid content-wrapper no-default-spacing">
         <Project data={getData(props.data, /Slides_Section/)[0]} />
       </div> */}
