@@ -55,7 +55,7 @@ const WhyNapa = (props) => {
       <div className={clsx("cover", styles.cover)}>
         <img className="decor-head-line" src="/img/line-style.svg" />
         <h3 id="down-up">{title.value}</h3>
-        <p id="down-up">なぜナパ？</p>
+        <p id="down-up">{subTitle.value}</p>
         <div className={clsx(styles.table)}>
           {tableWhy?.map((item, index) => (
             <div className={clsx(styles.item)} key={index} id="down-up">

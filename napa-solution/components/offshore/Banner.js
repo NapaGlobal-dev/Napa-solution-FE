@@ -5,7 +5,7 @@ import usedarkmode from "use-dark-mode";
 import { useEffect, useState, useRef } from "react";
 
 const Banner = (props) => {
-  // const data = convertArrToObject(props.data.property);
+  const data = convertArrToObject(props.data.property);
   const darkMode = usedarkmode();
   const [darkmodeIssue, setDarkmodeIssue] = useState(true)
   useEffect(() => {
@@ -44,20 +44,17 @@ const Banner = (props) => {
       <div className="banner-page banner new-version">
         <div className="title">
           <h1 className="main-title animate-down-up">
-            {/* {data["Offshore_Banner_Title"].value} */}
-            WHAT IS OFFSHORE
-
+            {data["Offshore_Banner_Title"].value}
           </h1>
           <div className="sub-menu animate-down-up">
-            {/* {data["Offshore_Banner_Subtitle"].value} */}
-            オフショアとは
+            {data["Offshore_Banner_Subtitle"].value}
           </div>
         </div>
         <div className="img-banner animate-down-up">
           <LazyLoadImage
             effect='blur'
-            // src={data["Offshore_Banner_Img"]?.image?.original}
-            src="https://res.cloudinary.com/dh8l9y2c2/image/upload/v1630419921/NapaImage/612e3ba962b49f1840ff1fb3.svg"
+            src={data["Offshore_Banner_Img"]?.image?.original}
+            // src="https://res.cloudinary.com/dh8l9y2c2/image/upload/v1630419921/NapaImage/612e3ba962b49f1840ff1fb3.svg"
             // placeholderSrc={data["Offshore_Banner_Img"]?.image?.thumbnail}
             threshold={100}
             width='100%'

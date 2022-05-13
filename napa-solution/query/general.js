@@ -199,15 +199,17 @@ export const FOOTER_DATA_QUERY = gql`
     groups: allPages(
       where: {
         OR: [
-          { nameEN: "Information" }
-          { nameEN: "Our Services" }
-          { nameEN: "Company" }
+          { name: "情報" }
+          { name: "サービス" }
+          { name: "企業情報" }
         ]
       }
+      sortBy: footerOrder_ASC
     ) {
       name
       nameEN
       url
+      footerOrder
       childrenPage(sortBy: footerOrder_ASC) {
         name
         nameEN
@@ -223,9 +225,9 @@ export const GET_HEADER = gql`
       where: {
         OR: [
           { nameEN: "Home" }
-          { nameEN: "Our Services" }
+          { name: "サービス" }
           { nameEN: "Contact" }
-          { nameEN: "Company" }
+          { name: "企業情報" }
           { nameEN: "Offshore Development" }
         ]
       }

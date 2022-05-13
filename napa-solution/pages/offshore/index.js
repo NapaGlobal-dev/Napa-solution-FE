@@ -19,8 +19,8 @@ const Offshore = (props) => {
         <meta property="og:image" content={imageSeo}></meta>
       </Head>
       <Banner data={data.Offshore_Banner} />
-      <WhatOffshore data={data.Offshore_WhatOfshore} />
-      <Benefit data={data.OffShore_Benefit} />
+      <WhatOffshore data={data.Offshore_WhatOffshore} />
+      <Benefit data={data.Offshore_Benefit} />
       <OffshoreType data={data.Offshore_OffshoreType} />
     </>
   );

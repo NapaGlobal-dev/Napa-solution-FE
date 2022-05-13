@@ -39,8 +39,7 @@ const CounterUp = (props) => {
                 <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
                   <div className="ab-box-counter">
                     <span className="ab-counter">
-                      {/* {data.CompanyAbout_Counter_CountryNumber.value} */}
-                      3
+                      {data.CompanyAbout_Counter_CountryNumber.value}
                     </span>
                   </div>
                 </div>
@@ -48,8 +47,7 @@ const CounterUp = (props) => {
             </div>
             <div className="ab-bounding-title">
               <div className="ab-title ab-flex-center">
-                {/* {data.CompanyAbout_Counter_CountryName.value} */}
-              国
+                {data.CompanyAbout_Counter_CountryName.value}
               </div>
             </div>
           </div>
@@ -61,8 +59,7 @@ const CounterUp = (props) => {
                   <div className="ab-box-counter">
                     <span className="ab-counter">
                       {" "}
-                      {/* {data.CompanyAbout_Counter_ProjectNumber.value} */}
-                      100
+                      {data.CompanyAbout_Counter_ProjectNumber.value}
                     </span>
                     +
                   </div>
@@ -72,8 +69,7 @@ const CounterUp = (props) => {
             <div className="ab-bounding-title">
               <div className="ab-title ab-flex-center">
                 {" "}
-                {/* {data.CompanyAbout_Counter_ProjectName.value} */}
-                プロジェクト
+                {data.CompanyAbout_Counter_ProjectName.value}
               </div>
             </div>
           </div>
@@ -84,8 +80,7 @@ const CounterUp = (props) => {
                 <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
                   <div className="ab-box-counter">
                     <span className="ab-counter">
-                      {/* {data.CompanyAbout_Counter_EngineerNumber.value} */}
-                      500
+                      {data.CompanyAbout_Counter_EngineerNumber.value}
                     </span>
                     +
                   </div>
@@ -94,8 +89,7 @@ const CounterUp = (props) => {
             </div>
             <div className="ab-bounding-title">
               <div className="ab-title ab-flex-center">
-                {/* {data.CompanyAbout_Counter_EngineerName.value} */}
-                エンジニア
+                {data.CompanyAbout_Counter_EngineerName.value}
               </div>
             </div>
           </div>
@@ -106,8 +100,7 @@ const CounterUp = (props) => {
                 <div className="ab-flex-center ab-flex-fill-full ab-background-rhombus">
                   <div className="ab-box-counter">
                     <span className="ab-counter">
-                      {/* {data.CompanyAbout_Counter_JapaneseNumber.value} */}
-                      40
+                      {data.CompanyAbout_Counter_JapaneseNumber.value}
                     </span>
                     %+
                   </div>
@@ -116,8 +109,7 @@ const CounterUp = (props) => {
             </div>
             <div className="ab-bounding-title">
               <div className="ab-title ab-flex-center">
-                {/* {data.CompanyAbout_Counter_JapaneseName.value} */}
-                日本語対応可
+                {data.CompanyAbout_Counter_JapaneseName.value}
               </div>
             </div>
           </div>
