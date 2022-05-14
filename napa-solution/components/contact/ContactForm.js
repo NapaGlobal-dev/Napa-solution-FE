@@ -343,6 +343,9 @@ const ContactForm = (props) => {
             </a>
           </div>
           <p id="down-up">{data?.Footer_Address_EN?.value}</p>
+          <p id="down-up">
+            <a href="/contact">{data?.Footer_Email?.value}</a>
+          </p>
           <a
             className="link-map"
             href={data?.Footer_MapBtn_EN?.url}
@@ -375,6 +378,9 @@ const ContactForm = (props) => {
             </a>
           </div>
           <p id="down-up">{data?.Footer_Address_JP?.value}</p>
+          <p id="down-up">
+            <a href="/contact">{data?.Footer_Email_JP?.value}</a>
+          </p>
           <a
             className="link-map"
             href={data?.Footer_MapBtn_JP?.url}
