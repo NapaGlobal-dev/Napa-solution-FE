@@ -198,11 +198,7 @@ export const FOOTER_DATA_QUERY = gql`
 
     groups: allPages(
       where: {
-        OR: [
-          { name: "情報" }
-          { name: "サービス" }
-          { name: "企業情報" }
-        ]
+        OR: [{ name: "情報" }, { name: "サービス" }, { name: "企業情報" }]
       }
       sortBy: footerOrder_ASC
     ) {
@@ -225,10 +221,10 @@ export const GET_HEADER = gql`
       where: {
         OR: [
           { nameEN: "Home" }
-          { name: "サービス" }
+          { nameEN: "Why NAPA?" }
           { nameEN: "Contact" }
+          { name: "サービス" }
           { name: "企業情報" }
-          { nameEN: "Offshore Development" }
         ]
       }
       sortBy: headerOrder_ASC
