@@ -2,6 +2,7 @@ import Row from "../components/typeOfList/row";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 import styles from "./index.module.css";
+
 // import router, { useRouter } from "next/router";
 // function filterProjectByType(type, index, projects) {
 //   if (!type || !projects) return [];
@@ -19,6 +20,7 @@ const splitUrl = (urlstring, regex = undefined) => {
 };
 
 function OurWork({ data, service }) {
+  
   const [activeTech, setActiveTech] = useState(0);
   const [loadmore, setLoadmore] = useState(6);
   const [caseStudies, setCaseStudies] = useState([]);
@@ -53,6 +55,8 @@ function OurWork({ data, service }) {
       }) || []
     );
   }, [data]);
+
+
 
   const caseStudyList = (() => {
     if (!service) {
