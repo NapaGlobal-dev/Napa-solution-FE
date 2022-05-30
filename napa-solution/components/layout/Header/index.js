@@ -64,10 +64,10 @@ const Header = ({ data, ...props }) => {
   } = !data ? {} : convertArrToObject(data["navbar"], "nameEN");
 
   const navbarMenuListtemp = Object.values(navbarMenu);
-
   let p0 = {};
   p0 = { ...navbarMenuListtemp[0] };
   p0.childrenPage = removeRoute(navbarMenuListtemp[0], "/executive-committee");
+  p0.childrenPage = removeRoute(navbarMenuListtemp[0], "/why-napa");
   const navbarMenuList = [p0, ...navbarMenuListtemp.slice(1)];
 
   const navRef = useRef(null);
