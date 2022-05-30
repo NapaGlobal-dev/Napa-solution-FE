@@ -14,7 +14,6 @@ export default function Service(props) {
   const getList = (content, name) => {
     return Object.values(content).filter((it) => it.name.includes(name));
   };
-
   return (
     <>
       <Head>

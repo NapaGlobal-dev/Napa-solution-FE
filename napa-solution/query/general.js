@@ -610,7 +610,7 @@ export const GET_CASESTUDY_PAGE = gql`
             value: valueEN
             content {
               name
-              value: valueEN
+              value 
               url
               image {
                 original: publicUrl
