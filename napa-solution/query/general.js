@@ -684,7 +684,7 @@ export const GET_CASESTUDIES = gql`
     caseStudies: allProperties(where: { name: "CaseStudies" }) {
       name
       key
-      value: valueEN
+      value 
       content {
         name
         key

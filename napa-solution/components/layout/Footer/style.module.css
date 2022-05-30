@@ -179,7 +179,7 @@
 .socialsIcon {
   display: flex;
   flex-direction: column;
-  justify-content: right;
+  justify-content: flex-end;
   align-items: flex-start;
 }
 

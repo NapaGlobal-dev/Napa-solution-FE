@@ -15,7 +15,7 @@
   flex-basis: 42%;
   width: 42%;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: flex-end;
   background-size: contain;
   background-repeat: no-repeat;
@@ -57,7 +57,7 @@
   margin-top: 40px;
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 0 20px;
 }
 
