@@ -29,7 +29,10 @@ function OurWork({ data, service }) {
     },
   ];
   const keys = arrKeys.concat(
-    data?.keys[0]?.content && data?.keys[0]?.content.slice()
+    data?.keys[0]?.content &&
+      data?.keys[0]?.content.slice().filter((e) => {
+        return e.key !== "JODC" && e.key !== "Mobile Application Development";
+      })
   );
   const title = data?.caseStudies[0]?.key;
   const subTitle = data?.caseStudies[0]?.value;
@@ -47,7 +50,8 @@ function OurWork({ data, service }) {
           e.value !== "Hackathon" &&
           e.value !== "Ultorex"
         );
-      }) || []);
+      }) || []
+    );
   }, [data]);
 
   const caseStudyList = (() => {
@@ -132,10 +136,10 @@ function OurWork({ data, service }) {
                 caseStudyList?.length > 6
                   ? loadmore < 6
                     ? clsx(
-                      styles.wrapProjectRow,
-                      // styles.fixheight,
-                      styles.loadmore
-                    )
+                        styles.wrapProjectRow,
+                        // styles.fixheight,
+                        styles.loadmore
+                      )
                     : clsx(styles.wrapProjectRow)
                   : clsx(styles.wrapProjectRow)
               }
@@ -144,8 +148,8 @@ function OurWork({ data, service }) {
                 <Row
                   entry={entry}
                   key={entry.name}
-                // loading={loadingProject}
-                // onClick={() => router.push(`${entry.url}`)}
+                  // loading={loadingProject}
+                  // onClick={() => router.push(`${entry.url}`)}
                 />
               ))}
             </div>
