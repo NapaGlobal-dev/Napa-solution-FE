@@ -35,11 +35,19 @@ function OurWork({ data, service }) {
   const subTitle = data?.caseStudies[0]?.value;
 
   useEffect(() => {
+    const tempList = data?.caseStudies[0]?.content
+      ?.map((value) => ({ value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ value }) => value);
     setCaseStudies(
-      data?.caseStudies[0]?.content
-        ?.map((value) => ({ value, sort: Math.random() }))
-        .sort((a, b) => a.sort - b.sort)
-        .map(({ value }) => value)
+      tempList.filter((e) => {
+        return (
+          e.value !== "NFT Gaming" &&
+          e.value !== "ERC20" &&
+          e.value !== "Hackathon" &&
+          e.value !== "Ultorex"
+        );
+      })
     );
   }, [data]);
 
@@ -69,7 +77,6 @@ function OurWork({ data, service }) {
         return cs;
       });
   })();
-
   const handleActive = (index) => {
     setActiveTech(index);
     setLoadmore(6);
