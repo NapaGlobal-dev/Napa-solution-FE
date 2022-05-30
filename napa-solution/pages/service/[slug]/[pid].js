@@ -19,6 +19,8 @@ const Services = ({ projects, ...props }) => {
     props.data?.page[0].childrenPage[0].layouts[0].property
   );
 
+  console.log('data', props.data);
+
   // let service = convertArrToObjectBySpecialName(props.data.page[0].layouts[1].property);
   return (
     <>
