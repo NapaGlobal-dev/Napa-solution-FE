@@ -313,6 +313,7 @@ const ContactForm = (props) => {
             .split("\\n")
             .map((text, index) => (
               <Fragment key={index}>
+                {index === 1 && <br></br> }
                 <strong className={`subtitle${index}`}>{text}</strong>
               </Fragment>
             ))}
@@ -344,7 +345,7 @@ const ContactForm = (props) => {
           </div>
           <p id="down-up">{data?.Footer_Address_EN?.value}</p>
           <p id="down-up">
-            <a href="/contact">{data?.Footer_Email_EN?.value}</a>
+            <a href={`mailto:${data?.Footer_Email_EN?.value}`}>{data?.Footer_Email_EN?.value}</a>
           </p>
           <a
             className="link-map"
@@ -379,7 +380,7 @@ const ContactForm = (props) => {
           </div>
           <p id="down-up">{data?.Footer_Address_JP?.value}</p>
           <p id="down-up">
-            <a href="/contact">{data?.Footer_Email_JP?.value}</a>
+            <a href={`mailto:${data?.Footer_Email_JP?.value}`}>{data?.Footer_Email_JP?.value}</a>
           </p>
           <a
             className="link-map"

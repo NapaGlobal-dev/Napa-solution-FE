@@ -94,6 +94,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  max-width: 90%;
 }
 
 .techItem {
@@ -298,6 +299,9 @@
 @media (max-width: 768px) {
   .wrapCS {
     margin: 50px 0px 50px;
+  }
+  .wrapTech {
+    max-width: 100%;
   }
 }
 @media only screen and (max-width: 800px) {

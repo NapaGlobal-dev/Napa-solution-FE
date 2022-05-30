@@ -4,11 +4,12 @@ import { useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Banner({ data }) {
-  const banner = getData(data, /ContactBanner_Banner_Img/)[0];
-  const title = getData(data, /ContactBanner_Banner_Title/)[0];
-  const subtitle = getData(data, /ContactBanner_Banner_SubTitle/)[0];
-  const content = getData(data, /ContactBanner_Banner_Content/)[0];
-  const subcontent = getData(data, /ContactBanner_Banner_SubContent/)[0];
+  const banner = getData(data, /ContactBanner_bannerImg/)[0];
+  const title = getData(data, /ContactBanner_bannerTitle/)[0];
+  const subtitle = getData(data, /ContactBanner_bannerSubTitle/)[0];
+  const content = getData(data, /ContactBanner_bannerContent/)[0];
+  const subcontent = getData(data, /ContactBanner_bannerSubContent/)[0];
+  
   // useEffect(() => {
   //   window.onload = function () {
   //     document.getElementById("banner").className = "wrap-banner open";
