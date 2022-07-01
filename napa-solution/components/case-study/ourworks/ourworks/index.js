@@ -20,7 +20,6 @@ const splitUrl = (urlstring, regex = undefined) => {
 };
 
 function OurWork({ data, service }) {
-  
   const [activeTech, setActiveTech] = useState(0);
   const [loadmore, setLoadmore] = useState(6);
   const [caseStudies, setCaseStudies] = useState([]);
@@ -47,16 +46,14 @@ function OurWork({ data, service }) {
     setCaseStudies(
       tempList?.filter((e) => {
         return (
-          e.value !== "NFT Gaming" &&
-          e.value !== "ERC20" &&
-          e.value !== "Hackathon" &&
-          e.value !== "Ultorex"
+          e.value !== "NFT Gaming Launchpad" &&
+          e.value !== "ERC 20 Token" &&
+          e.value !== "Hackathon dApp" &&
+          e.value !== "CRYPTO MARKETPLACE & WALLET"
         );
       }) || []
     );
   }, [data]);
-
-
 
   const caseStudyList = (() => {
     if (!service) {
