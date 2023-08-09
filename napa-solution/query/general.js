@@ -467,9 +467,7 @@ export const GET_PRIVACYPOLICY = gql`
 
 export const GET_PROTECTINGPERSONAL = gql`
   query getProtectingPersonal {
-    protectingPersonal: allPages(
-      where: { url: "/protecting-personal-information" }
-    ) {
+    protectingPersonal: allPages(where: { url: "/privacy-policy" }) {
       name
       url
       layouts {

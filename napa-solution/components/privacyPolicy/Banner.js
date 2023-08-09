@@ -20,7 +20,6 @@ export default function Banner({ data }) {
       if (isDarmode == "off") setDarkmodeIssue(false);
       else setDarkmodeIssue(false);
   }, []);
-  console.log(banner);
   // run only for update
   const isInitialMount = useRef(true);
 

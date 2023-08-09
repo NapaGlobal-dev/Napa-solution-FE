@@ -13,7 +13,6 @@ function Index(data) {
       pageName: data.protectingPersonal[0].name,
     });
   }
-  console.log("data:", data);
   return (
     <>
       <Head>
