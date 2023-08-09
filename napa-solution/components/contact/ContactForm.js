@@ -35,6 +35,8 @@ const ContactForm = (props) => {
   const isDarkMode = usedarkmode();
   const skipFirst = useRef(false);
 
+  console.log(data)
+
   useEffect(() => {
     const enableDarkMode = localStorage?.getItem("darkMode");
     enableDarkMode === "true" ? setDarkmode(true) : setDarkmode(false);
@@ -313,7 +315,7 @@ const ContactForm = (props) => {
             .split("\\n")
             .map((text, index) => (
               <Fragment key={index}>
-                {index === 1 && <br></br> }
+                {index === 1 && <br></br>}
                 <strong className={`subtitle${index}`}>{text}</strong>
               </Fragment>
             ))}
@@ -345,7 +347,9 @@ const ContactForm = (props) => {
           </div>
           <p id="down-up">{data?.Footer_Address_EN?.value}</p>
           <p id="down-up">
-            <a href={`mailto:${data?.Footer_Email_EN?.value}`}>{data?.Footer_Email_EN?.value}</a>
+            <a href={`mailto:${data?.Footer_Email_EN?.value}`}>
+              {data?.Footer_Email_EN?.value}
+            </a>
           </p>
           <a
             className="link-map"
@@ -380,7 +384,9 @@ const ContactForm = (props) => {
           </div>
           <p id="down-up">{data?.Footer_Address_JP?.value}</p>
           <p id="down-up">
-            <a href={`mailto:${data?.Footer_Email_JP?.value}`}>{data?.Footer_Email_JP?.value}</a>
+            <a href={`mailto:${data?.Footer_Email_JP?.value}`}>
+              {data?.Footer_Email_JP?.value}
+            </a>
           </p>
           <a
             className="link-map"
@@ -575,11 +581,8 @@ const ContactForm = (props) => {
                     className={!checked ? "error" : ""}
                     disabled={loading}
                   />
-                  <a
-                    href={data?.Contact_ContactForm_CheckBox?.url}
-                    target="_blank"
-                  >
-                    {data?.Contact_ContactForm_CheckBox?.key}
+                  <a href="/protecting-personal-information" target="_blank">
+                    個人情報の取扱いについて 
                   </a>
                   {data?.Contact_ContactForm_CheckBox?.value}
                 </div>
