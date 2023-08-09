@@ -19,7 +19,7 @@ export default function PrivacyPolicy({ data }) {
       <h3 id="down-up">{title?.key}</h3>
       <p id="down-up">{title?.value}</p>
       <div className="wrap-content" id="down-up">
-        {/*<div className='policy-content'>{policyContent?.value}</div>
+        {/* <div className='policy-content'>{policyContent?.value}</div>
                     {policyContent?.content.map((policy,index)=>
                         <div className='p-subcontent' key={index}>{alphabet[index]+') '+policy?.value}</div>
                     )} */}
