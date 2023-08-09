@@ -13,6 +13,7 @@ function Index(data) {
       pageName: data.privacyPolicy[0].name,
     });
   }
+  console.log(data);
   return (
     <>
       <Head>

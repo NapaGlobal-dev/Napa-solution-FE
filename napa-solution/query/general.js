@@ -45,7 +45,6 @@ export const BUSINGESS_SUMMARY_QUERY = gql`
           value
           image {
             original: publicUrl
-            
           }
         }
       }
@@ -54,7 +53,6 @@ export const BUSINGESS_SUMMARY_QUERY = gql`
         url
         image {
           original: publicUrl
-          
         }
       }
       parentPage {
@@ -80,7 +78,6 @@ export const COMPANY_QUERY = gql`
           value
           image {
             original: publicUrl
-            
           }
         }
       }
@@ -102,7 +99,6 @@ export const HOME_PAGE = gql`
           value
           image {
             original: publicUrl
-            
           }
         }
       }
@@ -111,7 +107,6 @@ export const HOME_PAGE = gql`
         url
         image {
           original: publicUrl
-          
         }
       }
       parentPage {
@@ -135,7 +130,6 @@ export const HOME_PAGE = gql`
       video
       poster {
         original: publicUrl
-        
       }
     }
   }
@@ -155,7 +149,6 @@ export const CONTACT_QUERY = gql`
           url
           image {
             original: publicUrl
-            
           }
         }
       }
@@ -177,7 +170,6 @@ export const FOOTER_DATA_QUERY = gql`
         url
         image {
           original: publicUrl
-          
         }
       }
     }
@@ -240,7 +232,6 @@ export const GET_HEADER = gql`
       }
       image {
         original: publicUrl
-        
       }
     }
   }
@@ -275,7 +266,7 @@ export const GET_HEADER = gql`
 //           }
 //           image {
 //             original: publicUrl
-//             
+//
 //           }
 //         }
 //       }
@@ -284,7 +275,7 @@ export const GET_HEADER = gql`
 //         url
 //         image {
 //           original: publicUrl
-//           
+//
 //         }
 //       }
 //       parentPage {
@@ -310,13 +301,11 @@ export const OFFSHORE_QUERY = gql`
             value
             image {
               original: publicUrl
-              
             }
           }
           value
           image {
             original: publicUrl
-            
           }
         }
       }
@@ -332,7 +321,6 @@ export const GET_COMPANYHISTORY = gql`
         value
         image {
           original: publicUrl
-          
         }
       }
     }
@@ -345,7 +333,6 @@ export const GET_COMPANYHISTORY = gql`
         url
         image {
           original: publicUrl
-          
         }
         content {
           name
@@ -373,7 +360,6 @@ export const GET_COMPANYPAGES = gql`
         url
         image {
           original: publicUrl
-          
         }
       }
     }
@@ -394,13 +380,13 @@ export const GET_COMPANYPAGES = gql`
 //             value
 //             image {
 //               original: publicUrl
-//               
+//
 //             }
 //           }
 //           value
 //           image {
 //             original: publicUrl
-//             
+//
 //           }
 //         }
 //       }
@@ -409,7 +395,7 @@ export const GET_COMPANYPAGES = gql`
 //         url
 //         image {
 //           original: publicUrl
-//           
+//
 //         }
 //       }
 //       parentPage {
@@ -432,7 +418,7 @@ export const GET_COMPANYPAGES = gql`
 //           value
 //           image {
 //             original: publicUrl
-//             
+//
 //           }
 //         }
 //       }
@@ -441,7 +427,7 @@ export const GET_COMPANYPAGES = gql`
 //         url
 //         image {
 //           original: publicUrl
-//           
+//
 //         }
 //       }
 //       parentPage {
@@ -472,7 +458,32 @@ export const GET_PRIVACYPOLICY = gql`
           }
           image {
             original: publicUrl
-            
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_PROTECTINGPERSONAL = gql`
+  query getProtectingPersonal {
+    protectingPersonal: allPages(
+      where: { url: "/protecting-personal-information" }
+    ) {
+      name
+      url
+      layouts {
+        name
+        property {
+          name
+          key
+          value
+          content {
+            name
+            value
+          }
+          image {
+            original: publicUrl
           }
         }
       }
@@ -493,7 +504,6 @@ export const GET_COMPANYPROFILE = gql`
           url
           image {
             original: publicUrl
-            
           }
           content {
             name
@@ -517,7 +527,6 @@ export const COMPANY_ABOUT = gql`
           value
           image {
             original: publicUrl
-            
           }
           content {
             name
@@ -525,7 +534,6 @@ export const COMPANY_ABOUT = gql`
             value
             image {
               original: publicUrl
-              
             }
             content {
               name
@@ -550,7 +558,6 @@ export const PROJECTS = gql`
         url
         image {
           original: publicUrl
-          
         }
       }
     }
@@ -571,7 +578,6 @@ export const GET_SERVICES_PAGE_DATA = gql`
           value
           image {
             original: publicUrl
-            
           }
         }
       }
@@ -610,16 +616,14 @@ export const GET_CASESTUDY_PAGE = gql`
             value: valueEN
             content {
               name
-              value 
+              value
               url
               image {
                 original: publicUrl
-                
               }
             }
             image {
               original: publicUrl
-              
             }
           }
         }
@@ -649,7 +653,6 @@ export const GET_OURWORKS_DATA = gql`
           url
           image {
             original: publicUrl
-            
           }
         }
       }
@@ -671,7 +674,6 @@ export const GET_CEOMESSAGE = gql`
           url
           image {
             original: publicUrl
-            
           }
         }
       }
@@ -684,7 +686,7 @@ export const GET_CASESTUDIES = gql`
     caseStudies: allProperties(where: { name: "CaseStudies" }) {
       name
       key
-      value 
+      value
       content {
         name
         key
@@ -692,7 +694,6 @@ export const GET_CASESTUDIES = gql`
         url
         image {
           original: publicUrl
-          
         }
       }
     }
@@ -714,7 +715,6 @@ export const GET_IMAGE_PROPERTIES = gql`
       key
       image {
         original: publicUrl
-        
       }
       value: valueEN
     }
