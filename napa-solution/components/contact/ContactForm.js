@@ -35,8 +35,6 @@ const ContactForm = (props) => {
   const isDarkMode = usedarkmode();
   const skipFirst = useRef(false);
 
-  console.log(data)
-
   useEffect(() => {
     const enableDarkMode = localStorage?.getItem("darkMode");
     enableDarkMode === "true" ? setDarkmode(true) : setDarkmode(false);
