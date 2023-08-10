@@ -219,7 +219,7 @@ export const dataPolicyInfo = [
         value: "⑦　お取引先様から委託された個人情報",
         form: {
           title: "利用目的",
-          value: ["○○業務遂行のため"],
+          value: ["開発"],
         },
       },
       {
@@ -227,7 +227,7 @@ export const dataPolicyInfo = [
           "⑧　ハローワーク、求職サイトや人材紹介会社等から提供を受ける求職者情報",
         form: {
           title: "利用目的",
-          value: ["採用選考のため"],
+          value: ["開発"],
         },
       },
     ],
