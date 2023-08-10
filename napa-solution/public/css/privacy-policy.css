@@ -82,6 +82,9 @@
   border-right: 1px solid #333;
   min-width: 30%;
 }
+.box-item:last-child {
+  border-right: none;
+}
 .box-title {
   min-height: 54px;
   border-bottom: 1px solid #333;
