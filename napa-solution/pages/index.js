@@ -52,6 +52,7 @@ const Index = ({ footer, data, ...props }) => {
 				/>
 
 				{/* <link rel="stylesheet" href="/node_modules/swiper/swiper.scss" /> */}
+				<meta property="og:url" content="https://napa-solutions.com/" />
 				<meta
 					property="og:image"
 					content="https://napa-website-data.s3.ap-southeast-1.amazonaws.com/NapaSolutions/seo-preview-image-300x300.png"
