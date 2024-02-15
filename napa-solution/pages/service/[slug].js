@@ -49,14 +49,14 @@ const Services = ({ projects, ...props }) => {
 					charSet="UTF-8"
 					href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
 				/>
-				<meta
+				{/* <meta
 					property="og:image"
 					content="https://napa-website-data.s3.ap-southeast-1.amazonaws.com/NapaSolutions/seo-preview-image-300x300.png"
 				/>
 				<meta
 					property="og:image:secure_url"
 					content="https://napa-website-data.s3.ap-southeast-1.amazonaws.com/NapaSolutions/seo-preview-image-300x300.png"
-				/>
+				/> */}
 			</Head>
 			<ServiceBanner banner={banner} />
 			<Service service={service} />

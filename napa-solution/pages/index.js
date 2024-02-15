@@ -55,11 +55,11 @@ const Index = ({ footer, data, ...props }) => {
 				<meta property="og:url" content="https://napa-solutions.com/" />
 				<meta
 					property="og:image"
-					content="https://napa-website-data.s3.ap-southeast-1.amazonaws.com/NapaSolutions/seo-preview-image-300x300.png"
+					content="https://napa-solutions.com/img/home/seo-preview-image-300x300.png"
 				/>
 				<meta
 					property="og:image:secure_url"
-					content="https://napa-website-data.s3.ap-southeast-1.amazonaws.com/NapaSolutions/seo-preview-image-300x300.png"
+					content="https://napa-solutions.com/img/home/seo-preview-image-300x300.png"
 				/>
 				<meta property="og:type" content="article" />
 				<meta property="og:title" content="NAPA Solutions" />

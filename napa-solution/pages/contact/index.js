@@ -43,14 +43,6 @@ const ContactPage = (props) => {
 					crossOrigin="anonymous"
 					referrerPolicy="no-referrer"
 				/>
-				<meta
-					property="og:image"
-					content="https://napa-website-data.s3.ap-southeast-1.amazonaws.com/NapaSolutions/seo-preview-image-300x300.png"
-				/>
-				<meta
-					property="og:image:secure_url"
-					content="https://napa-website-data.s3.ap-southeast-1.amazonaws.com/NapaSolutions/seo-preview-image-300x300.png"
-				/>
 			</Head>
 			<Banner data={data.Contact_ContactBanner} />
 			<ContactForm data={data.Contact_ContactForm} />
