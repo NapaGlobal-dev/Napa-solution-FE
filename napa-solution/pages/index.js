@@ -60,7 +60,7 @@ const Index = ({ footer, data, ...props }) => {
 					property="og:image:secure_url"
 					content="https://napa-website-data.s3.ap-southeast-1.amazonaws.com/NapaSolutions/seo-preview-image.png"
 				/>
-				<meta property="og:type" content="website" />
+				<meta property="og:type" content="article" />
 				<meta property="og:title" content="NAPA Solutions" />
 				<meta
 					property="og:description"
