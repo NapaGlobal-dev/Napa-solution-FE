@@ -75,6 +75,7 @@ const Index = ({ footer, data, ...props }) => {
 					content="新規事業・DX（デジタルトランスフォーメーション）をサポートします。ナパソリューションズ株式会社は貴社と共に新規事業・DXのアイデアを実現します。"
 				/>
 				<meta property="fb:app_id" content="1117746449660953" />
+				<meta property="og:image:type" content="image/png" />
 				{/* Open Graph | END */}
 			</Head>
 
