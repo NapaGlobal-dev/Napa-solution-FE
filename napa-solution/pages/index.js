@@ -52,9 +52,11 @@ const Index = ({ footer, data, ...props }) => {
 				/>
 
 				{/* <link rel="stylesheet" href="/node_modules/swiper/swiper.scss" /> */}
+
+				{/* Open Graph */}
 				<meta property="og:url" content="https://napa-solutions.com/" />
 				<meta
-					property="og:image:url"
+					property="og:image:secure_url"
 					content="https://napa-solutions.com/img/home/og_image.png"
 				/>
 				<meta
@@ -62,12 +64,15 @@ const Index = ({ footer, data, ...props }) => {
 					content="https://napa-solutions.com/img/home/og_image.png"
 				/>
 				<meta property="og:image:alt" content="image thumbnail" />
-				<meta property="og:type" content="article" />
+				<meta property="og:type" content="website" />
 				<meta property="og:title" content="NAPA Solutions" />
 				<meta
 					property="og:description"
 					content="新規事業・DX（デジタルトランスフォーメーション）をサポートします。ナパソリューションズ株式会社は貴社と共に新規事業・DXのアイデアを実現します。"
 				/>
+				<meta name="description" content="Napa Global Website" />
+				<meta property="fb:app_id" content="1117746449660953" />
+				{/* Open Graph | END */}
 			</Head>
 
 			<div className="">
