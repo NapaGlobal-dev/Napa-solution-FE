@@ -57,11 +57,11 @@ const Index = ({ footer, data, ...props }) => {
 				<meta property="og:url" content="https://napa-solutions.com/" />
 				<meta
 					property="og:image:secure_url"
-					content="https://napa-solutions.com/img/home/og_image.png"
+					content="https://napa-solutions.com/img/seo-preview-image.png"
 				/>
 				<meta
 					property="og:image"
-					content="https://napa-solutions.com/img/home/og_image.png"
+					content="https://napa-solutions.com/img/seo-preview-image.png"
 				/>
 				<meta property="og:image:alt" content="image thumbnail" />
 				<meta property="og:type" content="website" />
