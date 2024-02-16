@@ -70,7 +70,10 @@ const Index = ({ footer, data, ...props }) => {
 					property="og:description"
 					content="新規事業・DX（デジタルトランスフォーメーション）をサポートします。ナパソリューションズ株式会社は貴社と共に新規事業・DXのアイデアを実現します。"
 				/>
-				<meta name="description" content="Napa Global Website" />
+				<meta
+					name="description"
+					content="新規事業・DX（デジタルトランスフォーメーション）をサポートします。ナパソリューションズ株式会社は貴社と共に新規事業・DXのアイデアを実現します。"
+				/>
 				<meta property="fb:app_id" content="1117746449660953" />
 				{/* Open Graph | END */}
 			</Head>
