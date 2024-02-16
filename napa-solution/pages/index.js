@@ -65,7 +65,7 @@ const Index = ({ footer, data, ...props }) => {
 				/>
 				<meta property="og:image:alt" content="image thumbnail" />
 				<meta property="og:type" content="website" />
-				<meta property="og:title" content="NAPA Solutions" />
+				<meta property="og:title" content="NAPA Solutionss" />
 				<meta
 					property="og:description"
 					content="新規事業・DX（デジタルトランスフォーメーション）をサポートします。ナパソリューションズ株式会社は貴社と共に新規事業・DXのアイデアを実現します。"
