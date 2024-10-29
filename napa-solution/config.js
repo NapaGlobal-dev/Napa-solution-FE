@@ -4,9 +4,9 @@ const HOST = process.env.NEXT_PUBLIC_API || "localhost";
 const PORT = "3001";
 
 const apiEnv = {
-  // production: `https://api-napa.napa-solutions.com/nps/admin/api`,
-  production: `http://13.250.107.154:3001/admin/api`,
-  dev: `http://${HOST}:${PORT}/admin/api`,
+	// production: `https://api-napa.napa-solutions.com/nps/admin/api`,
+	production: `http://13.215.55.22:3001/admin/api`,
+	dev: `http://${HOST}:${PORT}/admin/api`,
 };
 
 export const API_CMS = apiEnv[ENVIRONMENT];
