@@ -65,6 +65,10 @@ class MyDocument extends Document {
 					<script
 						src="https://kit.fontawesome.com/c6253efcfe.js"
 						crossOrigin="anonymous"></script>
+					{/* Google Analytics */}
+					<script
+						async
+						src="https://www.googletagmanager.com/gtag/js?id=G-K2QHZ0GPL9"></script>
 				</Head>
 				<body>
 					<div id="wrapper">
