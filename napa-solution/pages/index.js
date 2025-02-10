@@ -77,6 +77,10 @@ const Index = ({ footer, data, ...props }) => {
 				<meta property="fb:app_id" content="1117746449660953" />
 				<meta property="og:image:type" content="image/png" />
 				{/* Open Graph | END */}
+				<meta
+					name="google-site-verification"
+					content="F3x4jN_9t7mBYlqbfDoOG-6-JI9echd8iM4AOtHs48A"
+				/>
 			</Head>
 
 			<div className="">

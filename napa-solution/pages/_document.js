@@ -69,6 +69,20 @@ class MyDocument extends Document {
 					<script
 						async
 						src="https://www.googletagmanager.com/gtag/js?id=G-K2QHZ0GPL9"></script>
+					<script
+						dangerouslySetInnerHTML={{
+							__html: `
+							window.dataLayer = window.dataLayer || [];
+							function gtag(){dataLayer.push(arguments);}
+							gtag('js', new Date());
+							gtag('config', 'G-K2QHZ0GPL9');
+						`,
+						}}
+					/>
+					<meta
+						name="google-site-verification"
+						content="F3x4jN_9t7mBYlqbfDoOG-6-JI9echd8iM4AOtHs48A"
+					/>
 				</Head>
 				<body>
 					<div id="wrapper">
