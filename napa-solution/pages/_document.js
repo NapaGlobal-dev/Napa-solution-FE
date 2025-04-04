@@ -68,7 +68,8 @@ class MyDocument extends Document {
 					{/* Google Analytics */}
 					<script
 						async
-						src="https://www.googletagmanager.com/gtag/js?id=G-K2QHZ0GPL9"></script>
+						src="https://www.googletagmanager.com/gtag/js?id=G-K2QHZ0GPL9"
+					/>
 					<script
 						dangerouslySetInnerHTML={{
 							__html: `
